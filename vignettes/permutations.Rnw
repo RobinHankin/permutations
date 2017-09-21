@@ -1,0 +1,434 @@
+\documentclass[nojss]{jss}  
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% declarations for jss.cls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% just as usual
+\author{Robin K. S. Hankin}
+\title{Discrete mathematics with \proglang{R}:
+introducing the \pkg{permutations} package}
+
+
+%\VignetteIndexEntry{A vignette for the magic package}
+%% for pretty printing and a nice hypersummary also set:
+%% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
+
+\Plaintitle{Discrete mathematics with R:
+introducing the permutations package}
+\Shorttitle{The \pkg{permutations} package}
+
+
+
+%% an abstract and keywords
+\Abstract{
+  Here I introduce the \pkg{permutations} package, for
+  manipulating and permutations of a finite set.  I show how the
+  package has been used to investigate the \emph{megaminx} puzzle, and
+  exhibit an 82-turn superflip.
+}
+
+\Keywords{Permutations, megaminx, superflip}
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
+
+\Address{
+Robin K. S. Hankin\\
+AUT University\\
+Auckland\\
+New Zealand\\
+E-mail: \email{hankin.robin@gmail.com}
+
+}
+
+%% need no \usepackage{Sweave.sty}
+
+\begin{document}
+
+\section{Overview}
+
+Permutations of a finite set are important and interesting
+mathematical objects, having applications in
+combinatorics~\citep{stanley2011}, group theory~\citep{milne2013}, and
+various branches of recreational mathematics~\citep{averbach2000}.
+
+Open-source computer software for working with permutations includes
+the~\citet{GAP4} suite of software, for which~\citet{sagemath} is a
+popular front end~\citep{joyner2008}.  However, these systems are
+designed for the pure mathematician with a focus on formal algebraic
+properties of specified groups, such as homology and the
+identification of Sylow subgroups.  The \pkg{permutations} package is
+offered as an R-centric suite of software to carry out computational
+manipulation of finite permutations.
+
+\section{The package in use}
+
+It is a common occurrence that a discrete set of objects is rearranged
+in some way.  Mathematically, this is described by a bijection from
+the set of objects to itself.
+
+For example, consider bijections from the
+set~$\left[n\right]=\left\{1,2,3,\ldots,n\right\}$ to itself.  There
+are~$9!=362880$ such bijections and, as a specific example we will
+consider $f\colon\left[9\right]\longrightarrow\left[9\right]$ defined
+by the following diagram:
+
+\[
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6&7&8&9\\
+9&2&6&3&5&4&1&7&8
+\end{array}
+\right)
+\]
+
+Thus~$f(1)=9$, $f(2)=2$, and so on.  The \pkg{permutations} package
+would represent~$f(\cdot)$ by specifying the images of~$1,2,\ldots,9$
+in sequence:
+
+<<loadlibandperm>>=
+library(permutations)
+f <- as.word(c(9,2,6,3,5,4,1,7,8))
+options(print_word_as_cycle = FALSE)
+f
+@ 
+
+The images of each set are shown below the set element which is itself
+indicated by curly brackets.  Elements which map to themselves, viz 2
+and 5, are shown by the print method\footnote{By default the package
+print method coerces words to cycle form but here option
+\code{print\_word\_as\_cycle} is changed to show the permutation in
+word form.} as a dot; this makes complicated permutations easier to
+view as one is frequently not interested in fixed elements.
+
+In this example, $f$ is known as a \emph{word}: the R object specifies
+the images of the base set in order.  Function~$f\left(\cdot\right)$
+is invertible, being a bijection.  Its inverse may be found by
+inspection:
+
+\[
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6&7&8&9\\
+7&2&4&6&5&3&8&9&1
+\end{array}
+\right)
+\]
+
+The R idiom would be 
+
+<<findfinverse>>=
+inverse(f)
+@ 
+
+(see how the fixed elements remain fixed). Permutation inverses are
+carried out using the compact and efficient \proglang{R} idiom
+
+<<inverseidiom,eval=FALSE>>=
+f[f] <- seq_along(f)
+@
+  
+Such idiom is made possible by the fact that, in R, array indexing
+starts at one, not zero.  If we wish to determine, say,
+$f\left(f\left(f\left(\cdot\right)\right)\right)=f^3\left(\cdot\right)$,
+then manipulating~$f$ in word form is computationally inefficient, and
+it is more convenient to represent~$f$ in {\em cycle form}:
+
+\[
+\left(1987\right)\left(346\right)
+\]
+
+which is a compact representation of the fact that~$1
+\overset{f}{\longrightarrow}9 \overset{f}{\longrightarrow}8
+\overset{f}{\longrightarrow}7 \overset{f}{\longrightarrow}1$ and~$3
+\overset{f}{\longrightarrow}4 \overset{f}{\longrightarrow}6
+\overset{f}{\longrightarrow}3$, the remaining elements mapping to
+themselves.  Then it is clear that~$f^3$ is the
+cycle~$\left(1789\right)$.  The \proglang{R} idiom for this would be:
+
+<<ascycleform>>=
+as.cycle(f)
+f^3
+@ 
+
+In the package, a cycle is represented internally as a list of
+integers (the term used in the documentation is ``cyclist''), while
+words are integer matrices; a discussion is given in
+\code{cyclist.Rd}.  The structure of a typical permutation in cycle
+form may be seen using the \code{dput()} function:
+
+<<dputcycle>>=
+dput(f)
+dput(as.cycle(f))
+@ 
+
+Cycle form for permutation has a number of advantages, not least of
+which is efficient and readable representation of permutations with
+only a small number of non-fixed elements.
+
+However, converting between word and cycle form is expensive in the
+package, and this motivates much of the package design philosophy:
+objects are coerced from one form to the other only when necessary.
+Some operations, such as permutation products, are easily carried out
+in word form; some, such as integer powers of permutations, are more
+natural in cycle form.  Note that inversion is reasonably direct, the
+idiom for inverting a cyclist \code{cyc} being
+
+<<invertcyclist,eval=FALSE>>=
+lapply(cyc,function(o){c(o[1],rev(o[-1]))})
+@ 
+
+Permutations in cycle form are difficult to handle in R for two
+reasons.  Firstly, cycles must be well-formed, and this places strict
+specifications on the R objects: individual bracketed cycles can
+contain no repeated elements, and must be pairwise disjoint.  These
+conditions must be verified before an object of class \code{cycle} may
+be created.  Secondly, there are many equivalent ways to represent the
+same permutation and the package includes substantial amount of code
+to coerce cycle-form permutations into a canonical representation; an
+extended discusssion is given in \code{cyclist.Rd}.
+
+
+
+\subsection{Multiplication of permutations}
+
+Given~$f$ and another permutation~$g$, we may combine~$f$ and~$g$ in
+two ways: we may perform~$f$ first and then~$g$, or alternatively~$g$
+first and then~$f$; in general, these two products are different.
+  
+<<fg>>=
+g <- as.word(9:1)
+f*g
+g*f
+@ 
+
+Word products use the natural R idiom
+
+<<productform,eval=FALSE>>=
+f*g == g[f]
+@ 
+
+again depending directly on one-based indexing used by R.  Note the
+confusing order of operations: on the left hand side, $f$ appears
+first and then $g$; on the right hand side the terms appear in the
+opposite order, ultimately due to prefix notation combined with the
+syntatic sugar of the extraction operator~\code{[()}.  An extended
+  discussion of this issue is given in
+  \code{as.function.permutation.Rd} in the package; but the notation
+  used here is partly motivated by the preservation of associativity,
+  in the sense that \code{a*(b*c) == (a*b)*c} for any three
+  permutations \code{a,b,c}.
+
+One measure of the non-commutativity of $f$ and~$g$ is the
+\emph{commutator}, here defined as $f^{-1}g^{-1}fg$:
+    
+<<commutator>>=
+commutator(f,g)
+@     
+
+Because working with permutations in cycle form is more natural and
+compact than word form, the package allows control over the print
+method via \code{options()}:
+
+<<showprint>>=
+options(print_word_as_cycle = TRUE)
+commutator(f,g)
+commutator(g,f)
+@ 
+
+
+\subsection{The identity element}
+
+The permutation that leaves all elements fixed is known as the
+\emph{identity}.  Taking the product of a permutation with its own
+inverse gives the identity, as does raising any permutation to the
+power zero:
+
+<<identity_shower>>=
+f * inverse(f)
+@ 
+
+The print method for cycles shows an empty pair of round brackets
+symbolising the fact that this permutation does not move any elements.
+
+The identity element is a special case in the package in several
+respects.  Firstly, the identity permutation is problematic when
+expressed in word form: it has no natural size (the \code{size()} of a
+permutation is the cardinality of its ground set) apart from zero.  In
+cycle form, the identity is stored essentially as \code{list(list())}:
+the group-theoretic cycles are empty.
+
+\subsection{Conjugation and vectorization}
+
+The package is vectorized, and this allows the use of a range of
+natural R idiom.  Suppose we wish to consider the symmetry group of a
+tetrahedron known to be the even permutations of a set of four
+elements:
+    
+<<>>=
+S4 <- allperms(4)
+A4 <- S4[is.even(S4)]
+A4
+@     
+
+Note that it is the print method that coerces permutations to cycle
+form: the package does not do so unless required, being a slow and
+memory-intensive process.  Thus \code{S4} is all permutations of
+size~4, and~\code{A4} just the even permutations, known as the
+alternating group.  
+
+As a final illustration, we may calculate the conjugate\footnote{The
+  conjugate of~$x$ and~$y$, written~$x^y$, is defined as~$y^{-1}xy$;
+  the notation is motivated by the fact
+  that~$x^zy^z=\left(xy\right)^z$ and~$x^{yx} = \left(x^y\right)^z$}
+  of the even permutations shown above with a cycle on five elements:
+    
+<<>>=
+A4^cyc_len(5)
+@     
+
+See how the shape of the permutations is unaltered by the conjugation;
+documentaition is a at \code{shape.Rd} and \code{conjugate.Rd}.
+
+\section{The Megaminx}
+
+The \emph{megaminx} is a dodecahedral puzzle with similar construction
+to the Rubik cube~\citep{joyner2008}; see Figure~\ref{megaminx}.  The
+puzzle has~$50$ movable pieces (compare~$20$ for the Rubik cube)
+and~$12\times 11=132$ coloured stickers (``facets'').  When
+considering the megaminx, it is natural to consider permutations of
+the facets rather than the pieces, because the pieces may assume
+multiple orientations.
+
+        
+\begin{figure}[h]
+  \centering
+  \subfloat[Megaminx in {\sc start} position]{\includegraphics[width=0.4\textwidth]{start.jpg}\label{megaminx:start}}
+  \hfill
+  \subfloat[The superflip]{\includegraphics[width=0.4\textwidth]{superflip.jpg}\label{megaminx:superflip}}
+  \caption{The megaminx\label{megaminx}}
+\end{figure}
+
+The permutations package may be used to manipulate the megaminx by
+assigning each facet a number from 1-129 (see
+Figure~\ref{megaminx_net}) and using the \code{megaminx} object
+supplied with the package:
+
+{\small
+<<megaminx>>=
+data(megaminx)
+megaminx
+@ 
+}
+
+Object \code{megaminx} is a 12-element (named) vector of permutations,
+with elements corresponding to one ``click'', that is, a~$72^\circ$
+clockwise rotation of each face.  In practice, it is easier to use
+abbreviated names for the face turns (``W'' for white, ``Pu'' for
+purple, and so on).
+
+The package may be used to investigate the effect of consecutive turns
+on the coloured faces.  For example,
+
+<<>>=
+a <- Pu / W * DY^-2 / Pu / DY
+@ 
+
+creates permutation \code{a} which is the result of turning the purple
+face one click, then the white face one click counterclockwise, then
+the dark yellow face two clicks anticlockwise, and so on.  The effect
+of permutation \code{a} is shown in cycle form by the print method:
+
+<<>>=
+a
+@ 
+
+Thus facet 10 moves to position 80, facet 80 moves to position 48, and
+so on.   The order of permutation~$x$ is defined as the lowest nonzero
+integer~$n$ for which~$x^n$ is the identity:
+
+<<>>=
+permorder(a)
+@ 
+
+showing that \code{a\string^12} returns the megaminx to {\sc start}.
+This suggests that repeating \code{a} by a divisor of 12 would produce
+a pleasing pattern and indeed executing this sequence~6 times gives
+
+<<>>=
+a^6
+@ 
+
+showing that this has a particularly parsimonious effect.
+
+\subsection{The Superflip}
+
+One particularly pleasing pattern on the megaminx is the
+``superflip'', shown in Figure~\ref{megaminx:superflip}.  In this
+pattern, each edge piece is in its correct position but flipped over;
+there is an equivalent on the Rubik cube which is of considerable
+theoretical interest.
+
+One challenging task is to accomplish the superflip in the minimum
+number of turns.  \citet{clark2012} argues that a lower bound for the
+turning number is~24 and offers an 83-turn sequence:
+
+<<>>=
+X <- W / Pu * W * Pu^2 / DY^2
+Y <- LG^(-1) / DB * LB * DG      
+Z <- Gy^(-2) * LB / LG /Pi / LY
+superflip83 <- (X^6)^Y + Z^9  # superflip (Jeremy Clark)
+@  
+
+(note the use of binary ``+'' showing that sequences
+\code{(X\string^6)\string^Y} and \code{Z\string^9} commute).  It is
+intuitively clear that the superflip commutes past any sequence of
+operations, and is thus in the \emph{center} of the megaminx group.
+Computational group theoretic software such as~\cite{GAP4} can be used
+to show that the megaminx center comprises only the superflip and the
+identity.
+
+That the superflip is in the center may be verified directly in R
+using the \pkg{permutations} package:
+
+<<superflip_is_center>>=
+jj <- permprod(sample(megaminx,30,replace=TRUE))
+stopifnot(jj*superflip83 == superflip83*jj)
+@ 
+
+The permutations package may be used to search systematically for a
+superflip with fewer moves than
+\citeauthor{clark2012}'s 83~%'.............................................................
+turns, and a slight improvement is possible.  The following sequence,
+which required an extensive computer search, exhibits an 82-turn
+superflip:%'
+
+<<superflip82>>=
+superflip82 <-
+    LB^-1 * Gy^-1 * LB^-1 * O^3 * Gy * LY^2 * Gy^2 * 
+        LY^3 * Gy^3 * LY^3/LB * Gy^2 * 
+            ((Pu^-1 * W^2 * DY * DB * R)^9)^(O^3 * LB^3/LG) * 
+                Gy^2/LB * O^3 * Gy * LY^2 * Gy^2 * LY^3 * Gy^3 * 
+                    LY^3 / LB / Gy / LB * 
+                    O^3 * Gy * LY^2 * Gy^2 * LY^3 * Gy^3 * LY^3
+
+stopifnot(superflip82 == superflip83)
+@ 
+
+
+\begin{figure}[h]
+  \centering \includegraphics{megaminx_net.pdf}
+  \caption{Megaminx net.\label{megaminx_net} showing the facet
+    numbering scheme.  In each pentagonal face, the facet number is
+    given by ten times the central large number, and the unit is given
+    by the small figure.  Thus the top left facet is number~41 and the
+    bottom right facet is~105}
+
+\end{figure}
+        
+\bibliography{permutations}
+\end{document}

@@ -1,0 +1,44 @@
+exportPattern("^[[:alpha:]]+")
+importFrom(magic,shift)
+importFrom(numbers,mLCM)
+importFrom(partitions,as.partition)
+importFrom(partitions,print)
+importFrom(partitions,perms)
+
+S3method("[", word)
+S3method("[", cycle)
+S3method("[<-", word)
+S3method("names", word)
+S3method("names<-", word)
+S3method("c", word)
+S3method("c", cycle)
+S3method("is.id", word)
+S3method("is.id", cycle)
+S3method("is.id", list)
+S3method("print", word)
+S3method("print", cycle)
+
+S3method("size", word)
+S3method("size", cycle)
+S3method("size<-",cycle)
+S3method("size<-",word)
+
+S3method("length",word)
+S3method("length<-",permutation)
+
+S3method("Ops",permutation)
+S3method("as.character",cycle)
+S3method("as.function",permutation)
+S3method("as.matrix",word)
+S3method("rep",permutation)
+
+S3method("fixed",word)
+S3method("fixed",cycle)
+
+S3method("inverse",word)
+S3method("inverse",cycle)
+
+
+
+
+

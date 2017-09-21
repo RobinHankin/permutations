@@ -1,0 +1,91 @@
+\name{megaminx}
+\alias{megaminx}
+\alias{megaminx_colours}
+\alias{W}
+\alias{Pu}
+\alias{DY}
+\alias{DB}
+\alias{R}
+\alias{DG}
+\alias{LG}
+\alias{O}
+\alias{LB}
+\alias{LY}
+\alias{Pi}
+\alias{Gy}
+\docType{data}
+\title{
+megaminx
+}
+\description{
+A set of generators for the megaminx group
+}
+\details{
+Each element of \code{megaminx} corresponds to a clockwise turn of 72
+degrees.  See the vignette for more details.
+
+ \tabular{rlll}{
+    \code{megaminx[, 1]} \tab W   \tab White        \cr
+    \code{megaminx[, 2]} \tab Pu  \tab Purple       \cr
+    \code{megaminx[, 3]} \tab DY  \tab Dark Yellow  \cr
+    \code{megaminx[, 4]} \tab DB  \tab Dark Blue    \cr
+    \code{megaminx[, 5]} \tab R   \tab Red          \cr
+    \code{megaminx[, 6]} \tab DG  \tab Dark Green   \cr
+    \code{megaminx[, 7]} \tab LG  \tab Light Green  \cr
+    \code{megaminx[, 8]} \tab O   \tab Orange       \cr
+    \code{megaminx[, 9]} \tab LB  \tab Light Blue   \cr
+    \code{megaminx[,10]} \tab LY  \tab Light Yellow \cr
+    \code{megaminx[,11]} \tab Pi  \tab Pink         \cr
+    \code{megaminx[,12]} \tab Gy  \tab Gray 
+  }
+
+  Vector \code{megaminx_colours} shows what colour each facet has at \acronym{start}.
+
+
+}
+\examples{
+
+data(megaminx)
+megaminx
+megaminx^5  # should be the identity
+inverse(megaminx)  # turn each face anticlockwise
+
+
+megaminx_colours[permprod(megaminx)]  # risky but elegant...
+
+W    # turn the White face one click clockwise (colour names as per the
+     # table above)
+
+
+megaminx_colours[as.word(W,129)]      # it is safer to ensure a size-129 word;
+megaminx_colours[as.word(W)]          # but the shorter version will work
+
+
+# Now some superflip stuff:
+
+X <- W * Pu^(-1) * W * Pu^2 * DY^(-2) 
+Y <- LG^(-1) * DB^(-1) * LB * DG      
+Z <- Gy^(-2) * LB * LG^(-1) * Pi^(-1) * LY^(-1)
+
+
+sjc3 <- (X^6)^Y * Z^9  # superflip (Jeremy Clark)
+
+
+p1 <- (DG^2 * W^4 * DB^3 * W^3 * DB^2 * W^2 * DB^2 * R * W * R)^3
+m1 <- p1^(Pi^3)
+
+p2 <- (O^2 * LG^4 * DB^3 * LG^3 * DB^2 * LG^2 * DB^2 * DY * LG * DY)^3
+m2 <- p2^(DB^2)
+
+p3 <- (LB^2 * LY^4 * Gy * Pi^3 * LY * Gy^4)^3
+m3 <- p3^LB
+
+# m1,m2 are 32 moves, p3 is 20, total = 84
+
+stopifnot(m1+m2+m3==sjc3)
+
+
+
+
+}
+\keyword{datasets}

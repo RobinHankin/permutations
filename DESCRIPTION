@@ -1,0 +1,10 @@
+Package: permutations
+Type: Package
+Title: Permutations of a Finite Set
+Version: 1.0-2
+Date: 2016-01-20
+Imports: magic,numbers,partitions (>= 1.9-17)
+Author: Robin K. S. Hankin
+Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
+Description: Manipulates invertible functions from a finite set to itself.  Can transform from word form to cycle form and back.
+License: GPL-2
