@@ -70,7 +70,8 @@ Function \code{cyc_len()} is a convenience wrapper for
 It is a very common error (at least, it is for me) to use \code{cycle()}
 when you meant \code{as.cycle()}.
 
-
+The print method is sensitive to the value of option
+\sQuote{\code{print_word_as_cycle}}, documented at \code{print.Rd}.
 
 }
 \value{
