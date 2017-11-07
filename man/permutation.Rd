@@ -82,7 +82,9 @@ Returns a \code{cycle} object or a \code{word object}
 \code{\link{cyclist}}
 }
 \examples{
-word(matrix(1:8,7,8))
+word(matrix(1:8,7,8))    # default print method displays cycle form
+
+
 cycle(list(list(c(1,8,2),c(3,6)),list(1:2, 4:8)))
 
 char2cycle(c("(1,4)(6,7)","(3,4,2)(8,19)", "(56)","(12345)(78)","(78)"))
