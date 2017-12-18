@@ -1,0 +1,89 @@
+Sourcing file "code.R" creates file "megaminx.py" which are sage
+commands to create the megaminx group.  Recall that the megaminx is a
+rubik's cube but based on a dodecahedron.
+
+File "code2.R" sources "code.R" and includes bodily rotations and
+reflections of the whole megaminx.
+
+Figure megaminx_net.pdf is created from megaminx_net.svg [inkscape].
+See how opposite faces add to 13.  It would have been nice to have
+faces 0-11 and opposites adding to 11 but this did not work for the
+stupid reason that it would mean that one sticker would be sticker
+number zero and this is incompatible with sage's group notation.  A
+pity!
+
+To get the number of a sticker on the megaminx, multiply the number of
+its face [the large-font number in the centre pentagon, 1-12] by 10
+and add the small-font number to give the unit.  So for example the
+rhombus at the extreme lower right of megaminx_net.pdf would be 11*10
++ 5 = 115.
+
+File "data.txt" contains 12 rows, one for each face of the megaminx
+dodecahedron.  The five groups of numbers on each line correspond to
+the five 5-cycles that occur when turning that face.
+
+Refer to megaminx_net.pdf.  Take the first row as an example.  This
+corresponds to face "1".  Imagine turning this through 72 degrees;
+where do the elements (stickers) move?  The stickers *on* face 1 are
+10-19 inclusive but these are not the only stickers that turning face
+1 will move.  Turning face 1 will also move stickers 21,22,22, and
+33,34,35 and 45,46,47 and 57,58,59 and 60,61,69 which are on adjacent
+faces.
+
+OK, so turning face 1 will effect 11 -> 13 -> 15 -> 17 -> 19 -> 11.
+This is represented as (11, 13, 15, 17, 19) which is the first 5-cycle
+on row 1 of data.txt which appears as "011 013 015 017 019".  But we
+also have 21 -> 33 -> 45 -> 57 -> 69 -> 21 which is the 5-cycle
+(21,33,45,57,69) which is the fourth cycle on row 1, which appears as
+"021 033 045 057 069".  There are five 5-cycles like this for each
+face.  Presumably some clever person could generate data.txt from pure
+group theory, but this is beyond me and I had to create it by hand,
+referring to megaminx_net.pdf [it is a lot easier to construct a 3D
+dodecahedron and work from that; and if you do that, put the rotating
+face to the top and rotate the whole model by a fifth of a turn
+anticlockwise (sic) and read off the numbers that appear]
+
+Within a five-cycle, the first number is the lowest numerically.
+
+Within a row of data.txt, the five five-cycles are arranged as
+follows: the first two are the cycles *on* the face itself.  Of these,
+the first one is the smaller numerically so is the edge-cycle (because
+it ends in a zero) and the second one is the corners.  This means that
+you can tell which face a given row refers to by looking at the first
+column which is (ten times) the face number (because this is the first
+element of the first five-cycle).
+
+The remaining three five-cycles are sorted by numerical order of the
+first element (which is the smallest number available).  This means
+that the edge cycle might be third, fourth, or fifth on the row.
+
+File data.txt has an extra space between five-cycles.  This is for
+readability, and has no effect.
+
+In sage, observe that superflip*superflip is the identity (and
+therefore its own inverse).
+
+Further, observe that megaminx.orbits() includes the non-existent
+elements 1,2,3,4,5,6,7,8,9.  I guess these are here because we have a
+"10" and sage fills in with 1-9.  The nontrivial orbits correspond to
+"edge" pieces and "corner" pieces [that is, pieces with two stickers
+and pieces with three stickers].
+
+The file "edges.txt" has 30 rows, one for each edge of the
+dodecahedron.
+
+An edge of a dodecahedron is indexed by the smaller of the two facets
+defining it.  A list of edge facets is given in "edges.txt"; each row
+corresponds to a piece of plastic on the megaminx.  The first number
+is always the smaller of the two so the edge can by indexed by the
+first column of edges.txt.
+
+File 'edges.txt' is read by file 'usefulfunctions.R'.
+
+
+In file code2.R, which includes whole-body movements of the megaminx
+(rotations plus reflections), we need to include the centre facets
+which are numbered 1001:1012.  I guess these are not strictly
+necessary because we could just ignore them (as in the holey
+megaminx).
+ 
