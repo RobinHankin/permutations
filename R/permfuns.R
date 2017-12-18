@@ -498,7 +498,11 @@ shape_cyclist <- function(cyc,id1=TRUE){  # use case: shape_cyclist(list(1:4,8:9
 }
 
 shapepart_cyclist <- function(cyc,n=NULL){
-    nmax <-  max(unlist(cyc,recursive=TRUE))
+    if(length(cyc)>0){
+      nmax <-  max(unlist(cyc,recursive=TRUE))
+    } else {
+      nmax <- n
+    }
     if(is.null(n)){ n <- nmax } 
     if(n<nmax){stop("value of n too small")}
     out <- rep(0,n)
