@@ -76,6 +76,6 @@ options(print_word_as_cycle=TRUE)
 
 as.character_cyclist(list(1:4,10:11,20:33))  # x a cyclist;
 as.character_cyclist(list(c(1,5,4),c(2,2)))  # does not check for consistency
-as.character_cyclist(list(c(1,5,4),c(2,9)),comma=TRUE)
+as.character_cyclist(list(c(1,5,4),c(2,9)),comma=FALSE)
 }
 \keyword{symbolmath}
