@@ -43,6 +43,9 @@ Returns its argument invisibly, after printing it.
   of class word are printed as a matrix with rows being the permutations
   and fixed points indicated with a dot.
 
+  Function \code{as.character_cyclist()} is an internal function used by
+  \code{print.cycle()}, and is not really designed for the end-user.  It
+  takes a cyclist and returns a character string.
 }
 
 \author{
@@ -55,5 +58,9 @@ Robin K. S. Hankin
 x <- rperm(4,9)
 as.word(x)
 as.cycle(x)
+
+as.character_cyclist(list(1:4,10:11,20:33))  # x a cyclist;
+as.character_cyclist(list(c(1,5,4),c(2,2)))  # does not check for consistency
+as.character_cyclist(list(c(1,5,4),c(2,9)),comma=TRUE)
 }
 \keyword{symbolmath}
