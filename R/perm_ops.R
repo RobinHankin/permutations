@@ -7,7 +7,7 @@
         } else if (.Generic == "-") {
             return(inverse(e1))
     } else {
-        stop("Unary operator '", .Generic, "' is not implemented for onions")
+        stop("Unary operator '", .Generic, "' is not implemented for permutations")
     }
   }
 
