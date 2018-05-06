@@ -28,7 +28,7 @@
         } else if (.Generic == "+") {
             return(cycle_sum(e1,e2))
         } else {
-            stop(paste("<perm>", .Generic, "<non-perm> not defined",collapse=" "))
+            stop(paste("<perm>", .Generic, "<perm> not defined",collapse=" "))
         }
     } else if (lclass && !rclass){
           if(.Generic == "^"){
