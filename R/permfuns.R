@@ -710,3 +710,26 @@ permprod <- function(x){
 }
    
 "allperms" <- function(n){ word(t(perms(n))) }
+
+`cayley` <- function(x){
+  x <- as.cycle(x)
+  if(is.null(names(x))){names(x) <- print(x)}
+
+  f <- Vectorize(function(i,j){
+    jj <- x==x[i]*x[j]
+    if(sum(jj)==1){
+      return(names(x)[jj])
+    } else {
+      return(NA)
+    }
+  }
+  )
+  
+#  out <- noquote(outer(seq_along(x),seq_along(x),Vectorize(function(i,j){names(x)[which(x==x[i]*x[j])]})))
+  out <- noquote(outer(seq_along(x),seq_along(x),f))
+  rownames(out) <- names(x)
+  colnames(out) <- names(x)
+  return(out)
+  
+}
+  
