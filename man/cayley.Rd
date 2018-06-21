@@ -21,7 +21,7 @@ have a vector of permutations that comprise a group, then we can nicely
 represent its structure using a table.
 
 If the set \code{x} is not closed under multiplication and inversion
-(that is, \code{x} is not a group) then the function may misbehave.  No
+(that is, if \code{x} is not a group) then the function may misbehave.  No
 argument checking is performed, and in particular there is no check that
 the elements of \code{x} are unique, or even that they include an
 identity.
@@ -29,6 +29,9 @@ identity.
 }  
 \author{Robin K. S. Hankin}
 \examples{
+
+## cyclic group of order 4:
+cayley(as.cycle(1:4)^(0:3))
 
 ## Klein group:
 K4 <- as.cycle(c("()","(12)(34)","(13)(24)","(14)(23)"))
