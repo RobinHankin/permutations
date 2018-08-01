@@ -602,8 +602,12 @@ rep.permutation <- function(x, ...){
 }
 
 sgn <- function(x){
-    x <- as.cycle(x)
-    unlist(lapply(shape(as.cycle(x)),function(o){ifelse(is.null(o),1,1-2*sum(o-1)%%2)}))
+  .f <- function(o){ifelse(is.null(o), 1, 1 - 2 * sum(o - 1)%%2)}
+  if(length(x)==1){
+    return(.f(shape(x)))
+  } else {
+    return(unlist(lapply(shape(as.cycle(x)), .f)))
+  }
 }
 
 is.even <- function(x){sgn(x)==1}
