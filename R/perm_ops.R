@@ -1,4 +1,4 @@
-"Ops.permutation" <-
+`Ops.permutation` <-
   function (e1, e2 = NULL) 
 {
     if(nargs() == 1){  #unary operator
