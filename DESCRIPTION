@@ -1,8 +1,8 @@
 Package: permutations
 Type: Package
 Title: Permutations of a Finite Set
-Version: 1.0-3
-Date: 2018-08-06
+Version: 1.0-4
+Date: 2018-08-17
 Imports: magic,numbers,partitions (>= 1.9-17)
 Author: Robin K. S. Hankin
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>

@@ -102,7 +102,7 @@ are dealt with by \code{nicify_cyclist()}.
 Robin K. S. Hankin
 }
 \seealso{
-\code{\link{as.cycle}},\code{\link{fbin}}
+\code{\link{as.cycle}},\code{\link{fbin}},\code{\link{valid}}
 }
 \examples{
 vec2cyclist_single(c(7,9,3,5,8,6,1,4,2))

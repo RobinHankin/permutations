@@ -15,7 +15,7 @@
     stopifnot(is.matrix(M))
     storage.mode(M) <- "integer"
     if(nrow(M)>0){
-        jj <- apply(M,1, singleword_valid)
+      stopifnot(all(apply(M,1, singleword_valid)))
     }
         class(M) <- c("permutation", "word")  # this is the *only*
                                               # time an object is

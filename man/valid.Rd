@@ -6,7 +6,9 @@
 Functions to validate permutations
 }
 \description{
-Functions to validate permutation objects.
+
+Functions to validate permutation objects: if valid, return \code{TRUE}
+and if not valid, generate a \code{warning()} and return \code{FALSE}.
 
 Function \code{singleword.valid()} takes an integer vector, interpreted
 as a word, and checks that it is a permutation of
@@ -27,23 +29,18 @@ cyclist_valid(x)
 Returns either \code{TRUE}, or stops with an informative error message
 }
 \author{Robin K. S. Hankin}
-\seealso{
-\code{\link{cyclist}}
-}
+\seealso{\code{\link{cyclist}}}
 \examples{
 
-singleword_valid(sample(1:9))
+singleword_valid(sample(1:9))      # TRUE
+singleword_valid(c(3L,4L,2L,1L))   # TRUE
+singleword_valid(c(3,4,2,1))       # FALSE (not integer)
+singleword_valid(c(3L,3L,2L,1L))   # FALSE (3 repeated)
 
-\dontrun{
-singleword_valid(c(5,6,3,9,7,8,2,1))   # returns an error (no '4')
-singleword_valid(c(5,6,3,4,9,7,8,2,1)) # returns an error (not integer)
-}
+cyclist_valid(list(c(1,8,2),c(3,6))) # TRUE
+cyclist_valid(list(c(1,8,2),c(3,6))) # FALSE ('8' is repeated)
+cyclist_valid(list(c(1,8,1),c(3,6))) # FALSE ('1' is repeated)
+cyclist_valid(list(c(0,8,2),c(3,6))) # FALSE (zero element)
 
-cyclist_valid(list(c(1,8,2),c(3,6))) # should be TRUE
-singleword_valid(c(5L,6L,3L,4L,9L,7L,8L,2L,1L)) # should be TRUE
-
-\dontrun{
-cyclist_valid(list(c(1,8,2),c(8,6))) # returns an error ('8' is repeated)
-}
 }
 \keyword{symbmath}
