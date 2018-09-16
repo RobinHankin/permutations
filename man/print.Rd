@@ -18,8 +18,8 @@ as.character_cyclist(y,comma=TRUE)
 }
 
 \arguments{
-  \item{x}{Object of class \code{permutation} with \code{word}s
-    dispatched to \code{print.word()} and \code{cycle}s dispatched to
+  \item{x}{Object of class \code{permutation} with \code{word} objects
+    dispatched to \code{print.word()} and \code{cycle} objects dispatched to
     \code{print.cycle()}}
   \item{h}{Boolean, with default \code{TRUE} meaning to coerce words
     to cycle form before printing.  See details}
