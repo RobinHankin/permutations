@@ -1,4 +1,5 @@
 \name{conjugate}
+\alias{conjugate}
 \alias{are_conjugate}
 \alias{are_conjugate}
 \alias{are_conjugate_single}
