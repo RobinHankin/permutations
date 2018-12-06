@@ -1,4 +1,5 @@
 \name{valid}
+\alias{valid}
 \alias{validity}
 \alias{singleword_valid}
 \alias{cyclist_valid}
