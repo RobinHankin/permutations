@@ -42,7 +42,6 @@ AUT University\\
 Auckland\\
 New Zealand\\
 E-mail: \email{hankin.robin@gmail.com}
-
 }
 
 %% need no \usepackage{Sweave.sty}
