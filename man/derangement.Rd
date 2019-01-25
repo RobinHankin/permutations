@@ -1,9 +1,7 @@
 \name{derangement}
 \alias{derangement}
 \alias{is.derangement}
-\title{
-Tests for a permutation being a derangement.
-}
+\title{Tests for a permutation being a derangement}
 \description{
   A \dfn{derangement} is a permutation which leaves no element fixed.
 }
