@@ -15,7 +15,7 @@
 introducing the \pkg{permutations} package}
 
 
-%\VignetteIndexEntry{A vignette for the magic package}
+%\VignetteIndexEntry{A vignette for the permutations package}
 %% for pretty printing and a nice hypersummary also set:
 %% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
 
