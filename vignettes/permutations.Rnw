@@ -15,7 +15,7 @@
 introducing the \pkg{permutations} package}
 
 
-%\VignetteIndexEntry{A vignette for the magic package}
+%\VignetteIndexEntry{A vignette for the permutations package}
 %% for pretty printing and a nice hypersummary also set:
 %% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
 
@@ -28,7 +28,7 @@ introducing the permutations package}
 %% an abstract and keywords
 \Abstract{
   Here I introduce the \pkg{permutations} package, for
-  manipulating and permutations of a finite set.  I show how the
+  manipulating and displaying permutations of a finite set.  I show how the
   package has been used to investigate the \emph{megaminx} puzzle, and
   exhibit an 82-turn superflip.
 }
