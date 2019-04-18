@@ -34,7 +34,18 @@ introducing the permutations package}
 }
 
 \Keywords{Permutations, megaminx, superflip}
-% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
+
+%% publication information
+%% NOTE: This needs to filled out ONLY IF THE PAPER WAS ACCEPTED.
+%% If it was not (yet) accepted, leave them commented.
+%% \Volume{13}
+%% \Issue{9}
+%% \Month{September}
+%% \Year{2004}
+%% \Submitdate{2004-09-29}
+%% \Acceptdate{2004-09-29}
+%% \Repository{https://github.com/RobinHankin/permutations} %% this line for Tragula
+
 
 \Address{
 Robin K. S. Hankin\\
@@ -45,6 +56,9 @@ E-mail: \email{hankin.robin@gmail.com}
 }
 
 %% need no \usepackage{Sweave.sty}
+
+
+
 
 \begin{document}
 
