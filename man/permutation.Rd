@@ -72,7 +72,11 @@ when you meant \code{as.cycle()}.
 
 The print method is sensitive to the value of option
 \sQuote{\code{print_word_as_cycle}}, documented at \code{print.Rd}.
-
+                           
+Function \code{as.matrix.word()} coerces a vector of permutations in word form to
+a matrix, each row of which is a word.  To get a permutation matrix (that is, a
+square matrix of ones and zeros with exactly one entry of 1 in each row and each column),
+use \code{perm_matrix()}.                                            
 }
 \value{
 Returns a \code{cycle} object or a \code{word object}
