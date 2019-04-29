@@ -165,3 +165,27 @@ shapepart(allperms(5))
 
 ## bug in sgn(), issue #4:
 stopifnot(sgn(as.cycle("(12)(34)")) == 1)
+
+
+## test for permutation matrix making sense:
+
+a <- rperm(1,14)
+b <- rperm(1,14)
+pa <- perm_matrix(a)
+pb <- perm_matrix(b)
+
+stopifnot(is.perm_matrix(pa))
+stopifnot(is.perm_matrix(pb))
+stopifnot(is.perm_matrix(pa %*% pb))
+stopifnot(is.perm_matrix(pb %*% pa))
+
+stopifnot(is.perm_matrix(solve(pa)))
+stopifnot(is.perm_matrix(solve(pb)))
+
+stopifnot(all(pa==t(solve(pa))))
+stopifnot(all(pb==t(solve(pb))))
+
+stopifnot(all(solve(pa) == perm_matrix(inverse(a))))
+stopifnot(all(solve(pb) == perm_matrix(inverse(b))))
+stopifnot(all(crossprod(pa,pb) == perm_matrix(inverse(a)*b)))
+
