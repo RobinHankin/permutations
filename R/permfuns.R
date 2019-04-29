@@ -737,3 +737,25 @@ permprod <- function(x){
   
 }
   
+`perm_matrix` <- function(p){
+    s <- size(p)
+    p <- as.word(p)
+    stopifnot(length(p)==1)
+    M <- matrix(0L,s,s)
+    M[cbind(seq_len(s),unclass(p)[1,])] <- 1L
+    return(M)
+}
+
+`is.perm_matrix` <- function(M){
+  if(
+      is.matrix(M)         &&
+      nrow(M) == ncol(M)   &&
+      all(M %in% c(0L,1L)) &&
+      all(rowSums(M)==1)   &&
+      all(colSums(M)==1)){
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+

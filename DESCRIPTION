@@ -7,3 +7,8 @@ Authors@R: person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cr
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Description: Manipulates invertible functions from a finite set to itself.  Can transform from word form to cycle form and back.
 License: GPL-2
+Suggests: knitr
+VignetteBuilder: knitr
+URL: https://github.com/RobinHankin/permutations.git
+BugReports: https://github.com/RobinHankin/permutations/issues
+
