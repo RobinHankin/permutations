@@ -49,21 +49,22 @@ people, we might want to keep track of where the people are.  We would
 say: "at the start, person $i$ sits in place $i$, $i\in[6]$.  Then,
 after the move, person 1 is in place 4, person 2 in place 5, person 3
 in place 3, and so on".  This information is encapsulated by
-```as.word(a)```.  In R idiom we would have
+```as.word(a)```.  In R matrix form we would have
 
 ```{r}
-xa <- rbind(1:6,as.word(a))
-rownames(xa) <- c("person","place")
-xa
+a1 <- rbind(1:6,as.word(a))
+rownames(a1) <- c("person","place")
+a1
 ```
 
-On the other hand, we might be more interested in the *places*.  We
-might want to know who is sitting in place 4.  We would say: "at the
-start, person $i$ sits in place $i$, $i\in[6]$.  Then place 1 is
-occupied by person 4, place 2 occupied by person 5, and so on".  This
-information is technically represented by permutation ```a``` but in
-an obscure form.  To answer the question "who is sitting in place
-$i$?" we need to *invert* permutation ```a```:
+(in the above R chunk, note how the top row---the *person*---is
+```1:6```).  On the other hand, we might be more interested in the
+*places*.  We might want to know who is sitting in place 4.  We would
+say: "at the start, person $i$ sits in place $i$, $i\in[6]$.  Then
+place 1 is occupied by person 4, place 2 occupied by person 5, and so
+on".  This information is technically represented by permutation
+```a``` but in an obscure form.  To answer the question "who is
+sitting in place $i$?" we need to *invert* permutation ```a```:
 
 
 ```{r}
@@ -73,21 +74,43 @@ inverse(a)
 (even now I find the R idiom for inversion to be unreasonably elegant:
 ```a[a] <- seq_along(a)```).  The matrix form would be
 
-If the people subsequently move again, the mathematics and the R idiom
-depend on whether we are interested in people, or places.  We need to
-specify use of *active* or *passive* transformations, much as in the
-Lorentz package.
+\[
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6\\
+4&6&3&5&1&2
+\end{array}
+\right)
+\]
 
-## Active notation
 
-In active language, permutation $p$ moves a person from place $i$ to
-place $a(i)$.  In this case, we are keeping track of the *person* so a
-subsequent move might read "person 1 moves to the place occupied by
-person 5, who moves the the place occupied by person 6, who moves to
-the place occupied by person 1 (thereby closing the loop)".  We could
-represent this symbolically $(156)$, and call this $b$.
+and the R object would use the inverse of ```a```:
 
-What is the result of executing $a$, followed by $b$?
+```{r}
+a2 <- rbind(1:6,as.word(inverse(a)))
+rownames(a2) <- c("place","person")
+a2
+```
+
+(in the above R chunk, note how the top row---the *place*---is
+```1:6```).  If the people subsequently move again, the mathematics
+and the R idiom depend on whether we are interested in people, or
+places.  We need to specify use of *active* or *passive*
+transformations, much as in the Lorentz package.
+
+## Composition of permutations
+
+
+Suppose we have permutation ```a``` as above, and another permutation
+```b```:
+
+```{r}
+b <- as.word(c(5, 2, 3, 4, 6, 1))
+b
+```
+
+(note the three dots representing three fixed points of ```b```).
+What is the result of executing $a$, followed by $b$?  Symbolically:
 
 
 \[
@@ -95,7 +118,7 @@ What is the result of executing $a$, followed by $b$?
 \left(
 \begin{array}{ccccccccc}
 1&2&3&4&5&6\\
-2&1&3&5&6&4
+4&6&3&5&1&2
 \end{array}
 \right)
 }^{a}
@@ -112,14 +135,59 @@ What is the result of executing $a$, followed by $b$?
 \left(
 \begin{array}{ccccccccc}
 1&2&3&4&5&6\\
-2&5&3&6&1&4\\
+4&1&3&6&5&2\\
 \end{array}
 \right)
 }^{a\circ b}
 \]
 
-Thus, for example, $5\longrightarrow 6\longrightarrow 1$.  Note
-carefully that the operations $a,b$ do not commute:
+Thus, for example, $4\longrightarrow 5\longrightarrow 6$.  Note
+carefully that the operations $a,b$ do not commute and we will discuss
+this later in the context of active and passive transforms.
+Considering the operation $a\circ b$, this means that we perform
+permutation ```a``` first, and then perform permutation ```b```.
+Taking this one step at a time we would have, for example: "the person
+in place 4 (this is person 4) moves to place 5 $\ldots$ and then the
+person in place 5 (this is person 4) moves to place 6".  See how we
+track the person in place 4 over two permutations, and person 4 ends
+up in place 6.
+
+
+In R we would have
+
+```{r}
+a*b
+```
+
+The ```*``` operator in R idiom is essentially carries out ```b[a]```
+to evaluate ```a*b``` (which is why indexing starts at 1, not 0).
+Indeed we may verify that idiom operates as expected:
+
+```{r}
+as.vector(b)[as.vector(a)]
+```
+
+With functional notation (also known as prefix notation) we can ask
+what happens to the person in place 1:
+
+```{r}
+fa <- as.function(a)
+fb <- as.function(b)
+fb(fa(1))
+as.function(a*b)(1)
+```
+
+Note the confusing order of operations: in functional notation, if we
+want to operate on an element $x$ by function $f$ and then by function
+$g$ we write $g(f(x))$ for the two successive mappings
+$x\longrightarrow f(x)\longrightarrow g(f(x))$.  Postfix notation
+would denote the same process as $xfg$, as shorthand for $(xf)g$.  In
+R idiom, this is implemented by the excellent magrittr package:
+
+```{r}
+1 %>% fa %>% fb
+```
+
 
 \[
 \overbrace{
@@ -135,7 +203,7 @@ carefully that the operations $a,b$ do not commute:
 \left(
 \begin{array}{ccccccccc}
 1&2&3&4&5&6\\
-2&1&3&5&6&4
+4&6&3&5&1&2\\
 \end{array}
 \right)
 }^{a}=
@@ -143,96 +211,12 @@ carefully that the operations $a,b$ do not commute:
 \left(
 \begin{array}{ccccccccc}
 1&2&3&4&5&6\\
-6&1&3&5&4&2\\
+1&6&3&5&2&4\\
 \end{array}
 \right)
 }^{b\circ a}
 \]
 
-
-In R we would have
-
-```{r}
-jja <- c(2, 1, 3, 5, 6, 4)
-jjb <- c(5, 2, 3, 4, 6, 1)	
-a <- as.word(jja)
-b <- as.word(jjb)
-a
-b
-```
-
-(a dot signifies a fixed position).  Then
-
-```{r}
-a*b
-b*a
-```
-
-The ```*``` operator in R idiom is essentially carries out ```b[a]```
-to evaluate ```a*b```:
-
-
-```{r}
-jjb[jja]
-```
-
-and indeed we may verify that idiom operates as expected:
-
-```{r}
-jjb[jja] == unclass(a*b)
-```
-
-
-Note the confusing order of operations: on the left hand side, ```b```
-appears first and then ```a```; on the right hand side the terms
-appear in the opposite order, ultimately due to prefix notation
-combined with the syntatic sugar of the extraction operator.  The
-notation used here is partly motivated by the preservation of
-associativity, in the sense that ```a*(b*c) == (a*b)*c``` for any
-three permutations ```a,b,c```.
-
-Sticking with the active perspective, we can ask "what happens to
-person 1 if we operate with permutation ```a``` and then operation
-```b```?
-
-First we try with functional (also known as perfix) notation:
-```{r}
-fa <- as.function(a)
-fb <- as.function(b)
-fb(fa(1))
-```
-
-We could also use the package idiom here:
-
-```{r}
-fab <- as.function(a*b)
-fab(1)
-```
-
-
-Here the magrittr pipe works well:
-
-```{r}
-1 %>% fa %>% fb
-```
-
-We might consider permutations of a vector, here letters A-F:
-
-```{r}
-LETTERS[1:6]
-LETTERS[as.function(a*b)(1:6)]
-```
-
-It is worth pondering what this means.  If the people themselves had
-letters A through F pinned to their fronts, and sat in alphabetical
-order, then executed ```a``` and then ```b```, and then I took a photo
-of them, the photo would be ```B E C F A D```.  Because active
-notation tracks the *person*, not the *place*, we say "person 1 [that
-is, ```A```] ends up in place 5 (via ; person 2 [B] Thus person A ends
-up in place 5, Thus place 1 has person B, place 2 has person E, and so
-on.
-
-However, it is natural to ask "who is in place 1?".  This is person ```B```.
 
 
 
