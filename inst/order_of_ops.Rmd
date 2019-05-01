@@ -188,6 +188,17 @@ R idiom, this is implemented by the excellent magrittr package:
 1 %>% fa %>% fb
 ```
 
+Now we consider the same operations ```a``` and ```b``` but from the
+perspective of places, rather than people.
+
+
+```{r}
+a
+a1
+a2
+```
+
+
 
 \[
 \overbrace{
