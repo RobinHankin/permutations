@@ -52,9 +52,9 @@ in place 3, and so on".  This information is encapsulated by
 ```as.word(a)```.  In R matrix form we would have
 
 ```{r}
-a1 <- rbind(1:6,as.word(a))
-rownames(a1) <- c("person","place")
-a1
+a_active <- rbind(1:6,as.word(a))
+rownames(a_active) <- c("person","place")
+a_active
 ```
 
 (in the above R chunk, note how the top row---the *person*---is
@@ -99,9 +99,9 @@ inverse(a)
 would use ```inverse()```:
 
 ```{r}
-a2 <- rbind(1:6,as.word(inverse(a)))
-rownames(a2) <- c("place","person")
-a2
+a_passive <- rbind(1:6,as.word(inverse(a)))
+rownames(a_passive) <- c("place","person")
+a_passive
 ```
 
 (in the above R chunk, note how the top row---the *place*---is
@@ -175,8 +175,11 @@ person in place 5 (this is person 4) moves to place 6".  See how we
 track the person in place 4 over two permutations, and person 4 ends
 up in place 6.
 
-
-In R we would have
+If we execute ```a``` and then ```b``` using active language
+[explicitly: express ```a``` and ```b``` as active permutations, and
+express the result of performing ```a``` then ```b``` in active
+language], we can use standard permutation composition, in R idiom the
+```*``` operator:
 
 ```{r}
 a*b
@@ -215,13 +218,17 @@ R idiom, this is implemented by the excellent magrittr package:
 # Composition of passive permutations
 
 Now we consider the same operations ```a``` and ```b``` as discussed
-above, but from the perspective of places, rather than people.  First
-we look at ```a```
+above, and perform ```a``` and then ```b```.  But this time we express
+the permutations, and their composition, in passive form, and this
+requires some modification.  First we will express ```a``` and ```b```
+in passive matrix form which we will call ```a_passive``` and
+```b_passive```:
+
 
 ```{r}
 a   # word form 
-a1  # matrix form (active)
-a2  # matrix form (passive)
+a_active  # matrix form (active)
+a_passive  # matrix form (passive)
 ```
 
 and then ```b```, but we need to create equivalents ```b1``` and
@@ -229,53 +236,31 @@ and then ```b```, but we need to create equivalents ```b1``` and
 
 ```{r}
 b
-b1 <- rbind(1:6,as.word(b))
-rownames(b1) <- c("person","place")
-b1
-b2 <- rbind(1:6,as.word(inverse(b)))
-rownames(b2) <- c("place","person")
-b2
+b_active <- rbind(1:6,as.word(b))
+rownames(b_active) <- c("person","place")
+b_active
+b_passive <- rbind(1:6,as.word(inverse(b)))
+rownames(b_passive) <- c("place","person")
+b_passive
 ```
 
-
-If we execute ```a``` and then ```b``` using active language need to
-use standard permutation composition, using the ```*``` operator:
+We want to perform ```a``` and then ```b``` but all we have is (in R
+idiom) the matrices ```a2``` and ```b2```:
 
 ```{r}
-a*b
+a_passive
+b_passive
 ```
 
-However, using passive
-
-\[
-\overbrace{
-\left(
-\begin{array}{ccccccccc}
-1&2&3&4&5&6\\
-5&2&3&4&6&1\\
-\end{array}
-\right)
-}^{b}
-\circ
-\overbrace{
-\left(
-\begin{array}{ccccccccc}
-1&2&3&4&5&6\\
-4&6&3&5&1&2\\
-\end{array}
-\right)
-}^{a}=
-\overbrace{
-\left(
-\begin{array}{ccccccccc}
-1&2&3&4&5&6\\
-1&6&3&5&2&4\\
-\end{array}
-\right)
-}^{b\circ a}
-\]
-
-
+To work out the composition of ```a_passive``` and ```b_passive```
+[explicitly: give the passive transform corresponding to performing
+```a_passive``` and then ```b_passive```] we would ask "who is in
+place 1? who is in place 2?" and so on.  To figure out who is in place
+1, say, we would look at ```b_passive``` and say that person who was
+in place 6 was moved by b_passive``` to place 1.  And then you would
+have to figure out who was in place 6 before ```b_passive``` was
+executed.  To answer *that*, you would look at ```a_passive``` and see
+that the person in place 6
 
 
 https://en.wikiversity.org/wiki/Permutation_notation
