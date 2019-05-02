@@ -63,16 +63,8 @@ a1
 say: "at the start, person $i$ sits in place $i$, $i\in[6]$.  Then
 place 1 is occupied by person 4, place 2 occupied by person 5, and so
 on".  This information is technically represented by permutation
-```a``` but in an obscure form.  To answer the question "who is
-sitting in place $i$?" we need to *invert* permutation ```a```:
-
-
-```{r}
-inverse(a)
-```
-
-(even now I find the R idiom for inversion to be unreasonably elegant:
-```a[a] <- seq_along(a)```).  The matrix form would be
+```a``` but in an obscure form.  To answer the question "who is in
+place $i$?" we need to rearrange the permutation:
 
 \[
 \left(
@@ -81,10 +73,30 @@ inverse(a)
 4&6&3&5&1&2
 \end{array}
 \right)
+{\mbox{swap rows}\atop\longrightarrow}
+\left(
+\begin{array}{ccccccccc}
+4&6&3&5&1&2\\
+1&2&3&4&5&6
+\end{array}
+\right){\mbox{shuffle columns}\atop\longrightarrow}
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6\\
+5&6&3&1&4&2
+\end{array}
+\right)
 \]
 
+In the above, it is easy to see that the rearrangement of permutation is equivalent to taking a group-theoretic inverse:
 
-and the R object would use the inverse of ```a```:
+```{r}
+inverse(a)
+```
+
+(even now I find the R idiom for inversion to be unreasonably elegant:
+```a[a] <- seq_along(a)```).  In R idiom, the two-row matrix form
+would use ```inverse()```:
 
 ```{r}
 a2 <- rbind(1:6,as.word(inverse(a)))
@@ -98,7 +110,18 @@ and the R idiom depend on whether we are interested in people, or
 places.  We need to specify use of *active* or *passive*
 transformations, much as in the Lorentz package.
 
-## Composition of permutations
+### Active permutations
+
+An active permutation $\pi$ moves a person from place $i$ to place
+$\pi(i)$.  This is the usual case, and is used above.
+
+### Passive permutations
+
+A passive permutation $\pi$ replaces a person in position $i$ by that
+in position $\pi(i)$.
+
+
+## Composition of active permutations
 
 
 Suppose we have permutation ```a``` as above, and another permutation
@@ -188,17 +211,41 @@ R idiom, this is implemented by the excellent magrittr package:
 1 %>% fa %>% fb
 ```
 
-Now we consider the same operations ```a``` and ```b``` but from the
-perspective of places, rather than people.
 
+# Composition of passive permutations
+
+Now we consider the same operations ```a``` and ```b``` as discussed
+above, but from the perspective of places, rather than people.  First
+we look at ```a```
 
 ```{r}
-a
-a1
-a2
+a   # word form 
+a1  # matrix form (active)
+a2  # matrix form (passive)
+```
+
+and then ```b```, but we need to create equivalents ```b1``` and
+```b2``` which we do as before:
+
+```{r}
+b
+b1 <- rbind(1:6,as.word(b))
+rownames(b1) <- c("person","place")
+b1
+b2 <- rbind(1:6,as.word(inverse(b)))
+rownames(b2) <- c("place","person")
+b2
 ```
 
 
+If we execute ```a``` and then ```b``` using active language need to
+use standard permutation composition, using the ```*``` operator:
+
+```{r}
+a*b
+```
+
+However, using passive
 
 \[
 \overbrace{
