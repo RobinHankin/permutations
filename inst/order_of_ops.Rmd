@@ -10,8 +10,8 @@ vignette: >
 
 Order of operations can be confusing when considering permutation
 groups.  Here I discuss active and passive transforms, order of
-operations, prefix and postfix notation, and associativity from a
-computational perspective.
+operations, prefix and postfix notation, and associativity from the
+perspective of the ```permutations``` R package.
 
 Consider the following
 
@@ -43,28 +43,30 @@ showing that 3 is a fixed point.  In matrix form we would have:
 \]
 
 Expressed in functional notation, we have a function $a\colon
-[6]\longrightarrow [6]$ (here $[n]=\left\{1,2,\ldots,n\right\}$); and
+[6]\rightarrow [6]$ (here $[n]=\left\{1,2,\ldots,n\right\}$); and
 we have $a(1)=4$, $a(2)=5$, $a(3)=3$, and so on.  If these were
-people, we might want to keep track of where the people are.  We would
-say: "at the start, person $i$ sits in place $i$, $i\in[6]$.  Then,
-after the move, person 1 is in place 4, person 2 in place 5, person 3
-in place 3, and so on".  This information is encapsulated by
-```as.word(a)```.  In R matrix form we would have
+objects, we might want to keep track of where thet are.  We would say:
+"at the start, object $i$ sits in place $i$, $i\in[6]$.  Then, after
+the move, object 1 is in one 4, object 2 in place 5, object 3 in place
+3, and so on".  This information is encapsulated by ```as.word(a)```.
+In R matrix form we would have
 
 ```{r}
 a_active <- rbind(1:6,as.word(a))
-rownames(a_active) <- c("person","place")
+rownames(a_active) <- c("place before move","place after move")
 a_active
 ```
 
-(in the above R chunk, note how the top row---the *person*---is
-```1:6```).  On the other hand, we might be more interested in the
-*places*.  We might want to know who is sitting in place 4.  We would
-say: "at the start, person $i$ sits in place $i$, $i\in[6]$.  Then
-place 1 is occupied by person 4, place 2 occupied by person 5, and so
-on".  This information is technically represented by permutation
-```a``` but in an obscure form.  To answer the question "who is in
-place $i$?" we need to rearrange the permutation:
+(in the above R chunk, note how the top row is ```1:6```.  We give the
+objects persistent labels: each object is named according to the place
+it sits in, before any moving).  On the other hand, we might be more
+interested in the *places*.  We might want to know which object is
+sitting in place 4.  We would say: "at the start, object $i$ sits in
+place $i$, $i\in[6]$.  Then place 1 is occupied by object 4, place 2
+occupied by object 5, and so on".  This information is technically
+represented by permutation ```a``` but in an obscure form.  To answer
+the question "which object is in place $i$?" in a convenient way, we
+need to rearrange the permutation:
 
 \[
 \left(
@@ -100,26 +102,25 @@ would use ```inverse()```:
 
 ```{r}
 a_passive <- rbind(1:6,as.word(inverse(a)))
-rownames(a_passive) <- c("place","person")
+rownames(a_passive) <- c("place after move","place before move")
 a_passive
 ```
 
-(in the above R chunk, note how the top row---the *place*---is
-```1:6```).  If the people subsequently move again, the mathematics
-and the R idiom depend on whether we are interested in people, or
-places.  We need to specify use of *active* or *passive*
-transformations, much as in the Lorentz package.
+(in the above R chunk, note how the top row---the *place* an object
+sits in after the move, is ```1:6```).  If the people subsequently
+move again, the mathematics and the R idiom depend on whether we are
+interested in people, or places.  We need to specify use of *active*
+or *passive* transformations, much as in the Lorentz package.
 
 ### Active permutations
 
-An active permutation $\pi$ moves a person from place $i$ to place
+An active permutation $\pi$ moves an object from place $i$ to place
 $\pi(i)$.  This is the usual case, and is used above.
 
 ### Passive permutations
 
-A passive permutation $\pi$ replaces a person in position $i$ by that
+A passive permutation $\pi$ replaces an object in position $i$ by that
 in position $\pi(i)$.
-
 
 ## Composition of active permutations
 
@@ -133,8 +134,10 @@ b
 ```
 
 (note the three dots representing three fixed points of ```b```).
-What is the result of executing $a$, followed by $b$?  Symbolically:
-
+Note carefully that the operations $a$ and $b$ do not commute and we
+will discuss this in the context of active and passive transforms.
+What is the result of executing $a$, followed by $b$?  Symbolically we
+have:
 
 \[
 \overbrace{
@@ -164,16 +167,15 @@ What is the result of executing $a$, followed by $b$?  Symbolically:
 }^{a\circ b}
 \]
 
-Thus, for example, $4\longrightarrow 5\longrightarrow 6$.  Note
-carefully that the operations $a,b$ do not commute and we will discuss
-this later in the context of active and passive transforms.
-Considering the operation $a\circ b$, this means that we perform
-permutation ```a``` first, and then perform permutation ```b```.
-Taking this one step at a time we would have, for example: "the person
-in place 4 (this is person 4) moves to place 5 $\ldots$ and then the
-person in place 5 (this is person 4) moves to place 6".  See how we
-track the person in place 4 over two permutations, and person 4 ends
-up in place 6.
+Thus, for example, $4\longrightarrow 5\longrightarrow 6$.  Considering
+the operation $a\circ b$, this means that we perform permutation
+```a``` first, and then perform permutation ```b```.  Taking this one
+step at a time we would have, for example: "the person in place 4
+(this is object 4) moves to place 5 (but is still object 4) $\ldots$
+and then the object in place 5 (this is still object 4) moves to place
+6".  See how we track the object that started in place 4 (that is,
+object 4) over two permutations, and so overall object 4 ends up in
+place 6.
 
 If we execute ```a``` and then ```b``` using active language
 [explicitly: express ```a``` and ```b``` as active permutations, and
