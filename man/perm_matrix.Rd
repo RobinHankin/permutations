@@ -1,7 +1,9 @@
 \name{perm_matrix}
 \alias{perm_matrix}
+\alias{permmatrix}
 \alias{permutation_matrix}
 \alias{is.perm_matrix}
+\alias{as.perm_matrix}
 \title{
 Permutation matrices
 }
