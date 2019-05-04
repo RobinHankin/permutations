@@ -1,5 +1,5 @@
 ---
-title: "The permutation group and order of operations"
+title: "The permutation group: active and passive permutations, and the order of operations"
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
 vignette: >
@@ -283,12 +283,34 @@ would have to figure out which object was in place 6 before
 object in place 6 was moved from place 2 by ```a```.  Thus the passive
 transform ```ab_passive``` indicates that the object in place 1 after
 the move was in place 2 before the move.  We would have
-$1\longrightarrow 6\longrigharrow 2$ where in this case
+$1\longrightarrow 6\longrightarrow 2$ where in this case
 "$\longrightarrow$ means "comes from".
 
 We can thus represent the passive transformation by
 ```b_passive*a_passive```: see how the R idiom for permutation
 composition "```*```" is used in exactly the same way for active and
-passive permutations, but with a different meaning.
+passive permutations, but with a different meaning which requires us
+to reverse the order of permutations.
+
+To express the result, ```ab_passive``` in active language we need to
+take the group-theoretic inverse of the composition.  Recalling that passive transforms are the group-theoretic inverses of the same active transformation, in algebraic notation we would have
+
+\[
+\left(a^{-1}b^{-1}\right)^{-1}=ab;\qquad
+a^{-1}b^{-1}=\left(ab\right)^{-1}
+\]
+
+and in R idiom we would have
+
+```{r}
+inverse(inverse(b) * inverse(a)) == a*b # both should be TRUE
+inverse(b) * inverse(a) == inverse(a*b) # note b precedes a on LHS
+```
+
+
+# Permutation matrices
+
+
+
 
 https://en.wikiversity.org/wiki/Permutation_notation
