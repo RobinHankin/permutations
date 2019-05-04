@@ -195,25 +195,26 @@ Indeed we may verify that idiom operates as expected:
 as.vector(b)[as.vector(a)]
 ```
 
-With functional notation (also known as prefix notation) we can ask
-what happens to the person in place 1:
+showing agreement.  With functional notation (also known as prefix
+notation) we can ask what happens to the object originally in place 1
+(that would be object 1)
 
 ```{r}
 fa <- as.function(a)
 fb <- as.function(b)
-fb(fa(1))
-as.function(a*b)(1)
+c(fb(fa(1)),as.function(a*b)(1))  # should match
 ```
 
-Note the confusing order of operations: in functional notation, if we
-want to operate on an element $x$ by function $f$ and then by function
-$g$ we write $g(f(x))$ for the two successive mappings
-$x\longrightarrow f(x)\longrightarrow g(f(x))$.  Postfix notation
-would denote the same process as $xfg$, as shorthand for $(xf)g$.  In
-R idiom, this is implemented by the excellent magrittr package:
+Note, however, the confusing order of operations: in functional
+notation, if we want to operate on an element $x$ by function $f$ and
+then by function $g$ we write $g(f(x))$ for the two successive
+mappings $x\longrightarrow f(x)\longrightarrow g(f(x))$.  Postfix
+notation would denote the same process as $xfg$, as shorthand for
+$(xf)g$.  In R idiom, this is implemented by the excellent
+```magrittr``` package:
 
 ```{r}
-1 %>% fa %>% fb
+1 %>% fa %>% fb  # idiom for fb(fa(1)), should match result above
 ```
 
 
@@ -233,21 +234,27 @@ a_active  # matrix form (active)
 a_passive  # matrix form (passive)
 ```
 
-and then ```b```, but we need to create equivalents ```b1``` and
-```b2``` which we do as before:
+and then ```b```, but we need to create equivalents ```b_active``` and
+```b_passive``` which we do as before:
+
+```{r,echo=FALSE}
+b_active <- rbind(1:6,as.word(b))
+rownames(b_active) <- c("place before move","place after move")
+b_passive <- rbind(1:6,as.word(inverse(b)))
+rownames(b_passive) <- c("place after move","place before move")
+```
+
 
 ```{r}
 b
-b_active <- rbind(1:6,as.word(b))
-rownames(b_active) <- c("person","place")
 b_active
-b_passive <- rbind(1:6,as.word(inverse(b)))
-rownames(b_passive) <- c("place","person")
 b_passive
 ```
 
-We want to perform ```a``` and then ```b``` but all we have is (in R
-idiom) the matrices ```a2``` and ```b2```:
+(note again the relationship between ```b_active``` and
+```b_passive```).  We want to perform ```a``` and then ```b``` as
+before, but this time we want to use matrices ```a_passive``` and
+```b_passive```:
 
 ```{r}
 a_passive
@@ -256,13 +263,32 @@ b_passive
 
 To work out the composition of ```a_passive``` and ```b_passive```
 [explicitly: give the passive transform corresponding to performing
-```a_passive``` and then ```b_passive```] we would ask "who is in
-place 1? who is in place 2?" and so on.  To figure out who is in place
-1, say, we would look at ```b_passive``` and say that person who was
-in place 6 was moved by b_passive``` to place 1.  And then you would
-have to figure out who was in place 6 before ```b_passive``` was
-executed.  To answer *that*, you would look at ```a_passive``` and see
-that the person in place 6
+```a_passive``` first, and then ```b_passive``` second] we want a
+passive transformation, that is, a matrix with the same row labels as,
+say ```a_passive``` and first row ```1:6```.  Let us call the result
+of these two permutations ```ab_passive```.  Given that
+```ab_passive[1,1]=1```, we ask "what is ```ab_passive[2,1]```?
+column 1 is "1".  This is equivalent to asking, "we have just
+performed permutation ```a``` followed by ```b```.  The object
+currently in place 1: where was it before this composition of
+permutations?"
 
+To figure out which object is in place 1, we would look at
+```b_passive```, being the most recent operation.  We would then look
+at the first column of ```b_passive``` and say that the object that
+was in place 6 was moved by ```b_passive``` to place 1.  And then you
+would have to figure out which object was in place 6 before
+```b_passive``` was executed.  To answer *that*, you would look at
+```a_passive``` and see, from column 6 of ```a_passive``` that the
+object in place 6 was moved from place 2 by ```a```.  Thus the passive
+transform ```ab_passive``` indicates that the object in place 1 after
+the move was in place 2 before the move.  We would have
+$1\longrightarrow 6\longrigharrow 2$ where in this case
+"$\longrightarrow$ means "comes from".
+
+We can thus represent the passive transformation by
+```b_passive*a_passive```: see how the R idiom for permutation
+composition "```*```" is used in exactly the same way for active and
+passive permutations, but with a different meaning.
 
 https://en.wikiversity.org/wiki/Permutation_notation
