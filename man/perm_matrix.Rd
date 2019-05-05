@@ -25,6 +25,9 @@ is.perm_matrix(M)
   \code{perm_matrix()} returns a square matrix with $s$ rows and $s$
   columns.  Entries are either 0 or 1; each row and each column has
   exactly one entry of 1 and the rest zero.
+
+  Row and column names of the permutation matrix are integers, this
+  makes the printed version more compact.
   
   
 }
