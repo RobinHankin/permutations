@@ -760,3 +760,12 @@ permprod <- function(x){
   }
 }
 
+`pm_to_perm` <- function(M){
+    if(is.perm_matrix(M)){
+        return(as.word(as.vector(which(t(M)>0,arr.ind=TRUE)[,1,drop=TRUE])))
+    } else {
+        stop("not a permutation matrix")
+    }
+}
+
+

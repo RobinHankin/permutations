@@ -4,9 +4,8 @@
 \alias{permutation_matrix}
 \alias{is.perm_matrix}
 \alias{as.perm_matrix}
-\title{
-Permutation matrices
-}
+\alias{pm_to_perm}
+\title{Permutation matrices}
 \description{
 Given a permutation, coerce to word form and return the corresponding
 permutation matrix
@@ -14,6 +13,7 @@ permutation matrix
 \usage{
 perm_matrix(p)
 is.perm_matrix(M)
+pm_to_perm(M)
 }
 \arguments{
   \item{p}{Permutation, coerced to word form, of length 1}
@@ -28,10 +28,14 @@ is.perm_matrix(M)
 
   Row and column names of the permutation matrix are integers; this
   makes the printed version more compact.
-  
+
+  Function \code{pm_to_perm()} takes a permutation matrix and returns
+  the equivalend permutation in word form.
+}
 \details{
 
-  Given a word \code{p} with size \code{s}, the idiom boils down to
+  Given a word \code{p} with size \code{s}, the idiom for
+  \code{perm_matrix()} boils down to
 
   \preformatted{
     M <- diag(s)
@@ -65,6 +69,9 @@ stopifnot(is.perm_matrix(M1))
 
 stopifnot(all(solve(M1) == perm_matrix(inverse(p1))))
 stopifnot(all(M1 \%*\% M2 == perm_matrix(p1*p2)))
+
+
+stopifnot(p1 == pm_to_perm(perm_matrix(p1)))
 
 data("megaminx")
 image(perm_matrix(permprod(megaminx)),asp=1,axes=FALSE)
