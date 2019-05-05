@@ -743,7 +743,7 @@ permprod <- function(x){
     stopifnot(length(p)==1)
     M <- matrix(0L,s,s)
     M[cbind(seq_len(s),unclass(p)[1,])] <- 1L
-    rownames(M) <- formatC(seq_len(s),width=ceiling(log10(s-0.1)),format="d",flag="0")
+    rownames(M) <- formatC(seq_len(s),width=ceiling(log10(s+0.1)),format="d",flag="0")
     colnames(M) <- rownames(M)
     return(M)
 }
