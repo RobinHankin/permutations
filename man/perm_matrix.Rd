@@ -26,17 +26,31 @@ is.perm_matrix(M)
   columns.  Entries are either 0 or 1; each row and each column has
   exactly one entry of 1 and the rest zero.
 
-  Row and column names of the permutation matrix are integers, this
+  Row and column names of the permutation matrix are integers; this
   makes the printed version more compact.
   
-  
+\details{
+
+  Given a word \code{p} with size \code{s}, the idiom boils down to
+
+  \preformatted{
+    M <- diag(s)
+    M[p,]
+  }
+
+  This is used explicitly in the \code{representations} vignette.  There
+  is another way:
+
+  \preformatted{
+    M <- diag(s)
+    M[cbind(seq_len(s),p)] <- 1
+    M
+  }
+
+  which might be useful sometime.  
 }
-\author{
-Robin K. S. Hankin
-}
-\seealso{
-\code{\link{permutation}}
-}
+\author{Robin K. S. Hankin}
+\seealso{\code{\link{permutation}}}
 \examples{
 
 perm_matrix(rperm(1,9))
