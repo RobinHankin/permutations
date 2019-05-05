@@ -736,13 +736,12 @@ permprod <- function(x){
   return(out)
   
 }
-  
+
 `perm_matrix` <- function(p){
     s <- size(p)
     p <- as.word(p)
     stopifnot(length(p)==1)
-    M <- matrix(0L,s,s)
-    M[cbind(seq_len(s),unclass(p)[1,])] <- 1L
+    M <- diag(rep(1L,s))[p,]  # the meat
     rownames(M) <- formatC(seq_len(s),width=ceiling(log10(s+0.1)),format="d",flag="0")
     colnames(M) <- rownames(M)
     return(M)
