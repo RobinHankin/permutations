@@ -311,6 +311,21 @@ inverse(b) * inverse(a) == inverse(a*b) # note b precedes a on LHS
 # Permutation matrices
 
 
+Now we will show how permutation matrices work.  We will try some
+slightly larger-sized permutations:
 
+```{r}
+g <- as.word(2^(1:18)%%19)
+h <- as.word(c(matrix(1:18,ncol=2,byrow=TRUE)))
+g
+h
+```
+
+Then we can express these in terms of permutation matrices.  Taking
+```g``` first we have
+
+```{r}
+perm_matrix(g)
+```
 
 https://en.wikiversity.org/wiki/Permutation_notation
