@@ -310,22 +310,105 @@ inverse(b) * inverse(a) == inverse(a*b) # note b precedes a on LHS
 
 # Permutation matrices
 
+Now we will show how permutation matrices work and how they deal with active and passive language.
 
-Now we will show how permutation matrices work.  We will try some
-slightly larger-sized permutations:
 
 ```{r}
-g <- as.word(2^(1:18)%%19)
-h <- as.word(c(matrix(1:18,ncol=2,byrow=TRUE)))
+g <- as.cycle(c(1,2,6))
 g
-h
 ```
 
-Then we can express these in terms of permutation matrices.  Taking
-```g``` first we have
+Then we can express ```g``` in terms of permutation matrices:
+
 
 ```{r}
-perm_matrix(g)
+pg <- perm_matrix(g)
+pg
 ```
+
+But it is convenient to relabel the rows and the columns:
+
+```{r}
+dimnames(pg) <- list(place_before_move=1:6,place_after_move=1:6)
+pg
+```
+
+Row ```n``` of matrix ```pg``` shows where the object that was in
+place ```n``` before the move ends up.  Thus, looking at the top row
+(row 1), we see that the object that was in place 1 is now in place 2
+[because the second column of row 1 is nonzero].  The second row (row
+2) shows that the object that was in place 2 is now in place 6, the
+object that was in place 3 is now in place 6, and so on.  This is
+active language.
+
+We can see that taking the transpose is equivalent to inverting the
+matrix: a permutation matrix is orthogonal.  Now we can consider a
+second permutation ```h``` and convert it to matrix form:
+
+```{r}
+h <- as.word(c(1,3,4,5,2,6))
+h
+ph <- perm_matrix(h)
+dimnames(ph) <- list(place_before_move=1:6,place_after_move=1:6)
+ph
+```
+
+We now consider what happens with successive permutations, as above,
+but this time using permutation matrices.  We will permute first with
+```g``` and then with ```h```, using matrix multiplication.
+
+```{r}
+pg %*% ph
+```
+
+```
+ pg                                  ph                                  pg %*% ph
+                  place_after_move                    place_after_move                    place_after_move
+ place_before_move 1 2 3 4 5 6       place_before_move 1 2 3 4 5 6       place_before_move 1 2 3 4 5 6
+                 1 0 1 0 0 0 0                       1 1 0 0 0 0 0                       1 0 0 1 0 0 0
+                 2 0 0 0 0 0 1                       2 0 0 1 0 0 0                       2 0 0 0 0 0 1
+                 3 0 0 1 0 0 0                       3 0 0 0 1 0 0                       3 0 0 0 1 0 0
+                 4 0 0 0 1 0 0                       4 0 0 0 0 1 0                       4 0 0 0 0 1 0
+                 5 0 0 0 0 1 0                       5 0 1 0 0 0 0                       5 0 1 0 0 0 0
+                 6 1 0 0 0 0 0                       6 0 0 0 0 0 1                       6 1 0 0 0 0 0
+```
+
+(the above is hand-edited to put the matrices side-by-side).  Let us
+consider the top row of ```pg```.  This multiplies by each column of
+```ph``` but the only nonzero term is with column 3 of ```ph``` which
+has row 2 nonzero.  Thus ```(pg%*%ph)[1,3]==1```.  The process is,
+symbolically, $1\longrightarrow 2\longrightarrow 3$.
+
+### Passive language for permutation matrices
+
+Alternatively, we could look at matrix ```pg``` in terms of columns.
+Column ```n``` of this matrix shows where the object that ended up in
+place ```n``` came from.  Thus, looking at column 1, we see that the
+object that ended up in column 1 came from place 6, and the object
+that ended up in place 2 came from place 1, and so on.  This is
+passive language.
+
+Thus the passive matrix is the *transpose* of the active matrix (we
+could see this by swapping the dimension names).  Now we use the matrix rule
+
+\[
+AB=(B'A')'
+\]
+
+to show that permutation matrix multiplication has to be in the
+opposite order for passive matrices.  Of course, we could observe that
+permutation matrices are orthogonal and use
+
+\[
+AB=\left(B^{-1}A^{-1}\right)^{-1}
+\]
+
+instead.
+
+
+
+
+
+
 
 https://en.wikiversity.org/wiki/Permutation_notation
