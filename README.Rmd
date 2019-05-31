@@ -60,5 +60,10 @@ a*b
 b*a
 ```
 
+# The megaminx
 
-
+The *megaminx* is a dodecahedral puzzle with similar construction to
+the Rubik cube puzzle that has 50 movable pieces and 132 coloured
+stickers (``facets'').  The permutations package includes
+functionality to simulate the megaminx and exhibits an 82-turn
+superflip.  The vignette gives an extended discussion.
