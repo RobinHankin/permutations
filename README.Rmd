@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Overview
+
+The permutations package provides R-centric functionality for working
+with .  It includes cross products and wedge products and a variety of
+use-cases.  An extensive vignette is provided in the package; this
+document is here for discoverability.
+
+
+# Installation
+
+You can install the released version of permutations from [CRAN](https://CRAN.R-project.org) with:
+
+```{r}
+# install.packages("permutations")  # uncomment this to use the package
+library("permutations")
+```
+
+The package is maintained on
+[github](https://github.com/RobinHankin/permutations).	
+
+# The ```permutations``` package in use
+
+Random permutations on a finite set are given by the ```rperm()``` command:
+
+```{r rperm}
+rperm(10,9)
+```
+
+The result is printed in cycle form but we can print in word form if we wish:
+
+```{r wordformprint}
+options(print_word_as_cycle=FALSE)  # override default
+as.word(rperm(10,9,3))
+options(print_word_as_cycle=TRUE)  # usually want to print a cycle irregardless
+```
+
+(A dot indicates a fixed point).  The package uses arithmetic
+operations ```*``` to combine permutations and ```^``` for
+conjugation:
+
+```{r arith}
+(a <- as.word(c(4,2,3,1,5,7,6)))
+(b <- as.cycle(1:4))
+a*b
+b*a
+```
+
+
+
