@@ -717,7 +717,12 @@ permprod <- function(x){
 
 `cayley` <- function(x){
   x <- as.cycle(x)
-  if(is.null(names(x))){names(x) <- print(x)}
+  if(is.null(names(x))){
+    sink(ifelse(.Platform$OS.type == "windows", "NUL:", "/dev/null"))
+    names(x) <- print(x)
+    sink()
+  }
+
 
   f <- Vectorize(function(i,j){
     jj <- x==x[i]*x[j]
