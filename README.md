@@ -5,8 +5,6 @@
 
 [![Build
 Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
-[![Travis build
-status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
 <!-- badges: end -->
 
 # Overview
@@ -40,10 +38,9 @@ Random permutations on a finite set are given by the `rperm()` command:
 
 ``` r
 rperm(10,9)
-#>  [1] (123687459)       (378)(569)        (26873)(459)     
-#>  [4] (18)(293)(46)(57) (192)(367584)     (15423968)       
-#>  [7] (1549673)         (1672)(35984)     (134295)         
-#> [10] (16243)(5789)
+#>  [1] (248659)(37)    (12569874)      (183)(24756)    (1256)(38)(479)
+#>  [5] (17)(2495)(68)  (1627359)(48)   (129465738)     (286)(45)(79)  
+#>  [9] (19)(28346)(57) (174385)(26)
 ```
 
 The result is printed in cycle form but we can print in word form if we
@@ -53,16 +50,16 @@ wish:
 options(print_word_as_cycle=FALSE)  # override default
 as.word(rperm(10,9,3))
 #>      {1} {2} {3} {4} {5} {6} {7} {8} {9}
-#> [1]  2   1   .   .   .   .   .   .   .  
-#> [2]  .   .   .   .   .   .   9   7   8  
-#> [3]  4   .   .   1   .   .   .   .   .  
-#> [4]  .   8   .   .   2   .   .   5   .  
-#> [5]  4   .   .   1   .   .   .   .   .  
-#> [6]  .   .   .   .   .   9   .   .   6  
-#> [7]  .   .   .   .   .   9   .   .   6  
-#> [8]  .   .   4   3   .   .   .   .   .  
-#> [9]  .   .   .   .   8   .   .   9   5  
-#> [10] .   8   .   .   .   .   .   2   .
+#> [1]  4   .   .   8   .   .   .   1   .  
+#> [2]  6   .   .   .   .   1   .   .   .  
+#> [3]  .   4   .   9   .   .   .   .   2  
+#> [4]  4   .   .   5   1   .   .   .   .  
+#> [5]  .   .   .   .   .   .   .   .   .  
+#> [6]  .   8   .   .   2   .   .   5   .  
+#> [7]  .   .   9   .   .   .   .   .   3  
+#> [8]  .   7   .   .   .   .   2   .   .  
+#> [9]  .   .   8   .   .   .   .   3   .  
+#> [10] 3   .   1   .   .   .   .   .   .
 options(print_word_as_cycle=TRUE)  # usually want to print a cycle irregardless
 ```
 
