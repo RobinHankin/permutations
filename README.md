@@ -3,8 +3,8 @@
 
 <!-- badges: start -->
 
-\[![Build
-Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)\](<https://travis-ci.org/RobinHankin/permutations>
+[![Build
+Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
 <!-- badges: end -->
 
 **redoc** is a package to enable a two-way R Markdown-Microsoft
@@ -40,9 +40,9 @@ Random permutations on a finite set are given by the `rperm()` command:
 
 ``` r
 rperm(10,9)
-#>  [1] (128)(346795)   (14296)(3758)   (14385697)      (136742895)    
-#>  [5] (1937842)(56)   (178)(24)(569)  (1678594)       (13749)(258)   
-#>  [9] (156)(24387)    (1984)(263)(57)
+#>  [1] (129654)(38)    (129543)(678)   (197)(2683)(45) (178)(35946)   
+#>  [5] (1462)(589)     (12987)(354)    (1258)(46)      (139256874)    
+#>  [9] (1265348)       (163425798)
 ```
 
 The result is printed in cycle form but we can print in word form if we
@@ -52,16 +52,16 @@ wish:
 options(print_word_as_cycle=FALSE)  # override default
 as.word(rperm(10,9,3))
 #>      {1} {2} {3} {4} {5} {6} {7} {8} {9}
-#> [1]  .   .   .   7   .   .   4   .   .  
-#> [2]  6   .   .   .   .   1   .   .   .  
-#> [3]  .   .   6   .   .   3   .   .   .  
-#> [4]  7   .   .   .   .   .   1   .   .  
-#> [5]  .   .   .   .   9   5   .   .   6  
-#> [6]  .   8   .   .   .   .   .   2   .  
-#> [7]  .   .   .   8   .   .   .   9   4  
-#> [8]  .   4   .   9   .   .   .   .   2  
-#> [9]  .   .   .   .   .   .   .   .   .  
-#> [10] .   .   7   .   .   .   9   .   3
+#> [1]  .   8   .   .   .   .   .   2   .  
+#> [2]  .   .   .   .   6   7   5   .   .  
+#> [3]  6   .   .   .   .   1   .   .   .  
+#> [4]  .   .   .   5   8   .   .   4   .  
+#> [5]  .   .   5   .   3   .   .   .   .  
+#> [6]  .   .   .   .   .   9   .   .   6  
+#> [7]  .   .   .   .   .   .   .   .   .  
+#> [8]  .   .   4   6   .   3   .   .   .  
+#> [9]  9   .   .   .   .   .   1   .   7  
+#> [10] .   .   .   .   .   .   .   .   .
 options(print_word_as_cycle=TRUE)  # usually want to print a cycle irregardless
 ```
 
