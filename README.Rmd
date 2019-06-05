@@ -13,12 +13,17 @@ knitr::opts_chunk$set(
 )
 ```
 
+<!-- badges: start -->
+[![Build Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
+<!-- badges: end -->
+
+
 # Overview
 
 The permutations package provides R-centric functionality for working
-with .  It includes cross products and wedge products and a variety of
-use-cases.  An extensive vignette is provided in the package; this
-document is here for discoverability.
+with permutations of a finite set.  It includes group-theoretic
+composition of permutations and can transform from word form to cycle
+form and back.
 
 
 # Installation
@@ -60,5 +65,10 @@ a*b
 b*a
 ```
 
+# The megaminx
 
-
+The *megaminx* is a dodecahedral puzzle with similar construction to
+the Rubik cube puzzle that has 50 movable pieces and 132 coloured
+stickers (``facets'').  The permutations package includes
+functionality to simulate the megaminx and exhibits an 82-turn
+superflip.  The vignette gives an extended discussion.
