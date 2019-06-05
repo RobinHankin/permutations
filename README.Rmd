@@ -13,6 +13,14 @@ knitr::opts_chunk$set(
 )
 ```
 
+<!-- badges: start -->
+[![Build Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations
+<!-- badges: end -->
+
+**redoc** is a package to enable a two-way R Markdown-Microsoft
+
+
+
 # Overview
 
 The permutations package provides R-centric functionality for working
