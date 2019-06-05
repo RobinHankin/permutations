@@ -7,8 +7,6 @@
 Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
 <!-- badges: end -->
 
-**redoc** is a package to enable a two-way R Markdown-Microsoft
-
 # Overview
 
 The permutations package provides R-centric functionality for working
@@ -40,9 +38,9 @@ Random permutations on a finite set are given by the `rperm()` command:
 
 ``` r
 rperm(10,9)
-#>  [1] (129654)(38)    (129543)(678)   (197)(2683)(45) (178)(35946)   
-#>  [5] (1462)(589)     (12987)(354)    (1258)(46)      (139256874)    
-#>  [9] (1265348)       (163425798)
+#>  [1] (14823)(57)(69)  (172684539)      (16543)(79)      (16)(254379)    
+#>  [5] (19862745)       (249)(3567)      (17935)(246)     (16572)(39)(48) 
+#>  [9] (19)(2537)       (16)(38)(49)(57)
 ```
 
 The result is printed in cycle form but we can print in word form if we
@@ -52,16 +50,16 @@ wish:
 options(print_word_as_cycle=FALSE)  # override default
 as.word(rperm(10,9,3))
 #>      {1} {2} {3} {4} {5} {6} {7} {8} {9}
-#> [1]  .   8   .   .   .   .   .   2   .  
-#> [2]  .   .   .   .   6   7   5   .   .  
-#> [3]  6   .   .   .   .   1   .   .   .  
-#> [4]  .   .   .   5   8   .   .   4   .  
+#> [1]  .   .   .   .   .   7   6   .   .  
+#> [2]  .   .   .   .   .   .   .   .   .  
+#> [3]  .   .   .   5   8   .   .   4   .  
+#> [4]  .   .   .   .   .   8   6   7   .  
 #> [5]  .   .   5   .   3   .   .   .   .  
-#> [6]  .   .   .   .   .   9   .   .   6  
-#> [7]  .   .   .   .   .   .   .   .   .  
-#> [8]  .   .   4   6   .   3   .   .   .  
-#> [9]  9   .   .   .   .   .   1   .   7  
-#> [10] .   .   .   .   .   .   .   .   .
+#> [6]  .   .   .   5   4   .   .   .   .  
+#> [7]  .   .   .   .   9   .   .   .   5  
+#> [8]  .   .   6   .   .   8   .   3   .  
+#> [9]  .   .   .   8   .   .   .   4   .  
+#> [10] 8   .   .   .   .   .   .   1   .
 options(print_word_as_cycle=TRUE)  # usually want to print a cycle irregardless
 ```
 
