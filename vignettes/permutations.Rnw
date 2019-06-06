@@ -155,7 +155,7 @@ it is more convenient to represent~$f$ in {\em cycle form}:
 \left(1987\right)\left(346\right)
 \]
 
-which is a compact representation of the fact that~$1
+\noindent which is a compact representation of the fact that~$1
 \overset{f}{\longrightarrow}9 \overset{f}{\longrightarrow}8
 \overset{f}{\longrightarrow}7 \overset{f}{\longrightarrow}1$ and~$3
 \overset{f}{\longrightarrow}4 \overset{f}{\longrightarrow}6
@@ -305,7 +305,7 @@ A4^cyc_len(5)
 @     
 
 See how the shape of the permutations is unaltered by the conjugation;
-documentaition is a at \code{shape.Rd} and \code{conjugate.Rd}.
+documentation is a at \code{shape.Rd} and \code{conjugate.Rd}.
 
 \section{The Megaminx}
 
@@ -380,11 +380,13 @@ showing that this has a particularly parsimonious effect.
 
 \subsection{The Superflip}
 
-One particularly pleasing pattern on the megaminx is the
-``superflip'', shown in Figure~\ref{megaminx:superflip}.  In this
-pattern, each edge piece is in its correct position but flipped over;
-there is an equivalent on the Rubik cube which is of considerable
-theoretical interest.
+One particularly pleasing pattern on the megaminx is the {\em
+  superflip}, shown in Figure~\ref{megaminx:superflip}.  In this
+pattern, each edge piece is in its correct position but flipped over.
+There is an equivalent on the Rubik cube which is of considerable
+theoretical interest~\cite{rokicki2014}: the centre of the cube group
+is known to contain only the superflip and the
+identity~\cite{joyner2008}.
 
 One challenging task is to accomplish the superflip in the minimum
 number of turns.  \citet{clark2012} argues that a lower bound for the
@@ -397,7 +399,7 @@ Z <- Gy^(-2) * LB / LG /Pi / LY
 superflip83 <- (X^6)^Y + Z^9  # superflip (Jeremy Clark)
 @  
 
-(note the use of binary ``+'' showing that sequences
+\noindent (note the use of binary ``+'' showing that sequences
 \code{(X\string^6)\string^Y} and \code{Z\string^9} commute).  It is
 intuitively clear that the superflip commutes past any sequence of
 operations, and is thus in the \emph{center} of the megaminx group.
