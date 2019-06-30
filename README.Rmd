@@ -42,6 +42,11 @@ The package is maintained on
 
 Random permutations on a finite set are given by the ```rperm()``` command:
 
+```{r, echo=FALSE}
+set.seed(0)
+```
+
+
 ```{r rperm}
 rperm(10,9)
 ```
