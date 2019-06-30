@@ -15,6 +15,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Build Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)
+[![Rdoc](http://www.rdocumentation.org/badges/version/permutations)](http://www.rdocumentation.org/packages/permutations)
 <!-- badges: end -->
 
 
