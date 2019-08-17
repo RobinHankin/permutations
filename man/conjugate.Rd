@@ -3,6 +3,8 @@
 \alias{are_conjugate}
 \alias{are_conjugate}
 \alias{are_conjugate_single}
+\alias{\%~\%}
+\alias{\%~\%.permutation}
 \title{
 Are two permutations conjugate?
 }
@@ -47,7 +49,7 @@ permutations; permutations are coerced to cycle form because function
 
 are_conjugate(rperm(20,3),rperm(20,3))
 
-
+rperm(20,3) \%~\% cycle(1:3)
 
 z <- rperm(300,4)
 stopifnot(all(are_conjugate(z,id)==is.id(z)))
