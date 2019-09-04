@@ -202,7 +202,8 @@ notation) we can ask what happens to the object originally in place 1
 ```{r}
 fa <- as.function(a)
 fb <- as.function(b)
-c(fb(fa(1)),as.function(a*b)(1))  # should match
+fb(fa(1))
+as.function(a*b)(1)  # should match fb(fa(1))
 ```
 
 Note, however, the confusing order of operations: in functional
