@@ -476,20 +476,20 @@ quads <-  list(
         y = c(13,11,10,11)
     ),
     '093' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(46,52,50,44),
+        y = c(11,10,08,09)
     ),
     '095' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(43,50,48,42),
+        y = c(08,08,06,06)
     ),
     '097' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(33,39,41,34),
+        y = c(08,08,06,06)
     ),
     '099' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(35,37,33,31),
+        y = c(11,09,08,10)
     ),
     '101' =cbind(
         x = c(NA,NA,NA,NA),
@@ -575,7 +575,7 @@ quads <-  list(
 
 n_pent <- 12
 n_tri <- 60
-n_quad <- 41
+n_quad <- 45
 
 
 
