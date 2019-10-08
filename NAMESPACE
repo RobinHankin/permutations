@@ -17,6 +17,8 @@ S3method("is.id", cycle)
 S3method("is.id", list)
 S3method("print", word)
 S3method("print", cycle)
+S3method("%~%", permutation)
+export("%~%")
 
 S3method("size", word)
 S3method("size", cycle)

@@ -18,20 +18,23 @@ Consider the following
 ```{r}
 library("permutations")
 library("magrittr")
-options("print_word_as_cycle" = FALSE)
 a <- as.cycle("(145)(26)")
 names(a) <- NULL
 a
 ```
 
 Thus we can see that $a$ has a two-cycle $(145)$ and a three-cycle
-$(26)$.  We can express $a$ in word form:
+$(26)$.  We can express $a$ in word form (note that we have to stop
+the print method from printing in cycle form by changing the default):
+
 
 ```{r}
+options("print_word_as_cycle" = FALSE)
 (a <- as.word(a))
 ```
 
-showing that 3 is a fixed point.  In matrix form we would have:
+showing that 3 is a fixed point (indicated with a dot).  In matrix
+form we would have:
 
 \[
 \left(
@@ -43,13 +46,13 @@ showing that 3 is a fixed point.  In matrix form we would have:
 \]
 
 Expressed in functional notation, we have a function $a\colon
-[6]\rightarrow [6]$ (here $[n]=\left\{1,2,\ldots,n\right\}$); and
-we have $a(1)=4$, $a(2)=5$, $a(3)=3$, and so on.  If these were
-objects, we might want to keep track of where thet are.  We would say:
-"at the start, object $i$ sits in place $i$, $i\in[6]$.  Then, after
-the move, object 1 is in one 4, object 2 in place 5, object 3 in place
-3, and so on".  This information is encapsulated by ```as.word(a)```.
-In R matrix form we would have
+[6]\rightarrow [6]$ (here $[n]=\left\{1,2,\ldots,n\right\}$); and we
+have $a(1)=4$, $a(2)=5$, $a(3)=3$, and so on.  If these were objects,
+we might want to keep track of where thet are.  We would say: "at the
+start, object $i$ sits in place $i$, $i\in[6]$.  Then, after the move,
+object 1 is in place 4, object 2 in place 5, object 3 in place 3, and
+so on".  This information is encapsulated by ```as.word(a)```.  In R
+matrix form we would have
 
 ```{r}
 a_active <- rbind(1:6,as.word(a))
@@ -115,7 +118,8 @@ or *passive* transformations, much as in the Lorentz package.
 ### Active permutations
 
 An active permutation $\pi$ moves an object from place $i$ to place
-$\pi(i)$.  This is the usual case, and is used above.
+$\pi(i)$.  Textbooks and undergraduate courses usually use this
+system, and is used above.
 
 ### Passive permutations
 
@@ -285,7 +289,7 @@ object in place 6 was moved from place 2 by ```a```.  Thus the passive
 transform ```ab_passive``` indicates that the object in place 1 after
 the move was in place 2 before the move.  We would have
 $1\longrightarrow 6\longrightarrow 2$ where in this case
-"$\longrightarrow$ means "comes from".
+"$\longrightarrow$" means "comes from".
 
 We can thus represent the passive transformation by
 ```b_passive*a_passive```: see how the R idiom for permutation

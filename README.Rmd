@@ -15,6 +15,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Build Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)
+[![Rdoc](http://www.rdocumentation.org/badges/version/permutations)](http://www.rdocumentation.org/packages/permutations)
 <!-- badges: end -->
 
 
@@ -41,6 +43,11 @@ The package is maintained on
 # The ```permutations``` package in use
 
 Random permutations on a finite set are given by the ```rperm()``` command:
+
+```{r, echo=FALSE}
+set.seed(0)
+```
+
 
 ```{r rperm}
 rperm(10,9)
