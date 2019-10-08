@@ -1,4 +1,20 @@
-a <- read.table("n.txt")
+## This file creates a list of (x,y) coordinates of the points on the
+## megaminx net.  File "net_coords.txt" is derived from the positions
+## of the guidelines in megaminx_net_guides.svg; use something like
+
+
+## cat megaminx_net_guides.svg | egrep 'position="'
+
+## and then tidy up with emacs.  The numbers are the (x,y) coordinates
+## of the guide *label*; I put number '20' in there so the labels
+## lined up nicely.  Lines like 'position="248.922,20" are vertical
+## guidelines (this one at x=248.922) and lines like
+## 'position="20,582.933"' are horizontal guidelines (this one at
+## y=582.933).  Use emacs to tidy the format of the egrep command
+## above.
+
+
+a <- read.table("net_coords.txt")
 colnames(a) <- c("x","y")
 
 x <- sort(a$x[a$y=='20'])
