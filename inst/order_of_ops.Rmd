@@ -23,7 +23,7 @@ names(a) <- NULL
 a
 ```
 
-Thus we can see that $a$ has a two-cycle $(145)$ and a three-cycle
+Thus we can see that $a$ has a three-cycle $(145)$ and a two-cycle
 $(26)$.  We can express $a$ in word form (note that we have to stop
 the print method from printing in cycle form by changing the default):
 
