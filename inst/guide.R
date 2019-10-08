@@ -492,64 +492,64 @@ quads <-  list(
         y = c(11,09,08,10)
     ),
     '101' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(34,40,34,30),
+        y = c(06,05,04,05)
     ),
     '103' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(40,45,43,37),
+        y = c(05,04,02,03)
     ),
     '105' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(36,43,41,34),
+        y = c(02,02,01,01)
     ),
     '107' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(27,33,34,29),
+        y = c(02,02,01,01)
     ),
     '109' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(30,32,27,26),
+        y = c(05,03,02,04)
     ),
     '111' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(15,20,15,09),
+        y = c(06,05,04,05)
     ),
     '113' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(20,26,24,18),
+        y = c(05,04,02,03)
     ),
     '115' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(17,24,22,15),
+        y = c(02,02,01,01)
     ),
     '117' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(07,13,15,08),
+        y = c(02,02,01,01)
     ),
     '119' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(09,11,07,05),
+        y = c(05,03,02,04)
     ),
     '121' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(19,26,24,17),
+        y = c(10,10,08,08)
     ),
     '123' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(26,31,33,27),
+        y = c(10,10,08,08)
     ),
     '125' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(33,34,30,28),
+        y = c(08,06,05,07)
     ),
     '127' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(26,30,26,20),
+        y = c(06,05,04,05)
     ),
     '129' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(17,23,20,15),
+        y = c(08,07,05,06)
     )
     )
 
@@ -575,7 +575,7 @@ quads <-  list(
 
 n_pent <- 12
 n_tri <- 60
-n_quad <- 45
+n_quad <- 60
 
 
 
