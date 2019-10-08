@@ -551,36 +551,10 @@ quads <-  list(
         x = c(17,23,20,15),
         y = c(08,07,05,06)
     )
-    )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+)
 n_pent <- 12
 n_tri <- 60
 n_quad <- 60
-
-
-
-
-
 
 
 f <- function(o){
@@ -592,15 +566,9 @@ f <- function(o){
 
 pentagons <- lapply(pentagons ,f)
 triangles <- lapply(triangles ,f)
-
-jj <- list()
-for(i in seq_len(n_quad)){
-  jj[[i]] <- quads[[i]]
-}
-quads <- jj
 quads <- lapply(quads ,f)
 
-plot( c(0,1000),    c(0,1000),type="n",asp=1)
+plot(c(0,1000), c(0,1000), type="n",asp=1,axes=FALSE,xlab="",ylab="")
 
 for(i in seq_len(n_pent)){
   polygon(pentagons[[i]],col=rainbow(n_pent)[i])
