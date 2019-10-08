@@ -432,48 +432,48 @@ quads <-  list(
         y = c(24,23,21,22)
     ),
     '071' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(08,14,08,04),
+        y = c(13,11,10,11)
     ),
     '073' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(14,19,17,11),
+        y = c(11,10,08,09)
     ),
     '075' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(10,17,15,08),
+        y = c(08,08,06,06)
     ),
     '077' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(02,07,08,03),
+        y = c(08,08,06,06)
     ),
     '079' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(04,06,02,01),
+        y = c(11,09,08,10)
     ),
     '081' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(26,30,26,20),
+        y = c(17,16,15,16)
     ),
     '083' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(30,34,33,28),
+        y = c(16,15,12,14)
     ),
     '085' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(27,33,31,26),
+        y = c(12,12,10,10)
     ),
     '087' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(17,24,26,19),
+        y = c(12,12,10,10)
     ),
     '089' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(20,23,17,15),
+        y = c(16,14,12,15)
     ),
     '091' =cbind(
-        x = c(NA,NA,NA,NA),
-        y = c(NA,NA,NA,NA)
+        x = c(41,46,41,35),
+        y = c(13,11,10,11)
     ),
     '093' =cbind(
         x = c(NA,NA,NA,NA),
@@ -575,7 +575,7 @@ quads <-  list(
 
 n_pent <- 12
 n_tri <- 60
-n_quad <- 30
+n_quad <- 41
 
 
 
