@@ -13,6 +13,9 @@
 ## y=582.933).  Use emacs to tidy the format of the egrep command
 ## above.
 
+library(permutations)
+data(megaminx)
+
 
 a <- read.table("net_coords.txt")
 colnames(a) <- c("x","y")
@@ -712,23 +715,30 @@ poly_num <- function(x,n,...){
     text(mean(x[,1]),mean(x[,2]),n,cex=0.4)
 }
 
+m <- megaminx_colours
+m[m=="DarkYellow"] <- "gold"
+mm <- m[as.word(LY,129)]
+
 for(i in seq_along(pentagons)){
+    print(i)
     jj <- pentagons[[i]]
     if(!is.null(jj)){
-        poly_num(jj,n=i,col=rainbow(120)[i])
+        poly_num(jj,n=i,col=m[i])
     }
 }
 
 for(i in seq_along(triangles)){
     jj <- triangles[[i]]
     if(!is.null(jj)){
-        poly_num(jj,n=i,col=rainbow(n_tri)[3])
+        poly_num(jj,n=i,col=mm[i])
     }
 }
 
 for(i in seq_along(quads)){
     jj <- quads[[i]]
     if(!is.null(jj)){
-        poly_num(jj,n=i,col=rainbow(n_quad)[33])
+        poly_num(jj,n=i,col=mm[i])
     }
 }
+
+   
