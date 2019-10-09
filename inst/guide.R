@@ -586,14 +586,19 @@ quads <- lapply(quads ,f)
 
 plot(c(0,1000), c(0,1000), type="n",asp=1,axes=FALSE,xlab="",ylab="")
 
+poly_num <- function(x,n,...){
+  polygon(x,...)
+  text(mean(x[,1]),mean(x[,2]),n,cex=0.4)
+}
+
 for(i in seq_len(n_pent)){
-  polygon(pentagons[[i]],col=rainbow(n_pent)[i])
+  poly_num(pentagons[[i]],n=i,col=rainbow(n_pent)[i])
 }
 
 for(i in seq_len(n_tri)){
-  polygon(triangles[[i]],col=rainbow(n_tri)[i])
+  poly_num(triangles[[i]],n=i,col=rainbow(n_tri)[i])
 }
 
 for(i in seq_len(n_quad)){
-  polygon(quads[[i]],col=rainbow(n_quad)[i])
+  poly_num(quads[[i]],n=i,col=rainbow(n_quad)[i])
 }
