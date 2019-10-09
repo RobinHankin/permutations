@@ -31,7 +31,7 @@ structure(list(White = list(c(10, 12, 14, 16, 18), c(11, 13,
 "Orange", "LightBlue", "LightYellow", "Pink", "Grey"))
 
 `megaminx_colours` <-
-structure(c("Black", "Black", "Black", "Black", "Black", "Black", 
+    structure(c("Black", "Black", "Black", "Black", "Black", "Black", 
 "Black", "Black", "Black", "White", "White", "White", "White", 
 "White", "White", "White", "White", "White", "White", "Purple", 
 "Purple", "Purple", "Purple", "Purple", "Purple", "Purple", "Purple", 
@@ -49,11 +49,10 @@ structure(c("Black", "Black", "Black", "Black", "Black", "Black",
 "LightBlue", "LightBlue", "LightBlue", "LightBlue", "LightBlue", 
 "LightBlue", "LightBlue", "LightBlue", "LightBlue", "LightYellow", 
 "LightYellow", "LightYellow", "LightYellow", "LightYellow", "LightYellow", 
-"LightYellow", "LightYellow", "LightYellow", "LightYellow", "Grey", 
-"Grey", "Grey", "Grey", "Grey", "Grey", "Grey", "Grey", "Grey", 
-"Grey", "Grey", "Grey", "Grey", "Grey", "Grey", "Grey", "Grey", 
+"LightYellow", "LightYellow", "LightYellow", "LightYellow", "Pink", 
+"Pink", "Pink", "Pink", "Pink", "Pink", "Pink", "Pink", "Pink", 
+"Pink", "Grey", "Grey", "Grey", "Grey", "Grey", "Grey", "Grey", 
 "Grey", "Grey", "Grey"), class = "noquote")
-
 
 `W` <-
 structure(list(White = list(c(10, 12, 14, 16, 18), c(11, 13, 
