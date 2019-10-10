@@ -1,6 +1,7 @@
 \name{megaminx}
 \alias{megaminx}
 \alias{megaminx_colours}
+\alias{superflip}
 \alias{W}
 \alias{Pu}
 \alias{DY}
@@ -39,7 +40,9 @@ degrees.  See the vignette for more details.
     \code{megaminx[,12]} \tab Gy  \tab Gray 
   }
 
-  Vector \code{megaminx_colours} shows what colour each facet has at \acronym{start}.
+  Vector \code{megaminx_colours} shows what colour each facet has at
+  \acronym{start}.  Object \code{superflip} is a megaminx operation that
+  flips each of the 30 edges.
 
 
 }
