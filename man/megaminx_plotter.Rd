@@ -19,6 +19,10 @@ megaminx_plotter(megperm = id)
   Datasets \code{megaminx_pentagons}, \code{megaminx_triangles} and
   \code{megaminx_quads} give the coordinates of the facets.
 
+  The function uses rather complicated internal variables
+  \code{pentagons}, \code{triangles}, and \code{quads} whose genesis is
+  discussed in heavily-documented file \code{inst/guide.R}.
+
 }
 \author{Robin K. S. Hankin}
 \examples{

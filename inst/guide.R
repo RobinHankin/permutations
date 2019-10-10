@@ -1,17 +1,68 @@
 ## This file creates a list of (x,y) coordinates of the points on the
-## megaminx net.  File "net_coords.txt" is derived from the positions
-## of the guidelines in megaminx_net_guides.svg; use something like
+## megaminx net in variables 'pentagons', 'triangles', and 'quads',
+## which correspond to the three types of facets (or stickers) on the
+## megaminx.  These variables are used in megaminx_plotter().
 
+## The R code below reads file "net_coords.txt", which is derived from
+## the positions of the guidelines in inkscape file
+## megaminx_net_guides.svg (which shows the megaminx net with
+## guidelines added to every point of the net including intersections;
+## the guides are 'snapped' to position so are accurately placed).
 
-## cat megaminx_net_guides.svg | egrep 'position="'
+## To create file net_coords,txt, use something like
 
-## and then tidy up with emacs.  The numbers are the (x,y) coordinates
-## of the guide *label*; I put number '20' in there so the labels
-## lined up nicely.  Lines like 'position="248.922,20" are vertical
-## guidelines (this one at x=248.922) and lines like
+## cat megaminx_net_guides.svg | egrep 'position="' > net_coords.txt
+
+## to create 'net_coords.txt', then tidy up with emacs.  The numbers
+## are the (x,y) coordinates of the guide *label*; The "20" is chosen
+## so the labels line up nicely at a convenient place in the diagram.
+## Lines like 'position="248.922,20" are vertical guidelines (this one
+## at x=248.922, the label being at y=20) and lines like
 ## 'position="20,582.933"' are horizontal guidelines (this one at
-## y=582.933).  Use emacs to tidy the format of the egrep command
-## above.
+## y=582.933, the label being at x=20).  Use emacs to tidy the format
+## of the egrep command above.
+
+## Creating megaminx_net_guides.svg was a long and tedious job.
+## Several times I realised that I had missed a point so had to
+## relabel all the guides, and this took a long time.  Note that the
+## method employed here automatically ensures that points which should
+## be aligned vertically or horizontally, are exactly aligned.
+## Floating-point inaccuracies mean that the pentagons are regular
+## only to numerical precision (which is quite accurate).
+
+## In the R code below, a line like: 
+
+## pentagons[[010]] <- cbind(
+##    x = c(34, 37, 36, 33, 32),
+##    y = c(26, 25, 24, 24, 25)
+## )
+
+## is created by hand by referring to megaminx_net_guide.svg.  In the
+## code below, R variable 'pentagons' is a list of the small central
+## pentagons on each face of the megaminx.  Each list element is a
+## two-column array with five rows.  Each row specifies the guide
+## label number of the horizontal and vertical guidelines meeting at
+## each vertex of the central pentagon.  Thus the first row of
+## pentagons[[010]] is c(34,26) which indicates that the first vertex
+## of the central pentagon in face 010 is at the intersection of
+## vertical (sic) guide label number 34 and horizontal (sic) guide
+## lable 26.  To verify that this is correct, open
+## megamix_net_guides.svg in inkscape, then look at pentagon number 1.
+## Looking at the highest vertex of the central pentagon, double click
+## on the vertical guideline passing through this vertex; a popup
+## window reveals that this guideline has label "34".  Then click on
+## the horizongal guideline passing through the vertex and read off
+## "26".
+
+## For the triangles and quads, I have tried to be consistent and
+## start the vertex labelling at 12 o'clock, but for example
+## quadrilateral 017, that is quads[[017]], starts at the top-left
+## vertex which is (27,14).
+
+## Variables x and y translate from guideline label number to position
+## (in points I think) via variable 'a', which is the dataframe of
+## file 'net_coords.txt'.
+
 
 library(permutations)
 data(megaminx)
