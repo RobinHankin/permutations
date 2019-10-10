@@ -4,6 +4,8 @@ importFrom(numbers,mLCM)
 importFrom(partitions,as.partition)
 importFrom(partitions,print)
 importFrom(partitions,perms)
+importFrom("graphics", "plot", "polygon", "text")
+importFrom("utils","data")
 
 S3method("[", word)
 S3method("[", cycle)
