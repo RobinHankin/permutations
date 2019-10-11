@@ -54,6 +54,17 @@
 ## the horizongal guideline passing through the vertex and read off
 ## "26".
 
+
+## Taking quads as an example, the first few lines are 
+
+## quads[[011]] <- blah_blah
+## quads[[013]] <- blah_blah
+## quads[[015]] <- blah_blah
+## quads[[017]] <- blah_blah
+
+## Note that only the odd numbers exist (the even numbers are
+## triangles)
+
 ## For the triangles and quads, I have tried to be consistent and
 ## start the vertex labelling at 12 o'clock, but for example
 ## quadrilateral 017, that is quads[[017]], starts at the top-left
@@ -742,54 +753,3 @@ quads[[129]] =cbind(
     y = c(08,07,05,06)
 
 )
-
-n_pent <- 12
-n_tri <- 60
-n_quad <- 60
-
-
-f <- function(o){
-    o[,1] <- x[o[,1]]
-    o[,2] <- y[o[,2]]
-    return(o)
-}
-
-
-pentagons <- lapply(pentagons ,f)
-triangles <- lapply(triangles ,f)
-quads <- lapply(quads ,f)
-
-plot(c(0,1000), c(0,1000), type="n",asp=1,axes=FALSE,xlab="",ylab="")
-
-poly_num <- function(x,n,...){
-    polygon(x,...)
-    text(mean(x[,1]),mean(x[,2]),n,cex=0.4)
-}
-
-m <- megaminx_colours
-m[m=="DarkYellow"] <- "gold"
-mm <- m[as.word(LY,129)]
-
-for(i in seq_along(pentagons)){
-    print(i)
-    jj <- pentagons[[i]]
-    if(!is.null(jj)){
-        poly_num(jj,n=i,col=m[i])
-    }
-}
-
-for(i in seq_along(triangles)){
-    jj <- triangles[[i]]
-    if(!is.null(jj)){
-        poly_num(jj,n=i,col=mm[i])
-    }
-}
-
-for(i in seq_along(quads)){
-    jj <- quads[[i]]
-    if(!is.null(jj)){
-        poly_num(jj,n=i,col=mm[i])
-    }
-}
-
-   
