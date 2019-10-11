@@ -8,27 +8,52 @@
   Plots a coloured diagram of a dodecahedron net representing a megaminx
 }
 \usage{
-megaminx_plotter(megperm = id)
+megaminx_plotter(megperm=id,offset=c(0,0),M=diag(2),setup=TRUE,...)
 }
 \arguments{
   \item{megperm}{Permutation to be plotted}
+  \item{offset,M}{Offset and transformation matrix, see details}
+  \item{setup}{Boolean, with default \code{TRUE} meaning to set up the
+    plot with a \code{plot()} statement, and \code{FALSE} meaning to
+    plot the points on a pre-existing canvas}
+  \item{...}{Further arguments passed to \code{polygon()}}
 }
 \details{
 
-  Function \code{megaminx_plotter()} is the user-friendly function.
-  Datasets \code{megaminx_pentagons}, \code{megaminx_triangles} and
-  \code{megaminx_quads} give the coordinates of the facets.
+  Function \code{megaminx_plotter()} plots a coloured diagram of a
+  dodecahedron net representing a megaminx.  The argument may be
+  specified as a sequence of turns that are applied to the megaminx from
+  \var{START}.
 
   The function uses rather complicated internal variables
-  \code{pentagons}, \code{triangles}, and \code{quads} whose genesis is
-  discussed in heavily-documented file \code{inst/guide.R}.
+  \code{pentagons}, \code{triangles}, and \code{quads} whose meaning and
+  genesis is discussed in heavily-documented file \code{inst/guide.R}.
+
+  The diagram is centered on $(0,0)$ which is one vertex of triangle 
 
 }
 \author{Robin K. S. Hankin}
 \examples{
 data("megaminx")
+
 megaminx_plotter()  # START
 megaminx_plotter(W) # after turning the White face one click
-megaminx_plotter(permprod(sample(megaminx))) # scrambled
 megaminx_plotter(superflip)
+
+
+
+
+size <- 0.95
+o <- 290
+
+pdf(file="~/f.pdf")
+megaminx_plotter(M=size*diag(2),offset=c(-o,0),setup=TRUE)
+megaminx_plotter(W,M=size*diag(2),offset=c(+o,0),setup=FALSE)
+dev.off()
+
+pdf(file="~/g.pdf")
+megaminx_plotter(permprod(sample(megaminx,100,replace=TRUE)),M=size*diag(2),offset=c(-o,0),setup=TRUE)
+megaminx_plotter(superflip,M=size*diag(2),offset=c(+o,0),setup=FALSE)
+dev.off()
+
 }

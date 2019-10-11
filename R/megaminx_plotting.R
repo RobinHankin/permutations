@@ -1,4 +1,4 @@
-`megaminx_plotter` <- function(megperm=id){ # megaminx_plotter(LY*R)"
+`megaminx_plotter` <- function(megperm=id,offset=c(0,0),M=diag(2),setup=TRUE, ...){ # megaminx_plotter(LY*R)"
 
   `megaminx_colours` <-
     structure(c("Black", "Black", "Black", "Black", "Black", "Black", 
@@ -335,7 +335,9 @@ list(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
     ), .Dim = c(4L, 2L), .Dimnames = list(NULL, c("x", "y"))))
 
 
-  plot(c(0,1000), c(0,1000), type="n",asp=1,axes=FALSE,xlab="",ylab="")
+  if(setup){plot(c(-500,500), c(-500,500), type="n",asp=1,axes=FALSE,xlab="",ylab="")}
+
+
 
   `poly_num` <- function(x,n, num=TRUE, ...){
     polygon(x,...)
@@ -344,28 +346,31 @@ list(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
     }
   }
 
+  center <- megaminx_triangles[[82]][1,]
+  f <- function(x){sweep(x,2,offset-center,`+`) %*% M}
+
   m <- megaminx_colours
   m[m=="DarkYellow"] <- "gold"
-  mm <- m[as.word(megperm,129)]
+  mm <- m[as.word(inverse(megperm),129)]
 
   for(i in seq_along(megaminx_pentagons)){
     jj <- megaminx_pentagons[[i]]
     if(!is.null(jj)){
-      poly_num(jj,n=i/10,col=m[i])
+      poly_num(f(jj),n=i/10,col=m[i],...)
     }
   }
 
   for(i in seq_along(megaminx_triangles)){
     jj <- megaminx_triangles[[i]]
     if(!is.null(jj)){
-      poly_num(jj,n=i,col=mm[i])
+      poly_num(f(jj),n=i,col=mm[i],...)
     }
   }
 
   for(i in seq_along(megaminx_quads)){
     jj <- megaminx_quads[[i]]
     if(!is.null(jj)){
-      poly_num(jj,n=i,col=mm[i])
+      poly_num(f(jj),n=i,col=mm[i],...)
     }
   }
 }

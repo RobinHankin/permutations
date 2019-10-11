@@ -126,3 +126,17 @@ structure(list(Grey = list(c(73, 85, 97, 109, 111), c(74, 86,
 128), c(121, 123, 125, 127, 129))), .Names = "Grey", class = c("permutation",
 "cycle"))
 
+`superflip` <-
+structure(c(1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 46L, 11L, 58L, 
+13L, 60L, 15L, 22L, 17L, 34L, 19L, 36L, 21L, 16L, 23L, 68L, 25L, 
+92L, 27L, 82L, 29L, 70L, 31L, 48L, 33L, 18L, 35L, 20L, 37L, 80L, 
+39L, 78L, 41L, 118L, 43L, 50L, 45L, 10L, 47L, 32L, 49L, 44L, 
+51L, 116L, 53L, 106L, 55L, 62L, 57L, 12L, 59L, 14L, 61L, 56L, 
+63L, 104L, 65L, 94L, 67L, 24L, 69L, 30L, 71L, 88L, 73L, 120L, 
+75L, 110L, 77L, 40L, 79L, 38L, 81L, 28L, 83L, 90L, 85L, 122L, 
+87L, 72L, 89L, 84L, 91L, 26L, 93L, 66L, 95L, 102L, 97L, 124L, 
+99L, 126L, 101L, 96L, 103L, 64L, 105L, 54L, 107L, 114L, 109L, 
+76L, 111L, 128L, 113L, 108L, 115L, 52L, 117L, 42L, 119L, 74L, 
+121L, 86L, 123L, 98L, 125L, 100L, 127L, 112L, 129L), .Dim = c(1L, 
+129L), .Dimnames = list("LightBlue", NULL), class = c("permutation", 
+"word"))
