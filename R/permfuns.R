@@ -611,6 +611,7 @@ sgn <- function(x){
 }
 
 is.even <- function(x){sgn(x)==1}
+is.odd <- function(x){sgn(x) == -1}
 
 are_conjugate_single <- function(a,b){  # difficulties arise with the identity.
     stopifnot((length(a)==1) & (length(b)==1))

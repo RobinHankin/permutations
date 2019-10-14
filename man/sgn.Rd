@@ -1,6 +1,7 @@
 \name{sgn}
 \alias{sgn}
 \alias{is.even}
+\alias{is.odd}
 \title{
 Sign of a permutation
 }
@@ -11,6 +12,7 @@ is even or odd
 \usage{
 sgn(x)
 is.even(x)
+is.odd(x)
 }
 \arguments{
   \item{x}{permutation object}
@@ -39,6 +41,7 @@ stopifnot(all(sgn(x*y) == sgn(x)*sgn(y)))   # sgn() is a homomorphism
 
 z <- as.cycle(rperm(20,9,5))
 z[is.even(z)]
+z[is.odd(z)]
 
 }
 
