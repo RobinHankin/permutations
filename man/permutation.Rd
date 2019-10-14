@@ -10,6 +10,7 @@
 \alias{cycle2word}
 \alias{char2cycle}
 \alias{cyc_len}
+\alias{shift_cycle}
 \alias{as.matrix}
 \alias{as.matrix.word}
 \title{
@@ -30,6 +31,7 @@ as.cycle(x)
 cycle2word(x,n=NULL)
 char2cycle(char)
 cyc_len(n)
+shift_cycle(n)
 \method{as.matrix}{word}(x,...)
 }
 \arguments{
@@ -64,8 +66,8 @@ vectors corresponding to the cycles of the permutation.
 
 Function  \code{cycle2word()} converts cycle objects to word objects.
 
-Function \code{cyc_len()} is a convenience wrapper for
-\code{as.cycle(seq_len(n))}.
+Function \code{shift_cycle()} is a convenience wrapper for
+\code{as.cycle(seq_len(n))}; \code{cyc_len()} is a synonym.
 
 It is a very common error (at least, it is for me) to use \code{cycle()}
 when you meant \code{as.cycle()}.
