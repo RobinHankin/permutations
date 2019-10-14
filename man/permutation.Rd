@@ -22,6 +22,7 @@ virtual class.
 }
 \usage{
 word(M)
+permutation(x)
 is.permutation(x)
 cycle(x)
 is.word(x)
@@ -49,8 +50,9 @@ shift_cycle(n)
 
 Functions \code{word()} and \code{cycle()} are rather formal functions
 which make no attempt to coerce their arguments into sensible forms.
-The user should use \code{as.word()} and \code{as.cycle()}, which are
-much more user-friendly.
+The user should use \code{permutation()}, which detects the form of the
+input and dispatches to \code{as.word()} or \code{as.cycle()}, which
+are much more user-friendly.
 
 Functions \code{word()} and \code{cycle()} are the only functions in the
 package which assign class \code{word} or \code{cycle} to an

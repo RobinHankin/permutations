@@ -48,6 +48,18 @@
     }
 }
 
+`permutation` <- function(x){
+  if(is.matrix(x)){
+    return(word(x))
+  } else if(is.character(x)){
+    return(char2cycle(x))
+  } else if(is.list(x)){
+    return(cycle(x))
+  } else {
+    stop("not recognised")
+  }
+}
+
 is.id <- function(x){ UseMethod("is.id",x) }
 
 is.id_single_cycle <- function(x){ is.null(unlist(x)) }
