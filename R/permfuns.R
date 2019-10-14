@@ -241,8 +241,9 @@ char2cyclist_single <- function (x){
 }
 
 char2cycle <- function(char){
-    ## char2cycle(c("(1,4)(6,7)","(3,4,2)(8,19)", "(56)","(12345)(78)","(78)"))
-    cycle(sapply(char,char2cyclist_single,simplify=FALSE))
+  out <- cycle(sapply(char,char2cyclist_single,simplify=FALSE))
+  if(is.null(names(char))){names(out) <- NULL}
+  return(out)
 }
 
 cycle2word <- function(x,n=NULL){  # cycle2word(as.cycle(1:5))
