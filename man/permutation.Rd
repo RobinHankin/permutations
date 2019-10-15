@@ -10,6 +10,7 @@
 \alias{cycle2word}
 \alias{char2cycle}
 \alias{cyc_len}
+\alias{shift_cycle}
 \alias{as.matrix}
 \alias{as.matrix.word}
 \title{
@@ -21,6 +22,7 @@ virtual class.
 }
 \usage{
 word(M)
+permutation(x)
 is.permutation(x)
 cycle(x)
 is.word(x)
@@ -30,6 +32,7 @@ as.cycle(x)
 cycle2word(x,n=NULL)
 char2cycle(char)
 cyc_len(n)
+shift_cycle(n)
 \method{as.matrix}{word}(x,...)
 }
 \arguments{
@@ -47,8 +50,9 @@ cyc_len(n)
 
 Functions \code{word()} and \code{cycle()} are rather formal functions
 which make no attempt to coerce their arguments into sensible forms.
-The user should use \code{as.word()} and \code{as.cycle()}, which are
-much more user-friendly.
+The user should use \code{permutation()}, which detects the form of the
+input and dispatches to \code{as.word()} or \code{as.cycle()}, which
+are much more user-friendly.
 
 Functions \code{word()} and \code{cycle()} are the only functions in the
 package which assign class \code{word} or \code{cycle} to an
@@ -64,8 +68,8 @@ vectors corresponding to the cycles of the permutation.
 
 Function  \code{cycle2word()} converts cycle objects to word objects.
 
-Function \code{cyc_len()} is a convenience wrapper for
-\code{as.cycle(seq_len(n))}.
+Function \code{shift_cycle()} is a convenience wrapper for
+\code{as.cycle(seq_len(n))}; \code{cyc_len()} is a synonym.
 
 It is a very common error (at least, it is for me) to use \code{cycle()}
 when you meant \code{as.cycle()}.

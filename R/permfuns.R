@@ -48,6 +48,18 @@
     }
 }
 
+`permutation` <- function(x){
+  if(is.matrix(x)){
+    return(word(x))
+  } else if(is.character(x)){
+    return(char2cycle(x))
+  } else if(is.list(x)){
+    return(cycle(x))
+  } else {
+    stop("not recognised")
+  }
+}
+
 is.id <- function(x){ UseMethod("is.id",x) }
 
 is.id_single_cycle <- function(x){ is.null(unlist(x)) }
@@ -219,6 +231,7 @@ as.cycle <- function(x){   # does its best to coerce to cycle form.
 }
 
 cyc_len <- function(n){as.cycle(seq_len(n))}
+shift_cycle <- cyc_len
 
 char2cyclist_single <- function (x){
     
@@ -240,8 +253,9 @@ char2cyclist_single <- function (x){
 }
 
 char2cycle <- function(char){
-    ## char2cycle(c("(1,4)(6,7)","(3,4,2)(8,19)", "(56)","(12345)(78)","(78)"))
-    cycle(sapply(char,char2cyclist_single,simplify=FALSE))
+  out <- cycle(sapply(char,char2cyclist_single,simplify=FALSE))
+  if(is.null(names(char))){names(out) <- NULL}
+  return(out)
 }
 
 cycle2word <- function(x,n=NULL){  # cycle2word(as.cycle(1:5))
@@ -611,6 +625,7 @@ sgn <- function(x){
 }
 
 is.even <- function(x){sgn(x)==1}
+is.odd <- function(x){sgn(x) == -1}
 
 are_conjugate_single <- function(a,b){  # difficulties arise with the identity.
     stopifnot((length(a)==1) & (length(b)==1))
