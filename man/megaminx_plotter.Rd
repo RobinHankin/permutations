@@ -29,7 +29,8 @@ megaminx_plotter(megperm=id,offset=c(0,0),M=diag(2),setup=TRUE,...)
   \code{pentagons}, \code{triangles}, and \code{quads} whose meaning and
   genesis is discussed in heavily-documented file \code{inst/guide.R}.
 
-  The diagram is centered on $(0,0)$ which is one vertex of triangle 
+  The diagram is centered so that the common vertex of triangles 28 and
+  82 is at $(0,0)$.
 
 }
 \author{Robin K. S. Hankin}
@@ -40,20 +41,18 @@ megaminx_plotter()  # START
 megaminx_plotter(W) # after turning the White face one click
 megaminx_plotter(superflip)
 
-
-
-
 size <- 0.95
 o <- 290
 
-pdf(file="~/f.pdf")
+\dontrun{
+pdf(file="fig1.pdf")
 megaminx_plotter(M=size*diag(2),offset=c(-o,0),setup=TRUE)
 megaminx_plotter(W,M=size*diag(2),offset=c(+o,0),setup=FALSE)
 dev.off()
 
-pdf(file="~/g.pdf")
+pdf(file="fig2.pdf")
 megaminx_plotter(permprod(sample(megaminx,100,replace=TRUE)),M=size*diag(2),offset=c(-o,0),setup=TRUE)
 megaminx_plotter(superflip,M=size*diag(2),offset=c(+o,0),setup=FALSE)
 dev.off()
-
+}
 }
