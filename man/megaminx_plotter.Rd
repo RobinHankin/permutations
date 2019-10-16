@@ -51,7 +51,8 @@ megaminx_plotter(W,M=size*diag(2),offset=c(+o,0),setup=FALSE)
 dev.off()
 
 pdf(file="fig2.pdf")
-megaminx_plotter(permprod(sample(megaminx,100,replace=TRUE)),M=size*diag(2),offset=c(-o,0),setup=TRUE)
+p <- permprod(sample(megaminx,100,replace=TRUE))
+megaminx_plotter(p,M=size*diag(2),offset=c(-o,0),setup=TRUE)
 megaminx_plotter(superflip,M=size*diag(2),offset=c(+o,0),setup=FALSE)
 dev.off()
 }
