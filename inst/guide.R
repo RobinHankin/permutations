@@ -46,12 +46,12 @@
 ## pentagons[[010]] is c(34,26) which indicates that the first vertex
 ## of the central pentagon in face 010 is at the intersection of
 ## vertical (sic) guide label number 34 and horizontal (sic) guide
-## lable 26.  To verify that this is correct, open
+## label 26.  To verify that this is correct, open
 ## megamix_net_guides.svg in inkscape, then look at pentagon number 1.
 ## Looking at the highest vertex of the central pentagon, double click
 ## on the vertical guideline passing through this vertex; a popup
 ## window reveals that this guideline has label "34".  Then click on
-## the horizongal guideline passing through the vertex and read off
+## the horizontal guideline passing through the vertex and read off
 ## "26".
 
 
