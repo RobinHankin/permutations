@@ -1,12 +1,15 @@
-## This file uses sage idiom to create a group that corresponds to the
-## permutation group of the centers of the faces in the starminx III.
-## In this dodecahedral puzzle each face has sixteen stickers.  Face
-## (or central sticker) numbering follows the megaminx notation.
+# This file uses sage idiom to create a group that corresponds to the
+# permutation group of the centers of the faces in the starminx III.
+# In this dodecahedral puzzle each face has sixteen stickers.  Face
+# (or central sticker) numbering follows the megaminx notation.
 
-## The following five lines are taken verbatim from (heavily
-## documented) files 'dodecahedron_group.py' and
-## 'full_dodecahedron_group.py') but are included here in the
-## interests of making starminx_III.py self-contained. 
+# The following five lines are taken verbatim from (heavily
+# documented) files 'dodecahedron_group.py' and
+# 'full_dodecahedron_group.py') but are included here in the interests
+# of making starminx_III.py self-contained.  They define objects
+# dod_face and full_dod_face which represent the dodecahedron group
+# (which is the group of symmetries of the faces of a dodecahedron),
+# and the full dodecahedron group (which includes reflections).
 
 face1 = PermutationGroupElement([(2,3,4,5,6),(7,11,10,9,8)]) 
 face2 = PermutationGroupElement([(3,1,2),(6,8,4),(9,7,5),(10,12,11)])
@@ -15,9 +18,9 @@ dod_face  = PermutationGroup([face1,face2])
 full_dod_face  = PermutationGroup([face1,face2,face_reflect])
 
 
-## The following 20 lines show the effect of turning one corner on the
-## starminx III.  A dodecahedron has 20 vertices, we have one
-## permutation group element for turning each vertex.
+# The following 20 lines show the effect of turning one corner on the
+# starminx III.  A dodecahedron has 20 vertices, we have one
+# permutation group element for turning each vertex.
 
 corner01 = PermutationGroupElement([( 1,  2,  3)])
 corner02 = PermutationGroupElement([( 1,  3,  4)])
@@ -64,29 +67,35 @@ starminx_centers  = PermutationGroup([
     corner20
 ])
 
+starminx_centers.order()
+starminx_centers.order().factor()
 
-## See whether the dodahedron group is a subgroup of the starminx centers:
+# Motivated by the fact that the order of starminx_centers =
+# factorial(12)/2, we can ask whether the dodahedron group is a
+# subgroup of the starminx centers:
+
 dod_face.is_subgroup(starminx_centers)
-## That gives 'True', so it is.  We can put the centers
+# That gives 'True', so it is. 
 
-## See whether the *full* dodahedron group is a subgroup of the
-## starminx centers:
+# See whether the *full* dodahedron group is a subgroup of the
+# starminx centers:
 fuldod_face.is_subgroup(starminx_centers)
-## That gives 'True' as well.
+# That gives 'True' as well.
 
 
-## OK, but is it normal?
+# OK, but is it normal?
 dod_face.is_normal(starminx_centers)
 fuldod_face.is_normal(starminx_centers)
 
-## Both the above give 'False' (NB: had these returned 'True' I would
-## have had no difficulty explaining that.  It would have been
-## obviously true and I would have accepted its truth without
-## question).
+# Both the above give 'False' (NB: had these returned 'True' I would
+# have had no difficulty explaining that.  It would have been
+# obviously true and I would have accepted its truth without
+# question).
 
-## Next question, is starminx_centers isomorphic to, say an
-## alternating group?
+# Next question, is starminx_centers isomorphic to, say an
+# alternating group?
 starminx_centers.is_isomorphic(AlternatingGroup(12))
 
-## This returns True, so yes it is!  In other words, we can execute
-## any *even* permutation of the faces' centers by starminx III moves.  
+
+# This returns True, so yes it is!  In other words, we can execute
+# any *even* permutation of the faces' centers by starminx III moves.  
