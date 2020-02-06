@@ -30,7 +30,7 @@ megaminx_plotter(megperm=id,offset=c(0,0),M=diag(2),setup=TRUE,...)
   genesis is discussed in heavily-documented file \code{inst/guide.R}.
 
   The diagram is centered so that the common vertex of triangles 28 and
-  82 is at $(0,0)$.
+  82 is at \eqn{(0,0)}.
 
 }
 \author{Robin K. S. Hankin}
