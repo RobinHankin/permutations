@@ -3,7 +3,7 @@
 \alias{fixed.word}
 \alias{fixed.cycle}
 \title{
-Fixed  elements
+Fixed elements
 }
 \description{
 Finds which elements of a permutation object are fixed
@@ -14,7 +14,6 @@ Finds which elements of a permutation object are fixed
 }
 \arguments{
   \item{x}{Object of class \code{word} or \code{cycle}}
-  \item{\dots}{further arguments (currently unused)}
 }
 \value{
 Returns a Boolean vector corresponding to the fixed elements of a permutation.
