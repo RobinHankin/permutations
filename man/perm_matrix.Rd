@@ -19,20 +19,20 @@ pm_to_perm(M)
   \item{p}{Permutation, coerced to word form, of length 1}
   \item{M}{Permutation matrix}
 }
-\value{
+\details{
 
-  Given a permutation \code{p} of size $s$, function
-  \code{perm_matrix()} returns a square matrix with $s$ rows and $s$
-  columns.  Entries are either 0 or 1; each row and each column has
-  exactly one entry of 1 and the rest zero.
+  Given a permutation \code{p} of size \eqn{s}, function
+  \code{perm_matrix()} returns a square matrix with \eqn{s} rows and
+  \eqn{s} columns.  Entries are either 0 or 1; each row and each column
+  has exactly one entry of 1 and the rest zero.
 
   Row and column names of the permutation matrix are integers; this
   makes the printed version more compact.
 
   Function \code{pm_to_perm()} takes a permutation matrix and returns
-  the equivalend permutation in word form.
+  the equivalent permutation in word form.
 }
-\details{
+\note{
 
   Given a word \code{p} with size \code{s}, the idiom for
   \code{perm_matrix()} boils down to
