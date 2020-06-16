@@ -44,8 +44,9 @@ degrees.  See the vignette for more details.
   \acronym{start}.  Object \code{superflip} is a megaminx operation that
   flips each of the 30 edges.
 
-
 }
+\author{Robin K. S. Hankin}
+\seealso{\code{\link{megaminx_plotter}}}
 \examples{
 
 data(megaminx)
