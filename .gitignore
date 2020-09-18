@@ -3,3 +3,5 @@
 .RData
 inst/*.Rout
 inst/megaminx.py
+doc
+Meta
