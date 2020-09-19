@@ -19,7 +19,7 @@ Then we obtain \eqn{w^*}{w*} from \eqn{w} by writing it in standard form
 an erasing the parentheses (that is, viewing the numbers as a
 \emph{word}); here \eqn{w^*=2416753}{w* = 2416753}.
 
-Given this, \eqn{w} may be recoverd by inserting a left parenthesis
+Given this, \eqn{w} may be recovered by inserting a left parenthesis
 preceding every left-to-right maximum, and right parentheses where
 appropriate.
 
