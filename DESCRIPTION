@@ -1,14 +1,16 @@
 Package: permutations
 Type: Package
 Title: The Symmetric Group: Permutations of a Finite Set
-Version: 1.0-7
+Version: 1.0-8
 Imports: magic,numbers,partitions (>= 1.9-17)
-Authors@R: person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415"))
+Authors@R: c(
+    person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415")),
+    person("Paul", "Egeler", email = "paulegeler@gmail.com", role = c("ctb"), comment = c(ORCID = "0000-0001-6948-9498"))
+    )
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 Description: Manipulates invertible functions from a finite set to itself.  Can transform from word form to cycle form and back.
 License: GPL-2
 Suggests: knitr
 VignetteBuilder: knitr
-URL: https://github.com/RobinHankin/permutations.git
+URL: https://github.com/RobinHankin/permutations
 BugReports: https://github.com/RobinHankin/permutations/issues
-
