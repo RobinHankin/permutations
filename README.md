@@ -6,7 +6,7 @@
 [![Build
 Status](https://travis-ci.org/RobinHankin/permutations.svg?branch=master)](https://travis-ci.org/RobinHankin/permutations)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)
-[![Rdoc](http://www.rdocumentation.org/badges/version/permutations)](http://www.rdocumentation.org/packages/permutations)
+[![Rdoc](https://www.rdocumentation.org/badges/version/permutations)](https://www.rdocumentation.org/packages/permutations)
 <!-- badges: end -->
 
 # Overview
@@ -40,9 +40,8 @@ Random permutations on a finite set are given by the `rperm()` command:
 
 ``` r
 rperm(10,9)
-#>  [1] (19524)(37)    (1238794)      (1745682)(39)  (15)(3897)(46)
-#>  [5] (132654789)    (17263)(59)    (136)(47589)   (162)(4795)   
-#>  [9] (14763)(259)   (168347925)
+#>  [1] (19524)(37)    (1238794)      (1745682)(39)  (15)(3897)(46) (132654789)   
+#>  [6] (17263)(59)    (136)(47589)   (162)(4795)    (14763)(259)   (168347925)
 ```
 
 The result is printed in cycle form but we can print in word form if we
