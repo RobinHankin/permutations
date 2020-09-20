@@ -1,5 +1,5 @@
 ---
-title: "The permutations pacakge and representation theory"
+title: "The permutations package and representation theory"
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -24,7 +24,7 @@ options("print_word_as_cycle" = FALSE)
 ```
 
 
-Now we will generate a couple of permutations, ```a``` and ```b```:
+Now we will generate a couple of permutations, `a` and `b`:
 
 
 ```{r}
@@ -43,14 +43,14 @@ colnames(M) <- 1:9
 M
 ```
 
-We will use the map $\phi\colon S_9\longrightarrow\operatorname{Aut}\left(\mathbb{R}^9\right)$ given by $\phi(a)=$ ```M[a,]```.  Then
+We will use the map $\phi\colon S_9\longrightarrow\operatorname{Aut}\left(\mathbb{R}^9\right)$ given by $\phi(a)=$ `M[a,]`.  Then
 
 
 ```{r}
 M[a,]
 ```
 
-permutes the rows of $M$ with permutation ```a```.  Note how the row
+permutes the rows of $M$ with permutation `a`.  Note how the row
 names are permuted as well as the elements of $M$.  Verifying that
 $\phi$ is indeed a homomorphism---that is, $\phi(\iota)=I_9$ and
 $\phi(a)\phi(b)=\phi(a\circ b)$---is straightforward:
@@ -72,7 +72,7 @@ all(M[inverse(a),] == solve(M[a,]))
 again with group inversion on the left and matrix inversion on the
 right.
 
-The map $\psi(a)=$ ```M[,a]``` is not a homomorphism:
+The map $\psi(a)=$ `M[,a]` is not a homomorphism:
 
 
 ```{r}
