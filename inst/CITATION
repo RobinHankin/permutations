@@ -1,0 +1,19 @@
+citHeader("To cite in publications use:")
+
+citEntry(entry = "Article",
+	 title = {paste("Introducing the permutations package")},
+	 author = personList(
+         person(given = c("Robin","K.S."),
+		family = "Hankin",
+		email="hankin.robin@gmail.com")),
+	 journal = "SoftwareX",
+         year = "2020",
+	 volume = "11",
+	 textVersion = {
+             paste("R. K. S. Hankin",
+                   "2020.",
+                   "Introducing the permutations package.",
+	     	   "SoftwareX",
+		   "11)"
+		   )
+         })
