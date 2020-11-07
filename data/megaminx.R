@@ -1,3 +1,5 @@
+# objects created by inst/megaminx.R
+
 `megaminx` <-
 structure(list(White = list(c(10, 12, 14, 16, 18), c(11, 13, 
 15, 17, 19), c(21, 33, 45, 57, 69), c(22, 34, 46, 58, 60), c(23, 
