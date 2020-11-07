@@ -15,8 +15,10 @@ jj <- array(c(
 
 megaminx <- rep(id,12)
 
+chosen <- seq_len(5)  # For megaminx use seq_len(5); for kilominx, use  chosen <- c(2,3,5) 
+
 for(i in seq_len(12)){
-    for(j in seq_len(5)){
+    for(j in chosen){
         megaminx[i] <- megaminx[i] + as.cycle(jj[,j,i])
     }
 }
