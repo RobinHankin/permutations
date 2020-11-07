@@ -8,15 +8,11 @@
 # Most of the dicking about with commas and brackets is to include
 # correct sage syntax in megaminx.py
 
-
 # This file is called by code2.R which adds solid-body rotation and
 # reflection functionality to megaminx.py
 
-# Note that the R functionality of this file is reproduced in
-# zzz_megaminx.R (which is now under version control) in the
-# permutations package.  The last few lines (which create the
-# superflip) appear in jeremy_clark.txt and indeed megaminx.Rd in the
-# package.
+# The last few lines (which create the superflip) appear in
+# jeremy_clark.txt and indeed megaminx.Rd in the package.
 
 
 filename <- "megaminx.py"
