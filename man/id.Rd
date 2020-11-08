@@ -43,7 +43,7 @@ The identity permutations documented here are distinct from the null
 permutations documented at \code{nullperm.Rd}.
 }
   
-\seealso{\code{is.derangement},\code{nullperm}}
+\seealso{\code{\link{is.derangement}},\code{\link{nullperm}}}
 \examples{
 is.id(id)
 
