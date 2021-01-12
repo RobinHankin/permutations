@@ -9,7 +9,7 @@
 ## guidelines added to every point of the net including intersections;
 ## the guides are 'snapped' to position so are accurately placed).
 
-## To create file net_coords,txt, use something like
+## To create file net_coords.txt, use something like
 
 ## cat megaminx_net_guides.svg | egrep 'position="' > net_coords.txt
 
