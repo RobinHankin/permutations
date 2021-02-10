@@ -1,7 +1,8 @@
-require("permutations")
+test_that("Test suite aaa.R",{
+
 
 id <- cycle(list(list()))
-stopifnot(is.id(id))
+expect_true(is.id(id))
 
 
 a1 <- c(3L, 14L, 9L, 18L, 10L, 19L, 4L, 17L, 12L, 7L, 5L, 15L, 1L, 
@@ -42,13 +43,13 @@ xx <- word(matrix(replicate(12,sample(9)),ncol=9,byrow=TRUE))
 jj <- ww
 size(jj) <- 10
 
-stopifnot(all(sgn(ww)*sgn(xx) == sgn(ww*xx)))
+expect_true(all(sgn(ww)*sgn(xx) == sgn(ww*xx)))
 identical(as.word(as.cycle(xx)),xx)
 
 
 
-stopifnot(inverse(thing1)*thing1 == id)
-stopifnot(thing1*inverse(thing1) == id)
+expect_true(all(inverse(thing1)*thing1 == id))
+expect_true(all(thing1*inverse(thing1) == id))
 
 
 a <- as.word(thing1)
@@ -113,14 +114,14 @@ m[4] <- as.cycle(1:40)
 m[6]*m[7]
 
 
-stopifnot(all(p*inverse(p) == id))
-stopifnot(all(inverse(p)*p == id))
+expect_true(all(p*inverse(p) == id))
+expect_true(all(inverse(p)*p == id))
 
-stopifnot(all(p   ==   p^1))
-stopifnot(all(p^2 == p*p^1))
-stopifnot(all(p^3 == p*p^2))
-stopifnot(all(p^4 == p*p^3))
-stopifnot(all(p^5 == p*p^4))
+expect_true(all(p   ==   p^1))
+expect_true(all(p^2 == p*p^1))
+expect_true(all(p^3 == p*p^2))
+expect_true(all(p^4 == p*p^3))
+expect_true(all(p^5 == p*p^4))
 
 
 rep(m,0)
@@ -132,7 +133,7 @@ o1 <- rperm(31,20)
 o2 <- rperm(31,20)
 o3 <- rperm(31,20)
 
-stopifnot(o1^(o2*o3) == (o1^o2)^o3)
+expect_true(all(o1^(o2*o3) == (o1^o2)^o3))
 
 trim(as.word(id))
 trim(word(col(matrix(0,4,5))))
@@ -156,7 +157,7 @@ commutator(commutator(x,y),z^x) *
 commutator(commutator(z,x),y^z) *
 commutator(commutator(y,z),x^y) 
 
-stopifnot(all(is.id(uu)))
+expect_true(all(is.id(uu)))
 
 ## bug in shapepart:
 options(warn=4)
@@ -164,7 +165,7 @@ shapepart(allperms(5))
 
 
 ## bug in sgn(), issue #4:
-stopifnot(sgn(as.cycle("(12)(34)")) == 1)
+expect_true(sgn(as.cycle("(12)(34)")) == 1)
 
 
 ## test for permutation matrix making sense:
@@ -174,18 +175,19 @@ b <- rperm(1,14)
 pa <- perm_matrix(a)
 pb <- perm_matrix(b)
 
-stopifnot(is.perm_matrix(pa))
-stopifnot(is.perm_matrix(pb))
-stopifnot(is.perm_matrix(pa %*% pb))
-stopifnot(is.perm_matrix(pb %*% pa))
+expect_true(is.perm_matrix(pa))
+expect_true(is.perm_matrix(pb))
+expect_true(is.perm_matrix(pa %*% pb))
+expect_true(is.perm_matrix(pb %*% pa))
 
-stopifnot(is.perm_matrix(solve(pa)))
-stopifnot(is.perm_matrix(solve(pb)))
+expect_true(is.perm_matrix(solve(pa)))
+expect_true(is.perm_matrix(solve(pb)))
 
-stopifnot(all(pa==t(solve(pa))))
-stopifnot(all(pb==t(solve(pb))))
+expect_true(all(pa==t(solve(pa))))
+expect_true(all(pb==t(solve(pb))))
 
-stopifnot(all(solve(pa) == perm_matrix(inverse(a))))
-stopifnot(all(solve(pb) == perm_matrix(inverse(b))))
-stopifnot(all(crossprod(pa,pb) == perm_matrix(inverse(a)*b)))
+expect_true(all(solve(pa) == perm_matrix(inverse(a))))
+expect_true(all(solve(pb) == perm_matrix(inverse(b))))
+expect_true(all(crossprod(pa,pb) == perm_matrix(inverse(a)*b)))
 
+})
