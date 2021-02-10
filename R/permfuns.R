@@ -78,7 +78,7 @@ is.word <- function(x){ inherits(x, "word") }
 
 is.cycle <- function(x){ inherits(x,"cycle") }
 
-is.permutation <- function(x){ inherits(x,"permutaton") }
+is.permutation <- function(x){ inherits(x,"permutation") }
 
 as.matrix.word <- function(x,...){unclass(x)}
 
