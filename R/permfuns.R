@@ -216,7 +216,7 @@ as.cycle <- function(x){   # does its best to coerce to cycle form.
         return(x)
     } else if(is.character(x)){
         return(char2cycle(x))
-    } else if(is.vector(x)){
+    } else if(is.vector(x,mode="numeric")){
         return(cycle(list(list(x))))
     } else if(is.list(x) & all(unlist(lapply(x,is.vector)))){ # a cyclist
         return(cycle(list(x)))
@@ -269,8 +269,8 @@ cycle2word <- function(x,n=NULL){  # cycle2word(as.cycle(1:5))
 }
 
 cyclist2word_single <- function(cyc,n){     #converts a cyclist to a single
-                                        #permutation (vecor):
-                                        #cycle2word_single(list(c(1,4,3),c(7,8)))
+                                          #permutation (vector):
+                                        #cyclist2word_single(list(c(1,4,3),c(7,8)))
     
     if(length(unlist(cyc))==0){ return(seq_len(n)) }  # checking for the identity
     maxn <-  max(unlist(cyc,recursive=TRUE))
