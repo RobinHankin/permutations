@@ -49,4 +49,11 @@ test_that("Test suite aac.R",{
     expect_true(is.id(as.cycle()))
 
     expect_error(as.cycle(ls))
+    expect_error(as.cycle(list(1,"a")))
+    
+    expect_true(length(as.cycle(matrix(0,0,0)))==0)
+
+    expect_true(all(cyclist2word_single(list(c(1,4,3),c(7,8)))==c(4,2,1,3,5,6,8,7)))
+    expect_error(cyclist2word_single(list(c(1,4,3),c(7,8)),n=7))
+
 })
