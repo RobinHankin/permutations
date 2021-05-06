@@ -384,7 +384,7 @@ One particularly pleasing pattern on the megaminx is the {\em
   superflip}, shown in Figure~\ref{megaminx:superflip}.  In this
 pattern, each edge piece is in its correct position but flipped over.
 There is an equivalent on the Rubik cube which is of considerable
-theoretical interest~\cite{rokicki2014}: the centre of the cube group
+theoretical interest~\cite{rokicki2013}: the centre of the cube group
 is known to contain only the superflip and the
 identity~\cite{joyner2008}.
 
