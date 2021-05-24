@@ -51,10 +51,10 @@ themselves are invariant under cyclic permutation.  Heigh ho.
 
 A cyclist may be poorly formed in a number of ways: the cycles may
 include repeats, or contain elements which are common to more than one
-cycle.  Such problems are detected by \code{cycle.valid()}.  Also, there
-are less serious problems: the cycles may include length-one cycles; the
-cycles may start with an element that is not the smallest.  These issues
-are dealt with by \code{nicify_cyclist()}.
+cycle.  Such problems are detected by \code{cyclist_valid()}.  Also,
+there are less serious problems: the cycles may include length-one
+cycles; the cycles may start with an element that is not the smallest.
+These issues are dealt with by \code{nicify_cyclist()}.
 
 \itemize{
 
@@ -96,6 +96,9 @@ are dealt with by \code{nicify_cyclist()}.
   The user should use \code{char2cycle()} which executes validity checks
   and coerces to a cycle object.
 }
+
+See also the `cyclist` vignette which contains more details and examples.
+
 }
 
 \author{
