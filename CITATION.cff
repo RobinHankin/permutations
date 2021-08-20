@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Hankin"
+  given-names: "Robin K. S."
+  orcid: "https://orcid.org/0000-0001-5982-0415"
+title: "The permutations R package"
+version: 2.0-1
+url: "https://github.com/RobinHankin/permutations"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Hankin"
+    given-names: "Robin K. S."
+    orcid: "https://orcid.org/0000-0001-5982-0415"
+  doi: "10.1016/j.softx.2020.100453"
+  journal: "SoftwareX"
+  start: 1
+  end: 5
+  title: "Introducing the permutations R package"
+  volume: 11
+  year: 2020
