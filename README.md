@@ -2,8 +2,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
-[![Build
-Status](https://travis-ci.com/RobinHankin/permutations.svg?branch=master)](https://travis-ci.com/RobinHankin/permutations)
+[![Build Status](https://app.travis-ci.com/RobinHankin/permutations.svg?branch=master)](https://app.travis-ci.com/RobinHankin/permutations)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)
 [![Rdoc](https://www.rdocumentation.org/badges/version/permutations)](https://www.rdocumentation.org/packages/permutations)
 <!-- badges: end -->
