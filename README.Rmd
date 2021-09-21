@@ -40,9 +40,9 @@ library("permutations")
 The package is maintained on
 [github](https://github.com/RobinHankin/permutations).	
 
-# The ```permutations``` package in use
+# The `permutations` package in use
 
-Random permutations on a finite set are given by the ```rperm()``` command:
+Random permutations on a finite set are given by the `rperm()` command:
 
 ```{r, echo=FALSE}
 set.seed(0)
@@ -62,7 +62,7 @@ options(print_word_as_cycle=TRUE)  # usually want to print a cycle irregardless
 ```
 
 (A dot indicates a fixed point).  The package uses arithmetic
-operations ```*``` to combine permutations and ```^``` for
+operations `*` to combine permutations and `^` for
 conjugation:
 
 ```{r arith}
