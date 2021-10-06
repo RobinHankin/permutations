@@ -13,6 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+# <img src="man/figures/permutations.png" width = "150" align="right" />
+
 <!-- badges: start -->
 [![Build Status](https://app.travis-ci.com/RobinHankin/permutations.svg?branch=master)](https://app.travis-ci.com/RobinHankin/permutations)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)

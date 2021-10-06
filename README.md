@@ -1,5 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# <img src="man/figures/permutations.png" width = "150" align="right" />
+
 <!-- badges: start -->
 
 [![Build

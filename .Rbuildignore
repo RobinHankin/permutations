@@ -5,3 +5,5 @@ CITATION.cff
 ^\.travis\.yml$
 ^doc$
 ^Meta$
+inst/.RData
+inst/permutations_stickermaker.R
