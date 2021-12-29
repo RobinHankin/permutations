@@ -186,6 +186,7 @@ print.word <- function(x, h=getOption("print_word_as_cycle"), ...){
   if(!identical(h,FALSE)){
     jj <- as.cycle(x)
     print(jj)
+    cat("[coerced from word form]\n")
     return(jj)
   }
 
