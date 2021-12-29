@@ -31,6 +31,9 @@ introducing the permutations package}
   manipulating and displaying permutations of a finite set.  I show how the
   package has been used to investigate the \emph{megaminx} puzzle, and
   exhibit an 82-turn superflip.
+
+  This vignette is based on \cite{hankin2020}.
+
 }
 
 \Keywords{Permutations, megaminx, superflip}
@@ -61,6 +64,9 @@ E-mail: \email{hankin.robin@gmail.com}
 
 
 \begin{document}
+
+\hfill\includegraphics[width=1in]{\Sexpr{system.file("help/figures/permutations.png",package="permutations")}}
+
 
 \section{Overview}
 
@@ -203,7 +209,7 @@ conditions must be verified before an object of class \code{cycle} may
 be created.  Secondly, there are many equivalent ways to represent the
 same permutation and the package includes substantial amount of code
 to coerce cycle-form permutations into a canonical representation; an
-extended discusssion is given in \code{cyclist.Rd}.
+extended discussion is given in \code{cyclist.Rd}.
 
 
 
@@ -229,7 +235,7 @@ again depending directly on one-based indexing used by R.  Note the
 confusing order of operations: on the left hand side, $f$ appears
 first and then $g$; on the right hand side the terms appear in the
 opposite order, ultimately due to prefix notation combined with the
-syntatic sugar of the extraction operator~\code{[()}.  An extended
+syntactic sugar of the extraction operator~\code{[()}.  An extended
   discussion of this issue is given in
   \code{as.function.permutation.Rd} in the package; but the notation
   used here is partly motivated by the preservation of associativity,
