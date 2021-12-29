@@ -1,7 +1,23 @@
 \name{commutator}
 \alias{commutator}
+\alias{dot}
+\alias{.}
+\alias{dot-class}
+\alias{permutation-class}
+\alias{extract}
+\alias{commutator}
+\alias{jacobi}
+\alias{dot_error}
+\alias{[.dot}
+\alias{[,dot-method}
+\alias{[,dot,ANY,ANY-method}
+\alias{[,dot,ANY,missing-method}
+\alias{[,dot,missing,ANY-method}
+\alias{[,dot,missing,missing-method}
+\alias{[,dot,matrix,matrix-method}
+\alias{[,dot,permutation,permutation-method}
 \title{
-Group-theoretic commutator and group action
+Group-theoretic commutator and group action; the dot object
 }
 \description{
 Group-theoretic commutator, defined as \eqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy}
@@ -28,5 +44,8 @@ commutator(commutator(z,x),y^z) *
 commutator(commutator(y,z),x^y) 
 
 stopifnot(all(is.id(uu)))  # this is the  Hall-Witt identity
+
+.[x,y]
+
 
 }

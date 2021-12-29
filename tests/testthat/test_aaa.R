@@ -159,6 +159,11 @@ commutator(commutator(y,z),x^y)
 
 expect_true(all(is.id(uu)))
 
+## Following is the same test more compactly written:
+expect_true(all(is.id(.[.[x,y],z^x] * .[.[z,x],y^z] * .[.[y,z],x^y])))
+
+
+
 ## bug in shapepart:
 options(warn=4)
 shapepart(allperms(5))
