@@ -1,5 +1,7 @@
 \name{rperm}
 \alias{rperm}
+\alias{rword}
+\alias{rcycle}
 \title{
 Random permutations
 }
