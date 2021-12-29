@@ -7,7 +7,7 @@ Random permutations
 Create a word object of random permutations
 }
 \usage{
-rperm(n,r,moved=NA)
+rperm(n=10,r=7,moved=NA)
 }
 \arguments{
   \item{n}{Number of permutations to create}
@@ -32,7 +32,7 @@ Robin K. S. Hankin
 \code{\link{size}}
 }
 \examples{
-rperm(30,9)
+rperm()
 as.cycle(rperm(30,9))
 
 

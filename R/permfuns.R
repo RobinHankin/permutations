@@ -468,7 +468,7 @@ inverse.word <- function(x){   # takes a word, returns a word.  inverse.word(rpe
 
 inverse.cycle <- function(x){ cycle(lapply(x,inverse_cyclist_single)) }
 
-rperm <- function(n,r,moved=NA){
+rperm <- function(n=10,r=7,moved=NA){
     if(is.na(moved)){
         return(word(matrix(replicate(n,sample(seq_len(r))),n,r,byrow=TRUE)))
     } else {
@@ -794,4 +794,5 @@ permprod <- function(x){
     }
 }
 
-
+setOldClass("permutation")
+setMethod("[", signature(x="dot",i="permutation",j="permutation"),function(x, i, j, drop){commutator(i,j)})
