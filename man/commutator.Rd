@@ -47,5 +47,6 @@ stopifnot(all(is.id(uu)))  # this is the  Hall-Witt identity
 
 .[x,y]
 
-
+is.id(.[.[x,y],z^x] * .[.[z,x],y^z] * .[.[y,z],x^y])
+is.id(.[.[x,-y],z]^y * .[.[y,-z],x]^z * .[.[z,-x],y]^x)
 }
