@@ -1,3 +1,8 @@
+# permutations_1.0-10
+
+- mathjax used
+- dot object imported [for commutator] and documented
+
 # permutations_1.0-9
 
 - add a sticker and README
