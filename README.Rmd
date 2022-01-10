@@ -1,4 +1,5 @@
 ---
+title: "Group theory in R: the permutations package"
 output: github_document
 ---
 
@@ -16,9 +17,7 @@ knitr::opts_chunk$set(
 # <img src="man/figures/permutations.png" width = "150" align="right" />
 
 <!-- badges: start -->
-[![Build Status](https://app.travis-ci.com/RobinHankin/permutations.svg?branch=master)](https://app.travis-ci.com/RobinHankin/permutations)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)
-[![Rdoc](https://www.rdocumentation.org/badges/version/permutations)](https://www.rdocumentation.org/packages/permutations)
 <!-- badges: end -->
 
 
@@ -78,6 +77,6 @@ b*a
 
 The *megaminx* is a dodecahedral puzzle with similar construction to
 the Rubik cube puzzle that has 50 movable pieces and 132 coloured
-stickers (``facets'').  The permutations package includes
+stickers ("facets").  The permutations package includes
 functionality to simulate the megaminx and exhibits an 82-turn
 superflip.  The vignette gives an extended discussion.
