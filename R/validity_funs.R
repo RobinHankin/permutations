@@ -1,6 +1,6 @@
 singleword_valid <- function(w){  # takes an integer vector
     if(length(w)==0){return(TRUE)}
-    if(identical(seq_len(max(w)),sort(w))){
+    if(identical(unname(seq_len(max(w))),unname(sort(w)))){
       return(TRUE)
     } else {
       warning("invalid word")
