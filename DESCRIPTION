@@ -2,7 +2,7 @@ Package: permutations
 Type: Package
 Title: The Symmetric Group: Permutations of a Finite Set
 Version: 1.0-9
-Imports: magic,numbers,partitions (>= 1.9-17), freealg (>= 1.0-4)
+Imports: magic,numbers,partitions (>= 1.9-17),freealg (>= 1.0-4),mathjaxr
 Authors@R: c(
     person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415")),
     person("Paul", "Egeler", email = "paulegeler@gmail.com", role = c("ctb"), comment = c(ORCID = "0000-0001-6948-9498"))
@@ -16,3 +16,4 @@ Suggests: rmarkdown,testthat,knitr
 VignetteBuilder: knitr
 URL: https://github.com/RobinHankin/permutations
 BugReports: https://github.com/RobinHankin/permutations/issues
+RdMacros: mathjaxr

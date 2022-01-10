@@ -11,6 +11,8 @@ importFrom("utils","data")
 importClassesFrom("freealg", "dot")
 importMethodsFrom("freealg", "[")
 
+import("mathjaxr")
+
 S3method("[", word)
 S3method("[", cycle)
 S3method("[<-", word)

@@ -16,11 +16,11 @@
 \alias{[,dot,missing,missing-method}
 \alias{[,dot,matrix,matrix-method}
 \alias{[,dot,permutation,permutation-method}
-\title{
-Group-theoretic commutator and group action; the dot object
-}
-\description{
-Group-theoretic commutator, defined as \eqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy}
+\title{Group-theoretic commutator and group action; the dot object}
+\description{\loadmathjax
+Group-theoretic commutator, defined as
+\mjeqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy}.  Package idiom is
+\code{commutator(x,y)} or \code{.[x,y]}. 
 }
 \usage{
 commutator(x, y)
