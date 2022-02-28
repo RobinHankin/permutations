@@ -556,11 +556,11 @@ size.cycle <- function(x){
 }
 
 "size<-.cycle" <- function(x, value){
-    stop("you cannot alter the size of a cycle")
+    stop("cannot alter the size of a cycle")
 }
 
 "length<-.permutation" <- function(x,value){
-    stop("you cannot change the length of a permutation")
+    stop("cannot change the length of a permutation")
 }
 
 length.word <- function(x){ nrow(x) }
@@ -791,7 +791,7 @@ permprod <- function(x){
     if(is.perm_matrix(M)){
         return(as.word(as.vector(which(t(M)>0,arr.ind=TRUE)[,1,drop=TRUE])))
     } else {
-        stop("not a permutation matrix")
+        stop("'M' not a permutation matrix")
     }
 }
 
