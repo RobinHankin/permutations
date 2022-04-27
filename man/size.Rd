@@ -51,9 +51,13 @@ to do so will result in an error.  But you can coerce cycle objects to
 \code{\link{fixed}}
 }
 \examples{
-x <- rperm(10,8)
-size(x)
-size(x) <- 15
+
+size(as.cycle(c("(17)","(123)(45)")))  # should be 7
+
+x <- as.word(as.cycle("123"))
+size(x) <- 9
+x
+
 
 size(as.cycle(1:5) + as.cycle(100:101))
 

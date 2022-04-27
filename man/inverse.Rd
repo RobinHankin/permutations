@@ -48,6 +48,7 @@ Robin K. S. Hankin
 }
 \examples{
 x <- rperm(10,6)
+x
 inverse(x)
 
 all(is.id(x*inverse(x)))  # should be TRUE
