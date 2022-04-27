@@ -55,8 +55,9 @@ to do so will result in an error.  But you can coerce cycle objects to
 size(as.cycle(c("(17)","(123)(45)")))  # should be 7
 
 x <- as.word(as.cycle("123"))
+print_word(x)
 size(x) <- 9
-x
+print_word(x)
 
 
 size(as.cycle(1:5) + as.cycle(100:101))

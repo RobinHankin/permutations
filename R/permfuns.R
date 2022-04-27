@@ -184,13 +184,17 @@ as.word <- function(x,n=NULL){
 print.word <- function(x, h=getOption("print_word_as_cycle"), ...){  
 
   if(!identical(h,FALSE)){
-    jj <- as.cycle(x)
-    print(jj)
-    cat("[coerced from word form]\n")
-    return(jj)
+      jj <- as.cycle(x)
+      print(jj)
+      cat("[coerced from word form]\n")
+      return(jj)
   }
+    print_word(x)
+}
 
-  ## contortions needed because x might have zero columns
+`print_word` <- function(x){
+    x <- as.word(x)
+    ## contortions needed because x might have zero columns
     given <- x
     x <- unclass(x)
     if(is.null(rownames(x)) & length(x)>0){
@@ -311,6 +315,8 @@ print.cycle <- function(x,...){  # x is a cycle.  Use case: print(cycle(list(x,y
         return(invisible(print(noquote(out))))
     }
 }
+
+print_cycle <- function(x){print.cycle(as.cycle(x))}
 
 as.character_cyclist <- function(y,comma=TRUE){
     
