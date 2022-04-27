@@ -119,17 +119,19 @@ helper(e1,e2)
   Robin K. S. Hankin
 }
 \examples{
-x <- rperm(20,9) # word form
-y <- rperm(20,9) # word form
 
-x*y  # word form
 
-x^5  # coerced to cycle form
+x <- rperm(10,9) # word form
+y <- rperm(10,9) # word form
 
-x^as.cycle(1:5)  # group action; coerced to word.
+x*y  # products are given in word form but the print method coerces to cycle form
+print_word(x*y)
+
+x^5  # powers are given in cycle form
+
+x^as.cycle(1:5)  # group action (not integer power!); coerced to word.
 
 x*inverse(x) == id  # all TRUE
-
 
 
 # the 'sum' of two permutations is defined if their cycles are disjoint:
@@ -137,8 +139,6 @@ as.cycle(1:4) + as.cycle(7:9)
 
 data(megaminx)
 megaminx[1] + megaminx[7:12] 
-
-
 
 }
 \keyword{symbolmath}

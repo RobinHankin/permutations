@@ -30,25 +30,19 @@ permutation with its \code{size}.
 It is not possible to set the length of a permutation; this is more
 trouble than it is worth.
 }
-\author{
-Robin K. S. Hankin
-}
-\seealso{
-\code{\link{size}}
-}
+\author{Robin K. S. Hankin}
+\seealso{\code{\link{size}}}
 \examples{
 
-x <- rperm(9,5)
-names(x) <- letters[1:9]
+x <- rperm(5,9)
+x
+names(x) <- letters[1:5]
+x
 
-data(megaminx)
+megaminx
 length(megaminx)   # the megaminx group has 12 generators, one per face.
 size(megaminx)     # the megaminx group is a subgroup of S_129.
 
-
 names(megaminx) <- NULL   # prints more nicely.
 megaminx
-
-
-
 }

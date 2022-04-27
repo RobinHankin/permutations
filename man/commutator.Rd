@@ -34,6 +34,10 @@ Robin K. S. Hankin
 \seealso{\code{\link{group_action}}}
 \examples{
 
+
+.[as.cycle("123456789"),as.cycle("12")]
+
+
 x <- rperm(10,7)
 y <- rperm(10,8)
 z <- rperm(10,9)
