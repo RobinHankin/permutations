@@ -1,0 +1,52 @@
+---
+title: "The dot: commutators and the Hall-Witt identity in R"
+output: bookdown::html_document2
+---
+
+```{r setup}
+set.seed(0)
+knitr::opts_chunk$set(echo = TRUE)
+library("freealg")
+```
+
+<p style="text-align: right;">
+![](`r system.file("help/figures/freealg.png", package = "freealg")`){width=10%}
+</p>
+
+This short document introduces the dot object and shows how it can be
+used to work with commutators and verify the Hall-Wittidentity.  The dot
+object is a (trivial) `S4` object of class `dot`, 
+
+```{r,label=definethedotandsaveit}
+`.` <- new("dot")
+save(".", file="dot.rda") # copy dot.rda to the data/ directory.
+```
+
+The dot uses the `dot` class of the `freealg` package.  The point of
+the dot (!) is that it allows one to calculate the bracket
+$[x,y]=x^{-1}y^{-1}xy$ using R idiom `.[x,y]`.  Thus:
+
+```{r,label=usethedot}
+library("permutations")
+x <- as.cycle(1:3)
+y <- as.cycle(2:5)
+x^-1*y^-1*x*y
+.[x,y]
+```
+
+It would have been nice to use \code{[x,y]} (that is, without the dot)
+but although this is syntactically consistent, it cannot be done in R
+AFAICS.
+
+It is possible to apply the dot construction `.[x,y]` to more
+complicated examples.  Note that the Jacobi identity does not really
+make sense in this context, but the Hall-Witt identity does:
+
+```{r,label=hallwittidentity}
+
+x <- rperm(10,7)
+y <- rperm(10,8)
+z <- rperm(10,9)
+.[.[x,y],z^x] * .[.[z,x],y^z] * .[.[y,z],x^y]
+```
+

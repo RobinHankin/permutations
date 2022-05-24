@@ -20,7 +20,10 @@
 \description{\loadmathjax
 Group-theoretic commutator, defined as
 \mjeqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy}.  Package idiom is
-\code{commutator(x,y)} or \code{.[x,y]}. 
+\code{commutator(x,y)} or \code{.[x,y]}.
+
+The \dQuote{dot} object is defined and discussed in \code{inst/dot.Rmd},
+which creates file \code{data/dot.rda}.
 }
 \usage{
 commutator(x, y)
