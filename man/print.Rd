@@ -2,6 +2,8 @@
 \alias{print.permutation}
 \alias{print.word}
 \alias{print.cycle}
+\alias{print_word}
+\alias{print_cycle}
 \alias{as.character.cycle}
 \alias{as.character_cyclist}
 \title{
@@ -46,6 +48,16 @@ Returns its argument invisibly, after printing it.
   Function \code{as.character_cyclist()} is an internal function used by
   \code{print.cycle()}, and is not really designed for the end-user.  It
   takes a cyclist and returns a character string.
+
+  Function \code{print_word()} and \code{print_cycle()} are provided for
+  power users.  These functions print their argument directly as word or
+  cycle form; they coerce to the appropriate form.  Use
+  \code{print_word()} if you have a permutation in word form and want to
+  inspect it as a word form but (for some reason) do not want to set
+  \code{options("print_word_as_cycle")}.  See \code{size.Rd} for a
+  use-case.
+
+
 }
 
 \author{

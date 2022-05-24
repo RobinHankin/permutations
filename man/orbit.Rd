@@ -25,7 +25,8 @@ orbit(cyc,n)
   end-user.
 
   Function \code{orbit()} is the vectorized equivalent of
-  \code{orbit_single()}.
+  \code{orbit_single()}.  Vectorization is inherited from
+  \code{cbind()}. 
   
 }
 \author{
@@ -35,13 +36,13 @@ Robin K. S. Hankin
 \code{\link{fixed}}
 }
 \examples{
+
+orbit(as.cycle("(123)"),1:5)
+orbit(as.cycle(c("(12)","(123)(45)","(2345)")),1)
+orbit(as.cycle(c("(12)","(123)(45)","(2345)")),1:3)
+
 data(megaminx)
 orbit(megaminx,13)
-
-
-# orbit() is vectorized:
-x <- cycle(list(list(a=1:2,4:6,8:10)))
-orbit(x,1:10)
 
 }
 \keyword{symbolmath}

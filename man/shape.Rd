@@ -49,8 +49,14 @@ Robin K. S. Hankin
 \code{\link{size}}
 }
 \examples{
-shape(rperm(10,9)) # coerced to cycle
 
+jj <- as.cycle(c("123","","(12)(34)","12345"))
+jj
+shape(jj)
+
+
+
+shape(rperm(10,9)) # coerced to cycle
 
 
 data(megaminx)
@@ -58,8 +64,11 @@ data(megaminx)
 shape(megaminx)
 jj <- megaminx*megaminx[1]
 
-stopifnot(identical(shape(jj),shape(tidy(jj))))  #tidy() does not change shape
+identical(shape(jj),shape(tidy(jj)))  #tidy() does not change shape
 
+
+allperms(3)
+shapepart(allperms(3))
 shapepart(rperm(10,5))
 
 shape_cyclist(list(1:4,8:9))

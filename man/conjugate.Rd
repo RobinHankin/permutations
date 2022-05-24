@@ -47,6 +47,10 @@ permutations; permutations are coerced to cycle form because function
 }
 \examples{
 
+
+as.cycle("(123)(45)") \%~\% as.cycle("(89)(712)")  # same shape
+as.cycle("(123)(45)") \%~\% as.cycle("(89)(7124)") # different shape
+
 are_conjugate(rperm(20,3),rperm(20,3))
 
 rperm(20,3) \%~\% as.cycle(1:3)

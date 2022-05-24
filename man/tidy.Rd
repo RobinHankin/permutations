@@ -42,7 +42,9 @@ permutations is given
 \code{\link{fixed}},\code{\link{size}},\code{\link{nicify_cyclist}}
 }
 \examples{
+as.cycle(5:3)+as.cycle(7:9)
 tidy(as.cycle(5:3)+as.cycle(7:9))
+
 as.cycle(tidy(c(as.cycle(1:2),as.cycle(6:7))))
 
 
@@ -54,9 +56,6 @@ stopifnot(all(unique(sort(unlist(as.cycle(tidy(megaminx)),recursive=TRUE)))==1:1
 
 jj <- megaminx*megaminx[1]
 stopifnot(identical(shape(jj),shape(tidy(jj))))  #tidy() does not change shape
-
-
-
 
 }
 

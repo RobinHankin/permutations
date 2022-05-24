@@ -7,7 +7,7 @@
         } else if (.Generic == "-") {
             return(inverse(e1))
     } else {
-        stop("Unary operator '", .Generic, "' is not implemented for permutations")
+        stop("unary operator '", .Generic, "' is not implemented for permutations")
     }
   }
 
@@ -28,16 +28,16 @@
         } else if (.Generic == "+") {
             return(cycle_sum(e1,e2))
         } else {
-            stop(paste("<perm>", .Generic, "<perm> not defined",collapse=" "))
+            stop(gettextf("<perm> %s <perm> not defined", .Generic))
         }
     } else if (lclass && !rclass){
           if(.Generic == "^"){
             return(cycle_power(e1,e2))   #e2 should be an integer
         } else {
-            stop(paste("<perm>", .Generic, "<non-perm> is not defined ",collapse=" "))
+            stop(gettextf("<perm> %s <non-perm> is not defined", .Generic))
         }
       } else if (!lclass && rclass){
-          stop(paste("<non-perm>", .Generic, "<perm> is not defined ",collapse=" "))
+          stop(gettextf("<non-perm> %s <perm> is not defined ", .Generic))
       } else if (!lclass && !rclass){
           stop("should not reach here")
       } else {

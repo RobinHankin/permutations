@@ -28,5 +28,14 @@ Robin K. S. Hankin
 }
 \seealso{\code{id}}
 \examples{
+
+allperms(4)
+is.derangement(allperms(4))
+
+M <- matrix(c(1,2,3,4, 2,3,4,1, 3,2,4,1),byrow=TRUE,ncol=4)
+M
+is.derangement(word(M))
+
 is.derangement(rperm(16,4))
+
 }
