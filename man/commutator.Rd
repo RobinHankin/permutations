@@ -16,6 +16,7 @@
 \alias{[,dot,missing,missing-method}
 \alias{[,dot,matrix,matrix-method}
 \alias{[,dot,permutation,permutation-method}
+\alias{[,dot,permutation,permutation,ANY-method}
 \title{Group-theoretic commutator and group action; the dot object}
 \description{\loadmathjax
 Group-theoretic commutator, defined as
