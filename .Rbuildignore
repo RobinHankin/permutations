@@ -7,3 +7,8 @@ CITATION.cff
 ^Meta$
 inst/.RData
 inst/permutations_stickermaker.R
+inst/megaminx_net_guides.svg
+inst/permutations_icon.png
+vignettes/megaminx_neg.svg
+vignettes/start.jpg
+vignettes/superflip.jpg
