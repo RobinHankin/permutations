@@ -48,7 +48,7 @@ form we would have:
 Expressed in functional notation, we have a function $a\colon
 [6]\rightarrow [6]$ (here $[n]=\left\{1,2,\ldots,n\right\}$); and we
 have $a(1)=4$, $a(2)=5$, $a(3)=3$, and so on.  If these were objects,
-we might want to keep track of where thet are.  We would say: "at the
+we might want to keep track of where they are.  We would say: "at the
 start, object $i$ sits in place $i$, $i\in[6]$.  Then, after the move,
 object 1 is in place 4, object 2 in place 5, object 3 in place 3, and
 so on".  This information is encapsulated by `as.word(a)`.  In R
@@ -93,7 +93,8 @@ need to rearrange the permutation:
 \right)
 \]
 
-In the above, it is easy to see that the rearrangement of permutation is equivalent to taking a group-theoretic inverse:
+In the above, it is easy to see that the rearrangement of permutation
+is equivalent to taking a group-theoretic inverse:
 
 ```{r}
 inverse(a)
@@ -297,8 +298,10 @@ composition "`*`" is used in exactly the same way for active and
 passive permutations, but with a different meaning which requires us
 to reverse the order of permutations.
 
-To express the result, `ab_passive` in active language we need to
-take the group-theoretic inverse of the composition.  Recalling that passive transforms are the group-theoretic inverses of the same active transformation, in algebraic notation we would have
+To express the result, `ab_passive` in active language we need to take
+the group-theoretic inverse of the composition.  Recalling that
+passive transforms are the group-theoretic inverses of the same active
+transformation, in algebraic notation we would have
 
 \[
 \left(a^{-1}b^{-1}\right)^{-1}=ab;\qquad
@@ -315,7 +318,8 @@ inverse(b) * inverse(a) == inverse(a*b) # note b precedes a on LHS
 
 # Permutation matrices
 
-Now we will show how permutation matrices work and how they deal with active and passive language.
+Now we will show how permutation matrices work and how they deal with
+active and passive language.
 
 
 ```{r}
@@ -411,9 +415,4 @@ AB=\left(B^{-1}A^{-1}\right)^{-1}
 instead.
 
 
-
-
-
-
-
-https://en.wikiversity.org/wiki/Permutation_notation
+[reference](https://en.wikiversity.org/wiki/Permutation_notation)
