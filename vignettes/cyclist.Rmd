@@ -4,7 +4,7 @@ author: "Robin K. S. Hankin"
 output: html_document
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{cylist}
+  %\VignetteIndexEntry{cyclist}
   %\usepackage[utf8]{inputenc}
 ---
 
@@ -73,7 +73,7 @@ nicify_cyclist(a)
 
 Also, there are less serious problems: the cycles may include
 length-one cycles; the cycles may start with an element that is not
-the smallest (these are not serious in the sense that their presense
+the smallest (these are not serious in the sense that their presence
 does not destroy the interpretation of the argument as a permutation).
 These issues are dealt with by `nicify_cyclist()`, which calls helper
 function `remove_length_one()`:
