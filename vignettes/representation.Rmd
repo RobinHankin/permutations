@@ -2,10 +2,18 @@
 title: "The permutations package and representation theory"
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
-output: pdf_document
-vignette: |
-  %\VignetteIndexEntry{representation} %\VignetteEngine{knitr::rmarkdown} %\VignetteEncoding{UTF-8}
+vignette: >
+  %\VignetteIndexEntry{representation_theory}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+<p style="text-align: right;">
+![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
+</p>
+
+
 
 ```{r set-options, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>", dev = "png", fig.width = 7, fig.height = 3.5, message = FALSE, warning = FALSE)
