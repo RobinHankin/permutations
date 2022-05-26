@@ -51,7 +51,11 @@ pm_to_perm(M)
     M
   }
 
-  which might be useful sometime.  
+  which might be useful sometime.
+
+  See also the \code{representation} and \code{order_of_ops} vignettes, which
+  discuss permutation matrices.
+  
 }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{permutation}}}
