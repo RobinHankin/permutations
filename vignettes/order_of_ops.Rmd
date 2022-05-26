@@ -8,6 +8,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+<p style="text-align: right;">
+![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
+</p>
+
+
 Order of operations can be confusing when considering permutation
 groups.  Here I discuss active and passive transforms, order of
 operations, prefix and postfix notation, and associativity from the
@@ -274,7 +279,7 @@ passive transformation, that is, a matrix with the same row labels as,
 say `a_passive` and first row `1:6`.  Let us call the result
 of these two permutations `ab_passive`.  Given that
 `ab_passive[1,1]=1`, we ask "what is `ab_passive[2,1]`?
-column 1 is "1".  This is equivalent to asking, "we have just
+This is equivalent to asking, "we have just
 performed permutation `a` followed by `b`.  The object
 currently in place 1: where was it before this composition of
 permutations?"
