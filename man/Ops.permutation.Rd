@@ -57,12 +57,12 @@ helper(e1,e2)
 
   Raising permutations to integer powers, as in \code{a^n}, is
   \code{cycle_power(a,n)}; it coerces \code{a} to cycle form and returns
-  a cycle. Negative and zero values of \code{n} operate as expected.
-  Function \code{cycle_power()} is vectorized; it calls
-  \code{cycle_power_single()}, which is not. This calls \code{vps()}
-  (\dQuote{Vector Power Single}), which checks for simple cases such as
-  \code{pow=0} or the identity permutation; and function \code{vps()}
-  calls function \code{ccps()} which performs the actual
+  a cycle (even if \mjseqn{n=1}).  Negative and zero values of \code{n}
+  operate as expected.  Function \code{cycle_power()} is vectorized; it
+  calls \code{cycle_power_single()}, which is not.  This calls
+  \code{vps()} (\dQuote{Vector Power Single}), which checks for simple
+  cases such as \code{pow=0} or the identity permutation; and function
+  \code{vps()} calls function \code{ccps()} which performs the actual
   number-theoretic manipulation to raise a cycle to a power.
 
   Raising a permutation to the power of another permutation, as in
@@ -118,7 +118,7 @@ helper(e1,e2)
   However, redefining the exclamation mark to give permutation
   inverses, while possible, is not desirable because its precedence is
   too low.  One would like \code{!x*y} to return \code{inverse(x)*y}
-  but instead standard precendence rules means that it returns
+  but instead standard precedence rules means that it returns
   \code{inverse(x*y)}.  Earlier versions of the package interpreted
   \code{!x} as \code{inverse(x)}, but it was a disaster: to implement
   the commutator \mjeqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy},
