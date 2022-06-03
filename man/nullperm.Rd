@@ -14,7 +14,7 @@ nullword
 }
 \format{
   Object \code{nullcycle} is an empty list coerced to class
-  \code{cycle}, specfically \code{cycle(list())}
+  \code{cycle}, specifically \code{cycle(list())}
   
   Object \code{nullword} is a zero-row matrix, coerced to \code{word},
   specifically \code{word(matrix(integer(0),0,0))}  
