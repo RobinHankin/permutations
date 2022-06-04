@@ -20,7 +20,11 @@ Robin K. S. Hankin
 }
 \note{
 Multiplication of permutations loses associativity when using functional
-notation; see examples
+notation; see examples.
+
+Also, note that the coerced function will not take an argument greater
+than the size (qv) of the permutation.
+
 }
 \examples{
 x <- cyc_len(3)
