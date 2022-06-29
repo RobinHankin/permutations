@@ -141,5 +141,13 @@ takes a list of cyclists and returns an object of class `cycle`.  It
 nicifies its input before returning it:
 
 ```{r}
-cycle(list(list(c(1,2,4),c(3,6)),list(c(1,2),c(3,4,5,6,7))))
+(a <- list(list(c(1,2,4),c(3,6)),list(c(1,2),c(3,4,5,6,7))))
+cycle(a)
+```
+
+However, it might be more convenient in practice to use `as.cycle()`:
+
+
+```{r}
+as.cycle(c("(124)(36)", "(12)(34567)"))
 ```
