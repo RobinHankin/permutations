@@ -11,3 +11,7 @@
 - add an adjoint function ad()
 - new vignette: adjoint.Rmd
 - kilominx and starminx functionality
+
+# permutations_1.1-0
+
+- faro shuffles
