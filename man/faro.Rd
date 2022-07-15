@@ -20,13 +20,15 @@ and the set of packs before interleaving.
 }
 \usage{
 faro(n, out = TRUE)
-faro_gen(n,m,p1=id,p2=id)
+faro_gen(n,m,p1=id,p2=id,interleave=TRUE)
 }
 \arguments{
   \item{n}{Number of cards in each pack}
   \item{m}{Number of packs}
   \item{p1,p2}{Permutations for cards and packs respectively, coerced to
     word form}
+  \item{interleave}{Boolean, with default \code{TRUE} meaning to
+    actually perform the interleaving and \code{FALSE} meaning not to}
   \item{out}{Boolean, with default \code{TRUE} meaning to return an
     out-shuffle and \code{FALSE} meaning to return an in-shuffle}
 }
@@ -37,7 +39,8 @@ faro(4)
 faro(4,FALSE)
 
 faro_gen(9,3)
-faro_gen(9,3,cyc_len(9),cyc_len(3))
+faro_gen(7,4,cyc_len(7),cyc_len(4))
+faro_gen(7,4,cyc_len(7),cyc_len(4),interleave=FALSE)
 
 sapply(seq_len(10),function(n){permorder(faro(n,FALSE))}) # OEIS  A002326
 }
