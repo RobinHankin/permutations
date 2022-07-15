@@ -14,8 +14,10 @@ out-shuffle} takes the first card from \code{1:n} and a \dfn{faro
 in-shuffle} takes the first card from \code{(n+1):(2*n)}.
 
 A \dfn{generalized faro shuffle}, \code{faro_gen()}, splits the pack
-into \code{m} equal parts and applies the same permutation to each pack
-and the set of packs before interleaving.
+into \code{m} equal parts and applies the same permutation to each pack,
+and the same permutation to each set of packs, before interleaving.
+The interleaving itself is simply a matrix transpose; it is possible to
+omit this step by passing \code{interleave=FALSE}.
 
 }
 \usage{
