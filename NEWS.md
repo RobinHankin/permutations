@@ -15,3 +15,4 @@
 # permutations_1.1-0
 
 - faro shuffles
+- All cycles of a given length, and random cycles of a given length
