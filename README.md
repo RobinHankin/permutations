@@ -40,30 +40,31 @@ The package is maintained on
 Random permutations on a finite set are given by the `rperm()` command:
 
 ``` r
-rperm(10,9)
+(x <- rperm(10,9))
 #>  [1] (19524)(37)    (1238794)      (1745682)(39)  (15)(3897)(46) (132654789)   
 #>  [6] (17263)(59)    (136)(47589)   (162)(4795)    (14763)(259)   (168347925)   
 #> [coerced from word form]
 ```
 
-The result is printed in cycle form but we can print in word form if we
-wish:
+Above, object `x` is internally stored as a matrix (word form) but the
+result is printed in cycle form by default, as this is easier to
+understand. We can print in word form if we wish:
 
 ``` r
 options(print_word_as_cycle=FALSE)  # override default
-as.word(rperm(10,9,3))
+as.word(x)
 #>      {1} {2} {3} {4} {5} {6} {7} {8} {9}
-#> [1]  7   .   .   .   .   .   9   .   1  
-#> [2]  .   9   2   .   .   .   .   .   3  
-#> [3]  .   .   .   .   .   .   .   .   .  
-#> [4]  3   .   1   .   .   .   .   .   .  
-#> [5]  .   8   .   .   2   .   .   5   .  
-#> [6]  .   .   .   6   .   4   .   .   .  
-#> [7]  .   .   .   .   .   .   .   .   .  
-#> [8]  .   .   .   8   .   .   .   4   .  
-#> [9]  6   .   1   .   .   3   .   .   .  
-#> [10] .   .   .   9   .   .   .   .   4
-options(print_word_as_cycle=TRUE)  # usually want to print a cycle irregardless
+#> [1]  9   4   7   1   2   .   3   .   5  
+#> [2]  2   3   8   1   .   .   9   7   4  
+#> [3]  7   1   9   5   6   8   4   2   3  
+#> [4]  5   .   8   6   1   4   3   9   7  
+#> [5]  3   6   2   7   4   5   8   9   1  
+#> [6]  7   6   1   .   9   3   2   .   5  
+#> [7]  3   .   6   7   8   1   5   9   4  
+#> [8]  6   1   .   7   4   2   9   .   5  
+#> [9]  4   5   1   7   9   3   6   .   2  
+#> [10] 6   5   4   7   1   8   9   3   2
+options(print_word_as_cycle=TRUE)  # restore default: we usually want to print a cycle irregardless
 ```
 
 (A dot indicates a fixed point). The package uses arithmetic operations

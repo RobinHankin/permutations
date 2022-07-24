@@ -51,15 +51,18 @@ set.seed(0)
 
 
 ```{r rperm}
-rperm(10,9)
+(x <- rperm(10,9))
 ```
 
-The result is printed in cycle form but we can print in word form if we wish:
+Above, object `x` is internally stored as a matrix (word form) but the
+result is printed in cycle form by default, as this is easier to
+understand.  We can print in word form if we wish:
+
 
 ```{r wordformprint}
 options(print_word_as_cycle=FALSE)  # override default
-as.word(rperm(10,9,3))
-options(print_word_as_cycle=TRUE)  # usually want to print a cycle irregardless
+as.word(x)
+options(print_word_as_cycle=TRUE)  # restore default: we usually want to print a cycle irregardless
 ```
 
 (A dot indicates a fixed point).  The package uses arithmetic
