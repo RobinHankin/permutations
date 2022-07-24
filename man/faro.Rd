@@ -45,4 +45,8 @@ faro_gen(7,4,cyc_len(7),cyc_len(4))
 faro_gen(7,4,cyc_len(7),cyc_len(4),interleave=FALSE)
 
 sapply(seq_len(10),function(n){permorder(faro(n,FALSE))}) # OEIS  A002326
+
+plot(as.vector(as.word(faro(10))),type='b')
+plot(as.vector(faro_gen(8,5,p1=cyc_len(8)^2,interleave=FALSE)))
+
 }
