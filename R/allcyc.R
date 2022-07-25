@@ -22,10 +22,10 @@
     return(as.word(out))
 }
 
-`r1cyc` <- function(r){
-    out <- sample(seq_len(r))
-    for(i in seq_len(r-1)){
-        j <- sample(seq(from=i+1,to=r),1)
+`r1cyc` <- function(len,r=len){
+    out <- sample(seq_len(r),len)
+    for(i in seq_len(len-1)){
+        j <- sample(seq(from=i+1,to=len),1)
         swap <- out[i]
         out[i] <- out[j]
         out[j] <- swap
@@ -33,10 +33,10 @@
     return(out)
 }
  
-`rcyc` <- function(n,r){
+`rcyc` <- function(n,len,r=len){
     out <- matrix(0,n,r)
     for(i in seq_len(n)){
-        out[i,] <- as.word(as.cycle(r1cyc(r)))
+        out[i,] <- as.word(as.cycle(r1cyc(len,r)),r)
     }
     return(as.cycle(out))
 }   
