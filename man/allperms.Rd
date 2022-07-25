@@ -22,18 +22,19 @@ Function \code{allperms()} is very basic (the idiom is
 \code{word(t(partitions::perms(n)))}) but is here for completeness.
 }
 \author{Robin K. S. Hankin}
+\seealso{\code{\link{allperms}}}
 \references{M. C. Er 1989 \dQuote{Efficient
   enumeration of cyclic permutations in situ}.  \emph{International
   Journal of Computer Mathematics}, volume 29:2-4, pp121-129.
 }
-\note{Function \code{allcyc()} is taken directly Er's
+\note{Function \code{allcyc()} is taken directly from Er's
   \dQuote{fine-tuned} algorithm.  It should really be implemented in
   \proglang{C} as part of the \pkg{partitions} package but I have not
   yet got round to this.
 }
 \examples{
 
-as.cycle(allperms(5))
+allperms(5)
 
 allcyc(5)
 
