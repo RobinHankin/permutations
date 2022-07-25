@@ -47,9 +47,7 @@ to do so will result in an error.  But you can coerce cycle objects to
 
 }
 \author{Robin K. S. Hankin}
-\seealso{
-\code{\link{fixed}}
-}
+\seealso{\code{\link{fixed}}}
 \examples{
 
 size(as.cycle(c("(17)","(123)(45)")))  # should be 7
