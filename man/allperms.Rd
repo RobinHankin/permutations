@@ -3,7 +3,9 @@
 \alias{allcyc}
 \alias{allcycles}
 \title{All permutations of a given size and all cycles of a given length}
+
 \description{\loadmathjax
+
 Function \code{allperms()} returns all \mjseqn{n} factorial permutations
 of a set.  Function \code{allcyc()} returns all \mjseqn{(n-1)!}
 permutations comprising a single cycle of length \mjseqn{n}.
@@ -16,7 +18,8 @@ allcyc(n)
   \item{n}{The size of the set, integer}
 }
 \details{
-The function is very basic (the idiom is \code{word(t(partitions::perms(n)))}) but is here for completeness.
+Function \code{allperms()} is very basic (the idiom is
+\code{word(t(partitions::perms(n)))}) but is here for completeness.
 }
 \author{Robin K. S. Hankin}
 \references{M. C. Er 1989 \dQuote{Efficient
