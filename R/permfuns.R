@@ -804,4 +804,4 @@ permprod <- function(x){
 setOldClass("permutation")
 setMethod("[", signature(x="dot",i="permutation",j="permutation"),function(x, i, j, drop){commutator(i,j)})
 
-`capply` <- function(X,fun){cycle(lapply(as.cycle(X),function(x){lapply(x,fun)}))}
+`capply` <- function(X,fun,...){cycle(lapply(as.cycle(X),function(x){lapply(x,fun,...)}))}
