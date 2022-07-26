@@ -7,12 +7,8 @@
 \alias{nicify_cyclist}
 \alias{nicify}
 \alias{remove_length_one}
-\title{
-details of cyclists
-}
-\description{
-  Various functionality to deal with cyclists 
-}
+\title{details of cyclists}
+\description{Various functionality to deal with cyclists}
 \usage{
 vec2cyclist_single(p)
 vec2cyclist_single_cpp(p)
@@ -35,7 +31,9 @@ nicify_cyclist(x,rm1=TRUE, smallest_first=TRUE)
 A \dfn{cyclist} is an object corresponding to a permutation P.  It is a
 list with elements that are integer vectors corresponding to the cycles
 of P.  This object is informally known as a cyclist, but there is no S3
-class corresponding to it.
+class corresponding to it.  In general use, one should not usually deal
+with cycles at all: they are internal low-level objects not intended for
+the user.
 
 An object of S3 class \dfn{cycle} is a (possibly named) list of
 cyclists.  NB: there is an unavoidable notational clash here.  When
@@ -44,9 +42,9 @@ cycle; when considering R objects, \dQuote{cycle} means \dQuote{an R
 object of class \dfn{cycle} whose elements are permutations written in
 cycle form}.
 
-The elements of a cyclist are the disjoint group-theoretic cycles.  Note the
-redundancies inherent: firstly, because the cycles commute, their order
-is immaterial (and a list is ordered); and secondly, the cycles
+The elements of a cyclist are the disjoint group-theoretic cycles.  Note
+the redundancies inherent: firstly, because the cycles commute, their
+order is immaterial (and a list is ordered); and secondly, the cycles
 themselves are invariant under cyclic permutation.  Heigh ho.
 
 A cyclist may be poorly formed in a number of ways: the cycles may
