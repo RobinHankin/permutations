@@ -32,15 +32,16 @@ A \dfn{cyclist} is an object corresponding to a permutation P.  It is a
 list with elements that are integer vectors corresponding to the cycles
 of P.  This object is informally known as a cyclist, but there is no S3
 class corresponding to it.  In general use, one should not usually deal
-with cycles at all: they are internal low-level objects not intended for
-the user.
+with cyclists at all: they are internal low-level objects not intended
+for the user.
 
 An object of S3 class \dfn{cycle} is a (possibly named) list of
 cyclists.  NB: there is an unavoidable notational clash here.  When
 considering a single permutation, \dQuote{cycle} means group-theoretic
-cycle; when considering R objects, \dQuote{cycle} means \dQuote{an R
-object of class \dfn{cycle} whose elements are permutations written in
-cycle form}.
+cycle [eg \mjeqn{1\longrightarrow 2\longrightarrow 3\longrightarrow 1}{1
+-> 2 ->3 ->1}]; when considering R objects, \dQuote{cycle} means
+\dQuote{an R object of class \dfn{cycle} whose elements are permutations
+written in cycle form}.
 
 The elements of a cyclist are the disjoint group-theoretic cycles.  Note
 the redundancies inherent: firstly, because the cycles commute, their
