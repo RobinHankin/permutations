@@ -69,7 +69,12 @@ that the edge cycle might be third, fourth, or fifth on the row.
 File data.txt has an extra space between five-cycles.  This is for
 readability, and has no effect.
 
-In a sage session, after executing megaminx.py, observe that
+In a sage session, execute "megaminx.py" with something like
+
+load("/Users/rhankin/rstudio/permutations/inst/megaminx.py")
+
+(NB: this caused sage 9.5 to crash repeatedly when run via jupyter,
+although it worked fine on the command line).  In sage, observe that
 superflip*superflip is the identity (and therefore its own inverse).
 
 Further, observe that megaminx.orbits() includes the non-existent
