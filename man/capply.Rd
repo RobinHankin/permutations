@@ -24,7 +24,11 @@ capply(x,rev)
 
 all(is.id(capply(x,rev)*x))  # should be TRUE
 
+capply(rcyc(20,5,9),order)
+
 capply(rcyc(20,5,9),sample)  # still 5-cycles
+
+
 
 
 }
