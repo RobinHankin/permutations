@@ -442,7 +442,7 @@ stopifnot(superflip82 == superflip83)
 
 
 \begin{figure}[h]
-  \centering \includegraphics{megaminx_net.pdf}
+  \centering \includegraphics{megaminx_net_colour.pdf}
   \caption{Megaminx net.\label{megaminx_net} showing the facet
     numbering scheme.  In each pentagonal face, the facet number is
     given by ten times the central large number, and the unit is given
