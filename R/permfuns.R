@@ -197,16 +197,23 @@ print.word <- function(x, h=getOption("print_word_as_cycle"), ...){
     ## contortions needed because x might have zero columns
     given <- x
     x <- unclass(x)
+    ps <- getOption("perm_set")
     if(is.null(rownames(x)) & length(x)>0){
         rownames(x) <- paste("[",seq_len(nrow(x)),"]",sep="")
     }
     if(ncol(x)>0){
-        colnames(x) <- paste("{",seq_len(ncol(x)),"}",sep="")
+        if(is.null(ps)){
+            colnames(x) <- paste("{",seq_len(ncol(x)),"}",sep="")
+        } else {
+            colnames(x) <- paste("{",ps[seq_len(ncol(x))],"}",sep="")
+        }
     } else {
         cat(" {}")
     }
-    jj <- x        
-    jj[jj==col(jj)] <- '.'
+    jj <- x
+    dots <- x==col(x)
+    jj[dots] <- '.'
+    if(!is.null(ps)){jj[!dots] <- ps[x[!dots]]}
     print(noquote(jj))
     return(invisible(given))
 }
@@ -326,7 +333,8 @@ as.character_cyclist <- function(y,comma=TRUE){
     ## as.character_cyclist(list(c(1,5,4),c(2,9)),comma=TRUE)
     
     if(length(y)==0){return("()")}
-    
+    ps <- getOption("perm_set")
+    if(!is.null(ps)){y <- lapply(y,function(x){ps[x]})}
     if(comma){s <- ","} else {s <- ""}
     paste(sapply(y,function(u){paste(paste("(",paste(u,collapse=s),sep=""),")",sep="")}),collapse="")
 }

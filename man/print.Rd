@@ -9,7 +9,7 @@
 \title{
 Print methods for permutation objects
 }
-\description{
+\description{\loadmathjax
 Print methods for permutation objects with matrix-like printing for
 words and bracket notation for cycle objects.
 }
@@ -57,7 +57,22 @@ Returns its argument invisibly, after printing it.
   \code{options("print_word_as_cycle")}.  See \code{size.Rd} for a
   use-case.
 
+  The print method includes experimental functionality to display
+  permutations of sets other than the default of integers
+  \mjeqn{1,2,\ldots, n}{1,2,...,n}.  Both cycle and word print methods
+  are sensitive to option \code{perm_set}.  The symbols may be the
+  elements of any character vector; use idiom such as
 
+  \preformatted{options("perm_set" = letters)}
+
+  to override the default.  It is possible to use vectors with elements
+  of more than one character (e.g. \code{state.abb}), although the
+  appearance is currently suboptimal if the size of the permutation is
+  less than 10 (commas are not included by default).  Future releases
+  may address this issue if it is important.
+
+  The print method does not change the internal representation of word
+  or cycle objects, it only affects how they are printed.
 }
 
 \author{
