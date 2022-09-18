@@ -20,3 +20,4 @@
 # permutations 1.1-1
 
 - capply() functionality added
+- more flexible print method

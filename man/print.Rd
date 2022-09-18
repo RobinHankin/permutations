@@ -66,15 +66,17 @@ Returns its argument invisibly, after printing it.
 
   \preformatted{options("perm_set" = letters)}
 
-  to override the default.  It is possible to use vectors with elements
-  of more than one character (e.g. \code{state.abb}).
+  to override the default.  But beware!  If the permutation includes
+  numbers greater than the length of \code{perm_set}, then \code{NA}
+  will be printed.  It is possible to use vectors with elements of more
+  than one character (e.g. \code{state.abb}).
 
-  Commas are controlled with option \code{"comma"}.  The default
-  \code{NULL} means including commas in the representation if the size
-  of the permutation exceeds 9.  This works well for integers but is
-  less suitable when using letters or state abbreviations.  Force the
-  use of commas by setting the option to \code{TRUE} or \code{FALSE},
-  e.g.
+  In the printing of cycle objects, commas are controlled with option
+  \code{"comma"}.  The default \code{NULL} means including commas in the
+  representation if the size of the permutation exceeds 9.  This works
+  well for integers but is less suitable when using letters or state
+  abbreviations.  Force the use of commas by setting the option to
+  \code{TRUE} or \code{FALSE}, e.g.
 
   \preformatted{options("comma" = TRUE)}
 
