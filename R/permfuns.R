@@ -305,15 +305,15 @@ cyclist2word_single <- function(cyc,n){     #converts a cyclist to a single
 print.cycle <- function(x,...){  # x is a cycle.  Use case: print(cycle(list(x,y,z)))
     
     if((length(unlist(x))>0)){
-        if(max(unlist(x,recursive=TRUE)) > 9){
+        uc <- getOption("comma")
+        if(isTRUE(uc)){
             comma <- TRUE
-        } else {
+        } else if(isFALSE(uc)){
             comma <- FALSE
+        } else {  # default; prototypically uc=NULL
+            comma <- max(unlist(x,recursive=TRUE)) > 9
         }
-    } else {
-        comma <- FALSE
     }
-    
     out <- unlist(lapply(x,as.character_cyclist,comma=comma))
     if(is.null(out)){
         cat("cycle(0)\n")

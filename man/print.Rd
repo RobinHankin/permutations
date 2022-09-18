@@ -60,16 +60,23 @@ Returns its argument invisibly, after printing it.
   The print method includes experimental functionality to display
   permutations of sets other than the default of integers
   \mjeqn{1,2,\ldots, n}{1,2,...,n}.  Both cycle and word print methods
-  are sensitive to option \code{perm_set}.  The symbols may be the
-  elements of any character vector; use idiom such as
+  are sensitive to option \code{perm_set}: the default value of
+  \code{NULL} means to use integers.  The symbols may be the elements of
+  any character vector; use idiom such as
 
   \preformatted{options("perm_set" = letters)}
 
   to override the default.  It is possible to use vectors with elements
-  of more than one character (e.g. \code{state.abb}), although the
-  appearance is currently suboptimal if the size of the permutation is
-  less than 10 (commas are not included by default).  Future releases
-  may address this issue if it is important.
+  of more than one character (e.g. \code{state.abb}).
+
+  Commas are controlled with option \code{"comma"}.  The default
+  \code{NULL} means including commas in the representation if the size
+  of the permutation exceeds 9.  This works well for integers but is
+  less suitable when using letters or state abbreviations.  Force the
+  use of commas by setting the option to \code{TRUE} or \code{FALSE},
+  e.g.
+
+  \preformatted{options("comma" = TRUE)}
 
   The print method does not change the internal representation of word
   or cycle objects, it only affects how they are printed.
@@ -104,5 +111,9 @@ options(print_word_as_cycle=TRUE)
 as.character_cyclist(list(1:4,10:11,20:33))  # x a cyclist;
 as.character_cyclist(list(c(1,5,4),c(2,2)))  # does not check for consistency
 as.character_cyclist(list(c(1,5,4),c(2,9)),comma=FALSE)
+
+options("perm_set" = letters)
+rperm(r=9)
+options("perm_set" = NULL)  # restore default
 }
 \keyword{symbolmath}
