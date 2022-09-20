@@ -778,9 +778,8 @@ permprod <- function(x){
   
 }
 
-`perm_matrix` <- function(p){
-    s <- size(p)
-    p <- as.word(p)
+`perm_matrix` <- function(p,s=size(p)){
+    p <- as.word(p,s)
     stopifnot(length(p)==1)
     M <- diag(rep(1L,s))[p,]  # the meat
     rownames(M) <- formatC(seq_len(s),width=ceiling(log10(s+0.1)),format="d",flag="0")

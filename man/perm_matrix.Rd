@@ -11,12 +11,13 @@ Given a permutation, coerce to word form and return the corresponding
 permutation matrix
 }
 \usage{
-perm_matrix(p)
+perm_matrix(p,s=size(p))
 is.perm_matrix(M)
 pm_to_perm(M)
 }
 \arguments{
   \item{p}{Permutation, coerced to word form, of length 1}
+  \item{s}{Size of permutation matrix or permutation}
   \item{M}{Permutation matrix}
 }
 \details{
