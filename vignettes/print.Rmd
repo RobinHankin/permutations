@@ -1,0 +1,192 @@
+---
+title: "Print methods in the permutations package"
+author: "Robin K. S. Hankin"
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteIndexEntry{print_methods_permutations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+<p style="text-align: right;">
+![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
+</p>
+
+
+```{r set-options, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", dev = "png", fig.width = 7, fig.height = 3.5, message = FALSE, warning = FALSE)
+options(width = 80, tibble.width = Inf)
+suppressMessages(suppressWarnings(require("permutations")))
+```
+
+The `permutations` package has a print method which includes a number
+of user-configurable options which are illustrated and motivated here.
+
+Permutations have two natural representations: word form and cycle
+form.  Internally, the package coerces a permutation from one form to
+another depending on what operations one does with it.
+Group-theoretic products and inverses are carried out more easily in
+word form, while powers are more easily done using cycle form.
+
+Partly as a result of a perceptive comment from a journal reviewer,
+the package coerces to cycle form for printing as this is generally
+more comprehensible than word form.  However, the package includes
+functions `print_word()` and `print_cycle()` which can be used
+explicitly to print in either word form or cycle form as desired:
+
+```{r}
+set.seed(0)
+x <- rperm(r=9)
+print_word(x)
+print_cycle(x)
+```
+
+It is a matter of taste which one is preferable.  For the example
+above, the majority of the symbols are not moved [elements that map to
+themselves are shown with a dot in the word form] but the difference
+becomes more pronounced if only a small number of elements move:
+
+```{r}
+x <- rperm(r=9,moved=3)
+print_word(x)
+print_cycle(x)
+```
+
+Above we see the cycle form is arguably more compact.
+
+## Print word as cycle
+
+In use, sometimes we work with objects in word form and sometimes
+objects in cycle form.  However, for day-to-day use we need to use R's
+system for printing, which is echoing to the command line:
+
+```{r}
+x <- rperm(n=2)
+y <- as.cycle(x)
+unclass(x)  # shows internal representation (x is in word form)
+unclass(y)  # shows internal representation (x is in cycle form)
+x
+y
+```
+
+Above we see that, by default, objects in word form are coerced to
+their cycle form for echo-printing.  However, it is possible to
+suppress this coercion by setting option `print_word_as_cycle`:
+
+```{r}
+options(print_word_as_cycle = FALSE)
+x
+y
+```
+
+Above we see that the coercion is not performed and the echo print
+method shows the internal representation of the object.  This
+behaviour can be confusing because the same permutation can have
+different print styles, so we reinstate the default:
+
+```{r}
+options(print_word_as_cycle = TRUE)  # restore default
+```
+
+Most people seem to prefer printing in cycle form.
+
+###  Commas
+
+Above, we saw the print method for permutations of $\left[9\right]$.
+If we have 10 or more elements then we need a comma.  This is added by
+default:
+
+```{r}
+x <- rperm(r=15,moved=4)
+print_cycle(x)
+```
+
+
+Above, the comma has been added to aid readability.  However, it is
+possible to override this behaviour by setting option `comma`.  The
+default value of `NULL` means to add commas iff $r>9$ but Boolean
+values are respected:
+
+```{r}
+options("comma" = TRUE)
+rperm(3,r=9)   # commas printed irregardless
+```
+
+Above we see the commas making the output somewhat prolix, but not a disaster.
+
+```{r}
+options("comma" = FALSE)
+rperm(3,r=20)   # commas not printed irregardless
+options("comma" = NULL) # restore default
+rperm(3,r=20)   # default for comparison
+```
+
+Above, the absence of commas is somewhat confusing, default restored.
+
+
+### Symbols
+
+The `permutations` package considers permutations of a finite set.  It
+is _very_ convenient to identify the finite set with integers
+$1,2,\ldots,n$ [chiefly because products and inverses are easy if one
+can use R's 1-based vector indexing: products are just `a*b=b[a]` and
+the inverse of `W` is just `W[W] <- seq_along(W)`].  Because of this,
+the default print method echoes the internal representation of a
+permutation.
+
+```{r}
+set.seed(0)
+x <- rperm(n=3)
+dput(x)
+x
+```
+
+We see the print method echoing the internal representation of the set
+$\left[n\right]=\left\lbrace 1,2,\ldots,n\right\rbrace$.  However, it
+is possible to use a different set, using option `perm_set`:
+
+
+```{r}
+options(perm_set = letters)
+rperm()
+```
+
+Above we see cyclic representation of permutations of the letters a-z.
+However, the use of commas is somewhat problematic, and by default the
+print method uses the $>9$ criterion for including a comma:
+
+```{r}
+rperm(n=2,r=26)
+```
+
+Above we see that commas are included (because $26>9$) but it probably
+looks better without them:
+
+
+```{r}
+options(comma = FALSE)
+rperm(n=2,r=26)
+```
+
+One side-effect of using a finite set of symbols is that the print
+method might run out of symbols:
+
+```{r}
+rperm(n=2,r=50)
+```
+
+Above we see `NA` printed where the symbol's index exceeds 26 (also
+the absence of commas does not help).  Remember that the print method
+does not change the object itself, so this might not be an issue.  It
+is possible to use symbols that have more than one character:
+
+```{r}
+options(perm_set = state.abb)
+options(comma = TRUE)
+rperm()
+```
+
+Above we use state abbreviations (a builtin R dataset) and also direct
+the print method to use commas for readability.
+

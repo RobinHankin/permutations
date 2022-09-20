@@ -82,6 +82,10 @@ Returns its argument invisibly, after printing it.
 
   The print method does not change the internal representation of word
   or cycle objects, it only affects how they are printed.
+
+  See the \code{print} vignette for more details and long-form
+  documentation.
+
 }
 
 \author{
