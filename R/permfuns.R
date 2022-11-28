@@ -782,7 +782,12 @@ permprod <- function(x){
     p <- as.word(p,s)
     stopifnot(length(p)==1)
     M <- diag(rep(1L,s))[p,]  # the meat
-    rownames(M) <- formatC(seq_len(s),width=ceiling(log10(s+0.1)),format="d",flag="0")
+    jj <-    getOption("perm_set")
+    if(is.null(jj)){
+      rownames(M) <- formatC(seq_len(s),width=ceiling(log10(s+0.1)),format="d",flag="0")
+    }  else {
+      rownames(M) <- jj[seq_len(s)]
+    }
     colnames(M) <- rownames(M)
     return(M)
 }

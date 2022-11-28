@@ -24,8 +24,12 @@
 In the \pkg{permutations} package, the dot is defined as the
 \strong{Group-theoretic commutator}:
 \mjeqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy}.  This is a bit of an
-exception to the usual definition of \code{xy-yx}.  Package idiom is
-\code{commutator(x,y)} or \code{.[x,y]}.
+exception to the usual definition of \code{xy-yx} (along with the
+\pkg{freegroup} package).  Package idiom is \code{commutator(x,y)} or
+\code{.[x,y]}.
+
+The Jacobi identity does not make sense in the context of the
+\pkg{permutations} package, but the Hall-Witt identity is obeyed.
 
 The \dQuote{dot} object is defined and discussed in \code{inst/dot.Rmd},
 which creates file \code{data/dot.rda}.
@@ -56,6 +60,7 @@ commutator(commutator(z,x),y^z) *
 commutator(commutator(y,z),x^y) 
 
 stopifnot(all(is.id(uu)))  # this is the  Hall-Witt identity
+
 
 .[x,y]
 

@@ -21,3 +21,4 @@
 
 - capply() functionality added
 - more flexible print method
+- bugfix: perm_matrix() now respects perm_set
