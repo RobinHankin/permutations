@@ -25,7 +25,7 @@ inverse_cyclist_single(cyc)
 }
 \details{
 The package provides methods to invert objects of class \code{word}
-(the R idiom is \code{W[W] <- seq_along(W)}) and also objects of class
+(the \R idiom is \code{W[W] <- seq_along(W)}) and also objects of class
 \code{cycle} (the idiom is
 \code{lapply(cyc,function(o){c(o[1],rev(o[-1]))})}).
 
@@ -40,9 +40,7 @@ form.
 \value{
 Function \code{inverse()} returns an object of the same class as its argument.
 }
-\author{
-Robin K. S. Hankin
-}
+\author{Robin K. S. Hankin}
 \seealso{
 \code{\link{cycle_power}}
 }
