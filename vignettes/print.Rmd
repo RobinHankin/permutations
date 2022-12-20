@@ -188,5 +188,10 @@ rperm()
 ```
 
 Above we use state abbreviations (a builtin R dataset) and also direct
-the print method to use commas for readability.
+the print method to use commas for readability.  However, it is best
+to reset to the default, as the option persists between vignettes:
 
+```{r,label=reset_print_defaults}
+options(perm_set = NULL)
+options(comma = NULL)
+```
