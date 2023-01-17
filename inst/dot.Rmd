@@ -3,15 +3,18 @@ title: "The dot: commutators and the Hall-Witt identity in R"
 output: bookdown::html_document2
 ---
 
-```{r setup}
+<p style="text-align: right;">
+![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
+![](`r system.file("help/figures/freealg.png", package = "freealg")`){width=10%}
+</p>
+
+
+```{r,label=libload,echo=FALSE,print=FALSE,warning=FALSE,include=FALSE}
 set.seed(0)
 knitr::opts_chunk$set(echo = TRUE)
 library("freealg")
+library("permutations")
 ```
-
-<p style="text-align: right;">
-![](`r system.file("help/figures/freealg.png", package = "freealg")`){width=10%}
-</p>
 
 This short document introduces the dot object and shows how it can be
 used to work with commutators and verify the Hall-Wittidentity.  The dot
@@ -27,7 +30,6 @@ the dot (!) is that it allows one to calculate the bracket
 $[x,y]=x^{-1}y^{-1}xy$ using R idiom `.[x,y]`.  Thus:
 
 ```{r,label=usethedot}
-library("permutations")
 x <- as.cycle(1:3)
 y <- as.cycle(2:5)
 x^-1*y^-1*x*y
