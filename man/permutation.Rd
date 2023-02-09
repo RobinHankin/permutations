@@ -90,8 +90,8 @@ Returns a \code{cycle} object or a \code{word object}
 \code{\link{cyclist}}
 }
 \examples{
-word(matrix(1:8,7,8))    # default print method displays cycle form
 
+word(matrix(1:8,7,8)) # default print method coerces to cycle form
 
 cycle(list(list(c(1,8,2),c(3,6)),list(1:2, 4:8)))
 
