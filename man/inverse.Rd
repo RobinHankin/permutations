@@ -41,9 +41,25 @@ form.
 Function \code{inverse()} returns an object of the same class as its argument.
 }
 \author{Robin K. S. Hankin}
-\seealso{
-\code{\link{cycle_power}}
+\note{
+
+Inversion of words is ultimately performed by function
+\code{inverse_word_single()}:
+
+\preformatted{
+inverse_word_single <- function(W){
+    W[W] <- seq_along(W)
+    return(W)
 }
+}
+
+which can be replaced by \code{order()} although this is considerably
+less efficient, especially for small sizes of permutations.  One of my
+longer-term plans is to implement this in \proglang{C}, although it is
+not clear that this will be any faster.
+
+}
+\seealso{\code{\link{cycle_power}}}
 \examples{
 x <- rperm(10,6)
 x
