@@ -43,8 +43,9 @@ print_cycle(x)
 ```
 
 It is a matter of taste which one is preferable.  For the example
-above, the majority of the symbols are not moved [elements that map to
-themselves are shown with a dot in the word form] but the difference
+above, the majority of the symbols are moved: elements that map to
+themselves are shown with a dot in the word form, and these are in a
+minority.  However, the difference between word form and cycle form
 becomes more pronounced if only a small number of elements move:
 
 ```{r}
@@ -58,16 +59,16 @@ Above we see the cycle form is arguably more compact.
 ## Print word as cycle
 
 In use, sometimes we work with objects in word form and sometimes
-objects in cycle form.  However, for day-to-day use we need to use R's
-system for printing, which is echoing to the command line:
+objects in cycle form.  However, the standard workflow would be to use
+R's default system, which is to print values to the console:
 
 ```{r}
 x <- rperm(n=2)
 y <- as.cycle(x)
 unclass(x)  # shows internal representation (x is in word form)
 unclass(y)  # shows internal representation (x is in cycle form)
-x
-y
+x   # default: print to console 
+y   # default: print to console 
 ```
 
 Above we see that, by default, objects in word form are coerced to
@@ -80,9 +81,9 @@ x
 y
 ```
 
-Above we see that the coercion is not performed and the echo print
-method shows the internal representation of the object.  This
-behaviour can be confusing because the same permutation can have
+Above we see that the coercion is not performed on word object `x`:
+the print method shows the internal representation of the object.
+This behaviour can be confusing because the same permutation can have
 different print styles, so we reinstate the default:
 
 ```{r}
@@ -194,4 +195,5 @@ to reset to the default, as the option persists between vignettes:
 ```{r,label=reset_print_defaults}
 options(perm_set = NULL)
 options(comma = NULL)
+options(print_word_as_cycle = FALSE)
 ```
