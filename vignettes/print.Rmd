@@ -118,9 +118,10 @@ Above we see the commas making the output somewhat prolix, but not a disaster.
 
 ```{r}
 options("comma" = FALSE)
-rperm(3,r=20)   # commas not printed irregardless
+x <- rperm(3,r=20) 
+x     # commas not printed irregardless
 options("comma" = NULL) # restore default
-rperm(3,r=20)   # default for comparison
+x     # default for comparison
 ```
 
 Above, the absence of commas is somewhat confusing, default restored.
@@ -158,7 +159,7 @@ However, the use of commas is somewhat problematic, and by default the
 print method uses the $>9$ criterion for including a comma:
 
 ```{r}
-rperm(n=2,r=26)
+(xx <- rperm(n=2,r=26))
 ```
 
 Above we see that commas are included (because $26>9$) but it probably
@@ -167,14 +168,14 @@ looks better without them:
 
 ```{r}
 options(comma = FALSE)
-rperm(n=2,r=26)
+xx
 ```
 
 One side-effect of using a finite set of symbols is that the print
 method might run out of symbols:
 
 ```{r}
-rperm(n=2,r=50)
+(z <- rperm(n=2,r=50))
 ```
 
 Above we see `NA` printed where the symbol's index exceeds 26 (also
@@ -185,7 +186,7 @@ is possible to use symbols that have more than one character:
 ```{r}
 options(perm_set = state.abb)
 options(comma = TRUE)
-rperm()
+z
 ```
 
 Above we use state abbreviations (a builtin R dataset) and also direct
