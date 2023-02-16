@@ -114,7 +114,10 @@ options("comma" = TRUE)
 rperm(3,r=9)   # commas printed irregardless
 ```
 
-Above we see the commas making the output somewhat prolix, but not a disaster.
+Above we see the commas making the output somewhat prolix, but not a
+disaster.  However, if we are permuting $>9$ objects commas are
+necessary to interpret strings like `124` which might be `1,2,4` or
+`12,4` or `1,24` or `124`:
 
 ```{r}
 options("comma" = FALSE)
