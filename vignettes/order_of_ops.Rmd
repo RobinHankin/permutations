@@ -3,7 +3,7 @@ title: "The permutation group: active and passive permutations, and the order of
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
 vignette: >
-  %\VignetteIndexEntry{Order of operations}
+  %\VignetteIndexEntry{order of operations}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
