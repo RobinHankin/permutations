@@ -3,7 +3,7 @@ title: "Print methods in the permutations package"
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
 vignette: >
-  %\VignetteIndexEntry{print_methods_permutations}
+  %\VignetteIndexEntry{Print methods}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
