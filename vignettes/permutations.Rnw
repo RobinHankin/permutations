@@ -32,7 +32,7 @@ introducing the permutations package}
   package has been used to investigate the \emph{megaminx} puzzle, and
   exhibit an 82-turn superflip.
 
-  This vignette is based on \cite{hankin2020}.
+  To cite the package in publications, use \cite{hankin2020}.
 
 }
 
