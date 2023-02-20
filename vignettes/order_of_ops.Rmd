@@ -3,7 +3,7 @@ title: "The permutation group: active and passive permutations, and the order of
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
 vignette: >
-  %\VignetteIndexEntry{order_of_ops}
+  %\VignetteIndexEntry{Order of operations}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,13 +18,15 @@ groups.  Here I discuss active and passive transforms, order of
 operations, prefix and postfix notation, and associativity from the
 perspective of the `permutations` R package.
 
-Consider the following
+Consider the following:
 
-```{r}
+```{r,label=setup,include=FALSE}
 library("permutations")
 library("magrittr")
+```
+
+```{r,label=definea}
 a <- as.cycle("(145)(26)")
-names(a) <- NULL
 a
 ```
 
