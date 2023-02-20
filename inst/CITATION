@@ -1,19 +1,15 @@
-citHeader("To cite in publications use:")
+citHeader("To cite the permutations package in publications use:")
 
-citEntry(entry = "Article",
-	 title = {paste("Introducing the permutations package")},
-	 author = personList(
-         person(given = c("Robin","K.S."),
-		family = "Hankin",
-		email="hankin.robin@gmail.com")),
-	 journal = "SoftwareX",
-         year = "2020",
-	 volume = "11",
-	 textVersion = {
-             paste("R. K. S. Hankin",
-                   "2020.",
-                   "Introducing the permutations package.",
-	     	   "SoftwareX",
-		   "11)"
-		   )
-         })
+bibentry(
+  bibtype  = "Article",
+  title    = "{Introducing the permutations package}",
+  author   = person("Robin K. S. Hankin"),
+  journal  = "SoftwareX",
+  year     = "2020",
+  url      = "https://doi.org/10.1016/j.softx.2020.100453",
+  textVersion =
+  paste("Hankin, R. K. S. (2020).",
+        "Introducing the permutations package.",
+        "SoftwareX, volume 11",
+        "https://doi.org/10.1016/j.softx.2020.100453")
+  )
