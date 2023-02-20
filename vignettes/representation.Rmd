@@ -3,7 +3,7 @@ title: "The permutations package and representation theory"
 author: "Robin K. S. Hankin"
 date: "`r Sys.Date()`"
 vignette: >
-  %\VignetteIndexEntry{representation_theory}
+  %\VignetteIndexEntry{representation theory}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
