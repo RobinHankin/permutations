@@ -80,7 +80,7 @@ all(M[inverse(a),] == solve(M[a,]))
 again with group inversion on the left and matrix inversion on the
 right.
 
-The map $\psi(a)=$ `M[,a]` is not a homomorphism:
+The map $\phi(a)=$ `M[,a]` is not a homomorphism:
 
 
 ```{r}
@@ -93,3 +93,12 @@ defined by $a\star b=b\circ a$:
 ```{r}
 all(M[,b*a] == M[,a] %*% M[,b])
 ```
+
+
+See how the operation has `a` and `b` in opposite order from the
+matrix multiplication; see vignette `order_of_ops` for a discussion of
+this phenomenon from a different perspective.
+
+
+```{r,label=restore_default, include=FALSE}
+options("print_word_as_cycle" = FALSE)
