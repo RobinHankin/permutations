@@ -3,6 +3,7 @@
 \alias{print.word}
 \alias{print.cycle}
 \alias{print_word}
+\alias{print_word_as_cycle}
 \alias{print_cycle}
 \alias{as.character.cycle}
 \alias{as.character_cyclist}
