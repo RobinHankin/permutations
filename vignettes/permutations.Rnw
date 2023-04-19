@@ -92,7 +92,7 @@ the set of objects to itself.
 
 For example, consider bijections from the
 set~$\left[n\right]=\left\{1,2,3,\ldots,n\right\}$ to itself.  There
-are~$9!=362880$ such bijections and, as a specific example we will
+are~$9!=362880$ such bijections and as a specific example we will
 consider $f\colon\left[9\right]\longrightarrow\left[9\right]$ defined
 by the following diagram:
 
@@ -443,7 +443,7 @@ stopifnot(superflip82 == superflip83)
 
 \begin{figure}[h]
   \centering \includegraphics{megaminx_net_colour.pdf}
-  \caption{Megaminx net.\label{megaminx_net} showing the facet
+  \caption{Megaminx net \label{megaminx_net} showing the facet
     numbering scheme.  In each pentagonal face, the facet number is
     given by ten times the central large number, and the unit is given
     by the small figure.  Thus the top left facet is number~41 and the
