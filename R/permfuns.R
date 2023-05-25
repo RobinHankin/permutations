@@ -497,12 +497,13 @@ rperm <- function(n=10,r=7,moved=NA){
     }
 }
 
-"shape" <- function(x,drop=TRUE,id1=TRUE){
+"shape" <- function(x,drop=TRUE,id1=TRUE,decreasing=FALSE){
     x <- as.cycle(x)
     out <- lapply(x,shape_cyclist,id1=id1)
     if(drop & (length(x)==1)){
         out <- unlist(out)
     }
+    if(decreasing){out <- lapply(out,sort,decreasing=TRUE)}
     return(out)
 }
 

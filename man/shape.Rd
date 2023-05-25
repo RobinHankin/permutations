@@ -10,7 +10,7 @@ Returns the shape of a permutation.  If given a word, it coerces to
 cycle form.
 }
 \usage{
-shape(x, drop = TRUE,id1=TRUE)
+shape(x, drop = TRUE,id1 = TRUE,decreasing = TRUE)
 shape_cyclist(cyc,id1=TRUE)
 padshape(x, drop = TRUE, n=NULL)
 shapepart(x)
@@ -26,44 +26,45 @@ shapepart_cyclist(cyc,n=NULL)
   \item{id1}{Boolean, with default \code{TRUE} in function
     \code{shape_cyclist()} meaning that the shape of the identity is
     \dQuote{1} and \code{FALSE} meaning that the shape is \code{NULL}}
-}
-\value{
 
+  \item{decreasing}{In function \code{shape()}, Boolean with default
+  \code{FALSE} meaning to return the cycle lengths in the order given by
+  \code{nicify_cyclist()} and \code{TRUE} meaning to sort in decreasing
+  order}
+}
+
+\value{
   Function \code{shape()} returns a list with elements representing the
   lengths of the component cycles.
 
   Function \code{shapepart()} returns an object of class
   \code{partition} showing the permutation as a set partition of
   disjoint cycles.
-  
+
+  Function \code{padshape()} returns a list of shapes but padded with
+  ones so the total is the size of the permutation.
+
+ \code{shapepart_cyclist()} and \code{shapepart_cyclist()} are low-level
+  helper functions.
 }
-\author{
-Robin K. S. Hankin
-}
-\note{
-  Function \code{shape()} returns the lengths of the cycles in the order
-  returned by \code{nicify_cyclist()}, so not necessarily in increasing
-  or decreasing order.
-}
-\seealso{
-\code{\link{size}}
-}
+\author{Robin K. S. Hankin}
+\seealso{\code{\link{size}}}
 \examples{
 
 jj <- as.cycle(c("123","","(12)(34)","12345"))
 jj
 shape(jj)
 
-
-
 shape(rperm(10,9)) # coerced to cycle
+
+a <- rperm()
+identical(shape(a,dec=TRUE),shape(a^cyc_len(2),dec=TRUE))
 
 
 data(megaminx)
-
 shape(megaminx)
-jj <- megaminx*megaminx[1]
 
+jj <- megaminx*megaminx[1]
 identical(shape(jj),shape(tidy(jj)))  #tidy() does not change shape
 
 
