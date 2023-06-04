@@ -16,7 +16,7 @@ Random permutations
 \usage{
 rperm(n=10,r=7,moved=NA)
 rcyc(n,len,r=len)
-r1cyc(len,r=len)
+r1cyc(len,vec)
 }
 \arguments{
   \item{n}{Number of permutations to create}
@@ -27,6 +27,7 @@ r1cyc(len,r=len)
     themselves), with default \code{NA} meaning to choose a permutation
     at random.  This is useful if you want a permutation that has a
     compact cycle representation}
+  \item{vec}{Vector of integers to generate a cycle from}
 }
 \value{
 Returns an object of class \code{word}

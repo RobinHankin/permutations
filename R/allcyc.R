@@ -22,8 +22,8 @@
     return(as.word(out))
 }
 
-`r1cyc` <- function(len,r=len){
-    out <- sample(seq_len(r),len)
+`r1cyc` <- function(len,vec){
+    out <- sample(vec,len)
     for(i in seq_len(len-1)){
         j <- sample(seq(from=i+1,to=len),1)
         swap <- out[i]
@@ -36,7 +36,8 @@
 `rcyc` <- function(n,len,r=len){
     out <- matrix(0,n,r)
     for(i in seq_len(n)){
-        out[i,] <- as.word(as.cycle(r1cyc(len,r)),r)
+        out[i,] <- as.word(as.cycle(r1cyc(len,seq_len(r))),r)
     }
     return(as.cycle(out))
 }   
+
