@@ -4,19 +4,23 @@
 \alias{rcycle}
 \alias{rcyc}
 \alias{r1cyc}
+\alias{rgs1}
+\alias{rgivenshape}
 \title{
 Random permutations
 }
 \description{
   Function \code{rperm()} creates a word object of random permutations.
   Function \code{rcyc()} creates random permutations comprising a single
-  (group-theoretic) cycle of a specified length (\code{r1cyc()} is a
-  low-level helper function).
+  (group-theoretic) cycle of a specified length.  Functions
+  \code{r1cyc()} and \code{rgs1()} are low-level helper functions.
 }
 \usage{
 rperm(n=10,r=7,moved=NA)
 rcyc(n,len,r=len)
 r1cyc(len,vec)
+rgs1(s)
+rgivenshape(n,s,size=sum(s))
 }
 \arguments{
   \item{n}{Number of permutations to create}
@@ -28,6 +32,7 @@ r1cyc(len,vec)
     at random.  This is useful if you want a permutation that has a
     compact cycle representation}
   \item{vec}{Vector of integers to generate a cycle from}
+  \item{s,size}{Shape and size of permutations to create}
 }
 \value{
 Returns an object of class \code{word}
@@ -42,6 +47,12 @@ Robin K. S. Hankin
   control the number of non-fixed elements precisely with argument
   \code{len} of function \code{rcyc()}, although this will give only
   permutations with a single (group-theoretic) cycle.
+
+  Argument \code{s} of function \code{rgivensize()} can include 1s
+  (ones).  Although length-one cycles are dropped from the resulting
+  permutation, it is sometimes useful to include them to increase the
+  size of the result, see examples.
+
 }
 \seealso{
 \code{\link{size}}
@@ -53,5 +64,8 @@ rperm(10,9,2)
 
 rcyc(20,5)
 rcyc(20,5,9)
+
+rgivenshape(10,c(2,3))   # size 5
+rgivenshape(10,c(2,3,1,1)) # size 7
 }
 \keyword{symbolmath}

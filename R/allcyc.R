@@ -41,3 +41,21 @@
     return(as.cycle(out))
 }   
 
+`rgs1` <- function(s){
+    n <- seq_len(sum(s))
+    s <- s[s>1]
+    out <- id
+    for(i in s){
+        vec <- sample(n,i,replace=FALSE)
+        out <- out + as.cycle(r1cyc(i,vec))
+        n <- n[!(n %in% vec)]
+    }
+    return(out)
+}
+
+`rgivenshape` <- function(n,s,size=sum(s)){
+    out <- rep(id,n)
+    s <- c(s,rep(1,size-sum(s)))
+    for(i in seq_len(n)){out[i] <- rgs1(s)}
+    return(out)
+}
