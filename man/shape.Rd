@@ -10,7 +10,7 @@ Returns the shape of a permutation.  If given a word, it coerces to
 cycle form.
 }
 \usage{
-shape(x, drop = TRUE,id1 = TRUE,decreasing = TRUE)
+shape(x, drop = TRUE,id1 = TRUE,decreasing = FALSE)
 shape_cyclist(cyc,id1=TRUE)
 padshape(x, drop = TRUE, n=NULL)
 shapepart(x)
