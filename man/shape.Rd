@@ -3,6 +3,8 @@
 \alias{padshape}
 \alias{shape_cyclist}
 \alias{shapepart}
+\alias{cycletype}
+\alias{cycle_type}
 \alias{shapepart_cyclist}
 \title{Shape of a permutation}
 \description{
@@ -26,7 +28,6 @@ shapepart_cyclist(cyc,n=NULL)
   \item{id1}{Boolean, with default \code{TRUE} in function
     \code{shape_cyclist()} meaning that the shape of the identity is
     \dQuote{1} and \code{FALSE} meaning that the shape is \code{NULL}}
-
   \item{decreasing}{In function \code{shape()}, Boolean with default
   \code{FALSE} meaning to return the cycle lengths in the order given by
   \code{nicify_cyclist()} and \code{TRUE} meaning to sort in decreasing
@@ -48,7 +49,12 @@ shapepart_cyclist(cyc,n=NULL)
   helper functions.
 }
 \author{Robin K. S. Hankin}
-\seealso{\code{\link{size}}}
+\note{
+  What I call \dQuote{shape}, others call the \dQuote{cycle type}, so
+  you will sometimes see \dQuote{cycle type determines conjugacy class}
+  as a theorem.
+}
+\seealso{\code{\link{size}},\code{\link{conjugate}}}
 \examples{
 
 jj <- as.cycle(c("123","","(12)(34)","12345"))
