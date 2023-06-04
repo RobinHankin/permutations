@@ -1,0 +1,79 @@
+---
+title: "Enumerating all partitions of a given shape"
+output: html_document
+date: "2023-06-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## TLDR summary
+
+$\ldots$ I couldn't do it. But I could count them!
+
+## Combinatorics
+
+How many permutations are there of a given shape? If the shape is
+
+$$
+\underbrace{r_1,\ldots,r_1}_{m_1},
+\underbrace{r_2,\ldots,r_2}_{m_2},\ldots,
+\underbrace{r_d,\ldots,r_d}_{m_d}
+$$
+
+(that is, there are $m_1$ cycles of size $r_1$, $m_2$ cycles of size
+$r_2$, etc; we understand that $r_1>r_2>\cdots>r_d$). Writing
+$\sum_{i=1}^d m_ir_i=n$ for the size of the permuted set [NB $r_d=1$
+is permissible] then I get
+
+$${n\choose 
+\underbrace{r_1,\ldots,r_1}_{m_1},
+\underbrace{r_2,\ldots,r_2}_{m_2},\ldots,
+\underbrace{r_d,\ldots,r_d}_{m_d}
+}\prod_{i=1}^d\frac{\Gamma(r_i)^{m_i}}{m_i!}
+$$
+
+[stackexchange](https://math.stackexchange.com/questions/1323130/how-many-permutations-of-cycle-shape-3-22-1-are-there-in-s-8)
+has a good question here, the answer agrees with mine. He asks how
+many permutations of shape $3,2,2,1$, that is,
+$(\cdot\cdot\cdot)(\cdot\,\cdot)(\cdot\,\cdot)(\cdot)$ and gets 1680.
+I get:
+
+$$
+{8\choose 3\,2\,2\,1}\frac{2}{2!}=5678=30\cdot 56=1680
+$$
+
+We might be able to make a start on enumerating this by using the
+`partitions` package:
+
+```{r}
+library("partitions")
+M <- multinomial(c(a=3,b=2,c=2,d=1))
+summary(M)
+```
+
+Long experience has shown me that taking the first column can be
+non-intuitive and confusing. So I will take the last column as an
+example. The last column, viz `67845231` corresponds to permutation
+$(678)(45)(23)(1)$. Now on the one hand we somehow need to flag that
+$$(678)(45)(23)(1)=(678)(23)(45)(1)$$ [i.e. presenting the 2-cycles in
+a different order does not change the permutation: boxes `b` and `c`
+are indistinguishable]; and
+$$(678)(45)(23)(1)=(786)(45)(23)(1)=(678)(54)(23)(1),$$ but also to
+note that $$(678)(45)(23)(1)\neq(687)(45)(23)(1).$$ To be explicit,
+`multinomial()` will include $(678)(45)(23)(1)$ and $(678)(23)(45)(1)$
+[thus over-counting by a factor of two] but omit $(687)(23)(45)(1)$
+[thus under-counting by a factor of two].
+
+Not sure of the best way to proceed: perhaps
+`partitions::multinomial()` could have a flag that specifies whether
+boxes with the same capacities are indistinguishble (currently they
+are not):
+
+```{r}
+multinomial(c(a=2,b=2))
+```
+
+Above we see $(12)(34)$ and $(34)(12)$, which are the same partition
+if boxes `a` and `b` are indistinguishable.
