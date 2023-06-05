@@ -2,30 +2,30 @@
 \alias{sgn}
 \alias{is.even}
 \alias{is.odd}
-\title{
-Sign of a permutation
-}
-\description{
-The sign of a permutation is \eqn{\pm 1}{+/-1} depending on whether it
-is even or odd
+\title{Sign of a permutation}
+\description{\loadmathjax
+Returns the sign of a permutation
 }
 \usage{
 sgn(x)
 is.even(x)
 is.odd(x)
 }
-\arguments{
-  \item{x}{permutation object}
-}
+\arguments{\item{x}{permutation object}}
 \details{
-Coerces to cycle form
+
+The sign of a permutation is \mjeqn{\pm 1}{+/-1} depending on whether it
+is even or odd.  A permutation is \dfn{even} if it can be written as a
+product of an even number of transpositions, and \dfn{odd} if it can be
+written as an odd number of transpositions.  The map
+\mjeqn{\operatorname{sgn}\colon S_n\longrightarrow\left\lbrace
++1,-1\right\rbrace}{omitted} is a homomorphism; see examples.}
+\author{Robin K. S. Hankin} \note{Internally, function \code{sgn()}
+coerces to cycle form.
+
+The sign of the null permutation is \code{NULL}.
 }
-\author{
-Robin K. S. Hankin
-}
-\seealso{
-\code{\link{shape}}
-}
+\seealso{\code{\link{shape}}}
 \examples{
 
 sgn(id)  # always problematic
