@@ -94,9 +94,15 @@ cycle_plus_integer_elementwise(x,y)
   handles the names of the returned permutation.
 
   Experimental functionality is provided to define the \dQuote{sum} of a
-  permutation and an integer.
-  
-}
+  permutation and an integer.  If \mjseqn{x} is a permutation in cycle
+  form with \mjseqn{x=(abc)}, say, and \mjseqn{n} an integer, then
+  \mjseqn{x+n=(a+n,b+n,c+n)}: each element of each cycle of \mjseqn{x}
+  is increased by \mjseqn{n}.  Note that this has associativity
+  consequences.  For example, \code{x+(x+n)} might be defined but not
+  \code{(x+x)+n}: the two \dQuote{\code{+}} operators behave
+  differently.  Package idiom includes \code{x-n} [defined as \code{x +
+  (-n)}] and \code{n+x} but not \code{n-x} as inverses are defined
+  multipicatively.  The implementation is vectorised.  }
 
 \value{
   None of these functions are really intended for the end user:
