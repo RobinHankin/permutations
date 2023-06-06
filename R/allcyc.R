@@ -1,4 +1,4 @@
-`allcyc` <- function(n){
+`allcycn` <- function(n){
     out <- matrix(0,factorial(n-1),n)
     index <- 1
     CyclicPermut2 <- function(i,p){
@@ -21,6 +21,8 @@
     CyclicPermut2(1,seq_len(n))
     return(as.word(out))
 }
+
+`allcyc` <- function(s){capply(allcycn(length(s)),function(x){s[x]})}
 
 `r1cyc` <- function(len,vec){
     out <- sample(vec,len)

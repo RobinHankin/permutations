@@ -15,6 +15,10 @@
 \details{This function is just a convenience wrapper really.}
 \value{Returns a permutation in cycle form}
 \author{Robin K. S. Hankin}
+\note{Function \code{allcyc()} is a nice application of
+  \code{capply()}.
+}
+\seealso{\code{\link{allcyc}}}
 \examples{
 
 
