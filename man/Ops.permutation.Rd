@@ -164,5 +164,7 @@ as.cycle(1:4) + as.cycle(7:9)
 data(megaminx)
 megaminx[1] + megaminx[7:12] 
 
+rperm() + 100
+cyc_len(4) + 0:5
 }
 \keyword{symbolmath}
