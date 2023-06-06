@@ -31,18 +31,26 @@
             stop(gettextf("<perm> %s <perm> not defined", .Generic))
         }
     } else if (lclass && !rclass){
-          if(.Generic == "^"){
+        if(.Generic == "^"){
             return(cycle_power(e1,e2))   #e2 should be an integer
+        } else if(.Generic == "+"){
+            return(cycle_plus_integer_elementwise(e1,e2))
+        } else if(.Generic == "-"){
+            return(cycle_plus_integer_elementwise(e1,-e2))
         } else {
             stop(gettextf("<perm> %s <non-perm> is not defined", .Generic))
         }
-      } else if (!lclass && rclass){
-          stop(gettextf("<non-perm> %s <perm> is not defined ", .Generic))
-      } else if (!lclass && !rclass){
-          stop("should not reach here")
-      } else {
-          stop("this cannot happen")
-      }
+    } else if (!lclass && rclass){
+        if(.Generic == "+"){
+            return(cycle_plus_integer_elementwise(e2,e1))
+        } else {
+            stop(gettextf("<non-perm> %s <perm> is not defined ", .Generic))
+        }
+    } else if (!lclass && !rclass){
+        stop("should not reach here")
+    } else {
+        stop("this cannot happen")
+    }
 }
 
 word_prod_single <- function(e1,e2){   # works for words (in vector form)
@@ -201,4 +209,14 @@ group_action <- function(e1,e2){ # e1 and e2 are both coerced to 'word' objects
     f <-  function(ind){as.vector(inverse(e2[ind[2]])*e1[ind[1]]*e2[ind[2]])}
     out <- apply(jj,1,f)
     return(word(t(out)))
+}
+
+cycle_plus_integer_elementwise <- function(x,y){
+    jj <- cbind(seq_along(x),seq_along(y))
+    n <- nrow(jj)
+    out <- rep(id,n)
+    for(i in seq_len(n)){
+        out[i] <- capply(x[jj[i,1]],function(x){x+y[jj[i,2]]})
+    }
+    return(out)
 }

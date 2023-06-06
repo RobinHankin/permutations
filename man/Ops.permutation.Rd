@@ -14,6 +14,7 @@
 \alias{vps}
 \alias{ccps}
 \alias{helper}
+\alias{cycle_plus_integer_elementwise}
 \title{Arithmetic Ops Group Methods for permutations}
 \description{\loadmathjax
   Allows arithmetic operators to be used for manipulation of permutation objects
@@ -33,6 +34,7 @@ permprod(x)
 vps(vec,pow)
 ccps(n,pow)
 helper(e1,e2)
+cycle_plus_integer_elementwise(x,y)
 }
 \arguments{
   \item{x,e1,e2}{Objects of class \dQuote{\code{permutation}}}
@@ -42,8 +44,10 @@ helper(e1,e2)
     corresponding to a cycle}
   \item{n}{In function \code{ccps()}, the integer power to which
     \code{cycle(seq_len(n))} is to be raised; may be positive or
-    negative.}
-  }
+    negative}
+  \item{y}{In experimental function
+    \code{cycle_plus_integer_elementwise()}, an integer} 
+}
 \details{
 
   The function \code{Ops.permutation()} passes binary arithmetic
@@ -89,6 +93,9 @@ helper(e1,e2)
   behaviour of which is inherited from \code{cbind()}, which also
   handles the names of the returned permutation.
 
+  Experimental functionality is provided to define the \dQuote{sum} of a
+  permutation and an integer.
+  
 }
 
 \value{
