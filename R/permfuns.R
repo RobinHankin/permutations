@@ -771,7 +771,6 @@ permprod <- function(x){
   }
   )
   
-#  out <- noquote(outer(seq_along(x),seq_along(x),Vectorize(function(i,j){names(x)[which(x==x[i]*x[j])]})))
   out <- noquote(outer(seq_along(x),seq_along(x),f))
   rownames(out) <- names(x)
   colnames(out) <- names(x)
@@ -818,3 +817,14 @@ setOldClass("permutation")
 setMethod("[", signature(x="dot",i="permutation",j="permutation"),function(x, i, j, drop){commutator(i,j)})
 
 `capply` <- function(X,fun,...){cycle(lapply(as.cycle(X),function(x){lapply(x,fun,...)}))}
+
+setGeneric("outer")
+setMethod("outer", signature(X="permutation",Y="permutation"),
+          function(X,Y,FUN="*"){
+            out <- matrix(apply(expand.grid(seq_along(X),seq_along(Y)),1,
+                                function(v){match.fun(FUN)(X[v[1]], Y[v[2]])},
+                                simplify=FALSE),length(X),length(Y))
+            rownames(out) <- names(X)
+            colnames(out) <- names(Y)
+            return(out)
+          } )
