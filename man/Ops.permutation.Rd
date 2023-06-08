@@ -14,6 +14,7 @@
 \alias{vps}
 \alias{ccps}
 \alias{helper}
+\alias{cycle_plus_integer_elementwise}
 \title{Arithmetic Ops Group Methods for permutations}
 \description{\loadmathjax
   Allows arithmetic operators to be used for manipulation of permutation objects
@@ -33,6 +34,7 @@ permprod(x)
 vps(vec,pow)
 ccps(n,pow)
 helper(e1,e2)
+cycle_plus_integer_elementwise(x,y)
 }
 \arguments{
   \item{x,e1,e2}{Objects of class \dQuote{\code{permutation}}}
@@ -42,8 +44,10 @@ helper(e1,e2)
     corresponding to a cycle}
   \item{n}{In function \code{ccps()}, the integer power to which
     \code{cycle(seq_len(n))} is to be raised; may be positive or
-    negative.}
-  }
+    negative}
+  \item{y}{In experimental function
+    \code{cycle_plus_integer_elementwise()}, an integer} 
+}
 \details{
 
   The function \code{Ops.permutation()} passes binary arithmetic
@@ -70,16 +74,17 @@ helper(e1,e2)
   \dfn{group action}; the notation is motivated by the identities
   \code{x^(yz)=(x^y)^z} and \code{(xy)^z=x^z*y^z}.
 
-  Permutation addition, as in \code{a+b}, is defined if the cycle
-  representations of the addends are disjoint.  The sum is defined as
-  the permutation given by juxtaposing the cycles of \code{a} with those
-  of \code{b}.  Note that this operation is commutative.  If \code{a}
-  and \code{b} do not have disjoint cycle representations, an error is
-  returned.  This is useful if you want to guarantee that two
-  permutations commute (NB: permutation \code{a} commutes with
-  \code{a^i} for \code{i} any integer, and in particular \code{a}
-  commutes with itself.  But \code{a+a} returns an error: the operation
-  checks for disjointness, not commutativity).
+  The \dfn{sum} of two permutations \code{a} and \code{b}, as in
+  \code{a+b}, is defined if the cycle representations of the addends are
+  disjoint.  The sum is defined as the permutation given by juxtaposing
+  the cycles of \code{a} with those of \code{b}.  Note that this
+  operation is commutative.  If \code{a} and \code{b} do not have
+  disjoint cycle representations, an error is returned.  This is useful
+  if you want to guarantee that two permutations commute (NB:
+  permutation \code{a} commutes with \code{a^i} for \code{i} any
+  integer, and in particular \code{a} commutes with itself.  But
+  \code{a+a} returns an error: the operation checks for disjointness,
+  not commutativity).
 
   Permutation \dQuote{division}, as in \code{a/b}, is
   \code{a*inverse(b)}.  Note that \code{a/b*c} is evaluated left to
@@ -88,6 +93,18 @@ helper(e1,e2)
   Function \code{helper()} sorts out recycling for binary functions, the
   behaviour of which is inherited from \code{cbind()}, which also
   handles the names of the returned permutation.
+
+  Experimental functionality is provided to define the \dQuote{sum} of a
+  permutation and an integer.  If \mjseqn{x} is a permutation in cycle
+  form with \mjseqn{x=(abc)}, say, and \mjseqn{n} an integer, then
+  \mjseqn{x+n=(a+n,b+n,c+n)}: each element of each cycle of \mjseqn{x}
+  is increased by \mjseqn{n}.  Note that this has associativity
+  consequences.  For example, \code{x+(x+n)} might be defined but not
+  \code{(x+x)+n}, as the two \dQuote{\code{+}} operators have different
+  interpretations.  Distributivity is similarly broken (see the
+  examples).  Package idiom includes \code{x-n} [defined as \code{x +
+  (-n)}] and \code{n+x} but not \code{n-x} as inverses are defined
+  multipicatively.  The implementation is vectorised.
 
 }
 
@@ -156,6 +173,17 @@ as.cycle(1:4) + as.cycle(7:9)
 
 data(megaminx)
 megaminx[1] + megaminx[7:12] 
+
+rperm() + 100
+
+z <- cyc_len(4)
+z
+z+100
+z + 0:5
+(z + 0:5)*z
+
+w <- cyc_len(7) + 1
+(w+1)*(w-1)
 
 }
 \keyword{symbolmath}
