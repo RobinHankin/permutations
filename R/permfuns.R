@@ -302,7 +302,7 @@ cyclist2word_single <- function(cyc,n){     #converts a cyclist to a single
     return(out)
 }
 
-print.cycle <- function(x,...){  # x is a cycle.  Use case: print(cycle(list(x,y,z)))
+print.cycle <- function(x, give_string=FALSE, ...){  # x is a cycle.  Use case: print(cycle(list(x,y,z)))
     
     if((length(unlist(x))>0)){
         uc <- getOption("comma")
@@ -316,11 +316,21 @@ print.cycle <- function(x,...){  # x is a cycle.  Use case: print(cycle(list(x,y
     }
     out <- unlist(lapply(x,as.character_cyclist,comma=comma))
     if(is.null(out)){
-        cat("cycle(0)\n")
-        return(out)
+        if(give_string){
+          return("cycle(0)")
+        } else {
+          cat("cycle(0)\n")
+          return(out)
+        }
     } else {
         print(noquote(out))
         return(invisible(x))
+        if(give_string){
+          return(out)
+          } else {
+            print(noquote(out))
+            return(x)
+          }
     }
 }
 

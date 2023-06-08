@@ -15,7 +15,7 @@ Print methods for permutation objects with matrix-like printing for
 words and bracket notation for cycle objects.
 }
 \usage{
-\method{print}{cycle}(x, ...)
+\method{print}{cycle}(x, give_string=FALSE, ...)
 \method{print}{word}(x, h = getOption("print_word_as_cycle"), ...)
 as.character_cyclist(y,comma=TRUE)
 }
@@ -30,9 +30,12 @@ as.character_cyclist(y,comma=TRUE)
   \item{y,comma}{In \code{as.character.cyclist()}, argument \code{y}
     is a list of cycles (a cyclist); and \code{comma} is Boolean,
     specifying whether to include a comma in the output}
+  \item{give_string}{In function}
 }
 \value{
-Returns its argument invisibly, after printing it.
+Returns its argument invisibly, after printing it (except for
+  \code{print.cycle(x,give_string=TRUE)}, in which case a character
+  vector is returned).
 }
 
 \details{
