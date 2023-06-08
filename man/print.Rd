@@ -61,6 +61,15 @@ Returns its argument invisibly, after printing it (except for
   \code{options("print_word_as_cycle")}.  See \code{size.Rd} for a
   use-case.
 
+  Coercing a cycle to a character vector can be done with
+  \code{as.character()}, which returns a character vector that is
+  suitable for \code{as.cycle()}, so if \code{a} is a cycle
+  \code{all(as.cycle(as.character(a)) == a)} will return \code{TRUE}.
+  If you want to use the options of the print method, use
+  \code{print.cycle(...,give_string=TRUE)}, which respects the print
+  options discussed below.  Neither of these give useful output if their
+  argument is in word form.
+
   The print method includes experimental functionality to display
   permutations of sets other than the default of integers
   \mjeqn{1,2,\ldots, n}{1,2,...,n}.  Both cycle and word print methods

@@ -323,14 +323,12 @@ print.cycle <- function(x, give_string=FALSE, ...){  # x is a cycle.  Use case: 
           return(out)
         }
     } else {
-        print(noquote(out))
-        return(invisible(x))
         if(give_string){
           return(out)
-          } else {
-            print(noquote(out))
-            return(x)
-          }
+        } else {
+          print(noquote(out))
+          return(invisible(x))
+        }
     }
 }
 
