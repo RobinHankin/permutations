@@ -41,7 +41,7 @@ shift_cycle(n)
   \item{x}{See details}
   \item{n}{In functions \code{as.word()} and \code{cycle2word()}, the
     size of the word to return; in function \code{cyc_len()}, the length
-  of the cycle to return}
+  of the cycles to return}
   \item{char}{In function \code{char2cycle()} a character vector which
     is coerced to a cycle object}
   \item{...}{Further arguments passed to \code{as.matrix()}}
@@ -108,7 +108,8 @@ x <- rperm(10,7)
 y <- rperm(10,7)
 as.cycle(commutator(x,y))
 
-cycle(sapply(seq_len(9),cyc_len))
+cyc_len(1:9)
+
 
 }
 \keyword{symbmath}

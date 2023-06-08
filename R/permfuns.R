@@ -242,7 +242,7 @@ as.cycle <- function(x){   # does its best to coerce to cycle form.
     }
 }
 
-cyc_len <- function(n){as.cycle(seq_len(n))}
+`cyc_len` <- function(n){cycle(sapply(n,function(n){list(list(seq_len(n)))}))}
 shift_cycle <- cyc_len
 
 char2cyclist_single <- function (x){
