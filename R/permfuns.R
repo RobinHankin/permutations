@@ -184,12 +184,12 @@ as.word <- function(x,n=NULL){
 print.word <- function(x, h=getOption("print_word_as_cycle"), ...){  
 
   if(!identical(h,FALSE)){
-      jj <- as.cycle(x)
-      print(jj)
+      print(as.cycle(x))
       cat("[coerced from word form]\n")
-      return(jj)
+      return(x)
+  } else {
+      return(print_word(x))
   }
-    print_word(x)
 }
 
 `print_word` <- function(x){
@@ -319,7 +319,8 @@ print.cycle <- function(x,...){  # x is a cycle.  Use case: print(cycle(list(x,y
         cat("cycle(0)\n")
         return(out)
     } else {
-        return(invisible(print(noquote(out))))
+        print(noquote(out))
+        return(invisible(x))
     }
 }
 
