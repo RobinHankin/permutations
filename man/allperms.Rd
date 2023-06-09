@@ -7,7 +7,7 @@
 
 \description{\loadmathjax
 
-Given integer \code{n} is an integer, \code{allperms(n)} returns all
+Given a non-negative integer \code{n}, \code{allperms(n)} returns all
 \mjseqn{n!} permutations of a set of \mjseqn{n} elements, here
 \mjeqn{[n]=\left\lbrace1,2,\ldots,n\right\rbrace}{omitted}.
 
