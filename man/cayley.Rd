@@ -2,9 +2,9 @@
 \alias{cayley}
 \alias{Cayley}
 \title{Cayley tables for permutation groups}
-\description{
+\description{\loadmathjax
   Produces a nice Cayley table for a subgroup of the symmetric group on
-  n elements
+  \mjseqn{n} elements
 }
 \usage{
 cayley(x)
