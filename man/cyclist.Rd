@@ -96,7 +96,7 @@ These issues are dealt with by \code{nicify_cyclist()}.
   and coerces to a cycle object.
 }
 
-See also the \dQuotecyclist} vignette [type \code{vignette("cyclist")}
+See also the \dQuote{cyclist} vignette [type \code{vignette("cyclist")}
 at the command line] which contains more details and examples.
 
 }
