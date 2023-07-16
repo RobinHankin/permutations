@@ -5,6 +5,7 @@ importFrom(magic,shift)
 importFrom(numbers,mLCM)
 importFrom(partitions,as.partition)
 importFrom(partitions,perms)
+importFrom(partitions,listParts)
 importFrom("graphics", "plot", "polygon", "text")
 importFrom("utils","data")
 
