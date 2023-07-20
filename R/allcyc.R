@@ -56,6 +56,7 @@
 }
 
 `rgivenshape` <- function(n,s,size=sum(s)){
+    if(length(n)>1){return(Recall(n=1,s=n))}
     out <- rep(id,n)
     s <- c(s,rep(1,size-sum(s)))
     for(i in seq_len(n)){out[i] <- rgs1(s)}

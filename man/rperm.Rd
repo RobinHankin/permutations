@@ -53,6 +53,10 @@ Robin K. S. Hankin
   permutation, it is sometimes useful to include them to increase the
   size of the result, see examples.
 
+  In function \code{rgivenshape()}, if primary argument \code{n} is a
+  vector of length greater than 1, it is interpreted as the shape of the
+  permutation, and a single random permutation is returned.
+
 }
 \seealso{
 \code{\link{size}}
@@ -67,5 +71,10 @@ rcyc(20,5,9)
 
 rgivenshape(10,c(2,3))   # size 5
 rgivenshape(10,c(2,3,1,1)) # size 7
+
+rgivenshape(1:9)
+
+allpermslike(rgivenshape(c(1,1,3,4)))
+
 }
 \keyword{symbolmath}
