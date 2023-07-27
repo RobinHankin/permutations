@@ -62,6 +62,9 @@ These issues are dealt with by \code{nicify_cyclist()}.
   and removes length-one cycles; then orders each cycle so that the
   smallest element appears first (that is, it changes \code{(523)} to
   \code{(235)}).  It then orders the cycles by the smallest element.
+  Function \code{nicify_cyclist()} is called automatically by
+  \code{cycle()}.  Remember that \code{nicify_cyclist()} takes a
+  cyclist!
 
   \item Function \code{remove_length_one()} takes a cyclist and removes
   length-one cycles from it.
@@ -113,6 +116,11 @@ char2cyclist_single("(342)(19)")
 nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)))
 nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),rm1=TRUE)
 
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1=FALSE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1=TRUE )
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1=FALSE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1=TRUE )
+ 
 
 cyclist2word_single(list(c(1,4,3),c(7,8)))
 

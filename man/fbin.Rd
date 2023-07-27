@@ -23,6 +23,14 @@ Given this, \eqn{w} may be recovered by inserting a left parenthesis
 preceding every left-to-right maximum, and right parentheses where
 appropriate.
 
+
+Function \code{standard()} takes an object of class \code{cycle} and
+returns a list of cyclists.  NB this does not return an object of class
+\dQuote{cycle} because \code{cycle()} calls \code{nicify()}.
+   
+Function \code{standard_cyclist()} retains length-one cycles (compare
+\code{nicify_cyclist()}, which does not).
+
 }
 \usage{
 standard(cyc,n=NULL)
@@ -65,6 +73,9 @@ Robin K. S. Hankin
 
 # Stanley's example w:
 standard(cycle(list(list(c(1,4),c(3,7,5)))))
+
+standard_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)))
+
 
 w_hat <- c(2,4,1,6,7,5,3)
 

@@ -51,12 +51,20 @@ shift_cycle(n)
 Functions \code{word()} and \code{cycle()} are rather formal functions
 which make no attempt to coerce their arguments into sensible forms.
 The user should use \code{permutation()}, which detects the form of the
-input and dispatches to \code{as.word()} or \code{as.cycle()}, which
-are much more user-friendly.
+input and dispatches to \code{as.word()} or \code{as.cycle()}, which are
+much more user-friendly and try quite hard to Do The Right Thing (tm).
 
 Functions \code{word()} and \code{cycle()} are the only functions in the
 package which assign class \code{word} or \code{cycle} to an
 object.   
+
+Function \code{word()} takes a matrix and returns a word object;
+silently coerces to integer.
+
+Function \code{cycle()} takes a \dQuote{cyclist}, that is, a list whose
+elements are lists whose elements are vectors (which are disjoint
+cycles); and returns an object of class \dQuote{\code{cycle}}.  It
+nicifies its input with \code{nicify_cyclist()} before returning it.
 
 A \emph{word} is a matrix whose rows correspond to permutations in word
 format.  
@@ -81,10 +89,16 @@ Function \code{as.matrix.word()} coerces a vector of permutations in word form t
 a matrix, each row of which is a word.  To get a permutation matrix (that is, a
 square matrix of ones and zeros with exactly one entry of 1 in each row and each column),
 use \code{perm_matrix()}.                                            
+
+In function \code{as.word()}, argument \code{n} cannot act to reduce the
+size of the word, only increase it.  If you want to reduce the size, use
+\code{trim()} or \code{tidy()}.  This function does not call
+\code{word()} except directly (e.g. it does not call
+\code{size<-.word()}, as this would give a recursion).
+
+
 }
-\value{
-Returns a \code{cycle} object or a \code{word object}
-}
+\value{Returns a \code{cycle} object or a \code{word object}}
 \author{Robin K. S. Hankin}
 \seealso{
 \code{\link{cyclist}}
