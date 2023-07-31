@@ -125,7 +125,7 @@ word form.} as a dot; this makes complicated permutations easier to
 view as one is frequently not interested in fixed elements.
 
 In this example, $f$ is known as a \emph{word}: the R object specifies
-the images of the base set in order.  Function~$f\left(\cdot\right)$
+the images of the base set in order.  Function~$f{\left(\cdot\right)}$
 is invertible, being a bijection.  Its inverse may be found by
 inspection:
 
@@ -153,7 +153,7 @@ f[f] <- seq_along(f)
   
 Such idiom is made possible by the fact that, in R, array indexing
 starts at one, not zero.  If we wish to determine, say,
-$f\left(f\left(f\left(\cdot\right)\right)\right)=f^3\left(\cdot\right)$,
+$f{\left(f{\left(f{\left(\cdot\right)}\right)}\right)}=f^3{\left(\cdot\right)}$,
 then manipulating~$f$ in word form is computationally inefficient, and
 it is more convenient to represent~$f$ in {\em cycle form}:
 
