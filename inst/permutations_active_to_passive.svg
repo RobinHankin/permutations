@@ -93,7 +93,7 @@
        style="font-style:italic;font-size:42.6667px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';white-space:pre;shape-inside:url(#rect12);display:inline" />
     <g
        id="g241"
-       transform="translate(226.79308,31.821569)">
+       transform="translate(238.29404,31.821569)">
       <path
          style="fill:#000000;fill-opacity:1;stroke:#ff0000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
          d="m -117.17318,222.605 66.59809,49.78052"
@@ -472,33 +472,33 @@
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:11.2889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
-       x="127.66289"
-       y="354.35266"
+       x="139.16383"
+       y="345.88586"
        id="text148"><tspan
          sodipodi:role="line"
          id="tspan148"
          style="stroke-width:0.264583"
-         x="127.66289"
-         y="354.35266"><tspan
+         x="139.16383"
+         y="345.88586"><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '"
    id="tspan233">seats:</tspan> a,b,c,d,e,f</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="127.66289"
-         y="354.35266"
+         x="139.16383"
+         y="345.88586"
          id="tspan149"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '"
            id="tspan234" /></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:16.9333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
-       x="-172.70908"
+       x="-171.65076"
        y="377.67984"
        id="text238"><tspan
          sodipodi:role="line"
          id="tspan238"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Bold';stroke-width:0.264583"
-         x="-172.70908"
+         x="-171.65076"
          y="377.67984">For each person, where do they sit?</tspan></text>
     <text
        xml:space="preserve"
@@ -508,13 +508,13 @@
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:16.9333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
-       x="244.24162"
+       x="263.82074"
        y="377.67984"
        id="text240"><tspan
          sodipodi:role="line"
          id="tspan240"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Bold';stroke-width:0.264583"
-         x="244.24162"
+         x="263.82074"
          y="377.67984">For each seat, who sits in it?</tspan></text>
     <text
        xml:space="preserve"
@@ -530,13 +530,13 @@
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:11.2889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
-       x="256.42233"
+       x="246.86752"
        y="312.38214"
        id="text242"><tspan
          sodipodi:role="line"
          id="tspan242"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
-         x="256.42233"
+         x="246.86752"
          y="312.38214">after</tspan></text>
     <g
        id="g334">
@@ -2277,7 +2277,7 @@
    id="tspan306">6</tspan>, etc</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
-       d="m 164.82123,402.7995 0.52189,178.19423"
+       d="m 176.32218,402.7995 0.52189,178.19423"
        id="path315"
        sodipodi:nodetypes="cc" />
     <text
@@ -2338,15 +2338,50 @@
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:11.2889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
-       x="122.94448"
-       y="367.16257"
+       x="134.44543"
+       y="358.69577"
        id="text329"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="122.94448"
-         y="367.16257"
+         x="134.44543"
+         y="358.69577"
          id="tspan329"><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '"
    id="tspan326">people:</tspan> 1,2,3,4,5,6</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:11.2889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
+       x="110.16438"
+       y="372.45432"
+       id="text2"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="110.16438"
+         y="372.45432"
+         id="tspan2"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '"
+           id="tspan1">seats stay fixed, people move</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:11.2889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
+       x="69.258247"
+       y="254.7049"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+         x="69.258247"
+         y="254.7049">before</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:11.2889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';stroke-width:0.264583"
+       x="77.019371"
+       y="312.38214"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+         x="77.019371"
+         y="312.38214">after</tspan></text>
   </g>
 </svg>
