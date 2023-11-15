@@ -1,17 +1,17 @@
 ---
 title: "Print methods in the permutations package"
 author: "Robin K. S. Hankin"
-date: "`r Sys.Date()`"
+output: html_vignette
+bibliography: permutations.bib
 vignette: >
   %\VignetteIndexEntry{print methods}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-
-<p style="text-align: right;">
-![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
-</p>
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
 
 
 ```{r set-options, echo = FALSE}
@@ -20,8 +20,10 @@ options(width = 80, tibble.width = Inf)
 suppressMessages(suppressWarnings(require("permutations")))
 ```
 
-The `permutations` package has a print method which includes a number
-of user-configurable options which are illustrated and motivated here.
+To cite the permutations package in publications, please use
+@hankin2020.  The `permutations` package has a print method which
+includes a number of user-configurable options which are illustrated
+and motivated here.
 
 Permutations have two natural representations: word form and cycle
 form.  Internally, the package coerces a permutation from one form to
@@ -31,9 +33,11 @@ word form, while powers are more easily done using cycle form.
 
 Partly as a result of a perceptive comment from a journal reviewer,
 the package coerces to cycle form for printing as this is generally
-more comprehensible than word form.  However, the package includes
-functions `print_word()` and `print_cycle()` which can be used
-explicitly to print in either word form or cycle form as desired:
+more comprehensible than word form.  However, the package print method
+is extensively customizable.  This document covers some of the
+options.  Low-level print functionality includes `print_word()` and
+`print_cycle()` which can be used explicitly to print in either word
+form or cycle form as desired:
 
 ```{r}
 set.seed(0)
@@ -201,3 +205,6 @@ options(perm_set = NULL)
 options(comma = NULL)
 options(print_word_as_cycle = FALSE)
 ```
+
+
+## References {-}
