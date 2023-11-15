@@ -1,22 +1,23 @@
 ---
 title: "The permutation group: active and passive permutations, and the order of operations"
 author: "Robin K. S. Hankin"
-date: "`r Sys.Date()`"
+output: html_vignette
+bibliography: permutations.bib
 vignette: >
   %\VignetteIndexEntry{order of operations}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-<p style="text-align: right;">
-![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
-</p>
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
 
-
-Order of operations can be confusing when considering permutation
-groups.  Here I discuss active and passive transforms, order of
-operations, prefix and postfix notation, and associativity from the
-perspective of the `permutations` R package.
+To cite the permutations package in publications, please use
+@hankin2020.  When considering permutation groups, the order of
+operations can be confusing.  Here I discuss active and passive
+transforms, order of operations, prefix and postfix notation, and
+associativity from the perspective of the `permutations` R package.
 
 Consider the following:
 
@@ -422,4 +423,5 @@ AB=\left(B^{-1}A^{-1}\right)^{-1}
 instead.
 
 
-[reference](https://en.wikiversity.org/wiki/Permutation_notation)
+# References
+

@@ -1,7 +1,8 @@
 ---
 title: "The permutations package and representation theory"
 author: "Robin K. S. Hankin"
-date: "`r Sys.Date()`"
+output: html_vignette
+bibliography: permutations.bib
 vignette: >
   %\VignetteIndexEntry{representation theory}
   %\VignetteEngine{knitr::rmarkdown}
@@ -9,31 +10,26 @@ vignette: >
 ---
 
 
-<p style="text-align: right;">
-![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
-</p>
-
-
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
 
 ```{r set-options, echo = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>", dev = "png", fig.width = 7, fig.height = 3.5, message = FALSE, warning = FALSE)
 options(width = 80, tibble.width = Inf)
 ```
 
-# Introduction
-
-We will consider $S_9$, the symmetric group on 9 elements, and
-representations of its elements.  First we will load the package and
-change the default print method:
+To cite the permutations package in publications, please use
+@hankin2020.  Here we consider $S_9$, the symmetric group on 9
+elements, and representations of its elements.  First we will load the
+package and change the default print method:
 
 ```{r}
 library("permutations")
 options("print_word_as_cycle" = FALSE)
 ```
 
-
 Now we will generate a couple of permutations, `a` and `b`:
-
 
 ```{r}
 a <- as.word(char2cycle("(175296)(348)"))
@@ -102,3 +98,6 @@ this phenomenon from a different perspective.
 
 ```{r,label=restore_default, include=FALSE}
 options("print_word_as_cycle" = FALSE)
+```
+
+# References {-}
