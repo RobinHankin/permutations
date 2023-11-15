@@ -50,7 +50,7 @@ cycle_plus_integer_elementwise(x,y)
 }
 \details{
 
-  The function \code{Ops.permutation()} passes binary arithmetic
+  Function \code{Ops.permutation()} passes binary arithmetic
   operators (\dQuote{\code{+}}, \dQuote{\code{*}}, \dQuote{\code{/}},
   \dQuote{\code{^}}, and \dQuote{\code{==}}) to the appropriate
   specialist function.
@@ -104,7 +104,7 @@ cycle_plus_integer_elementwise(x,y)
   interpretations.  Distributivity is similarly broken (see the
   examples).  Package idiom includes \code{x-n} [defined as \code{x +
   (-n)}] and \code{n+x} but not \code{n-x} as inverses are defined
-  multipicatively.  The implementation is vectorised.
+  multiplicatively.  The implementation is vectorised.
 
 }
 
