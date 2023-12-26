@@ -293,6 +293,7 @@ as.character_cyclist <- function(y,comma=TRUE){
     ps <- getOption("perm_set")
     if(!is.null(ps)){y <- lapply(y,function(x){ps[x]})}
     if(comma){s <- ","} else {s <- ""}
+    if(isTRUE(getOption("print_in_length_order"))){y <- y[order(unlist(lapply(y,length)))]}
     paste(sapply(y,function(u){paste(paste("(",paste(u,collapse=s),sep=""),")",sep="")}),collapse="")
 }
 

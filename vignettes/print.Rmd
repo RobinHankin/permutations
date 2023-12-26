@@ -196,7 +196,39 @@ options(comma = TRUE)
 z
 ```
 
-Above we use state abbreviations (a builtin R dataset) and also direct
+## Cycles in length order 
+
+
+Consider the following:
+
+```{r rgivshap}
+options(perm_set = NULL) # revert to numbers
+options(comma = FALSE)   # supress comma
+x <- rgivenshape(30,2:4)
+x
+```
+
+We see 30 random permutations with shape
+$\left(\cdot\,\cdot\right)\left(\cdot\cdot\cdot\right)\left(\cdot\cdot\cdot\right)$.
+However, because function `nicify_cyclist()` sorts each cycle so that
+the smallest element is first, then sorts the cycles by first element,
+it is not obvious that all the permutations above have the same shape.
+The print method is sensitive to experimental option
+`print_in_length_order` (via function `as.character_cyclist()`).  If
+`TRUE`, permutations cycle form will be printed but with the cycles in
+increasing length order:
+
+  
+```{r, label=showlenord}
+options("print_in_length_order" = TRUE)
+x
+
+```
+
+
+## Wrapup
+
+Above we used state abbreviations (a builtin R dataset) and also direct
 the print method to use commas for readability.  However, it is best
 to reset to the default, as the option persists between vignettes:
 
@@ -204,7 +236,7 @@ to reset to the default, as the option persists between vignettes:
 options(perm_set = NULL)
 options(comma = NULL)
 options(print_word_as_cycle = FALSE)
+options("print_in_length_order" = FALSE)
 ```
-
 
 ## References {-}
