@@ -52,9 +52,8 @@ introducing the permutations package}
 
 \Address{
 Robin K. S. Hankin\\%\orcid{https://orcid.org/0000-0001-5982-0415}\\
-AUT University\\
-Auckland\\
-New Zealand\\
+University of Stirling\\
+Scotland\\
 E-mail: \email{hankin.robin@gmail.com}
 }
 
