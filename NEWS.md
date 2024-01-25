@@ -26,4 +26,4 @@
 # 1.1-5
 
 - consistentification
-- improvements to documentatoin
+- improvements to documentation

@@ -11,7 +11,7 @@
 \description{\loadmathjax
 
   Functionality to enumerate permutations given different
-  characeristics.  In the following, \code{n} is assumed to be a
+  characteristics.  In the following, \code{n} is assumed to be a
   non-negative integer.  Permutations, in general, are coerced to cycle
   form.
 
