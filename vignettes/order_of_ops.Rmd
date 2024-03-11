@@ -32,9 +32,8 @@ a
 ```
 
 Thus we can see that $a$ has a three-cycle $(145)$ and a two-cycle
-$(26)$.  We can express $a$ in word form (note that we have to stop
-the print method from printing in cycle form by changing the default):
-
+$(26)$.  We can express $a$ in word form by changing the default print
+method which coerces to cycle form:
 
 ```{r setprintopts}
 options("print_word_as_cycle" = FALSE)
@@ -58,7 +57,7 @@ Expressed in functional notation, we have a function $a\colon
 have $a(1)=4$, $a(2)=5$, $a(3)=3$, and so on.  If these were objects,
 or people, we might want to keep track of where they are.  We would
 say: "at the start, object $i$ sits in place $i$, $i\in[6]$.  Then,
-after the move, object 1 is in place 4, object 2 in place 5, object 3
+after the move, object 1 is in place 5, object 2 in place 6, object 3
 in place 3, and so on".  This information is encapsulated by
 `as.word(a)`.  In R matrix form we would have
 
