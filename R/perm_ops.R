@@ -18,7 +18,7 @@
         if (.Generic == "*") {
             return(word_prod(e1, e2))
         } else if (.Generic == "^"){
-            return(group_action(e1,e2))
+            return(conjugation(e1,e2))
         } else if (.Generic == "/") {
             return(word_prod(e1,inverse(e2)))
         } else if (.Generic == "==") {
@@ -199,7 +199,7 @@ cycle_power <- function(x,pow){  # cf cycle_sum(); here 'pow' is a
     return(cycle(unlist(out,recursive=FALSE)))
 }
 
-group_action <- function(e1,e2){ # e1 and e2 are both coerced to 'word' objects
+conjugation <- function(e1,e2){ # e1 and e2 are both coerced to 'word' objects
     n <- max(size(e1),size(e2))
     e1 <- as.word(e1)
     e2 <- as.word(e2)

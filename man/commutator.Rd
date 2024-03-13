@@ -17,7 +17,7 @@
 \alias{[,dot,matrix,matrix-method}
 \alias{[,dot,permutation,permutation-method}
 \alias{[,dot,permutation,permutation,ANY-method}
-\title{Group-theoretic commutator and group action; the dot object}
+\title{Group-theoretic commutator: the dot object}
 \description{\loadmathjax
 
 
@@ -40,12 +40,8 @@ commutator(x, y)
 \arguments{
   \item{x,y}{Permutation objects, coerced to word}
 }
-\author{
-Robin K. S. Hankin
-}
-\seealso{\code{\link{group_action}}}
+\author{Robin K. S. Hankin}
 \examples{
-
 
 .[as.cycle("123456789"),as.cycle("12")]
 

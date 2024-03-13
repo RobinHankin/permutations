@@ -3,7 +3,6 @@
 \alias{Ops.permutations}
 \alias{Ops}
 \alias{cycle_sum}
-\alias{group_action}
 \alias{word_equal}
 \alias{word_prod}
 \alias{word_prod_single}
@@ -15,6 +14,7 @@
 \alias{ccps}
 \alias{helper}
 \alias{cycle_plus_integer_elementwise}
+\alias{conjugation}
 \title{Arithmetic Ops Group Methods for permutations}
 \description{\loadmathjax
   Allows arithmetic operators to be used for manipulation of permutation objects
@@ -26,7 +26,6 @@ cycle_power(x,pow)
 cycle_power_single(x,pow)
 cycle_sum(e1,e2)
 cycle_sum_single(c1,c2)
-group_action(e1,e2)
 word_equal(e1,e2)
 word_prod(e1,e2)
 word_prod_single(e1,e2)
@@ -35,6 +34,7 @@ vps(vec,pow)
 ccps(n,pow)
 helper(e1,e2)
 cycle_plus_integer_elementwise(x,y)
+conjugation(e1,e2)
 }
 \arguments{
   \item{x,e1,e2}{Objects of class \dQuote{\code{permutation}}}
@@ -69,10 +69,13 @@ cycle_plus_integer_elementwise(x,y)
   \code{vps()} calls function \code{ccps()} which performs the actual
   number-theoretic manipulation to raise a cycle to a power.
 
-  Raising a permutation to the power of another permutation, as in
-  \code{a^b}, is idiom for \code{inverse(b)*a*b}, sometimes known as
-  \dfn{group action}; the notation is motivated by the identities
-  \code{x^(yz)=(x^y)^z} and \code{(xy)^z=x^z*y^z}.
+  Group-theoretic conjugation is implemented: in package idiom,
+  \code{a^b} gives \code{inverse(b)*a*b}.  The notation is motivated by
+  the identities \code{x^(yz)=(x^y)^z} and \code{(xy)^z=x^z*y^z} [or
+  \mjeqn{x^{yz}=(x^y)^z}{omitted} and \mjeqn{(xy)^z=x^zy^z}{omitted}].
+  Internally, \code{conjugation()} is called.  The concept of conjugate
+  \emph{permutations} [that is, permutations with the same
+  \code{shape()}] is discussed at \link{conjugate}.
 
   The \dfn{sum} of two permutations \code{a} and \code{b}, as in
   \code{a+b}, is defined if the cycle representations of the addends are
@@ -149,9 +152,7 @@ cycle_plus_integer_elementwise(x,y)
   parser.
   
 }
-\author{
-  Robin K. S. Hankin
-}
+\author{Robin K. S. Hankin}
 \examples{
 
 
@@ -163,7 +164,7 @@ print_word(x*y)
 
 x^5  # powers are given in cycle form
 
-x^as.cycle(1:5)  # group action (not integer power!); coerced to word.
+x^as.cycle(1:5)  # conjugation (not integer power!); coerced to word.
 
 x*inverse(x) == id  # all TRUE
 

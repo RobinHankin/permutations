@@ -8,7 +8,7 @@
 \title{
 Are two permutations conjugate?
 }
-\description{
+\description{\loadmathjax
 Returns \code{TRUE} if two permutations are conjugate and \code{FALSE}
 otherwise.
 }
@@ -35,8 +35,17 @@ are_conjugate_single(a,b)
 The functionality detects conjugateness by comparing the shapes of two
 permutations; permutations are coerced to cycle form because function
 \code{shape()} does.
+
+The group action of conjugation, that is \mjseqn{x^y} or \code{y^-1 x
+ y}, is documented at \link{conjugation}.
+
+\preformatted{ are_conjugate(x,conjugate(x^y))  }
+
+is always \code{TRUE}.
+
 }
-\seealso{\code{\link{group_action}},\code{\link{shape}}}
+
+\seealso{\code{\link{conjugation}},\code{\link{shape}}}
 \examples{
 
 as.cycle("(123)(45)") \%~\% as.cycle("(89)(712)")  # same shape
