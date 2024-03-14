@@ -27,3 +27,4 @@
 
 - consistentification
 - improvements to documentation
+- bugfix to orbit()

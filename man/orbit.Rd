@@ -26,7 +26,11 @@ orbit(cyc,n)
 
   Function \code{orbit()} is the vectorized equivalent of
   \code{orbit_single()}.  Vectorization is inherited from
-  \code{cbind()}. 
+  \code{cbind()}.
+
+  The orbit of a fixed point \mjseqn{p} is \mjeqn{\left\lbrace
+  p\right\rbrace}{omitted}; the code uses an ugly hack to ensure that
+  this is the case.
   
 }
 

@@ -650,7 +650,10 @@ permprod <- function(x){
 "orbit" <- function(cyc,n){
     cyc <- as.cycle(cyc)
     jj <- helper(cyc,n)
-    apply(jj,1,function(ind){orbit_single(unlist(unclass(cyc[ind[1]]),recursive=FALSE),n[ind[2]])})
+    out <- apply(jj,1,function(ind){orbit_single(unlist(unclass(cyc[ind[1]]),recursive=FALSE),n[ind[2]])},simplify=FALSE)
+    nullout <- which(unlist(lapply(out,is.null)))
+    out[nullout] <- n[jj[nullout,2]]
+    return(out)
 }
    
 "allperms" <- function(n){ word(t(perms(n))) }
