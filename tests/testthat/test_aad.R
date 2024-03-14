@@ -1,4 +1,4 @@
-test_that("Test suite aac.R",{
+test_that("Test suite aad.R",{
 
     options("print_word_as_cycle" = FALSE)
     expect_output(print(rperm(3,4)))
