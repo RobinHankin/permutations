@@ -644,6 +644,7 @@ permprod <- function(x){
 }
 
 "orbit_single" <- function(c1,n1){  # c1 is a cyclist, n1 an integer vector
+    if(length(c1)==0){return(n1)}
     unlist(c1[which(unlist(lapply(c1,function(x){n1 %in% x})))])
 }
 
