@@ -6,9 +6,7 @@
 \alias{size<-}
 \alias{size<-.word}
 \alias{addcols}
-\title{
-Gets or sets the size of a permutation
-}
+\title{Gets or sets the size of a permutation}
 \description{
 The \sQuote{size} of a permutation is the cardinality of the set for
 which it is a bijection.
