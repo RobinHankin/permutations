@@ -8,7 +8,7 @@
 \alias{all_cyclic_shuffles}
 \alias{all_perms_shape}
 \title{All permutations with given characteristics}
-\description{\loadmathjax
+\description{
 
   Functionality to enumerate permutations given different
   characteristics.  In the following, \code{n} is assumed to be a
@@ -16,13 +16,14 @@
   form.
 
   \itemize{
-    \item\code{allperms(n)} returns all \mjseqn{n!} permutations
-    of a \mjseqn{[n]}.
-    \item\code{allcycn()} returns all \mjseqn{(n-1)!}  permutations of
-    \mjseqn{[n]} comprising a single cycle of length \mjseqn{n}.
+    \item\code{allperms(n)} returns all \eqn{n!} permutations
+    of \eqn{[n]}.
+
+    \item\code{allcycn()} returns all \eqn{(n-1)!}  permutations of
+    \eqn{[n]} comprising a single cycle of length \eqn{n}.
 
     \item\code{allcyc(s)} returns all single-cycle permutations of set
-    \mjseqn{s}.  If \mjseqn{s} has a repeated value, an opaque error
+    \eqn{s}.  If \eqn{s} has a repeated value, an opaque error
     message is returned.
 
     \item\code{allpermslike(o)} takes a length-one vector \code{o} of

@@ -16,7 +16,7 @@
 \alias{cycle_plus_integer_elementwise}
 \alias{conjugation}
 \title{Arithmetic Ops Group Methods for permutations}
-\description{\loadmathjax
+\description{
   Allows arithmetic operators to be used for manipulation of permutation objects
   such as addition, multiplication, division, integer powers, etc.
 }
@@ -61,7 +61,7 @@ conjugation(e1,e2)
 
   Raising permutations to integer powers, as in \code{a^n}, is
   \code{cycle_power(a,n)}; it coerces \code{a} to cycle form and returns
-  a cycle (even if \mjseqn{n=1}).  Negative and zero values of \code{n}
+  a cycle (even if \eqn{n=1}).  Negative and zero values of \code{n}
   operate as expected.  Function \code{cycle_power()} is vectorized; it
   calls \code{cycle_power_single()}, which is not.  This calls
   \code{vps()} (\dQuote{Vector Power Single}), which checks for simple
@@ -72,7 +72,7 @@ conjugation(e1,e2)
   Group-theoretic conjugation is implemented: in package idiom,
   \code{a^b} gives \code{inverse(b)*a*b}.  The notation is motivated by
   the identities \code{x^(yz)=(x^y)^z} and \code{(xy)^z=x^z*y^z} [or
-  \mjeqn{x^{yz}=(x^y)^z}{omitted} and \mjeqn{(xy)^z=x^zy^z}{omitted}].
+  \eqn{x^{yz}=(x^y)^z}{omitted} and \eqn{(xy)^z=x^zy^z}{omitted}].
   Internally, \code{conjugation()} is called.  The concept of conjugate
   \emph{permutations} [that is, permutations with the same
   \code{shape()}] is discussed at \link{conjugate}.
@@ -98,10 +98,10 @@ conjugation(e1,e2)
   handles the names of the returned permutation.
 
   Experimental functionality is provided to define the \dQuote{sum} of a
-  permutation and an integer.  If \mjseqn{x} is a permutation in cycle
-  form with \mjseqn{x=(abc)}, say, and \mjseqn{n} an integer, then
-  \mjseqn{x+n=(a+n,b+n,c+n)}: each element of each cycle of \mjseqn{x}
-  is increased by \mjseqn{n}.  Note that this has associativity
+  permutation and an integer.  If \eqn{x} is a permutation in cycle
+  form with \eqn{x=(abc)}, say, and \eqn{n} an integer, then
+  \eqn{x+n=(a+n,b+n,c+n)}: each element of each cycle of \eqn{x}
+  is increased by \eqn{n}.  Note that this has associativity
   consequences.  For example, \code{x+(x+n)} might be defined but not
   \code{(x+x)+n}, as the two \dQuote{\code{+}} operators have different
   interpretations.  Distributivity is similarly broken (see the
@@ -141,7 +141,7 @@ conjugation(e1,e2)
   but instead standard precedence rules means that it returns
   \code{inverse(x*y)}.  Earlier versions of the package interpreted
   \code{!x} as \code{inverse(x)}, but it was a disaster: to implement
-  the commutator \mjeqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy},
+  the commutator \eqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy},
   for example, one would like to use \code{!x*!y*x*y}, but this is
   interpreted as \code{!(x*(!y*(x*y)))}; one has to use
   \code{(!x)*(!y)*x*y}.  I found myself having to use heaps of

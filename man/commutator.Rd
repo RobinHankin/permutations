@@ -18,12 +18,11 @@
 \alias{[,dot,permutation,permutation-method}
 \alias{[,dot,permutation,permutation,ANY-method}
 \title{Group-theoretic commutator: the dot object}
-\description{\loadmathjax
-
+\description{
 
 In the \pkg{permutations} package, the dot is defined as the
 \strong{Group-theoretic commutator}:
-\mjeqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy}.  This is a bit of an
+\eqn{[x,y]=x^{-1}y^{-1}xy}{[x,y]=x^(-1)y^(-1)xy}.  This is a bit of an
 exception to the usual definition of \code{xy-yx} (along with the
 \pkg{freegroup} package).  Package idiom is \code{commutator(x,y)} or
 \code{.[x,y]}.

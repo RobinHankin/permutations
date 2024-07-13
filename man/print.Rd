@@ -10,7 +10,7 @@
 \title{
 Print methods for permutation objects
 }
-\description{\loadmathjax
+\description{
 Print methods for permutation objects with matrix-like printing for
 words and bracket notation for cycle objects.
 }
@@ -72,7 +72,7 @@ Returns its argument invisibly, after printing it (except for
 
   The print method includes experimental functionality to display
   permutations of sets other than the default of integers
-  \mjeqn{1,2,\ldots, n}{1,2,...,n}.  Both cycle and word print methods
+  \eqn{1,2,\ldots, n}{1,2,...,n}.  Both cycle and word print methods
   are sensitive to option \code{perm_set}: the default value of
   \code{NULL} means to use integers.  The symbols may be the elements of
   any character vector; use idiom such as

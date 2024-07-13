@@ -3,7 +3,7 @@
 \alias{is.even}
 \alias{is.odd}
 \title{Sign of a permutation}
-\description{\loadmathjax
+\description{
 Returns the sign of a permutation
 }
 \usage{
@@ -14,11 +14,11 @@ is.odd(x)
 \arguments{\item{x}{permutation object}}
 \details{
 
-The sign of a permutation is \mjeqn{\pm 1}{+/-1} depending on whether it
+The sign of a permutation is \eqn{\pm 1}{+/-1} depending on whether it
 is even or odd.  A permutation is \dfn{even} if it can be written as a
 product of an even number of transpositions, and \dfn{odd} if it can be
 written as an odd number of transpositions.  The map
-\mjeqn{\operatorname{sgn}\colon S_n\longrightarrow\left\lbrace
+\eqn{\operatorname{sgn}\colon S_n\longrightarrow\left\lbrace
 +1,-1\right\rbrace}{omitted} is a homomorphism; see examples.}
 \author{Robin K. S. Hankin} \note{Internally, function \code{sgn()}
 coerces to cycle form.

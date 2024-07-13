@@ -4,10 +4,10 @@
 \alias{riffle}
 \alias{shuffle}
 \title{Faro shuffles}
-\description{\loadmathjax
+\description{
 
 A \dfn{faro shuffle}, \code{faro()},is a permutation of a deck of
-\mjseqn{2n} cards.  The cards are split into two packs, \code{1:n} and
+\eqn{2n} cards.  The cards are split into two packs, \code{1:n} and
 \code{(n+1):2n}, and interleaved: cards are taken alternately from top
 of each pack and placed face down on the table.  A \dfn{faro
 out-shuffle} takes the first card from \code{1:n} and a \dfn{faro
