@@ -41,7 +41,7 @@ form or cycle form as desired:
 
 ```{r}
 set.seed(0)
-x <- rperm(r=9)
+x <- rperm(r = 9)
 print_word(x)
 print_cycle(x)
 ```
@@ -53,7 +53,7 @@ minority.  However, the difference between word form and cycle form
 becomes more pronounced if only a small number of elements move:
 
 ```{r}
-x <- rperm(r=9,moved=3)
+x <- rperm(r = 9, moved = 3)
 print_word(x)
 print_cycle(x)
 ```
@@ -67,12 +67,12 @@ objects in cycle form.  However, the standard workflow would be to use
 R's default system, which is to print values to the console:
 
 ```{r}
-x <- rperm(n=2)
+x <- rperm(n = 2)
 y <- as.cycle(x)
-unclass(x)  # shows internal representation (x is in word form)
-unclass(y)  # shows internal representation (x is in cycle form)
-x   # default: print to console 
-y   # default: print to console 
+unclass(x) # shows internal representation (x is in word form)
+unclass(y) # shows internal representation (x is in cycle form)
+x # default: print to console
+y # default: print to console
 ```
 
 Above we see that, by default, objects in word form are coerced to
@@ -91,7 +91,7 @@ This behaviour can be confusing because the same permutation can have
 different print styles, so we reinstate the default:
 
 ```{r}
-options(print_word_as_cycle = TRUE)  # restore default
+options(print_word_as_cycle = TRUE) # restore default
 ```
 
 Most people seem to prefer printing in cycle form.
@@ -103,7 +103,7 @@ If we have 10 or more elements then we need a comma.  This is added by
 default:
 
 ```{r}
-x <- rperm(r=15,moved=4)
+x <- rperm(r = 15, moved = 4)
 print_cycle(x)
 ```
 
@@ -115,7 +115,7 @@ values are respected:
 
 ```{r}
 options("comma" = TRUE)
-rperm(3,r=9)   # commas printed irregardless
+rperm(3, r = 9) # commas printed irregardless
 ```
 
 Above we see the commas making the output somewhat prolix, but not a
@@ -125,10 +125,10 @@ necessary to interpret strings like `124` which might be `1,2,4` or
 
 ```{r}
 options("comma" = FALSE)
-x <- rperm(3,r=20) 
-x     # commas not printed irregardless
+x <- rperm(3, r = 20)
+x # commas not printed irregardless
 options("comma" = NULL) # restore default
-x     # default for comparison
+x # default for comparison
 ```
 
 Above, the absence of commas is somewhat confusing, default restored.
@@ -146,7 +146,7 @@ permutation.
 
 ```{r}
 set.seed(0)
-x <- rperm(n=3)
+x <- rperm(n = 3)
 dput(x)
 x
 ```
@@ -166,7 +166,7 @@ However, the use of commas is somewhat problematic, and by default the
 print method uses the $>9$ criterion for including a comma:
 
 ```{r}
-(xx <- rperm(n=2,r=26))
+(xx <- rperm(n = 2, r = 26))
 ```
 
 Above we see that commas are included (because $26>9$) but it probably
@@ -182,7 +182,7 @@ One side-effect of using a finite set of symbols is that the print
 method might run out of symbols:
 
 ```{r}
-(z <- rperm(n=2,r=50))
+(z <- rperm(n = 2, r = 50))
 ```
 
 Above we see `NA` printed where the symbol's index exceeds 26 (also
@@ -203,8 +203,8 @@ Consider the following:
 
 ```{r rgivshap}
 options(perm_set = NULL) # revert to numbers
-options(comma = FALSE)   # supress comma
-x <- rgivenshape(30,2:4)
+options(comma = FALSE) # supress comma
+x <- rgivenshape(30, 2:4)
 x
 ```
 
@@ -222,7 +222,6 @@ increasing length order:
 ```{r, label=showlenord}
 options("print_in_length_order" = TRUE)
 x
-
 ```
 
 

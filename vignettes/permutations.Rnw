@@ -110,7 +110,7 @@ in sequence:
 
 <<loadlibandperm>>=
 library(permutations)
-f <- as.word(c(9,2,6,3,5,4,1,7,8))
+f <- as.word(c(9, 2, 6, 3, 5, 4, 1, 7, 8))
 options(print_word_as_cycle = FALSE)
 f
 @ 
@@ -197,7 +197,9 @@ natural in cycle form.  Note that inversion is reasonably direct, the
 idiom for inverting a cyclist \code{cyc} being
 
 <<invertcyclist,eval=FALSE>>=
-lapply(cyc,function(o){c(o[1],rev(o[-1]))})
+lapply(cyc, function(o) {
+  c(o[1], rev(o[-1]))
+})
 @ 
 
 Permutations in cycle form are difficult to handle in R for two
@@ -220,14 +222,14 @@ first and then~$f$; in general, these two products are different.
   
 <<fg>>=
 g <- as.word(9:1)
-f*g
-g*f
+f * g
+g * f
 @ 
 
 Word products use the natural R idiom
 
 <<productform,eval=FALSE>>=
-f*g == g[f]
+f * g == g[f]
 @ 
 
 again depending directly on one-based indexing used by R.  Note the
@@ -245,7 +247,7 @@ One measure of the non-commutativity of $f$ and~$g$ is the
 \emph{commutator}, here defined as $f^{-1}g^{-1}fg$:
     
 <<commutator>>=
-commutator(f,g)
+commutator(f, g)
 @     
 
 Because working with permutations in cycle form is more natural and
@@ -254,8 +256,8 @@ method via \code{options()}:
 
 <<showprint>>=
 options(print_word_as_cycle = TRUE)
-commutator(f,g)
-commutator(g,f)
+commutator(f, g)
+commutator(g, f)
 @ 
 
 
@@ -399,9 +401,9 @@ turning number is~24 and offers an 83-turn sequence:
 
 <<>>=
 X <- W / Pu * W * Pu^2 / DY^2
-Y <- LG^(-1) / DB * LB * DG      
-Z <- Gy^(-2) * LB / LG /Pi / LY
-superflip83 <- (X^6)^Y + Z^9  # superflip (Jeremy Clark)
+Y <- LG^(-1) / DB * LB * DG
+Z <- Gy^(-2) * LB / LG / Pi / LY
+superflip83 <- (X^6)^Y + Z^9 # superflip (Jeremy Clark)
 @  
 
 \noindent (note the use of binary ``+'' showing that sequences
@@ -416,8 +418,8 @@ That the superflip is in the center may be verified directly in R
 using the \pkg{permutations} package:
 
 <<superflip_is_center>>=
-jj <- permprod(sample(megaminx,30,replace=TRUE))
-stopifnot(jj*superflip83 == superflip83*jj)
+jj <- permprod(sample(megaminx, 30, replace = TRUE))
+stopifnot(jj * superflip83 == superflip83 * jj)
 @ 
 
 The permutations package may be used to search systematically for a
@@ -429,12 +431,12 @@ superflip:%'
 
 <<superflip82>>=
 superflip82 <-
-    LB^-1 * Gy^-1 * LB^-1 * O^3 * Gy * LY^2 * Gy^2 * 
-        LY^3 * Gy^3 * LY^3/LB * Gy^2 * 
-            ((Pu^-1 * W^2 * DY * DB * R)^9)^(O^3 * LB^3/LG) * 
-                Gy^2/LB * O^3 * Gy * LY^2 * Gy^2 * LY^3 * Gy^3 * 
-                    LY^3 / LB / Gy / LB * 
-                    O^3 * Gy * LY^2 * Gy^2 * LY^3 * Gy^3 * LY^3
+  LB^-1 * Gy^-1 * LB^-1 * O^3 * Gy * LY^2 * Gy^2 *
+    LY^3 * Gy^3 * LY^3 / LB * Gy^2 *
+    ((Pu^-1 * W^2 * DY * DB * R)^9)^(O^3 * LB^3 / LG) *
+    Gy^2 / LB * O^3 * Gy * LY^2 * Gy^2 * LY^3 * Gy^3 *
+    LY^3 / LB / Gy / LB *
+    O^3 * Gy * LY^2 * Gy^2 * LY^3 * Gy^3 * LY^3
 
 stopifnot(superflip82 == superflip83)
 @ 

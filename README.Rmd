@@ -51,7 +51,7 @@ set.seed(0)
 
 
 ```{r rperm}
-(x <- rperm(10,9))
+(x <- rperm(10, 9))
 ```
 
 Above, object `x` is internally stored as a matrix (word form) but the
@@ -60,9 +60,9 @@ understand.  We can print in word form if we wish:
 
 
 ```{r wordformprint}
-options(print_word_as_cycle=FALSE)  # override default
+options(print_word_as_cycle = FALSE) # override default
 as.word(x)
-options(print_word_as_cycle=TRUE)  # restore default: we usually want to print a cycle irregardless
+options(print_word_as_cycle = TRUE) # restore default: we usually want to print a cycle irregardless
 ```
 
 (A dot indicates a fixed point).  The package uses arithmetic
@@ -70,10 +70,10 @@ operations `*` to combine permutations and `^` for
 conjugation:
 
 ```{r arith}
-(a <- as.word(c(4,2,3,1,5,7,6)))
+(a <- as.word(c(4, 2, 3, 1, 5, 7, 6)))
 (b <- as.cycle(1:4))
-a*b
-b*a
+a * b
+b * a
 ```
 
 # The megaminx

@@ -62,8 +62,8 @@ in place 3, and so on".  This information is encapsulated by
 `as.word(a)`.  In R matrix form we would have
 
 ```{r showactiveform}
-a_active <- rbind(1:6,as.word(a))
-rownames(a_active) <- c("place before move","place after move")
+a_active <- rbind(1:6, as.word(a))
+rownames(a_active) <- c("place before move", "place after move")
 a_active
 ```
 
@@ -112,8 +112,8 @@ inverse(a)
 would use `inverse()`:
 
 ```{r invpassive}
-a_passive <- rbind(1:6,as.word(inverse(a)))
-rownames(a_passive) <- c("place after move","place before move")
+a_passive <- rbind(1:6, as.word(inverse(a)))
+rownames(a_passive) <- c("place after move", "place before move")
 a_passive
 ```
 
@@ -197,7 +197,7 @@ in active language], we can use standard permutation composition, in R
 idiom the `*` operator:
 
 ```{r staridiom}
-a*b
+a * b
 ```
 
 The `*` operator in R idiom is essentially carries out `b[a]`
@@ -216,7 +216,7 @@ notation) we can ask what happens to the object originally in place 1
 fa <- as.function(a)
 fb <- as.function(b)
 fb(fa(1))
-as.function(a*b)(1)  # should match fb(fa(1))
+as.function(a * b)(1) # should match fb(fa(1))
 ```
 
 Note, however, the confusing order of operations: in functional
@@ -228,7 +228,9 @@ $(xf)g$.  In R idiom, this is implemented by the excellent
 `magrittr` package:
 
 ```{r usepipes}
-1 %>% fa %>% fb  # idiom for fb(fa(1)), should match result above
+1 %>%
+  fa() %>%
+  fb() # idiom for fb(fa(1)), should match result above
 ```
 
 
@@ -243,19 +245,19 @@ in passive matrix form which we will call `a_passive` and
 
 
 ```{r expresspass}
-a   # word form 
-a_active  # matrix form (active)
-a_passive  # matrix form (passive)
+a # word form
+a_active # matrix form (active)
+a_passive # matrix form (passive)
 ```
 
 and then `b`, but we need to create equivalents `b_active` and
 `b_passive` which we do as before:
 
 ```{r asbefore, echo=FALSE}
-b_active <- rbind(1:6,as.word(b))
-rownames(b_active) <- c("place before move","place after move")
-b_passive <- rbind(1:6,as.word(inverse(b)))
-rownames(b_passive) <- c("place after move","place before move")
+b_active <- rbind(1:6, as.word(b))
+rownames(b_active) <- c("place before move", "place after move")
+b_passive <- rbind(1:6, as.word(inverse(b)))
+rownames(b_passive) <- c("place after move", "place before move")
 ```
 
 
@@ -318,8 +320,8 @@ a^{-1}b^{-1}=\left(ab\right)^{-1}
 and in R idiom we would have
 
 ```{r inverseidiom}
-inverse(inverse(b) * inverse(a)) == a*b # both should be TRUE
-inverse(b) * inverse(a) == inverse(a*b) # note b precedes a on LHS
+inverse(inverse(b) * inverse(a)) == a * b # both should be TRUE
+inverse(b) * inverse(a) == inverse(a * b) # note b precedes a on LHS
 ```
 
 
@@ -330,7 +332,7 @@ active and passive language.
 
 
 ```{r geng}
-g <- as.cycle(c(1,2,6))
+g <- as.cycle(c(1, 2, 6))
 g
 ```
 
@@ -345,7 +347,7 @@ pg
 But it is convenient to relabel the rows and the columns:
 
 ```{r relabelconv}
-dimnames(pg) <- list(place_before_move=1:6,place_after_move=1:6)
+dimnames(pg) <- list(place_before_move = 1:6, place_after_move = 1:6)
 pg
 ```
 
@@ -362,10 +364,10 @@ matrix: a permutation matrix is orthogonal.  Now we can consider a
 second permutation `h` and convert it to matrix form:
 
 ```{r hinmatrix}
-h <- as.word(c(1,3,4,5,2,6))
+h <- as.word(c(1, 3, 4, 5, 2, 6))
 h
 ph <- perm_matrix(h)
-dimnames(ph) <- list(place_before_move=1:6,place_after_move=1:6)
+dimnames(ph) <- list(place_before_move = 1:6, place_after_move = 1:6)
 ph
 ```
 
