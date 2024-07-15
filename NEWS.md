@@ -28,3 +28,5 @@
 - consistentification
 - improvements to documentation
 - bugfix to orbit()
+- github workflows for QC and coverage
+- code of conduct and contributing files
