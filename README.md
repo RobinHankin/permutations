@@ -8,6 +8,8 @@ Group theory in R: the permutations package
 <!-- badges: start -->
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)
+[![Codecov test
+coverage](https://codecov.io/gh/RobinHankin/permutations/branch/master/graph/badge.svg)](https://app.codecov.io/gh/RobinHankin/permutations?branch=master)
 <!-- badges: end -->
 
 # Overview
@@ -40,7 +42,7 @@ The package is maintained on
 Random permutations on a finite set are given by the `rperm()` command:
 
 ``` r
-(x <- rperm(10,9))
+(x <- rperm(10, 9))
 #>  [1] (19524)(37)    (1238794)      (1745682)(39)  (15)(3897)(46) (132654789)   
 #>  [6] (17263)(59)    (136)(47589)   (162)(4795)    (14763)(259)   (168347925)   
 #> [coerced from word form]
@@ -51,7 +53,7 @@ result is printed in cycle form by default, as this is easier to
 understand. We can print in word form if we wish:
 
 ``` r
-options(print_word_as_cycle=FALSE)  # override default
+options(print_word_as_cycle = FALSE) # override default
 as.word(x)
 #>      {1} {2} {3} {4} {5} {6} {7} {8} {9}
 #> [1]  9   4   7   1   2   .   3   .   5  
@@ -64,22 +66,22 @@ as.word(x)
 #> [8]  6   1   .   7   4   2   9   .   5  
 #> [9]  4   5   1   7   9   3   6   .   2  
 #> [10] 6   5   4   7   1   8   9   3   2
-options(print_word_as_cycle=TRUE)  # restore default: we usually want to print a cycle irregardless
+options(print_word_as_cycle = TRUE) # restore default: we usually want to print a cycle irregardless
 ```
 
 (A dot indicates a fixed point). The package uses arithmetic operations
 `*` to combine permutations and `^` for conjugation:
 
 ``` r
-(a <- as.word(c(4,2,3,1,5,7,6)))
+(a <- as.word(c(4, 2, 3, 1, 5, 7, 6)))
 #> [1] (14)(67)
 #> [coerced from word form]
 (b <- as.cycle(1:4))
 #> [1] (1234)
-a*b
+a * b
 #> [1] (234)(67)
 #> [coerced from word form]
-b*a
+b * a
 #> [1] (123)(67)
 #> [coerced from word form]
 ```

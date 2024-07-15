@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/permutations)](https://cran.r-project.org/package=permutations)
+[![Codecov test coverage](https://codecov.io/gh/RobinHankin/permutations/branch/master/graph/badge.svg)](https://app.codecov.io/gh/RobinHankin/permutations?branch=master)
 <!-- badges: end -->
 
 
