@@ -3,6 +3,8 @@ CITATION.cff
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^\.travis\.yml$
+^CODE_OF_CONDUCT.md$
+^CONTRIBUTING.md$
 ^doc$
 ^Meta$
 inst/.RData
