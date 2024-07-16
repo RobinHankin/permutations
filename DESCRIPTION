@@ -18,5 +18,5 @@ Description: Manipulates invertible functions from a finite set to
 License: GPL-2
 Suggests: rmarkdown,testthat,knitr,magrittr,covr
 VignetteBuilder: knitr
-URL: https://github.com/RobinHankin/permutations, https://robinhankin.github.io/permutations/
+URL: https://github.com/RobinHankin/permutations
 BugReports: https://github.com/RobinHankin/permutations/issues
