@@ -15,3 +15,6 @@ vignettes/megaminx_neg.svg
 ^.devcontainer$
 ^codecov\.yml$
 ^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
