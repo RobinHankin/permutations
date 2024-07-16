@@ -202,7 +202,7 @@ print.word <- function(x, h = getOption("print_word_as_cycle"), ...) {
     jj[!dots] <- ps[x[!dots]]
   }
   print(noquote(jj))
-  return(invisible(NULL))
+  return(invisible(given))
 }
 
 as.cycle <- function(x) {
@@ -319,7 +319,7 @@ print.cycle <- function(x, give_string = FALSE, ...) { # x is a cycle.  Use case
       return(out)
     } else {
       print(noquote(out))
-      return(invisible(NULL))
+      return(invisible(x))
     }
   }
 }
