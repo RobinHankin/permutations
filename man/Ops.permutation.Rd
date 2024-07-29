@@ -107,7 +107,7 @@ conjugation(e1,e2)
   interpretations.  Distributivity is similarly broken (see the
   examples).  Package idiom includes \code{x-n} [defined as \code{x +
   (-n)}] and \code{n+x} but not \code{n-x} as inverses are defined
-  multiplicatively.  The implementation is vectorised.
+  multiplicatively.  The implementation is vectorized.
 
 }
 

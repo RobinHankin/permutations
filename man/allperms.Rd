@@ -37,7 +37,7 @@
 
     \item\code{all_cyclic_shuffles(u)} takes a permutation \code{u} and
     returns a vector comprising of all permutations with the same shape
-    and cycle sets.  It is vectorised so that argument \code{u} may be a
+    and cycle sets.  It is vectorized so that argument \code{u} may be a
     vector of permutations.
 
     \item\code{all_perms_shape(p)} takes a permutation \code{p} and
