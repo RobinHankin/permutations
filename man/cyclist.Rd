@@ -39,7 +39,7 @@ An object of S3 class \dfn{cycle} is a (possibly named) list of
 cyclists.  NB: there is an unavoidable notational clash here.  When
 considering a single permutation, \dQuote{cycle} means group-theoretic
 cycle [eg \eqn{1\longrightarrow 2\longrightarrow 3\longrightarrow 1}{1
--> 2 ->3 ->1}]; when considering \R objects, \dQuote{cycle} means
+-> 2 -> 3 -> 1}]; when considering \R objects, \dQuote{cycle} means
 \dQuote{an \R object of class \dfn{cycle} whose elements are permutations
 written in cycle form}.
 
