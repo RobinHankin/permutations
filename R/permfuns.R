@@ -167,13 +167,14 @@ as.word <- function(x, n = NULL) {
   }
 }
 
-print.word <- function(x, h = getOption("print_word_as_cycle"), ...) {
+`print.word` <- function(x, h = getOption("print_word_as_cycle"), ...) {
   if (!identical(h, FALSE)) {
     print(as.cycle(x))
     cat("[coerced from word form]\n")
     return(x)
   } else {
-    return(print_word(x))
+      print_word(x)
+      return(invisible(x))
   }
 }
 
