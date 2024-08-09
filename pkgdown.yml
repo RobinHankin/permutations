@@ -6,7 +6,4 @@ articles:
   order_of_ops: order_of_ops.html
   print: print.html
   representation: representation.html
-last_built: 2024-08-09T09:34Z
-urls:
-  reference: https://robinhankin.github.io/permutations/reference
-  article: https://robinhankin.github.io/permutations/articles
+last_built: 2024-08-09T10:24Z
