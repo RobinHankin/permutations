@@ -171,7 +171,7 @@ as.word <- function(x, n = NULL) {
   if (!identical(h, FALSE)) {
     print(as.cycle(x))
     cat("[coerced from word form]\n")
-    return(x)
+    return(invisible(x))
   } else {
       print_word(x)
       return(invisible(x))
