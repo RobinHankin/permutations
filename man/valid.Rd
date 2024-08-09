@@ -11,23 +11,28 @@ Functions to validate permutations
 Functions to validate permutation objects: if valid, return \code{TRUE}
 and if not valid, generate a \code{warning()} and return \code{FALSE}.
 
-Function \code{singleword.valid()} takes an integer vector, interpreted
+Function \code{singleword_valid()} takes an integer vector, interpreted
 as a word, and checks that it is a permutation of
 \code{seq_len(max(x))}.
 
-Function \code{cycle.valid()} takes a cyclist and checks for disjoint
-cycles of strictly positive integers with no repeats.
+Function \code{cyclist_valid()} takes a cyclist and checks that its
+argument corresponds to a meaningful permutation: the elements must be
+vectors of strictly positive integers with no repeated values and empty
+pairwise intersection.  Compare \code{nicify_cyclist()} [documented at
+\code{cyclist.Rd}] which is more cosmetic, converting its argument into
+a standard form.
+
 }
 \usage{
 singleword_valid(w)
 cyclist_valid(x)
 }
 \arguments{
-  \item{x}{In function \code{cycle_valid()}, a cyclist}
   \item{w}{In function \code{singleword_valid()}, an integer vector}
+  \item{x}{In function \code{cyclist_valid()}, a cyclist}
 }
 \value{
-Returns either \code{TRUE}, or stops with an informative error message
+Returns either \code{TRUE}, or gives a warning and returns \code{FALSE}
 }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{cyclist}}}
