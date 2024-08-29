@@ -1,4 +1,5 @@
-# This file is sage code (GAP code, I guess) to generate zzz_dodecahedron.R.
+# This file is sage code (GAP code, I guess) to generate file
+# R/zzz_dodecahedron.R.
 
 # The group of permutations of the dodecahedron is represented in
 # objects 'dod_face' and 'dod_edge' which show the dodecahedron group
