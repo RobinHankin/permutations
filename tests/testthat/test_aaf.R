@@ -1,0 +1,19 @@
+test_that("Test suite aaf.R; allcyc()", {
+
+  checker1 <- function(x) {
+      ax <- allcyc(x)
+      f <- as.function(ax)
+      
+      expect_false(any(is.id(ax)))
+      expect_true(as.cycle(x) %in% ax)
+      expect_true(all(f(x[1]) %in% x))
+      expect_false(any(f(x[1]) == x[1]))
+      expect_true(all(f(x) %in% x))
+      expect_false(any(outer(rep(1,length(ax)),x) == f(x)))
+  }
+
+  for (i in 1:5) {
+      checker1(sample(9,5,replace=FALSE))
+  }
+
+})
