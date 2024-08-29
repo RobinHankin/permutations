@@ -682,15 +682,13 @@ are_conjugate <- function(x, y) {
   })
 }
 
-
-
 "%~%" <- function(x, y) {
   UseMethod("%~%")
 }
+
 "%~%.permutation" <- function(x, y) {
   are_conjugate(x, y)
 }
-
 
 as.function.permutation <- function(x, ...) {
   a <- NULL # to suppress the warning about 'no visible binding for global variable 'a'
