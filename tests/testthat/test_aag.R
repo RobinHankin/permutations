@@ -1,6 +1,6 @@
 test_that("Test suite aag.R; rcyc()", {
 
-  checker1 <- function(x,n) {
+  checker <- function(x,n) {
       stopifnot(n > 1)
       n <- as.integer(n)
       expect_false(any(is.id(x)))
@@ -10,7 +10,7 @@ test_that("Test suite aag.R; rcyc()", {
 
   for (i in 1:5) {
       n <- sample(2:9,1)
-      checker1(rcyc(10,n),n)
+      checker(rcyc(10,n),n)
   }
   
 })
