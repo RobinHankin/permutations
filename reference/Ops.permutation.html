@@ -119,6 +119,11 @@
   Internally, <code>conjugation()</code> is called.  The concept of conjugate
   <em>permutations</em> [that is, permutations with the same
   <code><a href="shape.html">shape()</a></code>] is discussed at <a href="conjugate.html">conjugate</a>.</p>
+<p>The caret “<code>^</code>” also indicates group action [there is some
+  discussion at <code>as.function.permutation.Rd</code>].  Given an integer
+  <code>n</code> and a permutation <code>g</code>, idiom <code>n^g</code> returns the
+  group action of <code>g</code> acting on <code>n</code>.  The notation is
+  motivated by the identity <code>n^(ab) == (n^a)^b</code>.</p>
 <p>The <dfn>sum</dfn> of two permutations <code>a</code> and <code>b</code>, as in
   <code>a+b</code>, is defined if the cycle representations of the addends are
   disjoint.  The sum is defined as the permutation given by juxtaposing

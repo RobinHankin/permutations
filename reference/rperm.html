@@ -120,42 +120,44 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">rperm</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (137624)    (26)(354)   (17)(25436) (1364)(275) (14)(25376) (1375)(46) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (154637)    (264375)    (137)(2546) (1274)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (174)(2653) (1256)      (24)(367)   (15632)(47) (15)(364)   (2534)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (1246573)   (17)(235)   (174356)    (152736)   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span><span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fu">rperm</span><span class="op">(</span><span class="fl">30</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (13296)        (158742693)    (198)(23745)   (238)(57)      (36945)(78)   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (24539)(78)    (1597284)(36)  (18642)(37)    (129635784)    (147)(29835)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] (1852)(34796)  (12)(376495)   (187)(24396)   (14386)(579)   (1258)(3749)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] (25864937)     (173624)(58)   (134789)(256)  (1597684)(23)  (1638472)     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] (276583)       (185)(246)(39) (197365)(28)   (14276839)     (1639257)(48) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [26] (175623)(49)   (137962548)    (278)(39)      (153)(274)(68) (16842735)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (198425)(376)   (1285697)       (17583)(2469)   (14276839)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (1639257)(48)   (175623)(49)    (137962548)     (278)(39)      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (153)(274)(68)  (16842735)      (198)(27)(3465) (18532694)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] (184235)(67)    (125476)(389)   (13)(27689)(45) (13265498)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] (178)(26534)    (19547682)      (154793862)     (187956)(23)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] (16293754)      (19)(27584)     (128965734)     (2375)(4968)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] (142896)(357)   (1237)(4589)    (1348697)(25)   (2837964)      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29] (143927)(58)    (263)(5897)    </span>
 <span class="r-in"><span><span class="fu">rperm</span><span class="op">(</span><span class="fl">10</span>,<span class="fl">9</span>,<span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (79) (37) (68) (13) (38) (19) ()   (79) (19) (37)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ()   ()   (26) (78) (78) (14) (78) (49) ()   (25)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">rcyc</span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (12543) (12534) (14352) (15432) (14325) (12543) (14235) (14253) (12345)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (15234) (13254) (15243) (15243) (13524) (14532) (14253) (13542) (12345)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (15324) (13254)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (12354) (14325) (13254) (13524) (14325) (14253) (13425) (12534) (13425)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (12453) (13524) (13524) (15423) (13524) (14235) (13245) (12354) (12345)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (14253) (13425)</span>
 <span class="r-in"><span><span class="fu">rcyc</span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span>,<span class="fl">9</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (15269) (17654) (45689) (19267) (13689) (35796) (18495) (18527) (15243)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (38564) (19753) (19532) (19732) (12487) (27359) (36978) (15937) (15378)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (25486) (28569)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (15937) (15378) (25486) (28569) (17643) (13462) (36749) (36597) (29387)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (37985) (34856) (14593) (38675) (19357) (24395) (17642) (16593) (19523)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (14598) (23594)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">10</span>,<span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>   <span class="co"># size 5</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (145)(23) (145)(23) (13)(245) (135)(24) (132)(45) (124)(35) (124)(35)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (13)(254) (134)(25) (14)(235)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (123)(45) (154)(23) (14)(253) (134)(25) (12)(354) (152)(34) (15)(234)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (12)(345) (152)(34) (15)(243)</span>
 <span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">10</span>,<span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># size 7</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (172)(36) (164)(25) (175)(36) (134)(26) (257)(36) (263)(45) (12)(357)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (265)(34) (234)(57) (27)(465)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (152)(34) (142)(35) (15)(267) (14)(256) (157)(26) (24)(376) (156)(34)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (175)(23) (13)(256) (14)(376)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] (1,34,4,44,27,16,14,12)(2,19,17,3,36,45,38,37,35)(5,6,42,24,8,28)(7,40,25,9,41)(10,23,22,15,39,33,32)(11,20,18)(13,31)(21,26,30,43)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] (1,18,7,44,14,28,38)(2,33,34)(3,29,9,23,19,17,13,42)(4,30,26,24,36,32,31,27,16)(5,39,6,8)(10,35,41,15,40)(11,37,25,43,45,21)(20,22)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="allperms.html">allpermslike</a></span><span class="op">(</span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (178)(3469) (187)(3469) (178)(3496) (187)(3496) (178)(3694) (187)(3694)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (178)(3649) (187)(3649) (178)(3946) (187)(3946) (178)(3964) (187)(3964)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (1649)(278) (1694)(278) (1496)(278) (1469)(278) (1964)(278) (1946)(278)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (1649)(287) (1694)(287) (1496)(287) (1469)(287) (1964)(287) (1946)(287)</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
