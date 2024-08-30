@@ -9,7 +9,6 @@ test_that("Test suite aaf.R; allcyc()", {
       expect_true(all(f(x[1]) %in% x))
       expect_false(any(f(x[1]) == x[1]))
       expect_true(all(f(x) %in% x))
-      expect_false(any(outer(rep(1,length(ax)),x) == f(x)))
   }
 
   for (i in 1:5) {

@@ -6,7 +6,12 @@
 Coerce a permutation to a function
 }
 \description{
-Coerce a permutation to an executable function
+
+Coerce a permutation to an executable function with domain
+\eqn{\left\lbrace 1,\ldots,n\right\rbrace}{1...n}.
+
+The resulting function is vectorised.
+
 }
 \usage{
 \method{as.function}{permutation}(x, ...)
@@ -40,5 +45,6 @@ stopifnot(xfun(yfun(2)) == as.function(y*x)(2)) # note transposition of x & y
 # it's vectorized:
 as.function(rperm(10,9))(1)   
 as.function(as.cycle(1:9))(sample(9))
+as.function(allcyc(5:8))(1:6)
 }
 

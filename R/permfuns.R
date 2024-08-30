@@ -693,7 +693,11 @@ are_conjugate <- function(x, y) {
 as.function.permutation <- function(x, ...) {
   a <- NULL # to suppress the warning about 'no visible binding for global variable 'a'
   x <- as.matrix(as.word(x))
-  as.function(alist(a = , x[, a]))
+  if(nrow(x) == 1){
+      return(as.function(alist(a = , x[, a])))
+  } else {
+      return(as.function(alist(a = , x[cbind(seq_len(nrow(x)), a)])))
+  }
 }
 
 commutator <- function(x, y) {
