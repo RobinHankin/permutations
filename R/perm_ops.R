@@ -42,6 +42,8 @@
     } else if (!lclass && rclass) {
       if (.Generic == "+") {
         return(cycle_plus_integer_elementwise(e2, e1))
+      } else if (.Generic == "^") { # 2^a
+        return(as.function(e2)(e1))
       } else {
         stop(gettextf("<non-perm> %s <perm> is not defined ", .Generic))
       }

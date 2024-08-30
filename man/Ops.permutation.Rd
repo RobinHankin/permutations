@@ -77,6 +77,12 @@ conjugation(e1,e2)
   \emph{permutations} [that is, permutations with the same
   \code{shape()}] is discussed at \link{conjugate}.
 
+  The caret \dQuote{\code{^}} also indicates group action [there is some
+  discussion at \code{as.function.permutation.Rd}].  Given an integer
+  \code{n} and a permutation \code{g}, idiom \code{n^g} returns the
+  group action of \code{g} acting on \code{n}.  The notation is
+  motivated by the identity \code{n^(ab) == (n^a)^b}.
+  
   The \dfn{sum} of two permutations \code{a} and \code{b}, as in
   \code{a+b}, is defined if the cycle representations of the addends are
   disjoint.  The sum is defined as the permutation given by juxtaposing
@@ -96,7 +102,7 @@ conjugation(e1,e2)
   Function \code{helper()} sorts out recycling for binary functions, the
   behaviour of which is inherited from \code{cbind()}, which also
   handles the names of the returned permutation.
-
+  
   Experimental functionality is provided to define the \dQuote{sum} of a
   permutation and an integer.  If \eqn{x} is a permutation in cycle
   form with \eqn{x=(abc)}, say, and \eqn{n} an integer, then
