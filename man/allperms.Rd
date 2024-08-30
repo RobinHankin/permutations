@@ -90,5 +90,7 @@ allpermslike(as.cycle("(12)(34)(5678)"))
 allpermslike(rgivenshape(c(1,1,3,4)))
 some_perms_shape(c(2,2,4))
 all_cyclic_shuffles(cyc_len(3:5))
+
 all_perms_shape(c(2,2,3))
+all_perms_shape(c(2,2,1,1))  # size 6 (length-1 cycles vanish)
 }
