@@ -23,9 +23,11 @@
 
 
 (x <- rperm())
-capply(x,function(x){x+100})
-capply(x,rev)
+capply(x,range)
 
+capply(x,function(x){x+100})
+
+capply(x,rev)
 all(is.id(capply(x,rev)*x))  # should be TRUE
 
 capply(rcyc(20,5,9),sort)

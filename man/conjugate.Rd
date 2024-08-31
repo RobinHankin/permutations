@@ -58,6 +58,9 @@ rperm(20,3) \%~\% as.cycle(1:3)
 z <- rperm(300,4)
 stopifnot(all(are_conjugate(z,id)==is.id(z)))
 
+z <- rperm(20)
+stopifnot(all(z \%~\% capply(z,sample)))
+
 data(megaminx)
 stopifnot(all(are_conjugate(megaminx,megaminx^as.cycle(sample(129)))))
 }
