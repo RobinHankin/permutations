@@ -129,12 +129,15 @@
   disjoint.  The sum is defined as the permutation given by juxtaposing
   the cycles of <code>a</code> with those of <code>b</code>.  Note that this
   operation is commutative.  If <code>a</code> and <code>b</code> do not have
-  disjoint cycle representations, an error is returned.  This is useful
-  if you want to guarantee that two permutations commute (NB:
-  permutation <code>a</code> commutes with <code>a^i</code> for <code>i</code> any
-  integer, and in particular <code>a</code> commutes with itself.  But
-  <code>a+a</code> returns an error: the operation checks for disjointness,
-  not commutativity).</p>
+  disjoint cycle representations, an error is returned.  If <code>a+b</code>
+  is defined we have</p>
+<p><code>a^n + b^n == (a+b)^n == a^n * b^n == (a*b)^n</code></p>
+<p>for any \(n\in\mathbb{Z}\).  Using “<code>+</code>” in
+  this way is useful if you want to guarantee that two permutations
+  commute (NB: permutation <code>a</code> commutes with <code>a^i</code> for
+  <code>i</code> any integer, and in particular <code>a</code> commutes with itself.
+  But <code>a+a</code> returns an error: the operation checks for
+  disjointness, not commutativity).</p>
 <p>Permutation “division”, as in <code>a/b</code>, is
   <code>a*inverse(b)</code>.  Note that <code>a/b*c</code> is evaluated left to
   right so is equivalent to <code>a*inverse(b)*c</code>.  See note.</p>
@@ -240,7 +243,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] (1234)(789)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">megaminx</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">megaminx</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">megaminx</span><span class="op">[</span><span class="fl">7</span><span class="op">:</span><span class="fl">12</span><span class="op">]</span> </span></span>
+<span class="r-in"><span><span class="va">megaminx</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">megaminx</span><span class="op">[</span><span class="fl">7</span><span class="op">:</span><span class="fl">12</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                       LightGreen </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           (10,12,14,16,18)(11,13,15,17,19)(21,33,45,57,69)(22,34,46,58,60)(23,35,47,59,61)(30,88,120,110,40)(31,89,121,111,41)(39,87,129,119,49)(70,72,74,76,78)(71,73,75,77,79) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                           Orange </span>
