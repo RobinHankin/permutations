@@ -46,7 +46,7 @@ conjugation(e1,e2)
     \code{cycle(seq_len(n))} is to be raised; may be positive or
     negative}
   \item{y}{In experimental function
-    \code{cycle_plus_integer_elementwise()}, an integer} 
+    \code{cycle_plus_integer_elementwise()}, an integer}
 }
 \details{
 
@@ -82,27 +82,32 @@ conjugation(e1,e2)
   \code{n} and a permutation \code{g}, idiom \code{n^g} returns the
   group action of \code{g} acting on \code{n}.  The notation is
   motivated by the identity \code{n^(ab) == (n^a)^b}.
-  
+
   The \dfn{sum} of two permutations \code{a} and \code{b}, as in
   \code{a+b}, is defined if the cycle representations of the addends are
   disjoint.  The sum is defined as the permutation given by juxtaposing
   the cycles of \code{a} with those of \code{b}.  Note that this
   operation is commutative.  If \code{a} and \code{b} do not have
-  disjoint cycle representations, an error is returned.  This is useful
-  if you want to guarantee that two permutations commute (NB:
-  permutation \code{a} commutes with \code{a^i} for \code{i} any
-  integer, and in particular \code{a} commutes with itself.  But
-  \code{a+a} returns an error: the operation checks for disjointness,
-  not commutativity).
+  disjoint cycle representations, an error is returned.  If \code{a+b}
+  is defined we have
+
+  \code{a^n + b^n == (a+b)^n == a^n * b^n == (a*b)^n}
+
+  for any \eqn{n\in\mathbb{Z}}{omitted}.  Using \dQuote{\code{+}} in
+  this way is useful if you want to guarantee that two permutations
+  commute (NB: permutation \code{a} commutes with \code{a^i} for
+  \code{i} any integer, and in particular \code{a} commutes with itself.
+  But \code{a+a} returns an error: the operation checks for
+  disjointness, not commutativity).
 
   Permutation \dQuote{division}, as in \code{a/b}, is
   \code{a*inverse(b)}.  Note that \code{a/b*c} is evaluated left to
   right so is equivalent to \code{a*inverse(b)*c}.  See note.
-  
+
   Function \code{helper()} sorts out recycling for binary functions, the
   behaviour of which is inherited from \code{cbind()}, which also
   handles the names of the returned permutation.
-  
+
   Experimental functionality is provided to define the \dQuote{sum} of a
   permutation and an integer.  If \eqn{x} is a permutation in cycle
   form with \eqn{x=(abc)}, say, and \eqn{n} an integer, then
@@ -137,7 +142,7 @@ conjugation(e1,e2)
   additive notation: the rest of the package uses multiplicative
   notation.  Thus \code{x*-x == id}, which looks a little odd but OTOH
   noone has a problem with \code{x^-1} for inverses.
-  
+
   I would like to follow \proglang{APL} and use \dQuote{\code{/x}},
   but this does not seem to be possible in \proglang{R}.  The natural
   unary operator would be the exclamation mark \dQuote{\code{!x}}.
@@ -156,7 +161,7 @@ conjugation(e1,e2)
   might reinstate it in the future.  There does not appear to be a way
   to define a new unary operator due to the construction of the
   parser.
-  
+
 }
 \author{Robin K. S. Hankin}
 \examples{
@@ -179,7 +184,7 @@ x*inverse(x) == id  # all TRUE
 as.cycle(1:4) + as.cycle(7:9)
 
 data(megaminx)
-megaminx[1] + megaminx[7:12] 
+megaminx[1] + megaminx[7:12]
 
 rperm() + 100
 
