@@ -1,0 +1,51 @@
+\name{stabilizer}
+\alias{stabilizer}
+\alias{stabilizes}
+\alias{stabilized}
+\alias{is.stabilizer}
+\title{Stabilizer of a permutation}
+\description{
+
+  A permutation \eqn{\phi} is said to \dfn{stabilize} a set \eqn{S} if
+  the image of \eqn{S} under {\eqn{\phi}} is a subset of \eqn{S}, that
+  is, if \eqn{\left\lbrace\left.  \phi(s)\right|s\in S
+  \right\rbrace\subseteq S }{omitted}.  This may be written
+  \eqn{\phi(S)\subseteq S}{omitted}.  Given a vector \eqn{G} of
+  permutations, we define the stabilizer of \eqn{S} in \eqn{G} to be
+  those elements of \eqn{G} that stabilize \eqn{S}.
+
+  Given \eqn{S}, it is clear that the identity permutation stabilizes
+  \eqn{S}, and if \eqn{\phi,\psi} stabilize \eqn{S} then so does
+  \eqn{\phi\psi}{omitted}, and so does \eqn{\phi^{-1}}{omitted}
+  [\eqn{\phi} is a bijection from \eqn{S} to itself].
+
+}
+\usage{
+stabilizes(a,x)
+stabilizer(a,x)
+}
+\arguments{
+  \item{x}{Object to be tested}
+}
+\value{
+
+A boolean vector [\code{stabilizes()}] or a vector of permutations in
+cycle form [\code{stabilizer()}]
+
+}
+\note{
+
+The identity permutation stabilizes any set.
+
+Functions \code{stabilizes()} and \code{stabilizer()} coerce their
+arguments to cycle form.
+
+}
+\author{Robin K. S. Hankin}
+\examples{
+
+a <- rperm(100)
+stabilizes(a,3:4)
+
+
+}

@@ -886,3 +886,20 @@ setMethod(
     return(out)
   }
 )
+
+`stabilizes` <- function(a,s){
+    unlist(
+      lapply(as.cycle(a),
+        function(x){
+          all(unlist(lapply(x,
+            function(y){
+                length(table(y %in% s)) == 1
+            } ) ) )
+        } ) )
+}
+
+`stabilizer` <- function(a,s){
+    a <- as.cycle(a)
+    a[stabilizes(a,s)]
+}
+
