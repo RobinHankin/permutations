@@ -7,8 +7,8 @@ test_that("Test suite aaf.R; allcyc()", {
       expect_false(any(is.id(ax)))
       expect_true(as.cycle(x) %in% ax)
       expect_true(all(f(x[1]) %in% x))
-      expect_false(any(f(x[1]) == x[1]))
-      expect_true(all(f(x) %in% x))
+      for(xi in x){expect_false(any(f(xi) == xi))}
+      for(xi in x){expect_true (all(f(xi) != xi))}
   }
 
   for (i in 1:5) {
