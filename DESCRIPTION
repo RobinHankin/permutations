@@ -20,3 +20,4 @@ Suggests: rmarkdown,testthat,knitr,magrittr,covr
 VignetteBuilder: knitr
 URL: https://github.com/RobinHankin/permutations, https://robinhankin.github.io/permutations/
 BugReports: https://github.com/RobinHankin/permutations/issues
+Config/testthat/edition: 3
