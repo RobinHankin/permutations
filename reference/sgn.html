@@ -89,7 +89,7 @@ coerces to cycle form.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">sgn</span><span class="op">(</span><span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1 -1 -1  1 -1 -1 -1  1  1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] -1  1  1 -1  1 -1  1  1 -1  1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">6</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">6</span><span class="op">)</span></span></span>
@@ -100,10 +100,10 @@ coerces to cycle form.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">9</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">z</span><span class="op">[</span><span class="fu">is.even</span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (26793)  (58)(79) (15293)  (56879)  (16)(35) (25)(78) (13847)  (495)   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (12894)  (29768)  (12479)  (12)(46) (37685)  (17236) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] (26)(34) (195)    (38764)  (59768)  (16875)  (28)(67) (679)    (28476) </span>
 <span class="r-in"><span><span class="va">z</span><span class="op">[</span><span class="fu">is.odd</span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] (182)(46) (1374)    (24)      (3645)    (45)      (1967)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (2659)    (1946)    (379)(45) (164)(35) (58)      (28)(367) (146)(37)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (3897)    (18)      (29)      (1687)    (45)     </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
