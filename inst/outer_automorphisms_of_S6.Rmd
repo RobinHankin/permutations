@@ -1,0 +1,67 @@
+---
+title: "Outer automorphisms in $S_6$"
+author: "Robin K. S. Hankin"
+output: html_vignette
+bibliography: permutations.bib
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{outer_automorphisms}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(rmarkdown.html_vignette.check_title = FALSE)
+library("permutations")
+set.seed(1)
+```
+
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
+
+To cite the `permutations` package in publications, please use
+@hankin2020.  @janusz1982 consider outer automorphisms of $S_6$ and
+offer the following properties of $\phi$:
+
+```
+(12) = (12)(36)(45)
+(13) = (16)(24)(35)
+(14) = (13)(25)(46)
+(15) = (15)(26)(34)
+(16) = (14)(23)(56)
+```
+
+```{r}
+f <- function(n){as.cycle(unique(c(1,n)))}
+
+print((f(4)*f(7)*f(4)) * (f(5)*f(7)*f(5)) * (f(9)*f(7)*f(9)))
+
+cyctopair <- function(vec){
+ if(vec[1] == 1){
+  return(vec[-1])
+      } else {
+  middle <- vec[length(vec)]
+  other <- vec[-length(vec)]
+  return(c(matrix(rbind(other,middle,other))))
+  }
+}
+
+
+Reduce("*",lapply(cyctopair(c(4,8,7,2)),f))
+
+
+holder <- function(p){
+    p <- as.cycle(p)
+    out <- rep(list(NULL),length(p))
+    for(i in seq_along(p)){
+        pi <- p[[i]]
+        for(j in seq_along(pi)){
+            out[[i]] <- c(out[[i]],cyctopair(pi[[j]]))
+        }
+    }
+    return(out)
+}   
+```    
+
+## References {-}
