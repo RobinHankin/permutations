@@ -21,11 +21,13 @@
 
 }
 \usage{
-stabilizes(a,x)
-stabilizer(a,x)
+stabilizes(a,s)
+stabilizer(a,s)
 }
 \arguments{
-  \item{x}{Object to be tested}
+  \item{a}{Permutation (coerced to class \code{cycle})}
+  \item{s}{Subset of \eqn{\left\lbrace
+      1,\ldots,n\right\rbrace}{omitted}, to be stabilized}
 }
 \value{
 
