@@ -903,3 +903,15 @@ setMethod(
     a[stabilizes(a,s)]
 }
 
+`keepcyc` <- function(a, func, ...){
+    a <- as.cycle(a)
+    for(i in seq_along(a)){
+        jj <- a[[i]]
+        if(length(jj) > 0){
+            wanted <- unlist(lapply(jj, func, ...))
+            jj[!wanted] <- NULL
+            a[i] <- as.cycle(jj)
+        }
+    }
+    return(a)
+}

@@ -6,6 +6,7 @@
 - github workflows for QC and coverage
 - code of conduct and contributing files
 - remove mathjax
+- keepcyc()
 
 # permutations 1.1-1
 
