@@ -46,8 +46,10 @@ arguments to cycle form.
 \author{Robin K. S. Hankin}
 \examples{
 
-a <- rperm(100)
-stabilizes(a,3:4)
+a <- rperm(200)
+stabilizer(a,3:4)
+
+all_perms_shape(c(1,1,2,2)) |> stabilizer(2:3)  # some include (23), some don't
 
 
 }
