@@ -2,6 +2,7 @@
 \alias{as.function.permutation}
 \alias{as.function.word}
 \alias{as.function.cycle}
+\alias{as.function}
 \title{
 Coerce a permutation to a function
 }
@@ -77,5 +78,10 @@ stopifnot(2^(a*b) == (2^a)^b)
 as.function(rperm(10,9))(1)
 as.function(as.cycle(1:9))(sample(9))
 as.function(allcyc(5:8))(1:6)
+
+# standard recycling rules apply:
+f <- as.function(allperms(3))
+all(f(1:3) == f(c(1:3,1:3)))
+
 }
 
