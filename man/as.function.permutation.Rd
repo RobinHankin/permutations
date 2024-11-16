@@ -65,8 +65,7 @@ notation; see examples.
 Also, note that the coerced function will not take an argument greater
 than the size (qv) of the permutation.
 
-There is a vignette under development \code{vignettes/groupaction.Rmd}
-that discusses this issue.
+Vignette \code{vignettes/groupaction.Rmd} discusses this issue.
 
 }
 \examples{

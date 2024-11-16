@@ -1,0 +1,101 @@
+---
+title: "Function `as.function.permutation()` in the permutations package: group actions"
+author: "Robin K. S. Hankin"
+output: html_vignette
+bibliography: permutations.bib
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{groupaction}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("permutations")
+set.seed(0)
+```
+
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
+
+```{r showfunctionattop}
+as.function.permutation
+```
+
+To cite the permutations package in publications, please use
+@hankin2020.  The `permutations` package was intended to manipulate
+and combine permutations, but often one wants to consider the effect
+of a permutation on the underlying set, taken to be
+$\left[n\right]=\left\lbrace 1,2,\ldots,n\right\rbrace$.  In other
+words, we wish to consider a permutation as a function.  In package
+idiom, coercing a permutation to a function is straightforward:
+
+```{r label=coercestraight}
+g <- as.cycle("(45)(127)")
+as.function(g)(4)
+```
+
+Above we see that permutation $(45)(127)$ maps 4 to 5.  We can see
+from the function body, at the top of the page, that permutations are
+coerced to word form.  Function `as.function.permutation()` uses
+`as.matrix()` to stop "`x[a,]`" dispatching to `[.word()` and use
+matrix extraction instead.  It might be argued that `unclass()` would
+be better coding.
+
+Coercion is vectorized:
+
+```{r showvector}
+as.function(g)(1:7)
+as.function(allperms(4))(3)
+as.function(rperm(7,8))(1:7)
+```
+
+The second and third forms use the `alist(a = ,
+x[cbind(seq_len(nrow(x)),a)])` construction.  We now discuss the
+extent to which the underlying permutation group is represented in
+package idiom.  Consider the following construction:
+
+```{r showerror, error=TRUE}
+(p <- cyc_len(2))
+as.function(p)(3)
+```
+
+On the one hand, object `p` is a permutation on the set
+$[2]=\left\lbrace 1,2\right\rbrace$.  The action of this permutation
+on 3 is not defined, and the package returns an error.
+Above we effectively see
+
+```{r showmatrixerror, error=TRUE}
+t(1:2)[,3]
+```
+
+which is the origin of the error.  On the other hand, one might
+reasonably hold that the action of $(12)$ on 3 should be 3, on the
+grounds that $(12)$ transposes elements 1 and 2 and leaves all other
+elements unchanged.  To realise this interpretation we need to ensure
+that `p` has underlying set including 3, in this case $\left\lbrace
+1,2,3\right\rbrace$.  This is straightforward with `as.word()`:
+
+```{r thisoneworks}
+as.function(as.word(p,n=3))(3)
+```
+
+
+### Note on identity permutation
+
+The ever-problematic identity permutation acts on the empty set so its
+functionalization always returns an error:
+
+```{r iderror, error=TRUE}
+as.function(id)(4)
+```
+
+Again the resolution is to coerce to word form with explicit `n`:
+
+```{r}
+as.function(as.word(id,n=4))(4)
+```
+
+
+### References {-}
