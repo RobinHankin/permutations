@@ -27,6 +27,7 @@ The resulting function is vectorised."></head><body>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/cyclist.html">Cyclists in the `permutations` package</a></li>
+    <li><a class="dropdown-item" href="../articles/groupaction.html">Function `as.function.permutation()` in the permutations package: group actions</a></li>
     <li><a class="dropdown-item" href="../articles/order_of_ops.html">The permutation group: active and passive permutations, and the order of operations</a></li>
     <li><a class="dropdown-item" href="../articles/print.html">Print methods in the permutations package</a></li>
     <li><a class="dropdown-item" href="../articles/representation.html">The permutations package and representation theory</a></li>
@@ -59,7 +60,7 @@ The resulting function is vectorised."></head><body>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for class 'permutation'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">as.function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -76,23 +77,29 @@ The resulting function is vectorised."></head><body>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
 
 
-<p>This functionality is sometimes known as group action.  Formally, if
-  \(\alpha\colon X\times G\longrightarrow X\) is a function,
-  it is a <dfn>group action</dfn> if \(\alpha(x,e)=e\) and
-  \(\alpha(\alpha(x,h),h)=\alpha(x,gh)\).  Writing
-  \(x\cdot g\) for \(\alpha(x,g)\) we have \(x\cdot
-  e=x\) and \((x\cdot g)\cdot h=x\cdot(gh)\).
-  In package idiom, given permutation <code>g</code> [considered as an element
-  of the symmetric group \(S_n\)], we return the function with domain
-  \(\left[n\right]=\left\lbrace 1,\ldots,n\right\rbrace\)
-  mapping \(x\in[n]\) to \(\alpha(g,x)\).  For example, if
-  \(g=(172)(45)\) then \(\alpha(g,7)=2\) and
-  \(\alpha(g,4)=5\).  Package idiom allows one to explicitly coerce
-  <code>g</code> to a function, or to use the overloaded caret:</p>
+<p>This functionality is sometimes known as <em>group action</em>.  Formally,
+suppose we have a set \(X\), a group \(G\), and a function
+\(\alpha\colon X\times G\longrightarrow X\).  Then we say
+\(\alpha\) is a <dfn>group action</dfn> if
+\(\alpha(x,e)=e\) and
+\(\alpha(\alpha(x,g),h)=\alpha(x,gh)\).  Writing \(x\cdot
+g\) for \(\alpha(x,g)\) we have \(x\cdot e=x\)
+and \((x\cdot g)\cdot h=x\cdot(gh)\).  The dot may be
+omitted giving us \((xg)h=x(gh)\).  If the group is a
+permutation group on \(X\), then it is natural to choose
+\(\alpha(x,g)=g(x)\).</p>
+<p>In package idiom, given permutation <code>g</code> [considered as an element
+of the symmetric group \(S_n\)], <code>as.function(g)</code> returns the
+function with domain \(\left[n\right]=\left\lbrace
+1,\ldots,n\right\rbrace\) mapping \(x\in[n]\) to
+\(\alpha(g,x)=g(x)=xg\).  For example, if \(g=(172)(45)\) then
+\(\alpha(g,7)=g(7)=7g=2\) and similarly \(\alpha(g,4)=5\).</p>
+<p>Package idiom allows one to explicitly coerce <code>g</code> to a function, or
+to use the overloaded caret:</p>
 <p></p><div class="sourceCode"><pre><code><span></span>
 <span>    <span class="op">(</span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/permutation.html">as.cycle</a></span><span class="op">(</span><span class="st">"(172)(45)"</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="co">#&gt; [1] (172)(45)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span><span class="op">(</span><span class="fl">7</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/as.function.permutation.html">as.function</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span><span class="op">(</span><span class="fl">7</span><span class="op">)</span></span>
 <span>    <span class="co">#&gt; [1] 2</span></span>
 <span>    <span class="fl">7</span><span class="op">^</span><span class="va">g</span></span>
 <span>    <span class="co">#&gt; [1] 2</span></span>
@@ -111,6 +118,7 @@ The resulting function is vectorised."></head><body>
 notation; see examples.</p>
 <p>Also, note that the coerced function will not take an argument greater
 than the size (qv) of the permutation.</p>
+<p>Vignette <code>vignettes/groupaction.Rmd</code> discusses this issue.</p>
     </div>
 
     <div class="section level2">
@@ -118,10 +126,10 @@ than the size (qv) of the permutation.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="permutation.html">cyc_len</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="permutation.html">cyc_len</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">xfun</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">yfun</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">xfun</span> <span class="op">&lt;-</span> <span class="fu">as.function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">yfun</span> <span class="op">&lt;-</span> <span class="fu">as.function</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu">xfun</span><span class="op">(</span><span class="fu">yfun</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">y</span><span class="op">*</span><span class="va">x</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># note transposition of x &amp; y</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu">xfun</span><span class="op">(</span><span class="fu">yfun</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">==</span> <span class="fu">as.function</span><span class="op">(</span><span class="va">y</span><span class="op">*</span><span class="va">x</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># note transposition of x &amp; y</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># postfix notation has the very appealing result x(fg) == (xf)g</span></span></span>
 <span class="r-in"><span><span class="co"># Carets are good too, in that x^(fg) == (x^f)^g.</span></span></span>
@@ -131,12 +139,18 @@ than the size (qv) of the permutation.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fl">2</span><span class="op">^</span><span class="op">(</span><span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="fl">2</span><span class="op">^</span><span class="va">a</span><span class="op">)</span><span class="op">^</span><span class="va">b</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># it's fully vectorized:</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">as.function</span><span class="op">(</span><span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 7 7 9 1 7 5 6 3 8 4</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">as.function</span><span class="op">(</span><span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2 7 3 8 6 1 9 4 5</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="fu"><a href="allperms.html">allcyc</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">as.function</span><span class="op">(</span><span class="fu"><a href="allperms.html">allcyc</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2 3 4 8 5</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># standard recycling rules apply:</span></span></span>
+<span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu">as.function</span><span class="op">(</span><span class="fu"><a href="allperms.html">allperms</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu">f</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op">==</span> <span class="fu">f</span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -148,7 +162,7 @@ than the size (qv) of the permutation.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>

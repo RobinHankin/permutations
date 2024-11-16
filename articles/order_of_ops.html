@@ -34,6 +34,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/cyclist.html">Cyclists in the `permutations` package</a></li>
+    <li><a class="dropdown-item" href="../articles/groupaction.html">Function `as.function.permutation()` in the permutations package: group actions</a></li>
     <li><a class="dropdown-item" href="../articles/order_of_ops.html">The permutation group: active and passive permutations, and the order of operations</a></li>
     <li><a class="dropdown-item" href="../articles/print.html">Print methods in the permutations package</a></li>
     <li><a class="dropdown-item" href="../articles/representation.html">The permutations package and representation theory</a></li>
@@ -70,7 +71,7 @@ Hankin</h4>
 
     
     
-<p><img src="../../../_temp/Library/permutations/help/figures/permutations.png" width="20%" style="float:right; padding:10px"></p>
+<p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fpermutations%2Fhelp%2Ffigures%2Fpermutations.png" width="20%" style="float:right; padding:10px"></p>
 <p>To cite the permutations package in publications, please use <span class="citation">Hankin (2020)</span>. When considering permutation
 groups, the order of operations can be confusing. Here I discuss active
 and passive transforms, order of operations, prefix and postfix
@@ -295,12 +296,12 @@ expected:</p>
 notation) we can ask what happens to the object originally in place 1
 (that would be object 1)</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span>
-<span><span class="va">fb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">fa</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/as.function.permutation.html">as.function</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span>
+<span><span class="va">fb</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/as.function.permutation.html">as.function</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span>
 <span><span class="fu">fb</span><span class="op">(</span><span class="fu">fa</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 4</span></span></code></pre>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/as.function.html" class="external-link">as.function</a></span><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># should match fb(fa(1))</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/as.function.permutation.html">as.function</a></span><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># should match fb(fa(1))</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 4</span></span></code></pre>
 <p>Note, however, the confusing order of operations: in functional
 notation, if we want to operate on an element
@@ -561,7 +562,7 @@ Hankin, R. K. S. 2020. <span>“Introducing the Permutations
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
