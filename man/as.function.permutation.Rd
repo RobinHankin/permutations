@@ -23,19 +23,27 @@ The resulting function is vectorised.
 }
 \details{
 
-  This functionality is sometimes known as group action.  Formally, if
-  \eqn{\alpha\colon X\times G\longrightarrow X}{omitted} is a function,
-  it is a \dfn{group action} if \eqn{\alpha(x,e)=e}{omitted} and
-  \eqn{\alpha(\alpha(x,h),h)=\alpha(x,gh)}{omitted}.  Writing
-  \eqn{x\cdot g}{x.g} for \eqn{\alpha(x,g)}{omitted} we have \eqn{x\cdot
-  e=x}{x.e=x} and \eqn{(x\cdot g)\cdot h=x\cdot(gh)}{(x.g).h=x.(gh)}.
-  In package idiom, given permutation \code{g} [considered as an element
-  of the symmetric group \eqn{S_n}], we return the function with domain
-  \eqn{\left[n\right]=\left\lbrace 1,\ldots,n\right\rbrace}{omitted}
-  mapping \eqn{x\in[n]}{omitted} to \eqn{\alpha(g,x)}.  For example, if
-  \eqn{g=(172)(45)} then \eqn{\alpha(g,7)=2}{omitted} and
-  \eqn{\alpha(g,4)=5}.  Package idiom allows one to explicitly coerce
-  \code{g} to a function, or to use the overloaded caret:
+This functionality is sometimes known as \emph{group action}.  Formally,
+suppose we have a set \eqn{X}, a group \eqn{G}, and a function
+\eqn{\alpha\colon X\times G\longrightarrow X}{omitted}.  Then we say
+\eqn{\alpha}{omitted} is a \dfn{group action} if
+\eqn{\alpha(x,e)=e}{omitted} and
+\eqn{\alpha(\alpha(x,g),h)=\alpha(x,gh)}{omitted}.  Writing \eqn{x\cdot
+g}{x.g} for \eqn{\alpha(x,g)}{omitted} we have \eqn{x\cdot e=x}{x.e=x}
+and \eqn{(x\cdot g)\cdot h=x\cdot(gh)}{(x.g).h=x.(gh)}.  The dot may be
+omitted giving us \eqn{(xg)h=x(gh)}{(xg)h=x(gh)}.  If the group is a
+permutation group on \eqn{X}, then it is natural to choose
+\eqn{\alpha(x,g)=g(x)}{omitted}.
+
+In package idiom, given permutation \code{g} [considered as an element
+of the symmetric group \eqn{S_n}], \code{as.function(g)} returns the
+function with domain \eqn{\left[n\right]=\left\lbrace
+1,\ldots,n\right\rbrace}{omitted} mapping \eqn{x\in[n]}{omitted} to
+\eqn{\alpha(g,x)=g(x)=xg}.  For example, if \eqn{g=(172)(45)} then
+\eqn{\alpha(g,7)=g(7)=7g=2}{omitted} and similarly \eqn{\alpha(g,4)=5}.
+
+Package idiom allows one to explicitly coerce \code{g} to a function, or
+to use the overloaded caret:
 
   \preformatted{
     (g <- as.cycle("(172)(45)"))
@@ -56,6 +64,9 @@ notation; see examples.
 
 Also, note that the coerced function will not take an argument greater
 than the size (qv) of the permutation.
+
+There is a vignette under development \code{vignettes/groupaction.Rmd}
+that discusses this issue.
 
 }
 \examples{
