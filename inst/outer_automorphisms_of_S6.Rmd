@@ -45,7 +45,7 @@ for $2\leqslant n\leqslant 6$; secondly, apply $\phi$ as defined above
 and, assuming $\phi$ to be a homomorphism, exhibit an explicit outer
 autormorphism of $S_6$
 
-First we define `f()` that gives transpositions of the form $(n)$:
+First we define `f()` that gives transpositions of the form $(1n)$:
 
 ```{r definefunctionf}
 f <- function(n){as.cycle(unique(c(1,n)))}
