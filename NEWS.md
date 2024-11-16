@@ -1,3 +1,7 @@
+# permutations 1.1-6
+
+- new groupaction vignette
+
 # permutations 1.1-5
 
 - consistentification
