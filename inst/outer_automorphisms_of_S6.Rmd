@@ -39,13 +39,13 @@ $$
 $$
 
 [from which we can see directly that $\phi$ is not an inner
-automorphism].  Here, the general plan will be as follows.  Firstly,
-express any element of $S_6$ as a product of cycles of the form $(1n)$
-for $2\leqslant n\leqslant 6$; secondly, apply $\phi$ as defined above
+automorphism: inner automorphisms preserve a permutation's shape].
+Here, the general plan will be as follows.  Firstly, express any
+element of $S_6$ as a product of cycles of the form $(1n)$ for
+$2\leqslant n\leqslant 6$; secondly, apply $\phi$ as defined above
 and, assuming $\phi$ to be a homomorphism, exhibit an explicit outer
-autormorphism of $S_6$
-
-First we define `f()` that gives transpositions of the form $(1n)$:
+autormorphism of $S_6$.  First we define `f()` that gives
+transpositions of the form $(1n)$:
 
 ```{r definefunctionf}
 f <- function(n){as.cycle(unique(c(1,n)))}
@@ -55,33 +55,43 @@ f(1)
 
 We may generate any cycle using the following identity:
 
-$$(abcd) = \left((1b)(1c)(1d)\right)^{(1a)}$$
+$$
+(abcd) = \left((1b)(1c)(1d)\right)^{(1a)} = (1a)(1b)(1c)(1d)(1a)
+$$
 
-Verify:
+where the last equality follows from $(1a)^{-1}=(1a)$.  We will verify
+the case $a=4,b=5,c=2,d=9$, viz $(529)^{(14)}=(4529)$:
 
 ```{r verifyfunctionf}
 (f(5)*f(2)*f(9))^f(4) == as.cycle("(4529)")
 ```
 
-We may implement this:
+We may implement this in R, here to express cycle $(73456)$ as a
+product of transpositions of the form $(1n)$.  First we define
+`cyctopair()`, a (trivial) helper function:
 
 ```{r implementcyctopair}
 cyctopair <- function(vec){ c(vec,vec[1]) }
-```
-
-Verify:
-
-```{r verifycyctopair}
 v <- c(7,3,4,5,6)
 cyctopair(v)
+```
+
+Then to verify the identity in package idiom, we need `lapply()`:
+
+```{r}
 Reduce("*",lapply(cyctopair(c(7,6,4,9)),f))
 ```
 
-It doesn't look like it has worked, but it has:
+Above we see that $(7649)=(17)(16)(14)(19)(17)$.  It doesn't look like
+it has worked [because we see $(4976)$ rather than the expected
+$(7649)$], but it has:
 
 ```{r lookslikefail}
 Reduce("*",lapply(cyctopair(v),f)) == as.cycle(v)
 ```
+
+It might be worth checking that the identities operate correctly if
+the cycle includes a `1':
 
 ```{r butitactuallyworked}
 v <- c(1,7,6,4,9)  # the "1" might break things
@@ -170,7 +180,7 @@ To verify that $\phi$ is an isomorphism we need to check that it is
 each element with each other element.  This takes about 10 minutes to
 run, too long for a package vignette.
 
-```{r checkphiisomorphism,eval=FALSE}
+```{r checkphiisomorphism, eval=FALSE}
 M <- matrix(0,720,720)
 for(i in 1:720){for(j in 1:720){M[i,j] <- x[i] == x[j]}}
 all(M == diag(720))  # evaluates to TRUE
