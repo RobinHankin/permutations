@@ -19,7 +19,16 @@ operations can be confusing.  Here I discuss active and passive
 transforms, order of operations, prefix and postfix notation, and
 associativity from the perspective of the `permutations` R package.
 
-Consider the following:
+* An **active permutation** $\pi$ moves an object from place $i$ to place
+$\pi(i)$.  Textbooks and undergraduate courses usually use this
+system, and is used above.
+* A **passive permutation** $\pi$ replaces an object in position $i$ by that
+in position $\pi(i)$.
+
+
+## Introduction
+
+Consider the following package idiom:
 
 ```{r,label=setup,include=FALSE}
 library("permutations")
@@ -123,18 +132,7 @@ that the object currently in place 1 was originally in place 5.  If
 the people subsequently move again, the mathematics and the R idiom
 depend on whether we are interested in people, or places.  We need to
 specify use of *active* or *passive* transformations, much as in the
-Lorentz package.
-
-### Active permutations
-
-An active permutation $\pi$ moves an object from place $i$ to place
-$\pi(i)$.  Textbooks and undergraduate courses usually use this
-system, and is used above.
-
-### Passive permutations
-
-A passive permutation $\pi$ replaces an object in position $i$ by that
-in position $\pi(i)$.
+Lorentz package.  
 
 ## Composition of active permutations
 
@@ -181,7 +179,7 @@ have:
 }^{a\circ b}
 \]
 
-Thus, for example, $4\longrightarrow 5\longrightarrow 6$.  Considering
+Thus, for example, $4{a\atop\longrightarrow}5\longrightarrow 6$.  Considering
 the operation $a\circ b$, this means that we perform permutation `a`
 first, and then perform permutation `b`.  Taking this one step at a
 time we would have, for example: "the person in place 4 (this is
