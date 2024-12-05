@@ -54,7 +54,7 @@ form we would have:
 
 Expressed in functional notation, we have a function $a\colon
 [6]\rightarrow [6]$ (here $[n]=\left\{1,2,\ldots,n\right\}$); and we
-have $a(1)=4$, $a(2)=5$, $a(3)=3$, and so on.  If these were objects,
+have $a(1)=4$, $a(2)=6$, $a(3)=3$, and so on.  If these were objects,
 or people, we might want to keep track of where they are.  We would
 say: "at the start, object $i$ sits in place $i$, $i\in[6]$.  Then,
 after the move, object 1 is in place 5, object 2 in place 6, object 3
