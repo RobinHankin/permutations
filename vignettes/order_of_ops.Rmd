@@ -132,7 +132,7 @@ that the object currently in place 1 was originally in place 5.  If
 the people subsequently move again, the mathematics and the R idiom
 depend on whether we are interested in people, or places.  We need to
 specify use of *active* or *passive* transformations, much as in the
-Lorentz package.  
+Lorentz package.
 
 ## Composition of active permutations
 
@@ -234,30 +234,25 @@ $(xf)g$.  In R idiom, this is implemented by the excellent
 
 # Composition of passive permutations
 
-Now we consider the same operations `a` and `b` as discussed
-above, and perform `a` and then `b`.  But this time we express
-the permutations, and their composition, in passive form, and this
-requires some modification.  First we will express `a` and `b`
-in passive matrix form which we will call `a_passive` and
-`b_passive`:
-
+Now we consider operations `a` and `b` as discussed above.  But this
+time we express the permutations, and their composition, in passive
+form, and this requires some modification.  
 
 ```{r expresspass}
 a # word form
-a_active # matrix form (active)
-a_passive # matrix form (passive)
+a_active # matrix form (active); defined above
+a_passive # matrix form (passive); defined above
 ```
 
-and then `b`, but we need to create equivalents `b_active` and
-`b_passive` which we do as before:
+Now `b`, but we need to create equivalents `b_active` and `b_passive`
+which we do as before:
 
-```{r asbefore, echo=FALSE}
+```{r asbefore, echo=TRUE}
 b_active <- rbind(1:6, as.word(b))
 rownames(b_active) <- c("place before move", "place after move")
 b_passive <- rbind(1:6, as.word(inverse(b)))
 rownames(b_passive) <- c("place after move", "place before move")
 ```
-
 
 ```{r showtwo}
 b
@@ -373,27 +368,31 @@ We now consider what happens with successive permutations, as above,
 but this time using permutation matrices.  We will permute first with
 `g` and then with `h`, using matrix multiplication.
 
+```
+ pg                                  ph
+                  place_after_move                    place_after_move
+ place_before_move 1 2 3 4 5 6       place_before_move 1 2 3 4 5 6
+                 1 0 1 0 0 0 0                       1 1 0 0 0 0 0
+                 2 0 0 0 0 0 1                       2 0 0 1 0 0 0
+                 3 0 0 1 0 0 0                       3 0 0 0 1 0 0
+                 4 0 0 0 1 0 0                       4 0 0 0 0 1 0
+                 5 0 0 0 0 1 0                       5 0 1 0 0 0 0
+                 6 1 0 0 0 0 0                       6 0 0 0 0 0 1
+```
+
+(the above is hand-edited to put the matrices side-by-side for
+convenience).  Composition of permutations is just matrix
+multiplication:
+
 ```{r ghmatmult}
 pg %*% ph
 ```
 
-```
- pg                                  ph                                  pg %*% ph
-                  place_after_move                    place_after_move                    place_after_move
- place_before_move 1 2 3 4 5 6       place_before_move 1 2 3 4 5 6       place_before_move 1 2 3 4 5 6
-                 1 0 1 0 0 0 0                       1 1 0 0 0 0 0                       1 0 0 1 0 0 0
-                 2 0 0 0 0 0 1                       2 0 0 1 0 0 0                       2 0 0 0 0 0 1
-                 3 0 0 1 0 0 0                       3 0 0 0 1 0 0                       3 0 0 0 1 0 0
-                 4 0 0 0 1 0 0                       4 0 0 0 0 1 0                       4 0 0 0 0 1 0
-                 5 0 0 0 0 1 0                       5 0 1 0 0 0 0                       5 0 1 0 0 0 0
-                 6 1 0 0 0 0 0                       6 0 0 0 0 0 1                       6 1 0 0 0 0 0
-```
-
-(the above is hand-edited to put the matrices side-by-side).  Let us
-consider the top row of `pg`.  This multiplies by each column of
-`ph` but the only nonzero term is with column 3 of `ph` which
-has row 2 nonzero.  Thus `(pg%*%ph)[1,3]==1`.  The process is,
-symbolically, $1\longrightarrow 2\longrightarrow 3$.
+Thinking about the matrix multiplication, let us consider the top row
+of `pg`.  This multiplies by each column of `ph` but the only nonzero
+term is with column 3 of `ph` which has row 2 nonzero.  Thus
+`(pg%*%ph)[1,3]==1`.  The process is, symbolically, $1\longrightarrow
+2\longrightarrow 3$.
 
 ### Passive language for permutation matrices
 
@@ -405,7 +404,8 @@ that ended up in place 2 came from place 1, and so on.  This is
 passive language.
 
 Thus the passive matrix is the *transpose* of the active matrix (we
-could see this by swapping the dimension names).  Now we use the matrix rule
+could see this by swapping the dimension names).  Now we use the
+matrix rule
 
 \[
 AB=(B'A')'
@@ -419,8 +419,36 @@ permutation matrices are orthogonal and use
 AB=\left(B^{-1}A^{-1}\right)^{-1}
 \]
 
-instead.
+instead.  Numerical verification using package idiom is
+straightforward.  First we verify that permutation matrices are indeed
+orthogonal:
+
+```{r label=firstactiveverif}
+pa_active <- perm_matrix(a)
+all(solve(pa_active) == t(pa_active))
+```
+
+Now we verify that matrix multiplication of permutation matrices
+corresponds to active permutation composition:
+
+```{r label=checkmatmulta}
+pb_active <- perm_matrix(b)
+all(perm_matrix(a*b) == pa_active %*% pb_active)
+```
+
+Finally, we verify that passive composition is reverse-order matrix
+multiplication:
+
+```{r label=secondpassive}
+pa_passive <- perm_matrix(inverse(a))
+pb_passive <- perm_matrix(inverse(b))
+all(solve(perm_matrix(a * b)) == pb_passive %*% pa_passive) # note order of ops
+```
+
+Above we see numerical verification that the passive form of `a*b`
+(expressed as a permutation matrix) is equal to the matrix product of
+(passive) permutations `b` and `a` (expressed as permutation
+matrices).
 
 
 # References
-
