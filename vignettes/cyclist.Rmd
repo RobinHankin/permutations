@@ -3,6 +3,7 @@ title: "Cyclists in the `permutations` package"
 author: "Robin K. S. Hankin"
 output: html_vignette
 bibliography: permutations.bib
+link-citations: true
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{cyclist}
