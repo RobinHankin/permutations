@@ -39,7 +39,7 @@ permutations; permutations are coerced to cycle form because function
 The group action of conjugation, that is \eqn{x^y} or \code{y^-1 x
  y}, is documented at \link{conjugation}.
 
-\preformatted{ are_conjugate(x,conjugate(x^y))  }
+\preformatted{ all(are_conjugate(x,x^y)) }
 
 is always \code{TRUE}.
 
