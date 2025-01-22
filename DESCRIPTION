@@ -8,7 +8,7 @@ Authors@R: c(
     person("Paul", "Egeler", email = "paulegeler@gmail.com", role = c("ctb"), comment = c(ORCID = "0000-0001-6948-9498"))
     )
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
-Depends: R (>= 3.5.0), methods
+Depends: R (>= 4.1.0), methods
 LazyData: TRUE
 Description: Manipulates invertible functions from a finite set to
              itself.  Can transform from word form to cycle form and
