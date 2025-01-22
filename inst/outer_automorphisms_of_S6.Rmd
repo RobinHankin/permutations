@@ -177,13 +177,16 @@ all(janusz(a*b) == janusz(a) * janusz(b))
 
 To verify that $\phi$ is an isomorphism we need to check that it is
 1-1.  The best way I have found to do it is to systematically compare
-each element with each other element.  This takes about 10 minutes to
+each element with each other element.  This takes about an hour to
 run, too long for a package vignette.
 
-```{r checkphiisomorphism, eval=FALSE}
-M <- matrix(0,720,720)
-for(i in 1:720){for(j in 1:720){M[i,j] <- x[i] == x[j]}}
-all(M == diag(720))  # evaluates to TRUE
+```{r checkphiisomorphism, eval=TRUE}
+n <- 720
+M <- matrix(0,n,n)
+x <- allperms(6)
+
+system.time(for(i in 1:n){for(j in 1:n){M[i,j] <- janusz(x[i]) == janusz(x[j])}})
+all(M[1:n,1:n] == diag(n))  # evaluates to TRUE but takes about an hour
 ```
 
 There are many outer automorphisms, all conjugates of $\phi$.  For example:
