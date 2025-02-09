@@ -66,6 +66,10 @@ In use, sometimes we work with objects in word form and sometimes
 objects in cycle form.  However, the standard workflow would be to use
 R's default system, which is to print values to the console:
 
+```{r setprintdefault,echo=FALSE}
+options("print_word_as_cycle" = TRUE)
+```
+
 ```{r}
 x <- rperm(n = 2)
 y <- as.cycle(x)
@@ -75,9 +79,11 @@ x # default: print to console
 y # default: print to console
 ```
 
-Above we see that, by default, objects in word form are coerced to
-their cycle form for echo-printing.  However, it is possible to
-suppress this coercion by setting option `print_word_as_cycle`:
+Above we see that, by default, both `x` and `y` are printed in cycle
+form, even though `x` is stored internally in word form.  See how the
+print method tells us if its argument object is printed in
+coerced-to-cycle form.  However, it is possible to suppress this
+coercion by setting option `print_word_as_cycle`:
 
 ```{r}
 options(print_word_as_cycle = FALSE)
@@ -85,10 +91,7 @@ x
 y
 ```
 
-Above we see that the coercion is not performed on word object `x`:
-the print method shows the internal representation of the object.
-This behaviour can be confusing because the same permutation can have
-different print styles, so we reinstate the default:
+We reinstate the default:
 
 ```{r}
 options(print_word_as_cycle = TRUE) # restore default
