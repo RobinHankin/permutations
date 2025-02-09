@@ -157,9 +157,12 @@ R’s default system, which is to print values to the console:</p>
 <span><span class="co">#&gt; [coerced from word form]</span></span>
 <span><span class="va">y</span> <span class="co"># default: print to console</span></span>
 <span><span class="co">#&gt; [1] (12653)(47) (1724653)</span></span></code></pre></div>
-<p>Above we see that, by default, objects in word form are coerced to
-their cycle form for echo-printing. However, it is possible to suppress
-this coercion by setting option <code>print_word_as_cycle</code>:</p>
+<p>Above we see that, by default, both <code>x</code> and <code>y</code>
+are printed in cycle form, even though <code>x</code> is stored
+internally in word form. See how the print method tells us if its
+argument object is printed in coerced-to-cycle form. However, it is
+possible to suppress this coercion by setting option
+<code>print_word_as_cycle</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>print_word_as_cycle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
@@ -168,10 +171,7 @@ this coercion by setting option <code>print_word_as_cycle</code>:</p>
 <span><span class="co">#&gt; [2] 7 4 1 6 3 5 2</span></span>
 <span><span class="va">y</span></span>
 <span><span class="co">#&gt; [1] (12653)(47) (1724653)</span></span></code></pre></div>
-<p>Above we see that the coercion is not performed on word object
-<code>x</code>: the print method shows the internal representation of
-the object. This behaviour can be confusing because the same permutation
-can have different print styles, so we reinstate the default:</p>
+<p>We reinstate the default:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>print_word_as_cycle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># restore default</span></span></code></pre></div>
 <p>Most people seem to prefer printing in cycle form.</p>
