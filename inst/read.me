@@ -1,15 +1,12 @@
 This is file "read.me" in the inst/ directory of the permutations
-package.  Most of the files in this directory are related to the
-dodecahedron group, and this is what is discused in this readme file;
-but there are also two unrelated vignettes: "representation.Rmd",
-which shows a nice matrix representation of S_9; and
-"order_of_ops.Rmd" which discusses active and passive transformations.
-File starminx_III.py is a standalone file that provides some sage
-functionality for the starminx III dodecahedral puzzle.
+package.  In this file I discuss the dodecahedron group and its
+application to the megaminx.  File starminx_III.py is a standalone
+file that provides some sage functionality for the starminx III
+dodecahedral puzzle.
 
 Sourcing file "code.R" creates file "megaminx.py" which are sage
 commands to create the megaminx group.  Recall that the megaminx is a
-rubik's cube but based on a dodecahedron.
+puzzle like the rubik's cube but based on a dodecahedron.
 
 File "code2.R" sources "code.R" and includes bodily rotations and
 reflections of the whole megaminx.
@@ -97,21 +94,6 @@ megaminx.order().factor()  # shows prime factors
 
 f.SylowSubgroup(23)
 f.SylowSubgroup(23).Order()   # cyclic, order 23
-
-
-
-
-
-The file "edges.txt" has 30 rows, one for each edge of the
-dodecahedron.
-
-An edge of a dodecahedron is indexed by the smaller of the two facets
-defining it.  A list of edge facets is given in "edges.txt"; each row
-corresponds to a piece of plastic on the megaminx.  The first number
-is always the smaller of the two so the edge can by indexed by the
-first column of edges.txt.
-
-File 'edges.txt' is read by file 'usefulfunctions.R'.
 
 
 In file code2.R, which includes whole-body movements of the megaminx

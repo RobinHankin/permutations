@@ -93,8 +93,9 @@ all(M[, b * a] == M[, a] %*% M[, b])
 
 
 See how the operation has `a` and `b` in opposite order from the
-matrix multiplication; see vignette `order_of_ops` for a discussion of
-this phenomenon from a different perspective.
+matrix multiplication; see the [order_of_ops](order_of_ops.html)
+vignette for a discussion of this phenomenon from a different
+perspective.
 
 
 ```{r,label=restore_default, include=FALSE}
