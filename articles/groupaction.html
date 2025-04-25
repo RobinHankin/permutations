@@ -77,7 +77,7 @@ Hankin</h4>
 <pre><code><span><span class="co">## function (x, ...) </span></span>
 <span><span class="co">## {</span></span>
 <span><span class="co">##     a &lt;- NULL</span></span>
-<span><span class="co">##     x &lt;- as.matrix(as.word(x))</span></span>
+<span><span class="co">##     x &lt;- unclass(as.word(x))</span></span>
 <span><span class="co">##     if (nrow(x) == 1) {</span></span>
 <span><span class="co">##         return(as.function(alist(a = , x[, a])))</span></span>
 <span><span class="co">##     }</span></span>
@@ -86,7 +86,7 @@ Hankin</h4>
 <span><span class="co">##             a)])))</span></span>
 <span><span class="co">##     }</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x559d8d2c1a48&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x562ea6fb4ca0&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:permutations&gt;</span></span></code></pre>
 <p>To cite the permutations package in publications, please use <span class="citation">Hankin (<a href="#ref-hankin2020">2020</a>)</span>. The
 <code>permutations</code> package was intended to manipulate and combine
