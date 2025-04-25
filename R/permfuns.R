@@ -692,7 +692,7 @@ are_conjugate <- function(x, y) {
 
 as.function.permutation <- function(x, ...) {
   a <- NULL # to suppress the warning about 'no visible binding for global variable 'a'
-  x <- as.matrix(as.word(x))
+  x <- unclass(as.word(x))
   if(nrow(x) == 1){
       return(as.function(alist(a = , x[, a])))
   } else {
