@@ -20,8 +20,10 @@ product of an even number of transpositions, and \dfn{odd} if it can be
 written as an odd number of transpositions.  The map
 \eqn{\operatorname{sgn}\colon S_n\longrightarrow\left\lbrace
 +1,-1\right\rbrace}{omitted} is a homomorphism; see examples.}
-\author{Robin K. S. Hankin} \note{Internally, function \code{sgn()}
-coerces to cycle form.
+\author{Robin K. S. Hankin}
+\note{
+
+  Internally, function \code{sgn()} coerces to cycle form.
 
 The sign of the null permutation is \code{NULL}.
 }
