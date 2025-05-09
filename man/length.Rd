@@ -27,8 +27,8 @@ These functions have methods only for word objects; cycle objects use
 the methods for lists.  It is easy to confuse the \emph{length} of a
 permutation with its \code{size}.
 
-It is not possible to set the length of a permutation; this is more
-trouble than it is worth.
+It is not currently possible to set the length of a permutation; this is
+more trouble than it is worth.
 }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{size}}}
