@@ -29,6 +29,7 @@ permutation with its \code{size}.
 
 It is not currently possible to set the length of a permutation; this is
 more trouble than it is worth.
+
 }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{size}}}
