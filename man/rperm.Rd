@@ -16,11 +16,11 @@ Random permutations
   \code{r1cyc()} and \code{rgs1()} are low-level helper functions.
 }
 \usage{
-rperm(n=10,r=7,moved=NA)
-rcyc(n,len,r=len)
-r1cyc(len,vec)
+rperm(n=10, r=7, moved=NA)
+rcyc(n, len, r=len)
+r1cyc(len, vec)
 rgs1(s)
-rgivenshape(n,s,size=sum(s))
+rgivenshape(n, s, size=sum(s))
 }
 \arguments{
   \item{n}{Number of permutations to create}
@@ -32,10 +32,11 @@ rgivenshape(n,s,size=sum(s))
     at random.  This is useful if you want a permutation that has a
     compact cycle representation}
   \item{vec}{Vector of integers to generate a cycle from}
-  \item{s,size}{Shape and size of permutations to create}
+  \item{s, size}{Shape and size of permutations to create}
 }
 \value{
-Returns an object of class \code{word}
+Returns a permutation object of class \code{cycle}, or class \code{word}
+(\code{rperm()}) 
 }
 \author{
 Robin K. S. Hankin
@@ -48,18 +49,20 @@ Robin K. S. Hankin
   \code{len} of function \code{rcyc()}, although this will give only
   permutations with a single (group-theoretic) cycle.
 
-  Argument \code{s} of function \code{rgivensize()} can include 1s
+  Function \code{rgivenshape()} returns a random permutation with a
+  given shape.  Argument \code{s}, specifying the shape, can include 1s
   (ones).  Although length-one cycles are dropped from the resulting
   permutation, it is sometimes useful to include them to increase the
-  size of the result, see examples.
-
-  In function \code{rgivenshape()}, if primary argument \code{n} is a
+  size of the result, see examples.  If primary argument \code{n} is a
   vector of length greater than 1, it is interpreted as the shape of the
-  permutation, and a single random permutation is returned.
-
+  permutation, and a single random permutation is returned.  Setting
+  print option \code{\code{print_in_length_order}} to \code{TRUE}
+  emphasises that every element of the output of \code{rgivenshape()}
+  has the same shape.
+  
 }
 \seealso{
-\code{\link{size}}
+\code{\link{size}}, \code{\link{print.permutation}}
 }
 \examples{
 rperm()
