@@ -56,7 +56,7 @@ Robin K. S. Hankin
   size of the result, see examples.  If primary argument \code{n} is a
   vector of length greater than 1, it is interpreted as the shape of the
   permutation, and a single random permutation is returned.  Setting
-  print option \code{\code{print_in_length_order}} to \code{TRUE}
+  print option \code{print_in_length_order} to \code{TRUE}
   emphasises that every element of the output of \code{rgivenshape()}
   has the same shape.
   
