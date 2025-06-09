@@ -50,12 +50,12 @@ conjugation(e1,e2)
 }
 \details{
 
-  Function \code{Ops.permutation()} passes binary arithmetic
+  Function \code{Ops.permutation()} dispatches binary arithmetic
   operators (\dQuote{\code{+}}, \dQuote{\code{*}}, \dQuote{\code{/}},
   \dQuote{\code{^}}, and \dQuote{\code{==}}) to the appropriate
   specialist function.
 
-  Multiplication, as in \code{a*b}, is effectively
+  Multiplication, as in \code{a*b}, is equivalent to
   \code{word_prod(a,b)}; it coerces its arguments to word form (because
   \code{a*b = b[a]}).
 
