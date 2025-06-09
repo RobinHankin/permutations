@@ -10,9 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 suppressMessages(library("permutations"))
 ```
 
-<p style="text-align: right;">
-![](`r system.file("help/figures/permutations.png", package = "permutations")`){width=10%}
-</p>
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
 
 This document discusses functions in the `allcyc()` family of
 functions.
