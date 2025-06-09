@@ -35,7 +35,7 @@ Function `allcycn()` takes a strictly positive integer argument `n`
 and returns all cycles on set $\left[n\right]=\left\lbrace 1,2,\ldots,
 n\right\rbrace$.  This is the lowest-level function in the series.
 
-```{r}
+```{r ac4}
 allcycn(4)
 ```
 
@@ -45,7 +45,7 @@ Function `allcycn()` is a generalization of `allcycn()`.  It takes a
 set of strictly positive integers and returns all cyclic permutations
 of them:
 
-```{r}
+```{r ac1378}
 allcyc(c(1:3,7:8))
 ```
 
@@ -55,7 +55,7 @@ Thus `allcycn(n)` and `allcyc(1:n)` should return the same object.
 
 This generates all permutations "like" its argument:
 
-```{r}
+```{r aplac}
 allpermslike(as.cycle("(12)(3456)(789)"))
 ```
 
@@ -72,7 +72,7 @@ function `some_perms_shape()` returns the permutation of size
 `sum(shape)` with shape `shape`, and all of whose cycles are in
 increasing order.  Thus
 
-```{r}
+```{r sps2}
 some_perms_shape(c(2,2,3))
 ```
 
@@ -96,14 +96,14 @@ a vector of permutations `u`.  For each element of `u`, it returns a
 vector comprising of all permutations with the same shape and cycle
 sets:
 
-```{r}
+```{r cl35}
 (x <- cyc_len(3:5))
 all_cyclic_shuffles(x)
 ```
 
 If the argument has multiple cycles the same logic operates:
 
-```{r}
+```{r acsac}
 all_cyclic_shuffles(as.cycle("(12)(3456)(789)"))
 ```
 
@@ -112,7 +112,7 @@ In this case the single permutation expands to $3!2!=12$ permutations.
 ## Function `all_cyclic_shuffles()`
 
 
-```{r}
+```{r baps}
 body(all_perms_shape)
 ```
 
@@ -150,7 +150,7 @@ $$
 
 We can enumerate these easily with the package:
 
-```{r,shape1223,cache=TRUE}
+```{r, shape1223, cache=TRUE}
 library(permutations)
 jj <- all_perms_shape(c(1,2,2,3))
 length(jj)
@@ -162,7 +162,7 @@ jj[c(1:10,1671:1680)]
 Observe that although cycles of length 1 are trivial, including 1s in
 the argument to `all_perms_shape()` nevertheless affect the output:
 
-```{r}
+```{r aps22}
 all_perms_shape(c(2,2))
 all_perms_shape(c(2,2,1))
 ```
