@@ -1,8 +1,8 @@
 ---
 title: "Enumerating all partitions with certain cycle characteristics"
 output: html_document
+bibliography: permutations.bib
 author: Robin Hankin
-date: "2023-06-04"
 ---
 
 ```{r setup, include=FALSE}
@@ -14,8 +14,10 @@ suppressMessages(library("permutations"))
 knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
 ```
 
-This document discusses functions in the `allcyc()` family of
-functions.
+To cite the permutations package in publications, please use
+@hankin2020.  This document discusses functions in the `allcyc()`
+family of functions.  Generally, these functions enumerate every
+possible permutation that satisfies some user-specified criterion
 
 * `allcycn()`
 * `allcyc()`
@@ -35,21 +37,29 @@ Function `allcycn()` takes a strictly positive integer argument `n`
 and returns all cycles on set $\left[n\right]=\left\lbrace 1,2,\ldots,
 n\right\rbrace$.  This is the lowest-level function in the series.
 
-```{r ac4}
-allcycn(4)
+```{r ac5}
+allcycn(5)
 ```
+
+Above we see all $5!/5=24$ permutations of $[5]$.  Note that $(12345),
+(23451),\cdots, (51234)$ are all the same permutation, and `allcycn()`
+produces only the first one of these (which is in standard order, see
+`cyclist.rd`).
+
 
 ## Function `allcyc()`
 
-Function `allcycn()` is a generalization of `allcycn()`.  It takes a
+Function `allcyc()` is a generalization of `allcycn()`.  It takes a
 set of strictly positive integers and returns all cyclic permutations
-of them:
+of them (Thus `allcycn(n)` and `allcyc(1:n)` should return the same
+object).  For example, we can enumerate partitions of $\left\lbrace
+1,2,3,7,8\right\rbrace$:
 
 ```{r ac1378}
 allcyc(c(1:3,7:8))
 ```
 
-Thus `allcycn(n)` and `allcyc(1:n)` should return the same object.
+
 
 ## Function `allpermslike()`
 
@@ -68,7 +78,7 @@ $(2-1)!(4-1)!(3-1)!=12$ distinct permutations.
 ## Function `some_perms_shape()`
 
 Given an integer vector `shape`, interpreted as an integer partition,
-function `some_perms_shape()` returns the permutation of size
+function `some_perms_shape()` returns all permutations of size
 `sum(shape)` with shape `shape`, and all of whose cycles are in
 increasing order.  Thus
 
@@ -76,25 +86,37 @@ increasing order.  Thus
 some_perms_shape(c(2,2,3))
 ```
 
-Notes
+Above, permutation $(127)(35)(46)$ is present but $(172)(35)(46)$ is
+  not (this is why the function is called "`some_perms_shape()`").
 
-* When creating cycles, the package uses an ordering system which
-  means that the permutation may appear as either
-  $(\cdot\,\cdot)(\cdot\,\cdot)(\cdot\cdot\cdot)$ or
-  $(\cdot\,\cdot)(\cdot\cdot\cdot)(\cdot\,\cdot)$ or
-  $(\cdot\,\cdot)(\cdot\,\cdot)(\cdot\cdot\cdot)$, as per
-  `nicify_cyclist()`.  This can be confusing but does not change the
-  value of the permutation [disjoint cycles commute].
-* Permutation $(127)(35)(46)$ is present but $(172)(35)(46)$ is not
-  (this is why the function is called "`some_perms_shape()`").
+When creating cycles, the package uses an ordering system which means
+that the permutation may appear as either
+$(\cdot\,\cdot)(\cdot\,\cdot)(\cdot\cdot\cdot)$ or
+$(\cdot\,\cdot)(\cdot\cdot\cdot)(\cdot\,\cdot)$ or
+$(\cdot\,\cdot)(\cdot\,\cdot)(\cdot\cdot\cdot)$, as per
+`nicify_cyclist()`.  This can be confusing but does not change the
+value of the permutation [disjoint cycles commute].  Print option
+`print_in_length_order` overrides this:
 
+
+```{r sps2lengthorder}
+options(print_in_length_order = TRUE)
+some_perms_shape(c(2,2,3))
+```
+
+The above print method makes it cleaar that every member of the vector
+has the same shape.
+
+```{r restoredefault}
+options(print_in_length_order = FALSE)  # restore default
+```
 
 ## Function `all_cyclic_shuffles()`
 
 Given a vector of permutations, function `all_cyclic_shuffles()` takes
-a vector of permutations `u`.  For each element of `u`, it returns a
-vector comprising of all permutations with the same shape and cycle
-sets:
+a vector of permutations `u`.  For each element `x` of `u`, it
+calculates all permutations with the same shape and cycle sets as `x`.
+The permutations are then concatenated:
 
 ```{r cl35}
 (x <- cyc_len(3:5))
@@ -135,17 +157,19 @@ $${n\choose
 \underbrace{r_d,\ldots,r_d}_{m_d}\,\,
 }\prod_{i=1}^d\frac{\Gamma(r_i)^{m_i}}{m_i!}
 =
-\frac{n!}{\prod_{i=1}^d m_i!\cdot r_i^{m_i}}
+\frac{n!}{\prod_{i=1}^d m_i!\cdot r_i^{m_i}}.
 $$
 
-[stackexchange](https://math.stackexchange.com/questions/1323130/how-many-permutations-of-cycle-shape-3-22-1-are-there-in-s-8)
-has a good question here, the answer agrees with mine. He asks how
-many permutations of shape $3,2,2,1$, that is,
+
+There is a discussion on stackexchange
+[here](https://math.stackexchange.com/questions/1323130/how-many-permutations-of-cycle-shape-3-22-1-are-there-in-s-8);
+the answer agrees with mine.  The questioner asks how many
+permutations of shape $3,2,2,1$, that is,
 $(\cdot\cdot\cdot)(\cdot\,\cdot)(\cdot\,\cdot)(\cdot)$ and gets 1680.
 I get:
 
 $$
-{8\choose 3\,2\,2\,1}\frac{2}{2!}=5678=30\cdot 56=1680
+{8\choose 3\,2\,2\,1}\frac{2}{2!}=5678=30\cdot 56=1680.
 $$
 
 We can enumerate these easily with the package:
@@ -166,3 +190,5 @@ the argument to `all_perms_shape()` nevertheless affect the output:
 all_perms_shape(c(2,2))
 all_perms_shape(c(2,2,1))
 ```
+
+# References {-}
