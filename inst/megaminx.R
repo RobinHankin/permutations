@@ -56,5 +56,10 @@ Z <- Gy^(-2) * LB * LG^(-1) * Pi^(-1) * LY^(-1)
 superflip <- (X^6)^Y * Z^9  # superflip (Jeremy Clark)
 rm(X,Y,Z)
 
+
+## Here we list all edge pieces:
+
+edge_facets <- as.matrix(read.table("edge_facets.txt", header=FALSE))
+
 save(megaminx,megaminx_colours, "W", "Pu", "DY", "DB", "R", "DG",
-"LG", "O", "LB", "LY", "Pi", "Gy", superflip, file="megaminx.rda")
+"LG", "O", "LB", "LY", "Pi", "Gy", superflip, edge_facets, file="megaminx.rda")

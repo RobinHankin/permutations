@@ -12,6 +12,7 @@ inst/permutations_stickermaker.R
 inst/megaminx_net_guides.svg
 inst/all_of_mathematics.svg
 inst/permutations_icon.png
+inst/edge_facets.txt$
 vignettes/megaminx_neg.svg
 ^.devcontainer$
 ^codecov\.yml$
