@@ -43,7 +43,9 @@ degrees.  See the vignette for more details.
 
   Vector \code{megaminx_colours} shows what colour each facet has at
   \acronym{start}.  Object \code{superflip} is a megaminx operation that
-  flips each of the 30 edges.
+  flips each of the 30 edges.  Some discussion is given in the vignette,
+  and a more recent (and shorter) superflip is given in
+  \code{inst/superflip.Rmd}.
 
   Object \code{edge_facets} is a 30 row, two-column matrix with each row
   representing an edge facet.  

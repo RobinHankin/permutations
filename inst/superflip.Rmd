@@ -1,0 +1,113 @@
+---
+title: "A superflip due to Tomas Rokicki and Mark Longridge"
+output: html_document
+bibliography: permutations.bib
+author: Robin Hankin
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+suppressMessages(library("permutations"))
+```
+
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
+
+To cite the permutations package in publications, please use
+@hankin2020.  This document discusses a superflip due to a
+collaboration between Tomas Rokicki and Mark Longridge.
+Tomas points me [here](https://alpha.twizzle.net/explore/?puzzle=megaminx&alg=B2%27+DL%27+B2+DL%27+D%27+DL2+D%27+DL2%27+B%27+DL2+B%27+DL%27+B2+DL%27+D2%27+B+DL2+B+D2%27+B2%27+DL%27+D2%27+B%27%0AL+F+U+F+R+F2+U%27+L2%27+U2+L+U2+F+L+F2%27+L%27+F2%27+L+U%0ABL+DL+FL+DL+D+FR+BL%27+D+B+DR+B+BL+U+BR), which gives
+
+
+```
+B2' DL' B2 DL' D' DL2 D' DL2' B' DL2 B' DL' B2 DL' 
+D2' B DL2 B D2' B2' DL' D2' B'
+L F U F R F2 U' L2' U2 L U2 F L F2' L' F2' L U
+BL DL FL DL D FR BL' D B DR B BL U BR
+```
+
+but the notation there is different from that used in the
+\pkg{permutations} package.  They use things like "DL" for "Down Left"
+and "F" for front, which is (on reflection) a much better way to
+represent faces of a dodecahedron than the colour-based system I used.
+
+```{r definecode, echo=FALSE}
+code <- matrix(c(
+"B",  "LG",
+"DL",  "O",
+"D",  "Gy",
+"L",  "Pu",
+"F",  "DG",
+"U",   "W",
+"R",   "R",
+"BL", "DY",
+"FL", "LB",
+"FR", "LY",
+"DR", "Pi",
+"BR",  "B"),byrow=TRUE,ncol=2)
+noquote(code)
+```
+
+In \pkg{permutations} notation we have:
+
+```{r}
+o <- (
+LG^-2  *  # B2'
+O^-1   *  # DL'
+LG^2   *  # B2
+O^-1   *  # DL'
+Gy^-1  *  # D'
+O^2    *  # DL2
+Gy^-1  *  # D'
+O^-2   *  # DL2'
+LG^-1  *  # B'
+O^2    *  # DL2
+LG^-1  *  # B'
+O^-1   *  # DL'
+LG^2   *  # B2
+O^-1   *  # DL'
+Gy^-2  *  # D2'
+LG     *  # B
+O^2    *  # DL2
+LG     *  # B
+Gy^-2  *  # D2'
+LG^-2  *  # B2'
+O^-1   *  # DL'
+Gy^-2  *  # D2'
+LG^-1  *  # B'
+Pu     *  # L
+DG     *  # F
+W      *  # U
+DG     *  # F
+R      *  # R
+DG^2   *  # F2
+W^-1   *  # U'
+Pu^-2  *  # L2'
+W^2    *  # U2
+Pu     *  # L
+W^2    *  # U2
+DG     *  # F
+Pu     *  # L
+DG^-2  *  # F2'
+Pu^-1  *  # L'
+DG^-2  *  # F2'
+Pu     *  # L
+W      *  # U
+DY     *  # BL
+O      *  # DL
+LB     *  # FL
+O      *  # DL
+Gy     *  # D
+LY     *  # FR
+DY^-1  *  # BL'
+Gy     *  # D
+LG     *  # B
+Pi     *  # DR
+LG     *  # B
+DY     *  # BL
+W      *  # U
+DB     )  # BR
+```
+
+# References {-}
