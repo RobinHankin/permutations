@@ -209,14 +209,14 @@
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">9</span><span class="op">)</span> <span class="co"># word form</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">*</span><span class="va">y</span>  <span class="co"># products are given in word form but the print method coerces to cycle form</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (19638452)      (1452698)       (18726)(354)    (14732659)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (1572684)(39)   (1542936)(78)   (18726)(354)    (14732659)     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (1439685)       (17294536)      (126453987)     (1238)(456)(79)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (1432)(576)(89) (184)(293765)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span><span class="fu"><a href="print.html">print_word</a></span><span class="op">(</span><span class="va">x</span><span class="op">*</span><span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      1 2 3 4 5 6 7 8 9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  9 1 8 5 2 3 . 4 6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2]  4 6 . 5 2 9 . 1 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  5 6 9 1 7 8 2 4 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2]  5 9 6 2 4 1 8 7 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3]  8 6 5 3 4 1 2 7 .</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4]  4 6 2 7 9 5 3 . 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5]  4 . 9 3 1 8 . 5 6</span>
@@ -227,12 +227,14 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10] 8 9 7 1 2 5 6 4 3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">^</span><span class="fl">5</span>  <span class="co"># powers are given in cycle form</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (17)(2984635)  (18)(2794)(35) (589)          (1735)(2846)   (1965387)     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (2679483)      (183)          (1923564)(78)  (1963)(587)    (17693258)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (15)(296)(387)  (162)(347)(598) (589)           (1735)(2846)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (1965387)       (2679483)       (183)           (1923564)(78)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (1963)(587)     (17693258)     </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">^</span><span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>  <span class="co"># conjugation (not integer power!); coerced to word.</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (1849635)(27)  (14)(28)(3795) (198)(23647)   (1274)(3856)   (1768942)     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (3947865)      (13597)(248)   (1245369)(78)  (178)(2964)    (19236847)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (12)(369)(478)  (189)(236)(475) (198)(23647)    (1274)(3856)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (1768942)       (3947865)       (13597)(248)    (1245369)(78)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (178)(2964)     (19236847)     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">*</span><span class="fu"><a href="inverse.html">inverse</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="va">id</span>  <span class="co"># all TRUE</span></span></span>
