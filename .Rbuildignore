@@ -13,6 +13,12 @@ inst/megaminx_net_guides.svg
 inst/all_of_mathematics.svg
 inst/permutations_icon.png
 inst/edge_facets.txt$
+inst/superflip.Rmd$
+inst/inversion.svg$
+inst/net_coords.txt$
+inst/read.me$
+inst/starminx_III.py$
+inst/starminx.py$
 vignettes/megaminx_neg.svg
 ^.devcontainer$
 ^codecov\.yml$
