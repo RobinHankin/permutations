@@ -42,7 +42,8 @@ stopifnot(all(
 
 is.flip(c(
     as.cycle("(10,46)(44,50)(56,62)"),
-    as.cycle("74,121)")),
-    as.cycle("74,120)"))
+    as.cycle("74,121)"),
+    as.cycle("74,120)")
+))
 
 }
