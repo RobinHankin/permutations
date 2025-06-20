@@ -71,6 +71,7 @@ helper <- function(e1, e2) { # sorts out recycling for binary
   names(jj2) <- names(e2)
   cbind(jj1, jj2)
 }
+
 word_prod <- function(e1, e2) { # e1 and e2 are assumed to be word objects.
 
   e1 <- as.word(e1)
@@ -131,7 +132,7 @@ cycle_sum <- function(e1, e2) { #
   return(cycle(out))
 }
 
-ccps <- function(n, pow) { # ppcs == 'canonical_cycle_power_single'
+ccps <- function(n, pow) { # ccps == 'canonical_cycle_power_single'
   ## here 'n' is interpreted as as.cycle(seq_len(n)).  Thus
   ## ccps(9,3) == as.cycle(1:9)^3 == (147)(258)(369).
 
