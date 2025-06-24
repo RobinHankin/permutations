@@ -1,3 +1,9 @@
+# permutations 1.1-7
+
+- new megaminx superflip functionality
+- consistentification
+
+
 # permutations 1.1-6
 
 - new groupaction vignette
