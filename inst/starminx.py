@@ -26,7 +26,7 @@ corner11 = PermutationGroupElement([(5,  4, 11)])
 corner12 = PermutationGroupElement([(4,  7, 11)])
 corner13 = PermutationGroupElement([(4,  3,  7)])
 corner14 = PermutationGroupElement([(3,  8,  7)])
-corner15 = PermutationGroupElement([(3,  2,  8 )])
+corner15 = PermutationGroupElement([(3,  2,  8)])
 
 corner16 = PermutationGroupElement([(12, 7, 8)])
 corner17 = PermutationGroupElement([(12, 8, 9)])
