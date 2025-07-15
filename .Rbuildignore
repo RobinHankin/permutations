@@ -11,6 +11,12 @@ inst/.RData
 inst/permutations_stickermaker.R
 inst/megaminx_net_guides.svg
 inst/all_of_mathematics.svg
+inst/Matrix_multiplication_associative.svg$
+inst/shape_preserved_by_conjugation.svg$
+inst/permutations_composition_active.svg$
+inst/megaminx_net_colour.svg$
+inst/permutations_active_to_passive.svg$
+inst/guide.R$
 inst/permutations_icon.png
 inst/edge_facets.txt$
 inst/superflip.Rmd$
@@ -19,6 +25,8 @@ inst/net_coords.txt$
 inst/read.me$
 inst/starminx_III.py$
 inst/starminx.py$
+inst/dodecahedron_group.py$
+inst/full_dodecahedron_group.py$
 vignettes/megaminx_neg.svg
 ^.devcontainer$
 ^codecov\.yml$

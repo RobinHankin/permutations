@@ -1,6 +1,6 @@
 is.flip_pair <- function(pair){
     if(length(pair) != 2){return(FALSE)}
-    any(apply(edge_facets,1,function(x){all(sort(x) == pair)}))
+    any(apply(permutations::edge_facets,1,function(x){all(sort(x) == pair)}))
 }
 
 is.flip <- function(p){

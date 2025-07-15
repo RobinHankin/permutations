@@ -1,7 +1,7 @@
 Package: permutations
 Type: Package
 Title: The Symmetric Group: Permutations of a Finite Set
-Version: 1.1-6
+Version: 1.1-7
 Imports: magic,numbers,partitions (>= 1.9-17),freealg (>= 1.0-4)
 Authors@R: c(
     person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415")),

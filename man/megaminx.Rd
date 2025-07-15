@@ -25,18 +25,18 @@ Each element of \code{megaminx} corresponds to a clockwise turn of 72
 degrees.  See the vignette for more details.
 
  \tabular{rlll}{
-    \code{megaminx[, 1]} \tab W   \tab White        \cr
-    \code{megaminx[, 2]} \tab Pu  \tab Purple       \cr
-    \code{megaminx[, 3]} \tab DY  \tab Dark Yellow  \cr
-    \code{megaminx[, 4]} \tab DB  \tab Dark Blue    \cr
-    \code{megaminx[, 5]} \tab R   \tab Red          \cr
-    \code{megaminx[, 6]} \tab DG  \tab Dark Green   \cr
-    \code{megaminx[, 7]} \tab LG  \tab Light Green  \cr
-    \code{megaminx[, 8]} \tab O   \tab Orange       \cr
-    \code{megaminx[, 9]} \tab LB  \tab Light Blue   \cr
-    \code{megaminx[,10]} \tab LY  \tab Light Yellow \cr
-    \code{megaminx[,11]} \tab Pi  \tab Pink         \cr
-    \code{megaminx[,12]} \tab Gy  \tab Gray 
+    \code{megaminx[ 1]} \tab W   \tab White        \cr
+    \code{megaminx[ 2]} \tab Pu  \tab Purple       \cr
+    \code{megaminx[ 3]} \tab DY  \tab Dark Yellow  \cr
+    \code{megaminx[ 4]} \tab DB  \tab Dark Blue    \cr
+    \code{megaminx[ 5]} \tab R   \tab Red          \cr
+    \code{megaminx[ 6]} \tab DG  \tab Dark Green   \cr
+    \code{megaminx[ 7]} \tab LG  \tab Light Green  \cr
+    \code{megaminx[ 8]} \tab O   \tab Orange       \cr
+    \code{megaminx[ 9]} \tab LB  \tab Light Blue   \cr
+    \code{megaminx[10]} \tab LY  \tab Light Yellow \cr
+    \code{megaminx[11]} \tab Pi  \tab Pink         \cr
+    \code{megaminx[12]} \tab Gy  \tab Gray 
   }
 
   Vector \code{megaminx_colours} shows what colour each facet has at
