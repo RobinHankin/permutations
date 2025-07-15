@@ -96,14 +96,12 @@ Returns its argument invisibly, after printing it (except for
   The print method does not change the internal representation of word
   or cycle objects, it only affects how they are printed.
 
-  The print method is sensitive to experimental option
+  The print method for cycle objects is sensitive to experimental option
   \code{print_in_length_order} (via function
-  \code{as.character_cyclist()}).  If \code{TRUE}, permutations cycle
-  form will be printed but with the cycles in increasing length order.
-  Set it with
+  \code{as.character_cyclist()}).  If \code{TRUE}, permutations will be
+  printed with their cycles in increasing length order.  Set it with
   
   \preformatted{options("print_in_length_order" = TRUE)}
-
   
   There is a package vignette (type \code{vignette("print")} at the
   command line) which gives more details and long-form documentation.
