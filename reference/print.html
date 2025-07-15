@@ -138,13 +138,11 @@ words and bracket notation for cycle objects.</p>
 
 <p>The print method does not change the internal representation of word
   or cycle objects, it only affects how they are printed.</p>
-<p>The print method is sensitive to experimental option
+<p>The print method for cycle objects is sensitive to experimental option
   <code>print_in_length_order</code> (via function
-  <code>as.character_cyclist()</code>).  If <code>TRUE</code>, permutations cycle
-  form will be printed but with the cycles in increasing length order.
-  Set it with</p>
+  <code>as.character_cyclist()</code>).  If <code>TRUE</code>, permutations will be
+  printed with their cycles in increasing length order.  Set it with</p>
 <p></p><div class="sourceCode"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"print_in_length_order"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-
 
 <p>There is a package vignette (type <code><a href="../articles/print.html">vignette("print")</a></code> at the
   command line) which gives more details and long-form documentation.</p>
