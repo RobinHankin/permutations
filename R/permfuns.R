@@ -4,12 +4,7 @@
   if (nrow(M) > 0) {
     stopifnot(all(apply(M, 1, singleword_valid)))
   }
-  class(M) <- c("permutation", "word") # NB this is the
-  # *only* place that
-  # class "word" is
-  # assigned to an
-  # object
-  return(M)
+  return(structure(M, class =  c("permutation", "word"))) # class not set elsewhere
 }
 
 "cycle" <- function(x) {
@@ -17,12 +12,7 @@
 
   if (all(sapply(jj, isTRUE))) {
     x <- lapply(x, nicify_cyclist)
-    class(x) <- c("permutation", "cycle") # NB this is the
-    # *only* place that
-    # class "cycle" is
-    # assigned to an
-    # object
-    return(x)
+    return(structure(x, class = c("permutation", "cycle"))) # class not set elsewhere
   } else {
     stop(jj)
   }
