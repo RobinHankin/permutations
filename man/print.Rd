@@ -42,8 +42,10 @@ Returns its argument invisibly, after printing it (except for
 
   Printing of word objects is controlled by
   \code{options("print_word_as_cycle")}.  The default behaviour is to
-  coerce a word to cycle form and print that, with a notice that the
-  object itself was coerced from word.
+  print any permutation object, whether of class cycle or class word, in
+  cycle form.  Cycle objects are printed as is; word objects are coerced
+  to cycle form and printed, with a notice that the object itself was
+  coerced from word.
   
   If \code{options("print_word_as_cycle")} is \code{FALSE}, then objects
   of class word are printed as a matrix with rows being the permutations
@@ -66,13 +68,13 @@ Returns its argument invisibly, after printing it (except for
   suitable for \code{as.cycle()}, so if \code{a} is a cycle
   \code{all(as.cycle(as.character(a)) == a)} will return \code{TRUE}.
   If you want to use the options of the print method, use
-  \code{print.cycle(...,give_string=TRUE)}, which respects the print
+  \code{print.cycle(..., give_string = TRUE)}, which respects the print
   options discussed below.  Neither of these give useful output if their
   argument is in word form.
 
   The print method includes experimental functionality to display
   permutations of sets other than the default of integers
-  \eqn{1,2,\ldots, n}{1,2,...,n}.  Both cycle and word print methods
+  \eqn{1, 2, \ldots, n}{1, 2, ..., n}.  Both cycle and word print methods
   are sensitive to option \code{perm_set}: the default value of
   \code{NULL} means to use integers.  The symbols may be the elements of
   any character vector; use idiom such as
@@ -87,7 +89,7 @@ Returns its argument invisibly, after printing it (except for
   In the printing of cycle objects, commas are controlled with option
   \code{"comma"}.  The default \code{NULL} means including commas in the
   representation if the size of the permutation exceeds 9.  This works
-  well for integers but is less suitable when using letters or state
+  well for integers but is less helpful if using letters or state
   abbreviations.  Force the use of commas by setting the option to
   \code{TRUE} or \code{FALSE}, e.g.
 
@@ -102,18 +104,14 @@ Returns its argument invisibly, after printing it (except for
   printed with their cycles in increasing length order.  Set it with
   
   \preformatted{options("print_in_length_order" = TRUE)}
-  
+
   There is a package vignette (type \code{vignette("print")} at the
   command line) which gives more details and long-form documentation.
 
 }
 
-\author{
-Robin K. S. Hankin
-}
-\seealso{
-\code{\link{nicify_cyclist}}
-}
+\author{Robin K. S. Hankin}
+\seealso{\code{\link{nicify_cyclist}}}
 \examples{
 
 # generate a permutation in *word* form:
@@ -123,7 +121,7 @@ x <- rperm(4,9)
 x
 
 # change default using options():
-options(print_word_as_cycle=FALSE)
+options(print_word_as_cycle = FALSE)
 
 # objects in word form now printed using matrix notation:
 x
@@ -132,14 +130,14 @@ x
 as.cycle(x)
 
 # restore default:
-options(print_word_as_cycle=TRUE)
+options(print_word_as_cycle = TRUE)
 
-as.character_cyclist(list(1:4,10:11,20:33))  # x a cyclist;
-as.character_cyclist(list(c(1,5,4),c(2,2)))  # does not check for consistency
-as.character_cyclist(list(c(1,5,4),c(2,9)),comma=FALSE)
+as.character_cyclist(list(1:4, 10:11, 20:33))  # x a cyclist;
+as.character_cyclist(list(c(1,5,4), c(2,2)))  # does not check for consistency
+as.character_cyclist(list(c(1,5,4), c(2,9)),comma=FALSE)
 
 options("perm_set" = letters)
-rperm(r=9)
+rperm(r = 9)
 options("perm_set" = NULL)  # restore default
 }
 \keyword{symbolmath}
