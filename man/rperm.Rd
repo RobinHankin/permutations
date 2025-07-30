@@ -42,12 +42,12 @@ Returns a permutation object of class \code{cycle}, or class \code{word}
 Robin K. S. Hankin
 }
 \note{
-  Argument \code{moved} specifies a \emph{maximum} number of elements
-  that do not map to themselves; the actual number of non-fixed elements
-  might be lower (as some elements might map to themselves).  You can
-  control the number of non-fixed elements precisely with argument
-  \code{len} of function \code{rcyc()}, although this will give only
-  permutations with a single (group-theoretic) cycle.
+
+  In function \code{rperm()}, argument \code{moved} specifies a
+  \emph{maximum} number of elements that do not map to themselves; the
+  actual number of non-fixed elements might be lower (as some elements
+  might map to themselves).  To control the number of non-fixed elements
+  precisely, use function \code{rcyc()} or \code{rgivenshape()}.
 
   Function \code{rgivenshape()} returns a random permutation with a
   given shape.  Argument \code{s}, specifying the shape, can include 1s
