@@ -15,17 +15,15 @@ permorder(x, singly = TRUE)
   \item{singly}{Boolean, with default \code{TRUE} meaning to return the
     order of each element of the vector, and \code{FALSE} meaning to
     return the order of the vector itself (that is, the smallest
-    strictly positive integer for which \code{all(x^n==id)}).
+    strictly positive integer for which \code{all(x^n == id)}).
 }
 }
 \details{
   Coerces its argument to cycle form.
   
- The order of the identity permutation is 1.
+  The order of the identity permutation is 1.
 }
-\author{
-Robin K. S. Hankin
-}
+\Robin K. S. Hankin}
 \note{
   Uses \code{mLCM()} from the \code{numbers} package.
 }
