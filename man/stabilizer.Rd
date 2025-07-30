@@ -8,16 +8,17 @@
 
   A permutation \eqn{\phi} is said to \dfn{stabilize} a set \eqn{S} if
   the image of \eqn{S} under {\eqn{\phi}} is a subset of \eqn{S}, that
-  is, if \eqn{\left\lbrace\left.  \phi(s)\right|s\in S
-  \right\rbrace\subseteq S }{omitted}.  This may be written
+  is, if \eqn{\left\lbrace\left. \phi(s)\right|s\in S
+  \right\rbrace\subseteq S}{omitted}.  This may be written
   \eqn{\phi(S)\subseteq S}{omitted}.  Given a vector \eqn{G} of
-  permutations, we define the stabilizer of \eqn{S} in \eqn{G} to be
-  those elements of \eqn{G} that stabilize \eqn{S}.
+  permutations, we define the \dfn{stabilizer} of \eqn{S} in \eqn{G} to
+  be those elements of \eqn{G} that stabilize \eqn{S}.
 
   Given \eqn{S}, it is clear that the identity permutation stabilizes
-  \eqn{S}, and if \eqn{\phi,\psi} stabilize \eqn{S} then so does
-  \eqn{\phi\psi}{omitted}, and so does \eqn{\phi^{-1}}{omitted}
-  [\eqn{\phi} is a bijection from \eqn{S} to itself].
+  \eqn{S}, and if \eqn{\phi,\psi} stabilize \eqn{S}, then so do
+  \eqn{\phi\psi}{omitted} and \eqn{\psi\phi}{omitted}, and so does
+  \eqn{\phi^{-1}}{omitted} [\eqn{\phi} is a bijection from \eqn{S} to
+  itself].
 
 }
 \usage{
