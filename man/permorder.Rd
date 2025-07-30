@@ -23,7 +23,7 @@ permorder(x, singly = TRUE)
   
   The order of the identity permutation is 1.
 }
-\Robin K. S. Hankin}
+\author{Robin K. S. Hankin}
 \note{
   Uses \code{mLCM()} from the \code{numbers} package.
 }
