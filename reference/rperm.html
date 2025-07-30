@@ -90,6 +90,21 @@
 
 </dl></div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+
+
+<p>Function <code>rperm()</code> returns a vector of random permutations.</p>
+<p>Function <code>rgivenshape()</code> returns a random permutation with a given
+shape.  Argument <code>s</code>, specifying the shape, can include 1s (ones).
+Although length-one cycles are dropped from the resulting permutation,
+it is sometimes useful to include them to increase the size of the
+result, see examples.  If primary argument <code>n</code> is a vector of
+length greater than 1, it is interpreted as the shape of the
+permutation, and a single random permutation is returned.  Setting print
+option <code>print_in_length_order</code> to <code>TRUE</code> emphasises that every
+element of the output of <code>rgivenshape()</code> has the same shape.</p>
+    </div>
+    <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Returns a permutation object of class <code>cycle</code>, or class <code>word</code>
 (<code>rperm()</code>)</p>
@@ -100,22 +115,13 @@
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>Argument <code>moved</code> specifies a <em>maximum</em> number of elements
-  that do not map to themselves; the actual number of non-fixed elements
-  might be lower (as some elements might map to themselves).  You can
-  control the number of non-fixed elements precisely with argument
-  <code>len</code> of function <code>rcyc()</code>, although this will give only
-  permutations with a single (group-theoretic) cycle.</p>
-<p>Function <code>rgivenshape()</code> returns a random permutation with a
-  given shape.  Argument <code>s</code>, specifying the shape, can include 1s
-  (ones).  Although length-one cycles are dropped from the resulting
-  permutation, it is sometimes useful to include them to increase the
-  size of the result, see examples.  If primary argument <code>n</code> is a
-  vector of length greater than 1, it is interpreted as the shape of the
-  permutation, and a single random permutation is returned.  Setting
-  print option <code>print_in_length_order</code> to <code>TRUE</code>
-  emphasises that every element of the output of <code>rgivenshape()</code>
-  has the same shape.</p>
+
+
+<p>In function <code>rperm()</code>, argument <code>moved</code> specifies a
+<em>maximum</em> number of elements that do not map to themselves; the
+actual number of non-fixed elements might be lower (as some elements
+might map to themselves).  To control the number of non-fixed elements
+precisely, use function <code>rcyc()</code> or <code>rgivenshape()</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
