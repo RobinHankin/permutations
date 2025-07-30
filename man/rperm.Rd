@@ -34,32 +34,33 @@ rgivenshape(n, s, size=sum(s))
   \item{vec}{Vector of integers to generate a cycle from}
   \item{s, size}{Shape and size of permutations to create}
 }
+\details{
+
+Function \code{rperm()} returns a vector of random permutations.
+  
+Function \code{rgivenshape()} returns a random permutation with a given
+shape.  Argument \code{s}, specifying the shape, can include 1s (ones).
+Although length-one cycles are dropped from the resulting permutation,
+it is sometimes useful to include them to increase the size of the
+result, see examples.  If primary argument \code{n} is a vector of
+length greater than 1, it is interpreted as the shape of the
+permutation, and a single random permutation is returned.  Setting print
+option \code{print_in_length_order} to \code{TRUE} emphasises that every
+element of the output of \code{rgivenshape()} has the same shape.
+} 
 \value{
 Returns a permutation object of class \code{cycle}, or class \code{word}
 (\code{rperm()}) 
 }
-\author{
-Robin K. S. Hankin
-}
+\author{Robin K. S. Hankin}
 \note{
 
-  In function \code{rperm()}, argument \code{moved} specifies a
-  \emph{maximum} number of elements that do not map to themselves; the
-  actual number of non-fixed elements might be lower (as some elements
-  might map to themselves).  To control the number of non-fixed elements
-  precisely, use function \code{rcyc()} or \code{rgivenshape()}.
+In function \code{rperm()}, argument \code{moved} specifies a
+\emph{maximum} number of elements that do not map to themselves; the
+actual number of non-fixed elements might be lower (as some elements
+might map to themselves).  To control the number of non-fixed elements
+precisely, use function \code{rcyc()} or \code{rgivenshape()}.
 
-  Function \code{rgivenshape()} returns a random permutation with a
-  given shape.  Argument \code{s}, specifying the shape, can include 1s
-  (ones).  Although length-one cycles are dropped from the resulting
-  permutation, it is sometimes useful to include them to increase the
-  size of the result, see examples.  If primary argument \code{n} is a
-  vector of length greater than 1, it is interpreted as the shape of the
-  permutation, and a single random permutation is returned.  Setting
-  print option \code{print_in_length_order} to \code{TRUE}
-  emphasises that every element of the output of \code{rgivenshape()}
-  has the same shape.
-  
 }
 \seealso{
 \code{\link{size}}, \code{\link{print.permutation}}
