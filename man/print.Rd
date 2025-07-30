@@ -33,11 +33,10 @@ as.character_cyclist(y,comma=TRUE)
   \item{give_string}{In function}
 }
 \value{
-Returns its argument invisibly, after printing it (except for
-  \code{print.cycle(x,give_string=TRUE)}, in which case a character
+  Returns its argument invisibly, after printing it (except for
+  \code{print.cycle(x, give_string = TRUE)}, in which case a character
   vector is returned).
 }
-
 \details{
 
   Printing of word objects is controlled by
