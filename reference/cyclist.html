@@ -129,13 +129,14 @@ These issues are dealt with by <code>nicify_cyclist()</code>.</p>
   appropriately too.  The function is insensitive to spaces.  Also, one
   can give it an argument which does not correspond to a cycle object,
   eg <code>char2cyclist_single("(94)(32)(19)(1)")</code> (in which “9”
-  is repeated).  The function does not return an error, but to catch
-  this kind of problem use <code><a href="permutation.html">char2cycle()</a></code> which calls the validity
-  checks.</p>
+  is repeated).  The function does not return an error; to catch this
+  kind of problem use <code><a href="permutation.html">char2cycle()</a></code></p></li>
+</ul><p>which performs [via
+  <code><a href="permutation.html">cycle()</a></code>] the validity checks [<code><a href="valid.html">cyclist_valid()</a></code>] and
+  nicification [<code>nicify_cyclist()</code>].</p>
+<p>checks.</p>
 <p>The user should use <code><a href="permutation.html">char2cycle()</a></code> which executes validity checks
-  and coerces to a cycle object.</p></li>
-</ul><p>See also the “cyclist” vignette [type <code><a href="../articles/cyclist.html">vignette("cyclist")</a></code>
-at the command line] which contains more details and examples.</p>
+  and coerces to a cycle object.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
