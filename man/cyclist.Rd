@@ -91,8 +91,11 @@ These issues are dealt with by \code{nicify_cyclist()}.
   appropriately too.  The function is insensitive to spaces.  Also, one
   can give it an argument which does not correspond to a cycle object,
   eg \code{char2cyclist_single("(94)(32)(19)(1)")} (in which \dQuote{9}
-  is repeated).  The function does not return an error, but to catch
-  this kind of problem use \code{char2cycle()} which calls the validity
+  is repeated).  The function does not return an error; to catch this
+  kind of problem use \code{char2cycle()}} which performs [via
+  \code{cycle()}] the validity checks [\code{cyclist_valid()}] and
+  nicification [\code{nicify_cyclist()}].
+  
   checks.
 
   The user should use \code{char2cycle()} which executes validity checks
