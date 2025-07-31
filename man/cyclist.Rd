@@ -92,19 +92,14 @@ These issues are dealt with by \code{nicify_cyclist()}.
   can give it an argument which does not correspond to a cycle object,
   eg \code{char2cyclist_single("(94)(32)(19)(1)")} (in which \dQuote{9}
   is repeated).  The function does not return an error; to catch this
-  kind of problem use \code{char2cycle()}} which performs [via
+  kind of problem use \code{char2cycle()} which performs [via
   \code{cycle()}] the validity checks [\code{cyclist_valid()}] and
   nicification [\code{nicify_cyclist()}].
-  
-  checks.
-
-  The user should use \code{char2cycle()} which executes validity checks
-  and coerces to a cycle object.
 }
 
-See also the \dQuote{cyclist} vignette [type \code{vignette("cyclist")}
-at the command line] which contains more details and examples.
-
+  See also the \dQuote{cyclist} vignette [type
+  \code{vignette("cyclist")} at the command line] which contains more
+  details and examples.
 }
 
 \author{Robin K. S. Hankin}
