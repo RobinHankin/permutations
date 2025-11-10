@@ -3,6 +3,7 @@ title: "Print methods in the permutations package"
 author: "Robin K. S. Hankin"
 output: html_vignette
 bibliography: permutations.bib
+link-citations: true
 vignette: >
   %\VignetteIndexEntry{print methods}
   %\VignetteEngine{knitr::rmarkdown}
