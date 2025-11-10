@@ -16,7 +16,7 @@ Description: Manipulates invertible functions from a finite set to
              Hankin (2020) "Introducing the permutations R package",
              SoftwareX, volume 11 <doi:10.1016/j.softx.2020.100453>.
 License: GPL-2
-Suggests: rmarkdown,testthat,knitr,magrittr,covr
+Suggests: rmarkdown, testthat, knitr, magrittr, covr
 VignetteBuilder: knitr
 URL: https://github.com/RobinHankin/permutations, https://robinhankin.github.io/permutations/
 BugReports: https://github.com/RobinHankin/permutations/issues
