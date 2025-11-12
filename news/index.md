@@ -1,5 +1,10 @@
 # Changelog
 
+## permutations 1.1-8
+
+- roxygenisation
+- consistentification of dodecahedron dataset
+
 ## permutations 1.1-7
 
 - new megaminx superflip functionality
