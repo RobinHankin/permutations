@@ -1,3 +1,4 @@
+#' @export
 `faro` <- function(n, out = TRUE) {
   if (out) {
     return(faro_gen(n, 2, p2 = cyc_len(2)))
@@ -6,6 +7,7 @@
   }
 }
 
+#' @export
 `faro_gen` <- function(n, m, p1 = id, p2 = id, interleave = TRUE) { # generalized Faro shuffle
   M <- matrix(seq_len(n * m), n, m)
   p1 <- as.word(p1)

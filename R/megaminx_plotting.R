@@ -1,3 +1,4 @@
+#' @export
 `megaminx_plotter` <- function(megperm = id, offset = c(0, 0), M = diag(2), setup = TRUE, ...) { # megaminx_plotter(LY*R)"
 
   `megaminx_colours` <-

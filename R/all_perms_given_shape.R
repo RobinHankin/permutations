@@ -1,3 +1,4 @@
+#' @export
 `allpermslike` <- function(o) { #   allpermslike(as.cycle("(1,2)(3,4)(5,6,7,8)"))
   x <- lapply(unclass(as.cycle(o))[[1]], FUN = allcyc)
   xlen <- unlist(lapply(x, length))
@@ -14,6 +15,7 @@
   return(out)
 }
 
+#' @export
 `some_perms_shape` <- function(shape) { # some_perms_shape(c(2,2,4))
   M <- listParts(shape)
   do.call("c", lapply(seq_along(M), function(i) {
@@ -21,6 +23,7 @@
   }))
 }
 
+#' @export
 `all_cyclic_shuffles` <- function(o) { # all_cyclic_shuffles(cyc_len(3:5))
   o <- as.cycle(o)
   do.call("c", lapply(seq_along(o), function(i) {
@@ -28,6 +31,7 @@
   }))
 }
 
+#' @export
 `all_perms_shape` <- function(shape) { # all_perms_shape(c(2,2,3))
   all_cyclic_shuffles(some_perms_shape(shape))
 }
