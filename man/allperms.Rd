@@ -15,9 +15,31 @@
   non-negative integer.  Permutations, in general, are coerced to cycle
   form.
 
+}
+\usage{
+allperms(n)
+allcycn(n)
+allcyc(s)
+allpermslike(o)
+some_perms_shape(shape)
+all_cyclic_shuffles(o)
+all_perms_shape(shape)
+}
+\arguments{
+  \item{shape}{A set of strictly positive integers, interpreted as the
+    shape of a partition}
+  \item{s}{A set of strictly positive integers, interpreted as a set on
+    which permutations are defined}
+  \item{n}{The size of the permutation}
+  \item{o}{A vector of permutations, coerced to cycle form.  Function
+    \code{allpermslike()} considers only the first element}
+}
+\details{
+
   \itemize{
-    \item\code{allperms(n)} returns all \eqn{n!} permutations
-    of \eqn{[n]}.
+    \item\code{allperms(n)} returns all \eqn{n!} permutations of
+    \eqn{[n]}.  It is very basic (the idiom is
+    \code{word(t(partitions::perms(n)))}) but is here for completeness.
 
     \item\code{allcycn()} returns all \eqn{(n-1)!}  permutations of
     \eqn{[n]} comprising a single cycle of length \eqn{n}.
@@ -44,28 +66,6 @@
     returns a vector of all permutations of size \code{sum(p)} and shape
     \code{p}.
   }
-}
-\usage{
-allperms(n)
-allcycn(n)
-allcyc(s)
-allpermslike(o)
-some_perms_shape(shape)
-all_cyclic_shuffles(o)
-all_perms_shape(shape)
-}
-\arguments{
-  \item{shape}{A set of strictly positive integers, interpreted as the
-    shape of a partition}
-  \item{s}{A set of strictly positive integers, interpreted as a set on
-    which permutations are defined}
-  \item{n}{The size of the permutation}
-  \item{o}{A vector of permutations, coerced to cycle form.  Function
-    \code{allpermslike()} considers only the first element}
-}
-\details{
-Function \code{allperms()} is very basic (the idiom is
-\code{word(t(partitions::perms(n)))}) but is here for completeness.
 }
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{allperms}}}
