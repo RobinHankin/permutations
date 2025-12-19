@@ -52,10 +52,10 @@ introducing the permutations package}
 
 
 \Address{
-Robin K. S. Hankin\\%\orcid{https://orcid.org/0000-0001-5982-0415}\\
+Robin K. S. Hankin\\
 University of Stirling\\
 Scotland\\
-E-mail: \email{hankin.robin@gmail.com}
+email: \email{hankin.robin@gmail.com}
 }
 
 %% need no \usepackage{Sweave.sty}

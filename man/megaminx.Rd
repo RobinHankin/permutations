@@ -24,7 +24,7 @@ A set of generators for the megaminx group
 Each element of \code{megaminx} corresponds to a clockwise turn of 72
 degrees.  See the vignette for more details.
 
- \tabular{rlll}{
+ \tabular{rll}{
     \code{megaminx[ 1]} \tab W   \tab White        \cr
     \code{megaminx[ 2]} \tab Pu  \tab Purple       \cr
     \code{megaminx[ 3]} \tab DY  \tab Dark Yellow  \cr

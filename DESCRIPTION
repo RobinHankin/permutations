@@ -1,14 +1,14 @@
 Package: permutations
 Type: Package
 Title: The Symmetric Group: Permutations of a Finite Set
-Version: 1.1-7
-Imports: magic,numbers,partitions (>= 1.9-17),freealg (>= 1.0-4)
+Version: 1.1-8
+Imports: magic, numbers, partitions (>= 1.9-17), freealg (>= 1.0-4), methods
 Authors@R: c(
     person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415")),
     person("Paul", "Egeler", email = "paulegeler@gmail.com", role = c("ctb"), comment = c(ORCID = "0000-0001-6948-9498"))
     )
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
-Depends: R (>= 4.1.0), methods
+Depends: R (>= 4.1.0)
 LazyData: TRUE
 Description: Manipulates invertible functions from a finite set to
              itself.  Can transform from word form to cycle form and
@@ -16,8 +16,10 @@ Description: Manipulates invertible functions from a finite set to
              Hankin (2020) "Introducing the permutations R package",
              SoftwareX, volume 11 <doi:10.1016/j.softx.2020.100453>.
 License: GPL-2
-Suggests: rmarkdown,testthat,knitr,magrittr,covr
+Suggests: rmarkdown, testthat, knitr, magrittr, covr
 VignetteBuilder: knitr
 URL: https://github.com/RobinHankin/permutations, https://robinhankin.github.io/permutations/
 BugReports: https://github.com/RobinHankin/permutations/issues
 Config/testthat/edition: 3
+RoxygenNote: 7.3.3
+Encoding: UTF-8

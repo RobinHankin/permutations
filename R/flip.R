@@ -1,8 +1,10 @@
+#' @export
 is.flip_pair <- function(pair){
     if(length(pair) != 2){return(FALSE)}
     any(apply(permutations::edge_facets,1,function(x){all(sort(x) == pair)}))
 }
 
+#' @export
 is.flip <- function(p){
     p <- as.cycle(p)
     out <- rep(FALSE,length(p))
@@ -15,4 +17,5 @@ is.flip <- function(p){
     return(out)
 }
 
+#' @export
 is.superflip <- function(p){is.flip(p) & (sapply(shape(p), length) == 30) }

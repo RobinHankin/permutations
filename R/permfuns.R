@@ -1,3 +1,4 @@
+#' @export
 "word" <- function(M) {
   stopifnot(is.matrix(M))
   storage.mode(M) <- "integer"
@@ -7,6 +8,7 @@
   return(structure(M, class =  c("permutation", "word"))) # class not set elsewhere
 }
 
+#' @export
 "cycle" <- function(x) {
   jj <- unlist(lapply(x, cyclist_valid))
 
@@ -18,6 +20,7 @@
   }
 }
 
+#' @export
 `permutation` <- function(x) {
   if (is.matrix(x)) {
     return(word(x))
@@ -30,17 +33,22 @@
   }
 }
 
+#' @export
 is.id <- function(x) {
   UseMethod("is.id", x)
 }
 
+#' @export
 is.id_single_cycle <- function(x) {
   is.null(unlist(x))
 }
 
+#' @export
 is.id.cycle <- function(x) {
   unlist(lapply(x, is.id_single_cycle))
 }
+
+#' @export
 is.id.word <- function(x) {
   if (length(x) == 0) {
     return(logical(0))
@@ -52,40 +60,49 @@ is.id.word <- function(x) {
   apply(jj == col(jj), 1, all)
 }
 
+#' @export
 is.id.list <- function(x) {
   length(unlist(x)) == 0
 } # use for cyclists.
 
+#' @export
 is.word <- function(x) {
   inherits(x, "word")
 }
 
+#' @export
 is.cycle <- function(x) {
   inherits(x, "cycle")
 }
 
+#' @export
 is.permutation <- function(x) {
   inherits(x, "permutation")
 }
 
+#' @export
 as.matrix.word <- function(x, ...) {
   unclass(x)
 }
 
+#' @export
 names.word <- function(x) {
   rownames(x)
 }
 
+#' @export
 "names<-.word" <- function(x, value) {
   rownames(x) <- value
   return(x)
 }
 
+#' @export
 "[.word" <- function(x, ...) {
   x <- unclass(x)
   word(x[..., , drop = FALSE])
 }
 
+#' @export
 "[<-.word" <- function(x, index, value) {
   out <- t(as.matrix(x))
   value <- t(as.matrix(as.word(value, size(x))))
@@ -93,11 +110,13 @@ names.word <- function(x) {
   return(word(t(out)))
 }
 
+#' @export
 "[.cycle" <- function(x, ...) {
   x <- unclass(x)
   cycle(x[...])
 }
 
+#' @export
 "c.word" <- function(...) {
   a <- list(...)
   if (!all(unlist(lapply(a, is.word)))) {
@@ -109,6 +128,7 @@ names.word <- function(x) {
   }
 }
 
+#' @export
 "c.cycle" <- function(...) {
   if (!all(unlist(lapply(list(...), is.cycle)))) {
     stop("all arguments must be the same class")
@@ -117,6 +137,7 @@ names.word <- function(x) {
   }
 }
 
+#' @export
 addcols <- function(M, n) {
   if (nrow(M) == 0) {
     return(matrix(integer(0), 0, n))
@@ -129,6 +150,7 @@ addcols <- function(M, n) {
   }
 }
 
+#' @export
 as.word <- function(x, n = NULL) {
   if (is.word(x)) {
     if (missing(n)) {
@@ -157,6 +179,7 @@ as.word <- function(x, n = NULL) {
   }
 }
 
+#' @export
 `print.word` <- function(x, h = getOption("print_word_as_cycle"), ...) {
   if (!identical(h, FALSE)) {
     print(as.cycle(x))
@@ -168,6 +191,7 @@ as.word <- function(x, n = NULL) {
   }
 }
 
+#' @export
 `print_word` <- function(x) {
   x <- as.word(x)
   ## contortions needed because x might have zero columns
@@ -196,6 +220,7 @@ as.word <- function(x, n = NULL) {
   return(invisible(given))
 }
 
+#' @export
 as.cycle <- function(x) {
   if (missing(x)) {
     return(id)
@@ -219,6 +244,7 @@ as.cycle <- function(x) {
   }
 }
 
+#' @export
 `cyc_len` <- function(n) {
   cycle(sapply(n, function(n) {
     list(list(seq_len(n)))
@@ -226,6 +252,7 @@ as.cycle <- function(x) {
 }
 shift_cycle <- cyc_len
 
+#' @export
 char2cyclist_single <- function(x) {
   if (all(unlist(strsplit(x, "")) != ",")) { # no commas anywhere
     commas <- ""
@@ -245,6 +272,7 @@ char2cyclist_single <- function(x) {
   return(jj)
 }
 
+#' @export
 char2cycle <- function(char) {
   out <- cycle(sapply(char, char2cyclist_single, simplify = FALSE))
   if (is.null(names(char))) {
@@ -253,6 +281,7 @@ char2cycle <- function(char) {
   return(out)
 }
 
+#' @export
 cycle2word <- function(x, n = NULL) { # cycle2word(as.cycle(1:5))
   if (is.null(n)) {
     if (all(is.id(x))) {
@@ -264,6 +293,7 @@ cycle2word <- function(x, n = NULL) { # cycle2word(as.cycle(1:5))
   word(do.call("rbind", lapply(x, cyclist2word_single, n = n)))
 }
 
+#' @export
 cyclist2word_single <- function(cyc, n) {
   if (length(unlist(cyc)) == 0) {
     return(seq_len(n))
@@ -285,6 +315,7 @@ cyclist2word_single <- function(cyc, n) {
   return(out)
 }
 
+#' @export
 print.cycle <- function(x, give_string = FALSE, ...) { # x is a cycle.  Use case: print(cycle(list(x,y,z)))
 
   if ((length(unlist(x)) > 0)) {
@@ -315,10 +346,12 @@ print.cycle <- function(x, give_string = FALSE, ...) { # x is a cycle.  Use case
   }
 }
 
+#' @export
 print_cycle <- function(x) {
   print.cycle(as.cycle(x))
 }
 
+#' @export
 as.character_cyclist <- function(y, comma = TRUE) {
   if (length(y) == 0) {
     return("()")
@@ -342,6 +375,7 @@ as.character_cyclist <- function(y, comma = TRUE) {
   }), collapse = "")
 }
 
+#' @export
 as.character.cycle <- function(x, ...) {
   stopifnot(is.cycle(x))
   unlist(lapply(x, function(x) {
@@ -349,6 +383,7 @@ as.character.cycle <- function(x, ...) {
   }))
 }
 
+#' @export
 standard_cyclist <- function(x, n = NULL) {
   xvec <- unlist(x, recursive = TRUE)
   if (is.null(n)) {
@@ -358,6 +393,7 @@ standard_cyclist <- function(x, n = NULL) {
   nicify_cyclist(c(x, as.list(jj[!(jj %in% xvec)])), rm1 = FALSE, smallest_first = FALSE)
 }
 
+#' @export
 standard <- function(cyc, n = NULL) {
   cyc <- as.cycle(cyc)
   xvec <- unlist(cyc, recursive = TRUE)
@@ -368,15 +404,18 @@ standard <- function(cyc, n = NULL) {
   lapply(cyc, standard_cyclist, n = n)
 }
 
+#' @export
 fbin_single <- function(vec) { # takes a vector: fbin_single(sample(9))
   cycle(list(split(vec, cumsum(vec == cummax(vec)))))
 }
 
+#' @export
 fbin <- function(W) { # use-case: fbin(rperm(30,9))
   W <- as.matrix(as.word(W))
   cycle(unlist(apply(W, 1, fbin_single), recursive = FALSE))
 }
 
+#' @export
 fbin_inv <- function(cyc) { # use-case: fbin_inv(as.cycle(rperm(30,9)))
   cyc <- as.cycle(cyc)
   f <- function(x) {
@@ -385,6 +424,7 @@ fbin_inv <- function(cyc) { # use-case: fbin_inv(as.cycle(rperm(30,9)))
   word(do.call("rbind", lapply(standard(cyc), f)))
 }
 
+#' @export
 nicify_cyclist <- function(x, rm1 = TRUE, smallest_first = TRUE) { # needs rm1 argument for  standard_cyclist()
 
   if (isTRUE(rm1)) { # remove singletons
@@ -409,16 +449,19 @@ nicify_cyclist <- function(x, rm1 = TRUE, smallest_first = TRUE) { # needs rm1 a
   return(out)
 }
 
+#' @export
 remove_length_one <- function(x) {
   x[unlist(lapply(x, function(u) {
     length(u) > 1
   }))]
 }
 
+#' @export
 vec2cyclist_single_cpp <- function(p) {
   stop("vec2cyclist_single_cpp() not written yet")
 }
 
+#' @export
 vec2cyclist_single <- function(p) {
   n <- length(p) # NB min(p) = 1 (not 0, off-by-one)
   out <- list()
@@ -438,15 +481,18 @@ vec2cyclist_single <- function(p) {
   out # NB a list whose elements are vectors which represent the cycles
 }
 
+#' @export
 inverse <- function(x) {
   UseMethod("inverse", x)
 }
 
+#' @export
 inverse_word_single <- function(W) {
   W[W] <- seq_along(W)
   return(W)
 }
 
+#' @export
 inverse_cyclist_single <- function(cyc) { # takes a cyclist, returns a cyclist
   ## use case:  inverse_cyclist_single(list(c(4, 6), c(2, 5, 1), c(8, 3)))
 
@@ -455,15 +501,18 @@ inverse_cyclist_single <- function(cyc) { # takes a cyclist, returns a cyclist
   })
 }
 
+#' @export
 inverse.word <- function(x) { # takes a word, returns a word.  inverse.word(rperm(8,5))
   x <- as.word(x)
   word(t(apply(x, 1, inverse_word_single)))
 }
 
+#' @export
 inverse.cycle <- function(x) {
   cycle(lapply(x, inverse_cyclist_single))
 }
 
+#' @export
 rperm <- function(n = 10, r = 7, moved = NA) {
   if (is.na(moved)) {
     return(word(matrix(replicate(n, sample(seq_len(r))), n, r, byrow = TRUE)))
@@ -478,6 +527,7 @@ rperm <- function(n = 10, r = 7, moved = NA) {
   }
 }
 
+#' @export
 "shape" <- function(x, drop = TRUE, id1 = TRUE, decreasing = FALSE) {
   x <- as.cycle(x)
   out <- lapply(x, shape_cyclist, id1 = id1)
@@ -490,6 +540,7 @@ rperm <- function(n = 10, r = 7, moved = NA) {
   return(out)
 }
 
+#' @export
 padshape <- function(x, drop = TRUE, n = NULL) {
   if (is.null(n)) {
     n <- max(x)
@@ -505,6 +556,7 @@ padshape <- function(x, drop = TRUE, n = NULL) {
 }
 
 
+#' @export
 shape_cyclist <- function(cyc, id1 = TRUE) { # use case: shape_cyclist(list(1:4,8:9))
   out <- unlist(lapply(cyc, length))
   if (id1 & is.null(out)) {
@@ -514,6 +566,7 @@ shape_cyclist <- function(cyc, id1 = TRUE) { # use case: shape_cyclist(list(1:4,
   }
 }
 
+#' @export
 shapepart_cyclist <- function(cyc, n = NULL) {
   if (length(cyc) > 0) {
     nmax <- max(unlist(cyc, recursive = TRUE))
@@ -534,6 +587,7 @@ shapepart_cyclist <- function(cyc, n = NULL) {
   return(out)
 }
 
+#' @export
 shapepart <- function(x) {
   x <- as.cycle(x)
   out <- do.call("cbind", lapply(x, shapepart_cyclist, n = size(x)))
@@ -541,14 +595,17 @@ shapepart <- function(x) {
   as.partition(out)
 }
 
+#' @export
 size <- function(x) {
   UseMethod("size", x)
 }
 
+#' @export
 size.word <- function(x) { # size(word(
   ncol(as.matrix(x))
 }
 
+#' @export
 size.cycle <- function(x) {
   if (all(is.id(x))) {
     return(0)
@@ -556,27 +613,33 @@ size.cycle <- function(x) {
   max(unlist(x, recursive = TRUE))
 }
 
+#' @export
 "size<-" <- function(x, value) {
   UseMethod("size<-")
 }
 
+#' @export
 "size<-.word" <- function(x, value) {
   stopifnot(is.word(x))
   return(word(addcols(trim(x), value)))
 }
 
+#' @export
 "size<-.cycle" <- function(x, value) {
   stop("cannot alter the size of a cycle")
 }
 
+#' @export
 "length<-.permutation" <- function(x, value) {
   stop("cannot change the length of a permutation")
 }
 
+#' @export
 length.word <- function(x) {
   nrow(x)
 }
 
+#' @export
 trim <- function(x) {
   ##    stop("problems: trim(as.word(1:6)) should return the empty word, but doesn't")
   stopifnot(is.word(x))
@@ -598,10 +661,12 @@ trim <- function(x) {
   }
 }
 
+#' @export
 fixed <- function(x) {
   UseMethod("fixed", x)
 }
 
+#' @export
 fixed.word <- function(x) { # fixed(word(t(c(2,3,5,4,1))))
   x <- as.matrix(x)
   if (nrow(x) > 0) {
@@ -611,12 +676,14 @@ fixed.word <- function(x) { # fixed(word(t(c(2,3,5,4,1))))
   }
 }
 
+#' @export
 fixed.cycle <- function(x) { # fixed(as.cycle(1:3) + as.cycle(10:11))
   n <- size(x)
   jj <- unlist(x, recursive = TRUE)
   !(seq_len(n) %in% jj)
 }
 
+#' @export
 "tidy" <- function(x) {
   x <- as.word(x)
   x <- as.matrix(x)[, !fixed(x), drop = FALSE]
@@ -631,11 +698,13 @@ fixed.cycle <- function(x) { # fixed(as.cycle(1:3) + as.cycle(10:11))
   word(x)
 }
 
+#' @export
 rep.permutation <- function(x, ...) {
   u <- seq(length.out = length(x))
   return(x[rep(u, ...)])
 }
 
+#' @export
 sgn <- function(x) {
   .f <- function(o) {
     ifelse(is.null(o), 1, 1 - 2 * sum(o - 1) %% 2)
@@ -647,13 +716,17 @@ sgn <- function(x) {
   }
 }
 
+#' @export
 is.even <- function(x) {
   sgn(x) == 1
 }
+
+#' @export
 is.odd <- function(x) {
   sgn(x) == -1
 }
 
+#' @export
 are_conjugate_single <- function(a, b) { # difficulties arise with the identity.
   stopifnot((length(a) == 1) & (length(b) == 1))
   if (is.id(a) & is.id(b)) {
@@ -665,6 +738,7 @@ are_conjugate_single <- function(a, b) { # difficulties arise with the identity.
   }
 }
 
+#' @export
 are_conjugate <- function(x, y) {
   jj <- helper(x, y)
   apply(jj, 1, function(ind) {
@@ -672,14 +746,24 @@ are_conjugate <- function(x, y) {
   })
 }
 
+#' @export
 "%~%" <- function(x, y) {
   UseMethod("%~%")
 }
 
+#' @export
 "%~%.permutation" <- function(x, y) {
   are_conjugate(x, y)
 }
 
+#' @export
+as.function <- function(x, ...){
+    UseMethod("as.function", x)
+}
+
+#' @export
+#' @method as.function permutation
+#' @export as.function.permutation
 as.function.permutation <- function(x, ...) {
   a <- NULL # to suppress the warning about 'no visible binding for global variable 'a'
   x <- unclass(as.word(x))
@@ -690,6 +774,7 @@ as.function.permutation <- function(x, ...) {
   }
 }
 
+#' @export
 commutator <- function(x, y) {
   n <- max(size(x), size(y))
   jj <- helper(x, y)
@@ -714,6 +799,7 @@ commutator <- function(x, y) {
   return(as.word(t(apply(jj, 1, f))))
 }
 
+#' @export
 permorder <- function(x, singly = TRUE) {
   jj <- shape(x, id1 = TRUE, drop = FALSE)
   f <- function(n) {
@@ -726,6 +812,7 @@ permorder <- function(x, singly = TRUE) {
   }
 }
 
+#' @export
 is.derangement <- function(x) {
   x <- as.word(x)
   n <- seq_len(size(x))
@@ -739,6 +826,7 @@ is.derangement <- function(x) {
   })
 }
 
+#' @export
 permprod <- function(x) {
   out <- id
   x <- as.word(x)
@@ -748,6 +836,7 @@ permprod <- function(x) {
   return(out)
 }
 
+#' @export
 "get1" <- function(x, drop = TRUE) {
   out <- lapply(as.cycle(x), function(u) {
     unlist(lapply(u, min))
@@ -758,6 +847,7 @@ permprod <- function(x) {
   return(out)
 }
 
+#' @export
 "get_cyc" <- function(x, elt) {
   f <- function(u) {
     u[unlist(lapply(u, function(v) {
@@ -767,6 +857,7 @@ permprod <- function(x) {
   cycle(lapply(as.cycle(x), f))
 }
 
+#' @export
 "orbit_single" <- function(c1, n1) { # c1 is a cyclist, n1 an integer vector
   if (length(c1) == 0) {
     return(n1)
@@ -776,6 +867,7 @@ permprod <- function(x) {
   })))])
 }
 
+#' @export
 "orbit" <- function(cyc, n) {
   cyc <- as.cycle(cyc)
   jj <- helper(cyc, n)
@@ -787,10 +879,12 @@ permprod <- function(x) {
   return(out)
 }
 
+#' @export
 "allperms" <- function(n) {
   word(t(perms(n)))
 }
 
+#' @export
 `cayley` <- function(x) {
   x <- as.cycle(x)
   if (is.null(names(x))) {
@@ -815,6 +909,7 @@ permprod <- function(x) {
   return(out)
 }
 
+#' @export
 `perm_matrix` <- function(p, s = size(p)) {
   p <- as.word(p, s)
   stopifnot(length(p) == 1)
@@ -829,6 +924,7 @@ permprod <- function(x) {
   return(M)
 }
 
+#' @export
 `is.perm_matrix` <- function(M) {
   if (
     is.matrix(M) &&
@@ -842,6 +938,7 @@ permprod <- function(x) {
   }
 }
 
+#' @export
 `pm_to_perm` <- function(M) {
   if (is.perm_matrix(M)) {
     return(as.word(as.vector(which(t(M) > 0, arr.ind = TRUE)[, 1, drop = TRUE])))
@@ -855,13 +952,17 @@ setMethod("[", signature(x = "dot", i = "permutation", j = "permutation"), funct
   commutator(i, j)
 })
 
+#' @export
 `capply` <- function(X, fun, ...) {
   cycle(lapply(as.cycle(X), function(x) {
     lapply(x, fun, ...)
   }))
 }
 
+#' @export
 setGeneric("outer")
+
+#' @export
 setMethod(
   "outer", signature(X = "permutation", Y = "permutation"),
   function(X, Y, FUN = "*") {
@@ -877,6 +978,8 @@ setMethod(
   }
 )
 
+
+#' @export
 `stabilizes` <- function(a,s){
     unlist(
       lapply(as.cycle(a),
@@ -888,11 +991,14 @@ setMethod(
         } ) )
 }
 
+
+#' @export
 `stabilizer` <- function(a,s){
     a <- as.cycle(a)
     a[stabilizes(a,s)]
 }
 
+#' @export
 `keepcyc` <- function(a, func, ...){
     a <- as.cycle(a)
     for(i in seq_along(a)){

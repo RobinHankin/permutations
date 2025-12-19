@@ -1,3 +1,15 @@
+#' @importFrom magic shift
+#' @importFrom numbers mLCM
+#' @importFrom partitions as.partition perms listParts
+#' @importFrom graphics plot polygon text
+#' @importFrom utils data
+#' @importFrom methods setGeneric
+
+#' @importClassesFrom freealg dot
+#' @importMethodsFrom freealg "["
+
+
+#' @export
 `Ops.permutation` <-
   function(e1, e2 = NULL) {
     if (nargs() == 1) { # unary operator
@@ -54,6 +66,7 @@
     }
   }
 
+#' @export
 word_prod_single <- function(e1, e2) { # works for words (in vector form)
   stopifnot(length(e1) == length(e2))
   e1 <- as.vector(e1)
@@ -61,6 +74,7 @@ word_prod_single <- function(e1, e2) { # works for words (in vector form)
   return(e2[e1]) # this is why we need arrays starting at 1, not 0
 }
 
+#' @export
 helper <- function(e1, e2) { # sorts out recycling for binary
   # functions; also not that the rownames of
   # the returned matrix are used in things
@@ -72,6 +86,7 @@ helper <- function(e1, e2) { # sorts out recycling for binary
   cbind(jj1, jj2)
 }
 
+#' @export
 word_prod <- function(e1, e2) { # e1 and e2 are assumed to be word objects.
 
   e1 <- as.word(e1)
@@ -92,6 +107,7 @@ word_prod <- function(e1, e2) { # e1 and e2 are assumed to be word objects.
   return(out)
 }
 
+#' @export
 word_equal <- function(e1, e2) { # e1 and e2 are both coerced to 'word' objects
   jj <- helper(e1, e2)
 
@@ -106,6 +122,7 @@ word_equal <- function(e1, e2) { # e1 and e2 are both coerced to 'word' objects
   return(out)
 }
 
+#' @export
 cycle_sum_single <- function(c1, c2) { # takes two disjoint cycles and returns a cyclist.
   ## cycle_sum_single(as.cycle(1:9), as.cycle(100:103))
 
@@ -120,6 +137,7 @@ cycle_sum_single <- function(c1, c2) { # takes two disjoint cycles and returns a
   }
 }
 
+#' @export
 cycle_sum <- function(e1, e2) { #
   jj <- helper(e1, e2)
 
@@ -132,6 +150,7 @@ cycle_sum <- function(e1, e2) { #
   return(cycle(out))
 }
 
+#' @export
 ccps <- function(n, pow) { # ccps == 'canonical_cycle_power_single'
   ## here 'n' is interpreted as as.cycle(seq_len(n)).  Thus
   ## ccps(9,3) == as.cycle(1:9)^3 == (147)(258)(369).
@@ -161,6 +180,7 @@ ccps <- function(n, pow) { # ccps == 'canonical_cycle_power_single'
   }
 }
 
+#' @export
 vps <- function(vec, pow) { # 'vps' == Vector Power Single, vector_power_single()
 
   ## 'vec' is an integer vector, interpreted as a cycle. Function
@@ -191,6 +211,7 @@ vps <- function(vec, pow) { # 'vps' == Vector Power Single, vector_power_single(
   return(out)
 }
 
+#' @export
 cycle_power_single <- function(x, pow) {
   stopifnot(is.cycle(x) & length(x) == 1)
   out <- unlist(x, recursive = FALSE)
@@ -199,6 +220,7 @@ cycle_power_single <- function(x, pow) {
   return(cycle(list(out)))
 }
 
+#' @export
 cycle_power <- function(x, pow) { # cf cycle_sum(); here 'pow' is a
   # vector of integers.
 
@@ -211,6 +233,7 @@ cycle_power <- function(x, pow) { # cf cycle_sum(); here 'pow' is a
   return(cycle(unlist(out, recursive = FALSE)))
 }
 
+#' @export
 conjugation <- function(e1, e2) { # e1 and e2 are both coerced to 'word' objects
   n <- max(size(e1), size(e2))
   e1 <- as.word(e1)
@@ -225,6 +248,7 @@ conjugation <- function(e1, e2) { # e1 and e2 are both coerced to 'word' objects
   return(word(t(out)))
 }
 
+#' @export
 cycle_plus_integer_elementwise <- function(x, y) {
   jj <- cbind(seq_along(x), seq_along(y))
   n <- nrow(jj)

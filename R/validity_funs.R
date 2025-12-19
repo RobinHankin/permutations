@@ -1,3 +1,4 @@
+#' @export
 singleword_valid <- function(w) { # takes an integer vector
   if (length(w) == 0) {
     return(TRUE)
@@ -10,6 +11,7 @@ singleword_valid <- function(w) { # takes an integer vector
   }
 }
 
+#' @export
 cyclist_valid <- function(x) { # takes a cyclist and checks it for validity
   if (length(unlist(x)) == 0) {
     return(TRUE)

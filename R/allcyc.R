@@ -1,3 +1,4 @@
+#' @export
 `allcycn` <- function(n) {
   out <- matrix(0, factorial(n - 1), n)
   index <- 1
@@ -22,12 +23,14 @@
   return(as.word(out))
 }
 
+#' @export
 `allcyc` <- function(s) {
   capply(allcycn(length(s)), function(x) {
     s[x]
   })
 }
 
+#' @export
 `r1cyc` <- function(len, vec) {
   out <- sample(vec, len)
   for (i in seq_len(len - 1)) {
@@ -39,6 +42,7 @@
   return(out)
 }
 
+#' @export
 `rcyc` <- function(n, len, r = len) {
   out <- matrix(0, n, r)
   for (i in seq_len(n)) {
@@ -47,6 +51,7 @@
   return(as.cycle(out))
 }
 
+#' @export
 `rgs1` <- function(s) {
   n <- seq_len(sum(s))
   s <- s[s > 1]
@@ -59,6 +64,7 @@
   return(out)
 }
 
+#' @export
 `rgivenshape` <- function(n, s, size = sum(s)) {
   if (length(n) > 1) {
     return(Recall(n = 1, s = n))
