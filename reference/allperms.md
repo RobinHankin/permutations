@@ -4,30 +4,6 @@ Functionality to enumerate permutations given different characteristics.
 In the following, `n` is assumed to be a non-negative integer.
 Permutations, in general, are coerced to cycle form.
 
-- `allperms(n)` returns all \\n!\\ permutations of \\\[n\]\\.
-
-- `allcycn()` returns all \\(n-1)!\\ permutations of \\\[n\]\\
-  comprising a single cycle of length \\n\\.
-
-- `allcyc(s)` returns all single-cycle permutations of set \\s\\. If
-  \\s\\ has a repeated value, an opaque error message is returned.
-
-- `allpermslike(o)` takes a length-one vector `o` of permutations and
-  returns a vector comprising permutations with the same shape and cycle
-  sets as it argument.
-
-- `some_perms_shape(part)` takes an integer partition `part`, as in a
-  set of non-negative integers, and returns a vector comprising every
-  permutation of size `sum(part)` with shape `part` that has its cycles
-  in increasing order.
-
-- `all_cyclic_shuffles(u)` takes a permutation `u` and returns a vector
-  comprising of all permutations with the same shape and cycle sets. It
-  is vectorized so that argument `u` may be a vector of permutations.
-
-- `all_perms_shape(p)` takes a permutation `p` and returns a vector of
-  all permutations of size `sum(p)` and shape `p`.
-
 ## Usage
 
 ``` r
@@ -63,8 +39,31 @@ all_perms_shape(shape)
 
 ## Details
 
-Function `allperms()` is very basic (the idiom is
-`word(t(partitions::perms(n)))`) but is here for completeness.
+- `allperms(n)` returns all \\n!\\ permutations of \\\[n\]\\. It is very
+  basic (the idiom is `word(t(partitions::perms(n)))`) but is here for
+  completeness.
+
+- `allcycn()` returns all \\(n-1)!\\ permutations of \\\[n\]\\
+  comprising a single cycle of length \\n\\.
+
+- `allcyc(s)` returns all single-cycle permutations of set \\s\\. If
+  \\s\\ has a repeated value, an opaque error message is returned.
+
+- `allpermslike(o)` takes a length-one vector `o` of permutations and
+  returns a vector comprising permutations with the same shape and cycle
+  sets as it argument.
+
+- `some_perms_shape(part)` takes an integer partition `part`, as in a
+  set of non-negative integers, and returns a vector comprising every
+  permutation of size `sum(part)` with shape `part` that has its cycles
+  in increasing order.
+
+- `all_cyclic_shuffles(u)` takes a permutation `u` and returns a vector
+  comprising of all permutations with the same shape and cycle sets. It
+  is vectorized so that argument `u` may be a vector of permutations.
+
+- `all_perms_shape(p)` takes a permutation `p` and returns a vector of
+  all permutations of size `sum(p)` and shape `p`.
 
 ## Author
 
