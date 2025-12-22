@@ -71,7 +71,7 @@ Hankin</h4>
 
     
     
-<p><img src="../../../_temp/Library/permutations/help/figures/permutations.png" class="r-plt" width="20%" style="float:right; padding:10px"></p>
+<p><img src="../../../_temp/Library/permutations/help/figures/permutations.png" class="r-plt" alt="" width="20%" style="float:right; padding:10px"></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">as.function.permutation</span></span></code></pre></div>
 <pre><code><span><span class="co">## function (x, ...) </span></span>
@@ -86,7 +86,7 @@ Hankin</h4>
 <span><span class="co">##             a)])))</span></span>
 <span><span class="co">##     }</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x55c7bd396210&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x5644557fdcc0&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:permutations&gt;</span></span></code></pre>
 <p>To cite the permutations package in publications, please use <span class="citation">Hankin (<a href="#ref-hankin2020">2020</a>)</span>. The
 <code>permutations</code> package was intended to manipulate and combine
@@ -127,14 +127,16 @@ represented in package idiom. Consider the following construction:</p>
 <pre><code><span><span class="co">## [1] (12)</span></span></code></pre>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/as.function.permutation.html">as.function</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Error in x[, a]: subscript out of bounds</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `x[, a]`:</span></span></span>
+<span><span class="co">## <span style="color: #BBBB00;">!</span> subscript out of bounds</span></span></code></pre>
 <p>On the one hand, object <code>p</code> is a permutation on the set
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mn>2</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">[2]=\left\lbrace 1,2\right\rbrace</annotation></semantics></math>.
 The action of this permutation on 3 is not defined, and the package
 returns an error. Above we effectively see</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span></span></code></pre></div>
-<pre><code><span><span class="co">## Error in t(1:2)[, 3]: subscript out of bounds</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `t(1:2)[, 3]`:</span></span></span>
+<span><span class="co">## <span style="color: #BBBB00;">!</span> subscript out of bounds</span></span></code></pre>
 <p>which is the origin of the error. On the other hand, one might
 reasonably hold that the action of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>12</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(12)</annotation></semantics></math>
@@ -156,7 +158,8 @@ straightforward with <code><a href="../reference/permutation.html">as.word()</a>
 its functionalization always returns an error:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/as.function.permutation.html">as.function</a></span><span class="op">(</span><span class="va">id</span><span class="op">)</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Error in x[, a]: subscript out of bounds</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `x[, a]`:</span></span></span>
+<span><span class="co">## <span style="color: #BBBB00;">!</span> subscript out of bounds</span></span></code></pre>
 <p>Again the resolution is to coerce to word form with explicit
 <code>n</code>:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">

@@ -18,7 +18,7 @@ as.function.permutation
     ##             a)])))
     ##     }
     ## }
-    ## <bytecode: 0x55c7bd396210>
+    ## <bytecode: 0x5644557fdcc0>
     ## <environment: namespace:permutations>
 
 To cite the permutations package in publications, please use Hankin
@@ -80,7 +80,8 @@ package idiom. Consider the following construction:
 as.function(p)(3)
 ```
 
-    ## Error in x[, a]: subscript out of bounds
+    ## Error in `x[, a]`:
+    ## ! subscript out of bounds
 
 On the one hand, object `p` is a permutation on the set
 $\lbrack 2\rbrack = \left\{ 1,2 \right\}$. The action of this
@@ -91,7 +92,8 @@ we effectively see
 t(1:2)[,3]
 ```
 
-    ## Error in t(1:2)[, 3]: subscript out of bounds
+    ## Error in `t(1:2)[, 3]`:
+    ## ! subscript out of bounds
 
 which is the origin of the error. On the other hand, one might
 reasonably hold that the action of $(12)$ on 3 should be 3, on the
@@ -116,7 +118,8 @@ functionalization always returns an error:
 as.function(id)(4)
 ```
 
-    ## Error in x[, a]: subscript out of bounds
+    ## Error in `x[, a]`:
+    ## ! subscript out of bounds
 
 Again the resolution is to coerce to word form with explicit `n`:
 
