@@ -192,7 +192,7 @@ as.word <- function(x, n = NULL) {
 }
 
 #' @export
-`print_word` <- function(x) {
+`print_word` <- function(x, use_dot=TRUE) {
   x <- as.word(x)
   ## contortions needed because x might have zero columns
   given <- x
@@ -211,10 +211,17 @@ as.word <- function(x, n = NULL) {
     cat(" {}")
   }
   jj <- x
-  dots <- x == col(x)
-  jj[dots] <- "."
-  if (!is.null(ps)) {
-    jj[!dots] <- ps[x[!dots]]
+
+  if(use_dot){
+      dots <- x == col(x)
+      jj[dots] <- "." 
+      if (!is.null(ps)) {
+          jj[!dots] <- ps[x[!dots]]
+      }
+  } else {
+      if (!is.null(ps)) {
+          jj[] <- ps[x]
+      }
   }
   print(noquote(jj))
   return(invisible(given))

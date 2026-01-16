@@ -5,6 +5,8 @@
 \alias{print_word}
 \alias{print_word_as_cycle}
 \alias{print_cycle}
+\alias{print_oneline}
+\alias{oneline}
 \alias{as.character.cycle}
 \alias{as.character_cyclist}
 \title{
@@ -61,6 +63,9 @@ as.character_cyclist(y,comma=TRUE)
   inspect it as a word form but (for some reason) do not want to set
   \code{options("print_word_as_cycle")}.  See \code{size.Rd} for a
   use-case.
+
+  To see permutations in one-line form, use \code{print_word(x,
+  use_dots=FALSE)}.
 
   Coercing a cycle to a character vector can be done with
   \code{as.character()}, which returns a character vector that is
