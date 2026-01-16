@@ -68,6 +68,35 @@ print_cycle(x)
 
 Above we see the cycle form is arguably more compact.
 
+### One-line notation for permutations
+
+Sometimes it is desirable to present permutations in “one-line
+notation”, which is just the ordered list of the images of
+$1,2,\ldots,n$; this is just a compact form of the two-line notation:
+
+$$\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+9 & 2 & 6 & 3 & 5 & 4 & 1 & 7 & 8
+\end{pmatrix}$$
+
+would just be (926354178). To do this, use
+`print_word(x, use_dot=TRUE)`:
+
+``` r
+print_word(x, use_dot=FALSE)
+#>      1 2 3 4 5 6 7 8 9
+#> [1]  7 2 3 4 5 6 9 8 1
+#> [2]  1 9 2 4 5 6 7 8 3
+#> [3]  1 2 3 4 5 6 7 8 9
+#> [4]  3 2 1 4 5 6 7 8 9
+#> [5]  1 8 3 4 2 6 7 5 9
+#> [6]  1 2 3 6 5 4 7 8 9
+#> [7]  1 2 3 4 5 6 7 8 9
+#> [8]  1 2 3 8 5 6 7 4 9
+#> [9]  6 2 1 4 5 3 7 8 9
+#> [10] 1 2 3 9 5 6 7 8 4
+```
+
 ## Print word as cycle
 
 In use, sometimes we work with objects in word form and sometimes

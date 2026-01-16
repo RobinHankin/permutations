@@ -128,13 +128,42 @@ becomes more pronounced if only a small number of elements move:</p>
 <span><span class="fu"><a href="../reference/print.html">print_cycle</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] (179) (293) ()    (13)  (285) (46)  ()    (48)  (163) (49)</span></span></code></pre></div>
 <p>Above we see the cycle form is arguably more compact.</p>
+<div class="section level3">
+<h3 id="one-line-notation-for-permutations">One-line notation for permutations<a class="anchor" aria-label="anchor" href="#one-line-notation-for-permutations"></a>
+</h3>
+<p>Sometimes it is desirable to present permutations in “one-line
+notation”, which is just the ordered list of the images of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1,2,\ldots,n</annotation></semantics></math>;
+this is just a compact form of the two-line notation:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>7</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>8</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>9</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>9</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>7</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>8</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9\\
+9 &amp; 2 &amp; 6 &amp; 3 &amp; 5 &amp; 4 &amp; 1 &amp; 7 &amp; 8
+\end{pmatrix}
+</annotation></semantics></math></p>
+<p>would just be (926354178). To do this, use
+<code>print_word(x, use_dot=TRUE)</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/print.html">print_word</a></span><span class="op">(</span><span class="va">x</span>, use_dot<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      1 2 3 4 5 6 7 8 9</span></span>
+<span><span class="co">#&gt; [1]  7 2 3 4 5 6 9 8 1</span></span>
+<span><span class="co">#&gt; [2]  1 9 2 4 5 6 7 8 3</span></span>
+<span><span class="co">#&gt; [3]  1 2 3 4 5 6 7 8 9</span></span>
+<span><span class="co">#&gt; [4]  3 2 1 4 5 6 7 8 9</span></span>
+<span><span class="co">#&gt; [5]  1 8 3 4 2 6 7 5 9</span></span>
+<span><span class="co">#&gt; [6]  1 2 3 6 5 4 7 8 9</span></span>
+<span><span class="co">#&gt; [7]  1 2 3 4 5 6 7 8 9</span></span>
+<span><span class="co">#&gt; [8]  1 2 3 8 5 6 7 4 9</span></span>
+<span><span class="co">#&gt; [9]  6 2 1 4 5 3 7 8 9</span></span>
+<span><span class="co">#&gt; [10] 1 2 3 9 5 6 7 8 4</span></span></code></pre></div>
+</div>
 <div class="section level2">
 <h2 id="print-word-as-cycle">Print word as cycle<a class="anchor" aria-label="anchor" href="#print-word-as-cycle"></a>
 </h2>
 <p>In use, sometimes we work with objects in word form and sometimes
 objects in cycle form. However, the standard workflow would be to use
 R’s default system, which is to print values to the console:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/permutation.html">as.cycle</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">unclass</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># shows internal representation (x is in word form)</span></span>
@@ -164,7 +193,7 @@ internally in word form. See how the print method tells us if its
 argument object is printed in coerced-to-cycle form. However, it is
 possible to suppress this coercion by setting option
 <code>print_word_as_cycle</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>print_word_as_cycle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
 <span><span class="co">#&gt;     1 2 3 4 5 6 7</span></span>
@@ -173,7 +202,7 @@ possible to suppress this coercion by setting option
 <span><span class="va">y</span></span>
 <span><span class="co">#&gt; [1] (12653)(47) (1724653)</span></span></code></pre></div>
 <p>We reinstate the default:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>print_word_as_cycle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># restore default</span></span></code></pre></div>
 <p>Most people seem to prefer printing in cycle form.</p>
 <div class="section level3">
@@ -183,7 +212,7 @@ possible to suppress this coercion by setting option
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>9</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\left[9\right]</annotation></semantics></math>.
 If we have 10 or more elements then we need a comma. This is added by
 default:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">15</span>, moved <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/print.html">print_cycle</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] (1,4,2,3)     (10,13,15)    (3,14)        (9,10,12)     (5,15,7,9)   </span></span>
@@ -194,7 +223,7 @@ possible to override this behaviour by setting option
 commas iff
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>&gt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">r&gt;9</annotation></semantics></math>
 but Boolean values are respected:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"comma"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span><span class="fl">3</span>, r <span class="op">=</span> <span class="fl">9</span><span class="op">)</span> <span class="co"># commas printed irregardless</span></span>
 <span><span class="co">#&gt; [1] (1,2,8,3,6,9,5,4,7) (1,8,3,4,9,6,2,7,5) (1,9,2,7,8,5,4,6,3)</span></span>
@@ -205,7 +234,7 @@ disaster. However, if we are permuting
 objects commas are necessary to interpret strings like <code>124</code>
 which might be <code>1,2,4</code> or <code>12,4</code> or
 <code>1,24</code> or <code>124</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"comma"</span> <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span><span class="fl">3</span>, r <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="co"># commas not printed irregardless</span></span>
@@ -233,7 +262,7 @@ with integers
 inverse of <code>W</code> is just <code>W[W] &lt;- seq_along(W)</code>].
 Because of this, the default print method echoes the internal
 representation of a permutation.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dput.html" class="external-link">dput</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
@@ -248,7 +277,7 @@ set
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mi>n</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">\left[n\right]=\left\lbrace 1,2,\ldots,n\right\rbrace</annotation></semantics></math>.
 However, it is possible to use a different set, using option
 <code>perm_set</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>perm_set <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] (aegdb)(cf)  (abfec)      (acbf)(de)   (adfcbge)    (bdcge)     </span></span>
@@ -259,7 +288,7 @@ a-z. However, the use of commas is somewhat problematic, and by default
 the print method uses the
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">&gt;9</annotation></semantics></math>
 criterion for including a comma:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">xx</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">2</span>, r <span class="op">=</span> <span class="fl">26</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] (a,f,r,h,k,l,c,i,j,w,z,v,y,o,u,d,g,p)(b,q,t,e,s,n) </span></span>
 <span><span class="co">#&gt; [2] (a,s,z,l,y,r,p,m,u,b,c,k,w,q,x,j,v,h,i,e,n,o,g,t,d)</span></span>
@@ -267,14 +296,14 @@ criterion for including a comma:</p>
 <p>Above we see that commas are included (because
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>26</mn><mo>&gt;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">26&gt;9</annotation></semantics></math>)
 but it probably looks better without them:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>comma <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">xx</span></span>
 <span><span class="co">#&gt; [1] (afrhklcijwzvyoudgp)(bqtesn) (aszlyrpmubckwqxjvhienogtd) </span></span>
 <span><span class="co">#&gt; [coerced from word form]</span></span></code></pre></div>
 <p>One side-effect of using a finite set of symbols is that the print
 method might run out of symbols:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rperm.html">rperm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">2</span>, r <span class="op">=</span> <span class="fl">50</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] (agNANAyNAepqNANAhbNAuNANAjNAlzNANAdxNAfsNAoNANANArkmNAvnNANANANANAwNANAi)(ct)    </span></span>
 <span><span class="co">#&gt; [2] (aNANArNANANAi)(bNANAsNAlvzNAgNANAwNANANAoNANAjtnpNAyeNANAmNAfNAcNAq)(dhu)(kxNANA)</span></span>
@@ -283,7 +312,7 @@ method might run out of symbols:</p>
 26 (also the absence of commas does not help). Remember that the print
 method does not change the object itself, so this might not be an issue.
 It is possible to use symbols that have more than one character:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>perm_set <span class="op">=</span> <span class="va">state.abb</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>comma <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">z</span></span>
@@ -296,7 +325,7 @@ It is possible to use symbols that have more than one character:</p>
 <h2 id="cycles-in-length-order">Cycles in length order<a class="anchor" aria-label="anchor" href="#cycles-in-length-order"></a>
 </h2>
 <p>Consider the following:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>perm_set <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="co"># revert to numbers</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>comma <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># supress comma</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rperm.html">rgivenshape</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
@@ -319,7 +348,7 @@ shape. The print method is sensitive to experimental option
 <code><a href="../reference/print.html">as.character_cyclist()</a></code>). If <code>TRUE</code>, permutations
 cycle form will be printed but with the cycles in increasing length
 order:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"print_in_length_order"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
 <span><span class="co">#&gt;  [1] (47)(256)(1938) (89)(162)(3547) (24)(189)(3567) (48)(697)(1523)</span></span>
@@ -338,7 +367,7 @@ order:</p>
 direct the print method to use commas for readability. However, it is
 best to reset to the default, as the option persists between
 vignettes:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>perm_set <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>comma <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>print_word_as_cycle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
