@@ -1,5 +1,6 @@
 \name{rperm}
 \alias{rperm}
+\alias{rpermm}
 \alias{rword}
 \alias{rcycle}
 \alias{rcyc}
@@ -17,6 +18,7 @@ Random permutations
 }
 \usage{
 rperm(n=10, r=7, moved=NA)
+rpermm(n=20, r=20, moved=NA)
 rcyc(n, len, r=len)
 r1cyc(len, vec)
 rgs1(s)
@@ -26,17 +28,18 @@ rgivenshape(n, s, size=sum(s))
   \item{n}{Number of permutations to create}
   \item{r}{Size of permutations}
   \item{len}{Length of cycles in \code{rcyc()} and \code{r1cyc()}}
-  \item{moved}{In function \code{rperm()}, integer specifying how many
-    elements can move (that is, how many elements do not map to
-    themselves), with default \code{NA} meaning to choose a permutation
-    at random.  This is useful if you want a permutation that has a
-    compact cycle representation}
+  \item{moved}{In function \code{rperm()} and \code{rpermm()}, integer
+    specifying how many elements can move (that is, how many elements do
+    not map to themselves), with default \code{NA} meaning to choose a
+    permutation at random.  This is useful if you want a permutation
+    that has a compact cycle representation}
   \item{vec}{Vector of integers to generate a cycle from}
   \item{s, size}{Shape and size of permutations to create}
 }
 \details{
 
-Function \code{rperm()} returns a vector of random permutations.
+Function \code{rperm()} returns a simple vector of random permutations,
+and \code{rperm()} gives a more complicated object.
   
 Function \code{rgivenshape()} returns a random permutation with a given
 shape.  Argument \code{s}, specifying the shape, can include 1s (ones).
@@ -67,18 +70,18 @@ precisely, use function \code{rcyc()} or \code{rgivenshape()}.
 }
 \examples{
 rperm()
-as.cycle(rperm(30,9))
-rperm(10,9,2)
+as.cycle(rperm(30, 9))
+rperm(10, 9, 2)
 
-rcyc(20,5)
-rcyc(20,5,9)
+rcyc(20, 5)
+rcyc(20, 5, 9)
 
-rgivenshape(10,c(2,3))   # size 5
-rgivenshape(10,c(2,3,1,1)) # size 7
+rgivenshape(10, c(2,3))     # size 5
+rgivenshape(10, c(2,3,1,1)) # size 7
 
 rgivenshape(1:9)
 
-allpermslike(rgivenshape(c(1,1,3,4)))
+allpermslike(rgivenshape(c(1, 1, 3, 4)))
 
 }
 \keyword{symbolmath}
