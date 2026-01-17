@@ -183,10 +183,6 @@ have:
 \]
 
 
-```{r includecompdiag, out.width='90%', fig.cap = "Visual representation of active permutation composition", echo=FALSE}
-knitr::include_graphics(system.file("permutations_composition_active.pdf", package = "permutations"))
-```
-
 Thus, for example, $4\longrightarrow 5\longrightarrow 6$.  Considering
 the operation $a\circ b$, this means that we perform permutation `a`
 first, and then perform permutation `b`.  Taking this one step at a
