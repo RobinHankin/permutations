@@ -84,8 +84,7 @@ moves an object from place
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
 to place
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\pi(i)</annotation></semantics></math>.
-Textbooks and undergraduate courses usually use this system, and is used
-above.</li>
+Textbooks and undergraduate courses usually use this system.</li>
 <li>A <strong>passive permutation</strong>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>
 replaces an object in position
@@ -140,7 +139,7 @@ of where they are. We would say: “at the start, object
 sits in place
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>6</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">i\in[6]</annotation></semantics></math>.
-Then, after the move, object 1 is in place 5, object 2 in place 6,
+Then, after the move, object 1 is in place 4, object 2 in place 6,
 object 3 in place 3, and so on”. This information is encapsulated by
 <code>as.word(a)</code>. In R matrix form we would have</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -152,9 +151,10 @@ object 3 in place 3, and so on”. This information is encapsulated by
 <span><span class="co">## place after move     4    6    3    5    1    2</span></span></code></pre>
 <p>(in the above R chunk, note how the top row is <code>1:6</code>. We
 give the objects persistent labels: each object is named according to
-the place it sits in, before any moving). On the other hand, we might be
-more interested in the <em>places</em>. We might want to know which
-object is sitting in place 4. We would say: “at the start, object
+the place it sits in, before any moving).</p>
+<p>On the other hand, we might be more interested in the
+<em>places</em>. We might want to know which object is sitting in place
+4. We would say: “at the start, object
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
 sits in place
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
@@ -203,12 +203,13 @@ matrix form would use <code><a href="../reference/inverse.html">inverse()</a></c
 <span><span class="co">## place after move     1    2    3    4    5    6</span></span>
 <span><span class="co">## place before move    5    6    3    1    4    2</span></span></code></pre>
 <p>(in the above R chunk, note how the top row—the <em>place</em> an
-object sits in after the move, is <code>1:6</code>). Thus from the first
+object sits in after the move—is <code>1:6</code>). Thus from the first
 column we see that the object currently in place 1 was originally in
-place 5. If the people subsequently move again, the mathematics and the
-R idiom depend on whether we are interested in people, or places. We
-need to specify use of <em>active</em> or <em>passive</em>
-transformations, much as in the Lorentz package.</p>
+place 5, and the object currently in place 5 was originally in place 4.
+If the people subsequently move again, the mathematics and the R idiom
+depend on whether we are interested in people, or places. We need to
+specify use of <em>active</em> or <em>passive</em> transformations, much
+as in the Lorentz package.</p>
 </div>
 <div class="section level3">
 <h3 id="composition-of-active-permutations">Composition of active permutations<a class="anchor" aria-label="anchor" href="#composition-of-active-permutations"></a>
@@ -258,13 +259,18 @@ Symbolically we have:</p>
 \right)
 }^{a\circ b}
 </annotation></semantics></math></p>
-<p>Thus, for example, <span class="math inline">$4{a\atop\longrightarrow}5\longrightarrow 6$</span>.
+<p>Thus, for example,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>→</mo><mn>5</mn><mo>→</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">4\longrightarrow 5\longrightarrow 6</annotation></semantics></math>.
 Considering the operation
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∘</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\circ b</annotation></semantics></math>,
 this means that we perform permutation <code>a</code> first, and then
 perform permutation <code>b</code>. Taking this one step at a time we
-would have, for example: “the person in place 4 (this is object 4) moves
-to place 5 (but is still object 4)
+would have, for example: “We start with object
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+in place
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>.
+The object in place 4 (this is object 4) moves to place 5 (but is still
+object 4)
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>…</mi><annotation encoding="application/x-tex">\ldots</annotation></semantics></math>
 and then the object in place 5 (this is still object 4) moves to place
 6”. See how we track the object that started in place 4 (that is, object
@@ -273,11 +279,17 @@ see this on the right hand side: the fourth column of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∘</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\circ b</annotation></semantics></math>
 is
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left(\begin{array}{c}4\\6\end{array}\right)</annotation></semantics></math>.
-If we execute <code>a</code> and then <code>b</code> using active
-language [explicitly: express <code>a</code> and <code>b</code> as
-active permutations, and express the result of performing <code>a</code>
-then <code>b</code> in active language], we can use standard permutation
-composition, in R idiom the <code>*</code> operator:</p>
+The figure shows this visually.</p>
+<div class="figure">
+<embed src="/home/runner/work/_temp/Library/permutations/permutations_composition_active.pdf" title="Visual representation of active permutation composition" width="90%" type="application/pdf"></embed><p class="caption">
+Visual representation of active permutation composition
+</p>
+</div>
+<p>In R, if we express <code>a</code> and <code>b</code> as active
+permutations, and wish to express the result of performing
+<code>a</code> then <code>b</code> in active language, we can use
+standard permutation composition, in package idiom the <code>*</code>
+operator:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span></span></code></pre></div>
 <pre><code><span><span class="co">##     1 2 3 4 5 6</span></span>

@@ -10,7 +10,7 @@ associativity from the perspective of the `permutations` R package.
 
 - An **active permutation** $\pi$ moves an object from place $i$ to
   place $\pi(i)$. Textbooks and undergraduate courses usually use this
-  system, and is used above.
+  system.
 - A **passive permutation** $\pi$ replaces an object in position $i$ by
   that in position $\pi(i)$.
 
@@ -51,7 +51,7 @@ $\lbrack n\rbrack = \left\{ 1,2,\ldots,n \right\}$); and we have
 $a(1) = 4$, $a(2) = 6$, $a(3) = 3$, and so on. If these were objects, or
 people, we might want to keep track of where they are. We would say: “at
 the start, object $i$ sits in place $i$, $i \in \lbrack 6\rbrack$. Then,
-after the move, object 1 is in place 5, object 2 in place 6, object 3 in
+after the move, object 1 is in place 4, object 2 in place 6, object 3 in
 place 3, and so on”. This information is encapsulated by `as.word(a)`.
 In R matrix form we would have
 
@@ -67,14 +67,15 @@ a_active
 
 (in the above R chunk, note how the top row is `1:6`. We give the
 objects persistent labels: each object is named according to the place
-it sits in, before any moving). On the other hand, we might be more
-interested in the *places*. We might want to know which object is
-sitting in place 4. We would say: “at the start, object $i$ sits in
-place $i$, $i \in \lbrack 6\rbrack$. Then place 1 is occupied by object
-4, place 2 occupied by object 5, and so on”. This information is
-technically represented by permutation `a` but in an obscure form. To
-answer the question “which object is in place $i$?” in a convenient way,
-we need to rearrange the permutation:
+it sits in, before any moving).
+
+On the other hand, we might be more interested in the *places*. We might
+want to know which object is sitting in place 4. We would say: “at the
+start, object $i$ sits in place $i$, $i \in \lbrack 6\rbrack$. Then
+place 1 is occupied by object 4, place 2 occupied by object 5, and so
+on”. This information is technically represented by permutation `a` but
+in an obscure form. To answer the question “which object is in place
+$i$?” in a convenient way, we need to rearrange the permutation:
 
 \$\$ \left( \begin{array}{ccccccccc} 1&2&3&4&5&6\\ 4&6&3&5&1&2
 \end{array} \right) {\mbox{swap rows}\atop\longrightarrow} \left(
@@ -108,8 +109,9 @@ a_passive
     ## place before move    5    6    3    1    4    2
 
 (in the above R chunk, note how the top row—the *place* an object sits
-in after the move, is `1:6`). Thus from the first column we see that the
-object currently in place 1 was originally in place 5. If the people
+in after the move—is `1:6`). Thus from the first column we see that the
+object currently in place 1 was originally in place 5, and the object
+currently in place 5 was originally in place 4. If the people
 subsequently move again, the mathematics and the R idiom depend on
 whether we are interested in people, or places. We need to specify use
 of *active* or *passive* transformations, much as in the Lorentz
@@ -146,22 +148,25 @@ $$\overset{a}{\overbrace{\begin{pmatrix}
  & & & & & 
 \end{pmatrix}}}$$
 
-Thus, for example, \$4{a\atop\longrightarrow}5\longrightarrow 6\$.
+Thus, for example, $\left. 4\rightarrow 5\rightarrow 6 \right.$.
 Considering the operation $a \circ b$, this means that we perform
 permutation `a` first, and then perform permutation `b`. Taking this one
-step at a time we would have, for example: “the person in place 4 (this
-is object 4) moves to place 5 (but is still object 4) $\ldots$ and then
-the object in place 5 (this is still object 4) moves to place 6”. See
-how we track the object that started in place 4 (that is, object 4) over
-two permutations, and so overall object 4 ends up in place 6. We see
-this on the right hand side: the fourth column of $a \circ b$ is
-$\begin{pmatrix}
+step at a time we would have, for example: “We start with object $i$ in
+place $i$. The object in place 4 (this is object 4) moves to place 5
+(but is still object 4) $\ldots$ and then the object in place 5 (this is
+still object 4) moves to place 6”. See how we track the object that
+started in place 4 (that is, object 4) over two permutations, and so
+overall object 4 ends up in place 6. We see this on the right hand side:
+the fourth column of $a \circ b$ is $\begin{pmatrix}
 4 \\
 6
-\end{pmatrix}$. If we execute `a` and then `b` using active language
-\[explicitly: express `a` and `b` as active permutations, and express
-the result of performing `a` then `b` in active language\], we can use
-standard permutation composition, in R idiom the `*` operator:
+\end{pmatrix}$. The figure shows this visually.
+
+Visual representation of active permutation composition
+
+In R, if we express `a` and `b` as active permutations, and wish to
+express the result of performing `a` then `b` in active language, we can
+use standard permutation composition, in package idiom the `*` operator:
 
 ``` r
 a * b

@@ -2,6 +2,8 @@
 
 ## permutations 1.1-8
 
+- improvements to order_of_ops vignette
+- rpermm()
 - roxygenisation
 - consistentification of dodecahedron dataset
 

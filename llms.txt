@@ -185,8 +185,9 @@ extended discussion.
 - [`print(`*`<cycle>`*`)`](print.md) [`print(`*`<word>`*`)`](print.md)
   [`as.character_cyclist()`](print.md) : Print methods for permutation
   objects
-- [`rperm()`](rperm.md) [`rcyc()`](rperm.md) [`r1cyc()`](rperm.md)
-  [`rgs1()`](rperm.md) [`rgivenshape()`](rperm.md) : Random permutations
+- [`rperm()`](rperm.md) [`rpermm()`](rperm.md) [`rcyc()`](rperm.md)
+  [`r1cyc()`](rperm.md) [`rgs1()`](rperm.md) [`rgivenshape()`](rperm.md)
+  : Random permutations
 - [`sgn()`](sgn.md) [`is.even()`](sgn.md) [`is.odd()`](sgn.md) : Sign of
   a permutation
 - [`shape()`](shape.md) [`shape_cyclist()`](shape.md)

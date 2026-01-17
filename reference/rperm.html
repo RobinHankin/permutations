@@ -57,6 +57,7 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">rperm</span><span class="op">(</span>n<span class="op">=</span><span class="fl">10</span>, r<span class="op">=</span><span class="fl">7</span>, moved<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span>
+<span><span class="fu">rpermm</span><span class="op">(</span>n<span class="op">=</span><span class="fl">20</span>, r<span class="op">=</span><span class="fl">20</span>, moved<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="fu">rcyc</span><span class="op">(</span><span class="va">n</span>, <span class="va">len</span>, r<span class="op">=</span><span class="va">len</span><span class="op">)</span></span>
 <span><span class="fu">r1cyc</span><span class="op">(</span><span class="va">len</span>, <span class="va">vec</span><span class="op">)</span></span>
 <span><span class="fu">rgs1</span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span>
@@ -76,11 +77,11 @@
 <dd><p>Length of cycles in <code>rcyc()</code> and <code>r1cyc()</code></p></dd>
 
   <dt id="arg-moved">moved<a class="anchor" aria-label="anchor" href="#arg-moved"></a></dt>
-<dd><p>In function <code>rperm()</code>, integer specifying how many
-    elements can move (that is, how many elements do not map to
-    themselves), with default <code>NA</code> meaning to choose a permutation
-    at random.  This is useful if you want a permutation that has a
-    compact cycle representation</p></dd>
+<dd><p>In function <code>rperm()</code> and <code>rpermm()</code>, integer
+    specifying how many elements can move (that is, how many elements do
+    not map to themselves), with default <code>NA</code> meaning to choose a
+    permutation at random.  This is useful if you want a permutation
+    that has a compact cycle representation</p></dd>
 
   <dt id="arg-vec">vec<a class="anchor" aria-label="anchor" href="#arg-vec"></a></dt>
 <dd><p>Vector of integers to generate a cycle from</p></dd>
@@ -93,7 +94,8 @@
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
 
 
-<p>Function <code>rperm()</code> returns a vector of random permutations.</p>
+<p>Function <code>rperm()</code> returns a simple vector of random permutations,
+and <code>rperm()</code> gives a more complicated object.</p>
 <p>Function <code>rgivenshape()</code> returns a random permutation with a given
 shape.  Argument <code>s</code>, specifying the shape, can include 1s (ones).
 Although length-one cycles are dropped from the resulting permutation,
@@ -134,7 +136,7 @@ precisely, use function <code>rcyc()</code> or <code>rgivenshape()</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (13)(26)    (1457)(236) (1256)      (1573246)   (13425)(67) (124)(67)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (16)(2475)  (13746)(25) (176352)    (12763)(45)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
-<span class="r-in"><span><span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fu">rperm</span><span class="op">(</span><span class="fl">30</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fu">rperm</span><span class="op">(</span><span class="fl">30</span>, <span class="fl">9</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (19)(278)       (1743625)(89)   (13)(27)(4856)  (18634529)     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (12)(3549687)   (298)(35647)    (17932856)      (138)(274596)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (276538)        (12453968)      (1248965)       (17486)(29)    </span>
@@ -143,30 +145,30 @@ precisely, use function <code>rcyc()</code> or <code>rgivenshape()</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [21] (19)(2358)(67)  (126589743)     (13)(2689)(475) (17825)(394)   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [25] (17453286)      (18624)(3957)   (1745269)(38)   (1649)(2873)   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [29] (1736954)       (19)(23867)    </span>
-<span class="r-in"><span><span class="fu">rperm</span><span class="op">(</span><span class="fl">10</span>,<span class="fl">9</span>,<span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">rperm</span><span class="op">(</span><span class="fl">10</span>, <span class="fl">9</span>, <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ()   (14) ()   ()   (68) ()   (28) ()   ()   ()  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">rcyc</span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">rcyc</span><span class="op">(</span><span class="fl">20</span>, <span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (14352) (12354) (14325) (12453) (13254) (12435) (14325) (14352) (12543)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10] (14532) (15324) (13425) (12543) (14235) (14523) (12345) (12435) (15423)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] (12354) (12453)</span>
-<span class="r-in"><span><span class="fu">rcyc</span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span>,<span class="fl">9</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">rcyc</span><span class="op">(</span><span class="fl">20</span>, <span class="fl">5</span>, <span class="fl">9</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (23485) (19483) (14729) (16539) (36857) (16247) (36587) (19358) (24568)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10] (12859) (39567) (34769) (24769) (29546) (17856) (46758) (39865) (16243)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] (16253) (24386)</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">10</span>,<span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>   <span class="co"># size 5</span></span></span>
+<span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">10</span>, <span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>     <span class="co"># size 5</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (153)(24) (125)(34) (154)(23) (134)(25) (134)(25) (13)(245) (13)(245)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (15)(243) (135)(24) (14)(235)</span>
-<span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">10</span>,<span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># size 7</span></span></span>
+<span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">10</span>, <span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># size 7</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (12)(456) (23)(465) (246)(35) (145)(23) (153)(47) (175)(46) (176)(24)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (125)(36) (12)(347) (13)(456)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] (1,45,44,11,9,23,42)(2,26)(3,7,38,13,30,41,39,31)(4,19,12,22,27,5,32,40,14)(6,37,15,18)(10,34,25)(16,21,29,17,28,36)(20,35,33,43,24)</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="allperms.html">allpermslike</a></span><span class="op">(</span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="allperms.html">allpermslike</a></span><span class="op">(</span><span class="fu">rgivenshape</span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (284)(5697) (248)(5697) (284)(5679) (248)(5679) (284)(5976) (248)(5976)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (284)(5967) (248)(5967) (284)(5769) (248)(5769) (284)(5796) (248)(5796)</span>
 <span class="r-in"><span></span></span>
