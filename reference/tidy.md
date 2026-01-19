@@ -47,13 +47,13 @@ permutations is given
 ## Examples
 
 ``` r
-as.cycle(5:3)+as.cycle(7:9)
+as.cycle(5:3) + as.cycle(7:9)
 #> [1] (354)(789)
-tidy(as.cycle(5:3)+as.cycle(7:9))
+tidy(as.cycle(5:3) + as.cycle(7:9))
 #> [1] (132)(456)
 #> [coerced from word form]
 
-as.cycle(tidy(c(as.cycle(1:2),as.cycle(6:7))))
+as.cycle(tidy(c(as.cycle(1:2), as.cycle(6:7))))
 #> [1] (12) (34)
 
 
@@ -95,8 +95,8 @@ tidy(megaminx)  # has 120 columns, not 129
 #>                                                                                           Grey 
 #> (64,76,88,100,102)(65,77,89,91,103)(66,78,90,92,104)(111,113,115,117,119)(112,114,116,118,120) 
 #> [coerced from word form]
-stopifnot(all(unique(sort(unlist(as.cycle(tidy(megaminx)),recursive=TRUE)))==1:120))
+stopifnot(all(unique(sort(unlist(as.cycle(tidy(megaminx)), recursive=TRUE))) == 1:120))
 
 jj <- megaminx*megaminx[1]
-stopifnot(identical(shape(jj),shape(tidy(jj))))  #tidy() does not change shape
+stopifnot(identical(shape(jj), shape(tidy(jj))))  #tidy() does not change shape
 ```

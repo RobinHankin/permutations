@@ -42,7 +42,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
-fixed(as.cycle(1:3)+as.cycle(8:9))   # elements 4,5,6,7 are fixed
+fixed(as.cycle(1:3) + as.cycle(8:9))   # elements 4,5,6,7 are fixed
 #> [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
 fixed(id)
 #> logical(0)

@@ -6,11 +6,11 @@ form.
 ## Usage
 
 ``` r
-shape(x, drop = TRUE,id1 = TRUE,decreasing = FALSE)
-shape_cyclist(cyc,id1=TRUE)
-padshape(x, drop = TRUE, n=NULL)
+shape(x, drop = TRUE, id1 = TRUE, decreasing = FALSE)
+shape_cyclist(cyc, id1 = TRUE)
+padshape(x, drop = TRUE, n = NULL)
 shapepart(x)
-shapepart_cyclist(cyc,n=NULL)
+shapepart_cyclist(cyc, n = NULL)
 ```
 
 ## Arguments
@@ -75,7 +75,7 @@ see “cycle type determines conjugacy class” as a theorem.
 ## Examples
 
 ``` r
-jj <- as.cycle(c("123","","(12)(34)","12345"))
+jj <- as.cycle(c("123", "", "(12)(34)", "12345"))
 jj
 #> [1] (123)    ()       (12)(34) (12345) 
 shape(jj)
@@ -92,7 +92,7 @@ shape(jj)
 #> [1] 5
 #> 
 
-shape(rperm(10,9)) # coerced to cycle
+shape(rperm(10, 9)) # coerced to cycle
 #> [[1]]
 #> [1] 6 3
 #> 
@@ -125,7 +125,7 @@ shape(rperm(10,9)) # coerced to cycle
 #> 
 
 a <- rperm()
-identical(shape(a,dec=TRUE),shape(a^cyc_len(2),dec=TRUE))
+identical(shape(a, dec=TRUE), shape(a^cyc_len(2), dec=TRUE))
 #> [1] TRUE
 
 
@@ -169,7 +169,7 @@ shape(megaminx)
 #> 
 
 jj <- megaminx*megaminx[1]
-identical(shape(jj),shape(tidy(jj)))  #tidy() does not change shape
+identical(shape(jj), shape(tidy(jj)))  #tidy() does not change shape
 #> [1] TRUE
 
 
@@ -181,7 +181,7 @@ shapepart(allperms(3))
 #> [1,] 1 2 1 1 1 1
 #> [2,] 2 1 1 1 1 2
 #> [3,] 3 1 2 1 1 1
-shapepart(rperm(10,5))
+shapepart(rperm(10, 5))
 #>                         
 #> [1,] 1 1 3 1 2 1 1 1 1 1
 #> [2,] 2 1 1 1 1 1 1 2 1 1
@@ -189,8 +189,8 @@ shapepart(rperm(10,5))
 #> [4,] 1 2 2 1 1 1 1 1 1 3
 #> [5,] 2 1 2 1 1 1 1 1 1 2
 
-shape_cyclist(list(1:4,8:9))
+shape_cyclist(list(1:4, 8:9))
 #> [1] 4 2
-shapepart_cyclist(list(1:4,8:9))
+shapepart_cyclist(list(1:4, 8:9))
 #> [1] 1 1 1 1 3 4 5 2 2
 ```
