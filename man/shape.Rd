@@ -12,11 +12,11 @@ Returns the shape of a permutation.  If given a word, it coerces to
 cycle form.
 }
 \usage{
-shape(x, drop = TRUE,id1 = TRUE,decreasing = FALSE)
-shape_cyclist(cyc,id1=TRUE)
-padshape(x, drop = TRUE, n=NULL)
+shape(x, drop = TRUE, id1 = TRUE, decreasing = FALSE)
+shape_cyclist(cyc, id1 = TRUE)
+padshape(x, drop = TRUE, n = NULL)
 shapepart(x)
-shapepart_cyclist(cyc,n=NULL)
+shapepart_cyclist(cyc, n = NULL)
 }
 \arguments{
   \item{x}{Object of class \code{cycle} (if not, coerced)}
@@ -57,28 +57,28 @@ shapepart_cyclist(cyc,n=NULL)
 \seealso{\code{\link{size}},\code{\link{conjugate}}}
 \examples{
 
-jj <- as.cycle(c("123","","(12)(34)","12345"))
+jj <- as.cycle(c("123", "", "(12)(34)", "12345"))
 jj
 shape(jj)
 
-shape(rperm(10,9)) # coerced to cycle
+shape(rperm(10, 9)) # coerced to cycle
 
 a <- rperm()
-identical(shape(a,dec=TRUE),shape(a^cyc_len(2),dec=TRUE))
+identical(shape(a, dec=TRUE), shape(a^cyc_len(2), dec=TRUE))
 
 
 data(megaminx)
 shape(megaminx)
 
 jj <- megaminx*megaminx[1]
-identical(shape(jj),shape(tidy(jj)))  #tidy() does not change shape
+identical(shape(jj), shape(tidy(jj)))  #tidy() does not change shape
 
 
 allperms(3)
 shapepart(allperms(3))
-shapepart(rperm(10,5))
+shapepart(rperm(10, 5))
 
-shape_cyclist(list(1:4,8:9))
-shapepart_cyclist(list(1:4,8:9))
+shape_cyclist(list(1:4, 8:9))
+shapepart_cyclist(list(1:4, 8:9))
 
 }

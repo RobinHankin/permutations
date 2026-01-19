@@ -34,7 +34,7 @@ Robin K. S. Hankin
 \code{\link{tidy}}
 }
 \examples{
-fixed(as.cycle(1:3)+as.cycle(8:9))   # elements 4,5,6,7 are fixed
+fixed(as.cycle(1:3) + as.cycle(8:9))   # elements 4,5,6,7 are fixed
 fixed(id)
 
 
