@@ -12,7 +12,11 @@ Given \(S\), it is clear that the identity permutation stabilizes
   \(S\), and if \(\phi,\psi\) stabilize \(S\), then so do
   \(\phi\psi\) and \(\psi\phi\), and so does
   \(\phi^{-1}\) [\(\phi\) is a bijection from \(S\) to
-  itself]."><meta property="og:description" content="
+  itself].
+Function stabilizes(G,S) returns a Boolean vector V with
+  V[i] being TRUE if G[i] stabilizes S and
+  FALSE otherwise.  Function stabilizer(G,S) returns
+  G[stabilizes(G,S)]."><meta property="og:description" content="
 
 A permutation \(\phi\) is said to stabilize a set \(S\) if
   the image of \(S\) under \(\phi\) is a subset of \(S\), that
@@ -25,7 +29,11 @@ Given \(S\), it is clear that the identity permutation stabilizes
   \(S\), and if \(\phi,\psi\) stabilize \(S\), then so do
   \(\phi\psi\) and \(\psi\phi\), and so does
   \(\phi^{-1}\) [\(\phi\) is a bijection from \(S\) to
-  itself]."></head><body>
+  itself].
+Function stabilizes(G,S) returns a Boolean vector V with
+  V[i] being TRUE if G[i] stabilizes S and
+  FALSE otherwise.  Function stabilizer(G,S) returns
+  G[stabilizes(G,S)]."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -82,6 +90,10 @@ Given \(S\), it is clear that the identity permutation stabilizes
   \(\phi\psi\) and \(\psi\phi\), and so does
   \(\phi^{-1}\) [\(\phi\) is a bijection from \(S\) to
   itself].</p>
+<p>Function <code>stabilizes(G,S)</code> returns a Boolean vector <code>V</code> with
+  <code>V[i]</code> being <code>TRUE</code> if <code>G[i]</code> stabilizes <code>S</code> and
+  <code>FALSE</code> otherwise.  Function <code>stabilizer(G,S)</code> returns
+  <code>G[stabilizes(G,S)]</code>.</p>
     </div>
 
     <div class="section level2">
@@ -103,10 +115,8 @@ Given \(S\), it is clear that the identity permutation stabilizes
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-
-
-<p>A boolean vector [<code>stabilizes()</code>] or a vector of permutations in
-cycle form [<code>stabilizer()</code>]</p>
+    <p>A boolean vector [<code>stabilizes()</code>] or a vector of permutations in
+  cycle form [<code>stabilizer()</code>]</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
@@ -114,7 +124,12 @@ cycle form [<code>stabilizer()</code>]</p>
 
 <p>The identity permutation stabilizes any set.</p>
 <p>Functions <code>stabilizes()</code> and <code>stabilizer()</code> coerce their
-arguments to cycle form.</p>
+  arguments to cycle form.</p>
+<p>Note that if \(\phi\) stabilizes \(S\), then the elements of
+  <code>S</code> may be permuted by \(\phi\); thus some elements of
+  <code>S[i]^stabilizer(G,S)</code> [equivalently,
+  <code>as.function(stabilizer(G,S))(S[i])</code>] may not be equal to
+  <code>S[i]</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -125,10 +140,10 @@ arguments to cycle form.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">200</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">stabilizer</span><span class="op">(</span><span class="va">a</span>,<span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (16725)       (12765)       (12576)       (15276)       (12756)(34)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (16275)       (16752)       (156)(27)(34) (15627)(34)   (176)(34)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] (34)(567)     (257)         (1752)        (156)(34)     (12)(576)    </span>
+<span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu">stabilizer</span><span class="op">(</span><span class="va">a</span>, <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fl">3</span><span class="op">^</span><span class="va">s</span>   <span class="co"># all these in {3,4}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 3 3 3 3 4 3 3 4 4 4 4 3 3 4 3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="allperms.html">all_perms_shape</a></span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">stabilizer</span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>  <span class="co"># some include (23), some don't</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] (16)(23) (16)(45) (14)(23) (14)(56) (15)(23) (15)(46) (23)(56) (23)(46)</span>

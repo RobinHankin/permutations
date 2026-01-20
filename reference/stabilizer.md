@@ -12,6 +12,10 @@ and if \\\phi,\psi\\ stabilize \\S\\, then so do \\\phi\psi\\ and
 \\\psi\phi\\, and so does \\\phi^{-1}\\ \[\\\phi\\ is a bijection from
 \\S\\ to itself\].
 
+Function `stabilizes(G,S)` returns a Boolean vector `V` with `V[i]`
+being `TRUE` if `G[i]` stabilizes `S` and `FALSE` otherwise. Function
+`stabilizer(G,S)` returns `G[stabilizes(G,S)]`.
+
 ## Usage
 
 ``` r
@@ -41,6 +45,11 @@ The identity permutation stabilizes any set.
 Functions `stabilizes()` and `stabilizer()` coerce their arguments to
 cycle form.
 
+Note that if \\\phi\\ stabilizes \\S\\, then the elements of `S` may be
+permuted by \\\phi\\; thus some elements of `S[i]^stabilizer(G,S)`
+\[equivalently, `as.function(stabilizer(G,S))(S[i])`\] may not be equal
+to `S[i]`.
+
 ## Author
 
 Robin K. S. Hankin
@@ -49,10 +58,10 @@ Robin K. S. Hankin
 
 ``` r
 a <- rperm(200)
-stabilizer(a,3:4)
-#>  [1] (16725)       (12765)       (12576)       (15276)       (12756)(34)  
-#>  [6] (16275)       (16752)       (156)(27)(34) (15627)(34)   (176)(34)    
-#> [11] (34)(567)     (257)         (1752)        (156)(34)     (12)(576)    
+s <- stabilizer(a, 3:4)
+
+3^s   # all these in {3,4}
+#>  [1] 3 3 3 3 4 3 3 4 4 4 4 3 3 4 3
 
 all_perms_shape(c(1,1,2,2)) |> stabilizer(2:3)  # some include (23), some don't
 #> [1] (16)(23) (16)(45) (14)(23) (14)(56) (15)(23) (15)(46) (23)(56) (23)(46)
