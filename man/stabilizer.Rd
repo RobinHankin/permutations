@@ -20,6 +20,11 @@
   \eqn{\phi^{-1}}{omitted} [\eqn{\phi} is a bijection from \eqn{S} to
   itself].
 
+  Function \code{stabilizes(G,S)} returns a Boolean vector \code{V} with
+  \code{V[i]} being \code{TRUE} if \code{G[i]} stabilizes \code{S} and
+  \code{FALSE} otherwise.  Function \code{stabilizer(G,S)} returns
+  \code{G[stabilizes(G,S)]}.
+
 }
 \usage{
 stabilizes(a,s)
@@ -31,24 +36,30 @@ stabilizer(a,s)
       1,\ldots,n\right\rbrace}{omitted}, to be stabilized}
 }
 \value{
-
-A boolean vector [\code{stabilizes()}] or a vector of permutations in
-cycle form [\code{stabilizer()}]
-
+  A boolean vector [\code{stabilizes()}] or a vector of permutations in
+  cycle form [\code{stabilizer()}]
 }
 \note{
 
-The identity permutation stabilizes any set.
+  The identity permutation stabilizes any set.
 
-Functions \code{stabilizes()} and \code{stabilizer()} coerce their
-arguments to cycle form.
+  Functions \code{stabilizes()} and \code{stabilizer()} coerce their
+  arguments to cycle form.
+
+  Note that if \eqn{\phi} stabilizes \eqn{S}, then the elements of
+  \code{S} may be permuted by \eqn{\phi}; thus some elements of
+  \code{S[i]^stabilizer(G,S)} [equivalently,
+  \code{as.function(stabilizer(G,S))(S[i])}] may not be equal to
+  \code{S[i]}.
 
 }
 \author{Robin K. S. Hankin}
 \examples{
 
 a <- rperm(200)
-stabilizer(a,3:4)
+s <- stabilizer(a, 3:4)
+
+3^s   # all these in {3,4}
 
 all_perms_shape(c(1,1,2,2)) |> stabilizer(2:3)  # some include (23), some don't
 
