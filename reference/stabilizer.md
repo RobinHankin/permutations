@@ -1,5 +1,36 @@
 # Stabilizer of a permutation
 
+Permutations that leave elements unchanged
+
+## Usage
+
+``` r
+stabilizes(a, s, strict=FALSE)
+stabilizer(a, s, strict=FALSE)
+doesnotmove(a, s)
+```
+
+## Arguments
+
+- a:
+
+  Permutation (coerced to class `cycle`)
+
+- s:
+
+  Subset of \\\left\lbrace 1,\ldots,n\right\rbrace\\, to be stabilized
+
+- strict:
+
+  Boolean, see details
+
+## Value
+
+A boolean vector \[`stabilizes()`\], or a vector of permutations in
+cycle form \[`stabilizer()`\]
+
+## Details
+
 A permutation \\\phi\\ is said to stabilize a set \\S\\ if the image of
 \\S\\ under \\\phi\\ is a subset of \\S\\, that is, if
 \\\left\lbrace\left. \phi(s)\right\|s\in S \right\rbrace\subseteq S\\.
@@ -16,27 +47,14 @@ Function `stabilizes(G,S)` returns a Boolean vector `V` with `V[i]`
 being `TRUE` if `G[i]` stabilizes `S` and `FALSE` otherwise. Function
 `stabilizer(G,S)` returns `G[stabilizes(G,S)]`.
 
-## Usage
+Sometimes we are interested in whether each element of \\S\\ maps to
+itself, that is, \\\forall s\in S, \phi(s)=s\\. This is a stronger
+requirement than stabilization, which allows the elements of \\S\\ to be
+permuted. To check for this, use `strict=TRUE`, which calls
+`doesnotmove()`.
 
-``` r
-stabilizes(a,s)
-stabilizer(a,s)
-```
-
-## Arguments
-
-- a:
-
-  Permutation (coerced to class `cycle`)
-
-- s:
-
-  Subset of \\\left\lbrace 1,\ldots,n\right\rbrace\\, to be stabilized
-
-## Value
-
-A boolean vector \[`stabilizes()`\] or a vector of permutations in cycle
-form \[`stabilizer()`\]
+Function `doesnotmove()` is generic, there are different versions for
+cycle form and word form.
 
 ## Note
 

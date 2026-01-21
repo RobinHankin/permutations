@@ -110,8 +110,8 @@
   [`` `size<-`( ``*`<word>`*`)`](size.md)
   [`` `size<-`( ``*`<cycle>`*`)`](size.md) : Gets or sets the size of a
   permutation
-- [`stabilizes()`](stabilizer.md) [`stabilizer()`](stabilizer.md) :
-  Stabilizer of a permutation
+- [`stabilizes()`](stabilizer.md) [`stabilizer()`](stabilizer.md)
+  [`doesnotmove()`](stabilizer.md) : Stabilizer of a permutation
 - [`tidy()`](tidy.md) [`trim()`](tidy.md) : Utilities to neaten
   permutation objects
 - [`singleword_valid()`](valid.md) [`cyclist_valid()`](valid.md) :
