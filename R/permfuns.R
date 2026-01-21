@@ -992,7 +992,10 @@ setMethod(
 
 
 #' @export
-`stabilizes` <- function(a,s){
+`stabilizes` <- function(a, s, strict=FALSE){
+    if(strict){
+        doesnotmove(a, s)
+    } else {
     unlist(
       lapply(as.cycle(a),
         function(x){
@@ -1001,15 +1004,37 @@ setMethod(
                 length(table(y %in% s)) == 1
             } ) ) )
         } ) )
+    }
 }
+
+#' @export
+`stabilizer` <- function(a, s, strict=FALSE){
+    a <- as.cycle(a)
+    a[stabilizes(a, s, strict=strict)]
+}
+
+#' @export
+doesnotmove <- function(a, s) {
+  UseMethod("doesnotmove", a)
+}
+
 
 
 #' @export
-`stabilizer` <- function(a,s){
-    a <- as.cycle(a)
-    a[stabilizes(a,s)]
+`doesnotmove.cycle` <- function(a, s){
+    unlist(
+        lapply(
+            lapply(
+                unclass(a), c, recursive=TRUE),
+            function(x){all(!(x %in% s))}))
 }
 
+#' @export
+`doesnotmove.word` <- function(a, s){
+    s <- sort(s[s <= size(a)])
+    apply(unclass(a)[, s], 1, function(x){all(x == s)})
+}       
+    
 #' @export
 `keepcyc` <- function(a, func, ...){
     a <- as.cycle(a)

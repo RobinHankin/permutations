@@ -3,8 +3,26 @@
 \alias{stabilizes}
 \alias{stabilized}
 \alias{is.stabilizer}
+\alias{doesnotmove}
 \title{Stabilizer of a permutation}
-\description{
+\description{Permutations that leave elements unchanged}
+\usage{
+stabilizes(a, s, strict=FALSE)
+stabilizer(a, s, strict=FALSE)
+doesnotmove(a, s)
+}
+\arguments{
+  \item{a}{Permutation (coerced to class \code{cycle})}
+  \item{s}{Subset of \eqn{\left\lbrace
+      1,\ldots,n\right\rbrace}{omitted}, to be stabilized}
+  \item{strict}{Boolean, see details}
+}
+\value{
+  A boolean vector [\code{stabilizes()}], or a vector of permutations in
+  cycle form [\code{stabilizer()}]
+}
+
+\details{
 
   A permutation \eqn{\phi} is said to \dfn{stabilize} a set \eqn{S} if
   the image of \eqn{S} under {\eqn{\phi}} is a subset of \eqn{S}, that
@@ -25,20 +43,17 @@
   \code{FALSE} otherwise.  Function \code{stabilizer(G,S)} returns
   \code{G[stabilizes(G,S)]}.
 
+  Sometimes we are interested in whether each element of \eqn{S} maps to
+  itself, that is, \eqn{\forall s\in S, \phi(s)=s}.  This is a stronger
+  requirement than stabilization, which allows the elements of \eqn{S}
+  to be permuted.  To check for this, use \code{strict=TRUE}, which
+  calls \code{doesnotmove()}.
+
+  Function \code{doesnotmove()} is generic, there are different versions
+  for cycle form and word form.
 }
-\usage{
-stabilizes(a,s)
-stabilizer(a,s)
-}
-\arguments{
-  \item{a}{Permutation (coerced to class \code{cycle})}
-  \item{s}{Subset of \eqn{\left\lbrace
-      1,\ldots,n\right\rbrace}{omitted}, to be stabilized}
-}
-\value{
-  A boolean vector [\code{stabilizes()}] or a vector of permutations in
-  cycle form [\code{stabilizer()}]
-}
+
+
 \note{
 
   The identity permutation stabilizes any set.
