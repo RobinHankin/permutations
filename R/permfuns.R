@@ -1018,8 +1018,6 @@ doesnotmove <- function(a, s) {
   UseMethod("doesnotmove", a)
 }
 
-
-
 #' @export
 `doesnotmove.cycle` <- function(a, s){
     unlist(
