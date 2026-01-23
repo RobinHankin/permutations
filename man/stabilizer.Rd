@@ -12,7 +12,7 @@ stabilizer(a, s, strict=FALSE)
 doesnotmove(a, s)
 }
 \arguments{
-  \item{a}{Permutation (coerced to class \code{cycle})}
+  \item{a}{Permutation}
   \item{s}{Subset of \eqn{\left\lbrace
       1,\ldots,n\right\rbrace}{omitted}, to be stabilized}
   \item{strict}{Boolean, see details}
@@ -49,8 +49,8 @@ doesnotmove(a, s)
   to be permuted.  To check for this, use \code{strict=TRUE}, which
   calls \code{doesnotmove()}.
 
-  Function \code{doesnotmove()} is generic, there are different versions
-  for cycle form and word form.
+  Function \code{stabilizes()} coerces its argument to cycle form;
+  \code{doesnotmove()} is generic.
 }
 
 
@@ -78,5 +78,8 @@ s <- stabilizer(a, 3:4)
 
 all_perms_shape(c(1,1,2,2)) |> stabilizer(2:3)  # some include (23), some don't
 
+
+a <- rperm(300, moved=4)
+table(stab=stabilizes(a,1:2), dnm=doesnotmove(a,1:2)) # note zero at top right
 
 }
