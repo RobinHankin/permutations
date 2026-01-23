@@ -56,7 +56,7 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <p></p>
 <dl><dt id="arg-a">a<a class="anchor" aria-label="anchor" href="#arg-a"></a></dt>
-<dd><p>Permutation (coerced to class <code>cycle</code>)</p></dd>
+<dd><p>Permutation</p></dd>
 
   <dt id="arg-s">s<a class="anchor" aria-label="anchor" href="#arg-s"></a></dt>
 <dd><p>Subset of \(\left\lbrace
@@ -96,8 +96,8 @@
   requirement than stabilization, which allows the elements of \(S\)
   to be permuted.  To check for this, use <code>strict=TRUE</code>, which
   calls <code>doesnotmove()</code>.</p>
-<p>Function <code>doesnotmove()</code> is generic, there are different versions
-  for cycle form and word form.</p>
+<p>Function <code>stabilizes()</code> coerces its argument to cycle form;
+  <code>doesnotmove()</code> is generic.</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
@@ -130,6 +130,13 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] (16)(23) (16)(45) (14)(23) (14)(56) (15)(23) (15)(46) (23)(56) (23)(46)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [9] (23)(45)</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">300</span>, moved<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span>stab<span class="op">=</span><span class="fu">stabilizes</span><span class="op">(</span><span class="va">a</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>, dnm<span class="op">=</span><span class="fu">doesnotmove</span><span class="op">(</span><span class="va">a</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># note zero at top right</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        dnm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> stab    FALSE TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   FALSE   209    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   TRUE      7   84</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

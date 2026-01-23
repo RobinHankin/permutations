@@ -14,7 +14,7 @@ doesnotmove(a, s)
 
 - a:
 
-  Permutation (coerced to class `cycle`)
+  Permutation
 
 - s:
 
@@ -53,8 +53,8 @@ requirement than stabilization, which allows the elements of \\S\\ to be
 permuted. To check for this, use `strict=TRUE`, which calls
 `doesnotmove()`.
 
-Function `doesnotmove()` is generic, there are different versions for
-cycle form and word form.
+Function `stabilizes()` coerces its argument to cycle form;
+`doesnotmove()` is generic.
 
 ## Note
 
@@ -85,4 +85,11 @@ all_perms_shape(c(1,1,2,2)) |> stabilizer(2:3)  # some include (23), some don't
 #> [1] (16)(23) (16)(45) (14)(23) (14)(56) (15)(23) (15)(46) (23)(56) (23)(46)
 #> [9] (23)(45)
 
+
+a <- rperm(300, moved=4)
+table(stab=stabilizes(a,1:2), dnm=doesnotmove(a,1:2)) # note zero at top right
+#>        dnm
+#> stab    FALSE TRUE
+#>   FALSE   209    0
+#>   TRUE      7   84
 ```

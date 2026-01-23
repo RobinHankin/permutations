@@ -106,9 +106,10 @@ The print method does not change the internal representation of word or
 cycle objects, it only affects how they are printed.
 
 The print method for cycle objects is sensitive to experimental option
-`print_in_length_order` (via function `as.character_cyclist()`). If
-`TRUE`, permutations will be printed with their cycles in increasing
-length order. Set it with
+`print_in_length_order` (via function `as.character_cyclist()`). Default
+behaviour is to order the cycles in order of their smallest permuted
+element. But sometimes one wants the cycles in order of length, with the
+shortest first. To do this, use:
 
     options("print_in_length_order" = TRUE)
 
