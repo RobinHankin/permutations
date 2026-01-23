@@ -104,8 +104,10 @@ as.character_cyclist(y,comma=TRUE)
 
   The print method for cycle objects is sensitive to experimental option
   \code{print_in_length_order} (via function
-  \code{as.character_cyclist()}).  If \code{TRUE}, permutations will be
-  printed with their cycles in increasing length order.  Set it with
+  \code{as.character_cyclist()}).  Default behaviour is to order the
+  cycles in order of their smallest permuted element.  But sometimes one
+  wants the cycles in order of length, with the shortest first.  To do
+  this, use:
   
   \preformatted{options("print_in_length_order" = TRUE)}
 
