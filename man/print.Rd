@@ -19,7 +19,7 @@ words and bracket notation for cycle objects.
 \usage{
 \method{print}{cycle}(x, give_string=FALSE, ...)
 \method{print}{word}(x, h = getOption("print_word_as_cycle"), ...)
-as.character_cyclist(y,comma=TRUE)
+as.character_cyclist(y, comma=TRUE)
 }
 
 \arguments{

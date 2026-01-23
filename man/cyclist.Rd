@@ -13,15 +13,15 @@
 vec2cyclist_single(p)
 vec2cyclist_single_cpp(p)
 remove_length_one(x)
-cyclist2word_single(cyc,n)
-nicify_cyclist(x,rm1=TRUE, smallest_first=TRUE)
+cyclist2word_single(cyc, n)
+nicify_cyclist(x, rm1=TRUE, smallest_first=TRUE)
 }
 \arguments{
   \item{p}{Integer vector, interpreted as a word}
-  \item{x,cyc}{A cyclist}
+  \item{x, cyc}{A cyclist}
   \item{n}{In function \code{cycle2word_single()}, the size of
     the permutation to induce}
-  \item{rm1,smallest_first}{In function \code{nicify_cyclist()},
+  \item{rm1, smallest_first}{In function \code{nicify_cyclist()},
     Boolean, governing whether or not to remove length-1 cycles, and
     whether or not to place the smallest element in each cycle first
     (non-default values are used by \code{standard_cyclist()})}
@@ -112,15 +112,15 @@ vec2cyclist_single(c(7,9,3,5,8,6,1,4,2))
 char2cyclist_single("(342)(19)")
 
 nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)))
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),rm1=TRUE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), rm1=TRUE)
 
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1=FALSE)
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1=TRUE )
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1=FALSE)
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1=TRUE )
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=FALSE, rm1=FALSE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=FALSE, rm1=TRUE )
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=TRUE , rm1=FALSE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=TRUE , rm1=TRUE )
  
 
-cyclist2word_single(list(c(1,4,3),c(7,8)))
+cyclist2word_single(list(c(1,4,3), c(7,8)))
 
 
 }
