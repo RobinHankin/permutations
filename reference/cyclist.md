@@ -8,8 +8,8 @@ Various functionality to deal with cyclists
 vec2cyclist_single(p)
 vec2cyclist_single_cpp(p)
 remove_length_one(x)
-cyclist2word_single(cyc,n)
-nicify_cyclist(x,rm1=TRUE, smallest_first=TRUE)
+cyclist2word_single(cyc, n)
+nicify_cyclist(x, rm1=TRUE, smallest_first=TRUE)
 ```
 
 ## Arguments
@@ -18,7 +18,7 @@ nicify_cyclist(x,rm1=TRUE, smallest_first=TRUE)
 
   Integer vector, interpreted as a word
 
-- x,cyc:
+- x, cyc:
 
   A cyclist
 
@@ -27,7 +27,7 @@ nicify_cyclist(x,rm1=TRUE, smallest_first=TRUE)
   In function `cycle2word_single()`, the size of the permutation to
   induce
 
-- rm1,smallest_first:
+- rm1, smallest_first:
 
   In function `nicify_cyclist()`, Boolean, governing whether or not to
   remove length-1 cycles, and whether or not to place the smallest
@@ -145,7 +145,7 @@ nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)))
 #> [[3]]
 #> [1] 4 6
 #> 
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),rm1=TRUE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), rm1=TRUE)
 #> [[1]]
 #> [1] 1 2 5
 #> 
@@ -156,7 +156,7 @@ nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),rm1=TRUE)
 #> [1] 4 6
 #> 
 
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1=FALSE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=FALSE, rm1=FALSE)
 #> [[1]]
 #> [1] 5 1 2
 #> 
@@ -169,7 +169,7 @@ nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1
 #> [[4]]
 #> [1] 8 3
 #> 
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1=TRUE )
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=FALSE, rm1=TRUE )
 #> [[1]]
 #> [1] 5 1 2
 #> 
@@ -179,7 +179,7 @@ nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=FALSE,rm1
 #> [[3]]
 #> [1] 8 3
 #> 
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1=FALSE)
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=TRUE , rm1=FALSE)
 #> [[1]]
 #> [1] 1 2 5
 #> 
@@ -192,7 +192,7 @@ nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1
 #> [[4]]
 #> [1] 7
 #> 
-nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1=TRUE )
+nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)), smallest_first=TRUE , rm1=TRUE )
 #> [[1]]
 #> [1] 1 2 5
 #> 
@@ -204,7 +204,7 @@ nicify_cyclist(list(c(4, 6), c(7), c(2, 5, 1), c(8, 3)),smallest_first=TRUE ,rm1
 #> 
  
 
-cyclist2word_single(list(c(1,4,3),c(7,8)))
+cyclist2word_single(list(c(1,4,3), c(7,8)))
 #> [1] 4 2 1 3 5 6 8 7
 
 ```

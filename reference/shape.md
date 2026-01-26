@@ -56,6 +56,13 @@ the permutation as a set partition of disjoint cycles.
 Function `padshape()` returns a list of shapes but padded with ones so
 the total is the size of the permutation.
 
+A quick-and-dirty hack to show the shape of a permutation is to set
+option `perm_set` to “`.`”:
+
+    options("perm_set" = ".")
+
+\[length-one permutation sets are recycled as necessary\].
+
 `shapepart_cyclist()` and `shapepart_cyclist()` are low-level helper
 functions.
 

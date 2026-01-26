@@ -10,7 +10,7 @@ words and bracket notation for cycle objects.
 print(x, give_string=FALSE, ...)
 # S3 method for class 'word'
 print(x, h = getOption("print_word_as_cycle"), ...)
-as.character_cyclist(y,comma=TRUE)
+as.character_cyclist(y, comma=TRUE)
 ```
 
 ## Arguments

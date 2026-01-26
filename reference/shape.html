@@ -95,6 +95,11 @@ cycle form.</p>
   disjoint cycles.</p>
 <p>Function <code>padshape()</code> returns a list of shapes but padded with
   ones so the total is the size of the permutation.</p>
+<p>A quick-and-dirty hack to show the shape of a permutation is to set
+  option <code>perm_set</code> to “<code>.</code>”:</p>
+<p></p><div class="sourceCode"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"perm_set"</span> <span class="op">=</span> <span class="st">"."</span><span class="op">)</span></span></code></pre></div>
+
+<p>[length-one permutation sets are recycled as necessary].</p>
 <p><code>shapepart_cyclist()</code> and <code>shapepart_cyclist()</code> are low-level
   helper functions.</p>
     </div>
