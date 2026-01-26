@@ -45,8 +45,16 @@ shapepart_cyclist(cyc, n = NULL)
   Function \code{padshape()} returns a list of shapes but padded with
   ones so the total is the size of the permutation.
 
- \code{shapepart_cyclist()} and \code{shapepart_cyclist()} are low-level
+  A quick-and-dirty hack to show the shape of a permutation is to set
+  option \code{perm_set} to \dQuote{\code{.}}:
+
+  \preformatted{options("perm_set" = ".")}
+
+  [length-one permutation sets are recycled as necessary].
+
+  \code{shapepart_cyclist()} and \code{shapepart_cyclist()} are low-level
   helper functions.
+
 }
 \author{Robin K. S. Hankin}
 \note{
