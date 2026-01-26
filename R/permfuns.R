@@ -364,7 +364,7 @@ as.character_cyclist <- function(y, comma = TRUE) {
     return("()")
   }
   ps <- getOption("perm_set")
-  if(length(ps) == 1){ps <- rep(ps, size(y))}
+  if(length(ps) == 1){ps <- rep(ps, max(c(y, recursive=TRUE)))}
   if (!is.null(ps)) {
     y <- lapply(y, function(x) {
       ps[x]
