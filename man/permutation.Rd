@@ -32,7 +32,6 @@ as.cycle(x)
 cycle2word(x, n=NULL)
 char2cycle(char)
 cyc_len(n)
-shift_cycle(n)
 \method{as.matrix}{word}(x, ...)
 }
 \arguments{
@@ -76,8 +75,8 @@ vectors corresponding to the cycles of the permutation.
 
 Function \code{cycle2word()} converts cycle objects to word objects.
 
-Function \code{shift_cycle()} is a convenience wrapper for
-\code{as.cycle(seq_len(n))}; \code{cyc_len()} is a synonym.
+Function \code{cyc_len()} creates cycles of the form
+\eqn{(1,2,\ldots,n)}{(1,2,...,n)}.  It is vectorised.
 
 It is a very common error (at least, it is for me) to use \code{cycle()}
 when you meant \code{as.cycle()}.
@@ -95,7 +94,6 @@ size of the word, only increase it.  If you want to reduce the size, use
 \code{trim()} or \code{tidy()}.  This function does not call
 \code{word()} except directly (e.g. it does not call
 \code{size<-.word()}, as this would give a recursion).
-
 
 }
 \value{Returns a \code{cycle} object or a \code{word object}}
@@ -122,7 +120,7 @@ x <- rperm(10, 7)
 y <- rperm(10, 7)
 as.cycle(commutator(x, y))
 
+cyc_len(7) * cyc_len(8)
 cyc_len(1:9)
-
 }
 \keyword{symbmath}

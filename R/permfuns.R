@@ -257,7 +257,6 @@ as.cycle <- function(x) {
     list(list(seq_len(n)))
   }))
 }
-shift_cycle <- cyc_len
 
 #' @export
 char2cyclist_single <- function(x) {
