@@ -1,0 +1,35 @@
+---
+title: "Some cool observations"
+author: "Robin K. S. Hankin"
+output: html_vignette
+bibliography: permutations.bib
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{observations}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(rmarkdown.html_vignette.check_title = FALSE)
+library("permutations")
+set.seed(1)
+```
+
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
+
+To cite the `permutations` package in publications, please use
+@hankin2020.
+
+This file contains cool observations and other interesting bits and
+pieces that should go somewhere.
+
+```{r}
+permprod(cyc_len(3) + 0:6) == cyc_len(9)^7
+is.id(permprod(cyc_len(2) + 0:6) * cyc_len(8))
+```
+
+
+## References {-}
