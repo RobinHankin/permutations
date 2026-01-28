@@ -176,7 +176,7 @@ extended discussion.
   [`is.word()`](permutation.md) [`is.cycle()`](permutation.md)
   [`as.word()`](permutation.md) [`as.cycle()`](permutation.md)
   [`cycle2word()`](permutation.md) [`char2cycle()`](permutation.md)
-  [`cyc_len()`](permutation.md) [`shift_cycle()`](permutation.md)
+  [`cyc_len()`](permutation.md)
   [`as.matrix(`*`<word>`*`)`](permutation.md) : Functions to create and
   coerce word objects and cycle objects
 - [`permutations-package`](permutations-package.md)

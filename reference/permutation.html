@@ -56,14 +56,13 @@ virtual class.</p>
 <span><span class="fu">cycle</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="fu">is.word</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="fu">is.cycle</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span><span class="fu">as.word</span><span class="op">(</span><span class="va">x</span>,n<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">as.word</span><span class="op">(</span><span class="va">x</span>, n<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="fu">as.cycle</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span><span class="fu">cycle2word</span><span class="op">(</span><span class="va">x</span>,n<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">cycle2word</span><span class="op">(</span><span class="va">x</span>, n<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="fu">char2cycle</span><span class="op">(</span><span class="va">char</span><span class="op">)</span></span>
 <span><span class="fu">cyc_len</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span>
-<span><span class="fu">shift_cycle</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span>
 <span><span class="co"># S3 method for class 'word'</span></span>
-<span><span class="fu">as.matrix</span><span class="op">(</span><span class="va">x</span>,<span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">as.matrix</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -113,9 +112,9 @@ format.</p>
 cycle form.  A <code>cycle</code> object comprises elements which are
 informally dubbed ‘cyclists’.  A cyclist is a list of integer
 vectors corresponding to the cycles of the permutation.</p>
-<p>Function  <code>cycle2word()</code> converts cycle objects to word objects.</p>
-<p>Function <code>shift_cycle()</code> is a convenience wrapper for
-<code>as.cycle(seq_len(n))</code>; <code>cyc_len()</code> is a synonym.</p>
+<p>Function <code>cycle2word()</code> converts cycle objects to word objects.</p>
+<p>Function <code>cyc_len()</code> creates cycles of the form
+\((1,2,\ldots,n)\).  It is vectorised.</p>
 <p>It is a very common error (at least, it is for me) to use <code>cycle()</code>
 when you meant <code>as.cycle()</code>.</p>
 <p>The print method is sensitive to the value of option
@@ -129,8 +128,6 @@ size of the word, only increase it.  If you want to reduce the size, use
 <code><a href="tidy.html">trim()</a></code> or <code><a href="tidy.html">tidy()</a></code>.  This function does not call
 <code>word()</code> except directly (e.g. it does not call
 <code>size&lt;-.word()</code>, as this would give a recursion).</p>
-
-
     </div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -148,12 +145,12 @@ size of the word, only increase it.  If you want to reduce the size, use
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">word</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span>,<span class="fl">7</span>,<span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="co"># default print method coerces to cycle form</span></span></span>
+<span class="r-in"><span><span class="fu">word</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="co"># default print method coerces to cycle form</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] (28)(37)(46)     (12)(38)(47)(56) (13)(48)(57)     (14)(23)(58)(67)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5] (15)(24)(68)     (16)(25)(34)(78) (17)(26)(35)    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">cycle</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">8</span>,<span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">cycle</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">8</span>,<span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] (182)(36)   (12)(45678)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">char2cycle</span><span class="op">(</span><span class="fu"><a href="c.html">c</a></span><span class="op">(</span><span class="st">"(1,4)(6,7)"</span>,<span class="st">"(3,4,2)(8,19)"</span>, <span class="st">"(56)"</span>,<span class="st">"(12345)(78)"</span>,<span class="st">"(78)"</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -171,17 +168,18 @@ size of the word, only increase it.  If you want to reduce the size, use
 <span class="r-in"><span><span class="fu">as.cycle</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="fu">as.cycle</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span> <span class="op">==</span> <span class="fu">as.cycle</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="fu">as.cycle</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>  <span class="co"># FALSE!</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">7</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">7</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">as.cycle</span><span class="op">(</span><span class="fu"><a href="https://robinhankin.github.io/permutations/reference/commutator.html" class="external-link">commutator</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">7</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">7</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">as.cycle</span><span class="op">(</span><span class="fu"><a href="https://robinhankin.github.io/permutations/reference/commutator.html" class="external-link">commutator</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (13)(264)(57) (16374)       (13)(257)(46) (15672)       (134)(257)   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (1475263)     (1764)(35)    (1673245)     (12754)       (15472)      </span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">cyc_len</span><span class="op">(</span><span class="fl">7</span><span class="op">)</span> <span class="op">*</span> <span class="fu">cyc_len</span><span class="op">(</span><span class="fl">8</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] (13572468)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span><span class="fu">cyc_len</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] ()          (12)        (123)       (1234)      (12345)     (123456)   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [7] (1234567)   (12345678)  (123456789)</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

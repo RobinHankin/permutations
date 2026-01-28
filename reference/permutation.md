@@ -12,14 +12,13 @@ is.permutation(x)
 cycle(x)
 is.word(x)
 is.cycle(x)
-as.word(x,n=NULL)
+as.word(x, n=NULL)
 as.cycle(x)
-cycle2word(x,n=NULL)
+cycle2word(x, n=NULL)
 char2cycle(char)
 cyc_len(n)
-shift_cycle(n)
 # S3 method for class 'word'
-as.matrix(x,...)
+as.matrix(x, ...)
 ```
 
 ## Arguments
@@ -76,8 +75,8 @@ cycles of the permutation.
 
 Function `cycle2word()` converts cycle objects to word objects.
 
-Function `shift_cycle()` is a convenience wrapper for
-`as.cycle(seq_len(n))`; `cyc_len()` is a synonym.
+Function `cyc_len()` creates cycles of the form \\(1,2,\ldots,n)\\. It
+is vectorised.
 
 It is a very common error (at least, it is for me) to use `cycle()` when
 you meant `as.cycle()`.
@@ -112,12 +111,12 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
-word(matrix(1:8,7,8)) # default print method coerces to cycle form
+word(matrix(1:8, 7, 8)) # default print method coerces to cycle form
 #> [1] (28)(37)(46)     (12)(38)(47)(56) (13)(48)(57)     (14)(23)(58)(67)
 #> [5] (15)(24)(68)     (16)(25)(34)(78) (17)(26)(35)    
 #> [coerced from word form]
 
-cycle(list(list(c(1,8,2),c(3,6)),list(1:2, 4:8)))
+cycle(list(list(c(1,8,2), c(3,6)), list(1:2, 4:8)))
 #> [1] (182)(36)   (12)(45678)
 
 char2cycle(c("(1,4)(6,7)","(3,4,2)(8,19)", "(56)","(12345)(78)","(78)"))
@@ -135,14 +134,16 @@ as.cycle(jj)
 as.cycle(1:2)*as.cycle(1:8) == as.cycle(1:8)*as.cycle(1:2)  # FALSE!
 #> [1] FALSE
 
-x <- rperm(10,7)
-y <- rperm(10,7)
-as.cycle(commutator(x,y))
+x <- rperm(10, 7)
+y <- rperm(10, 7)
+as.cycle(commutator(x, y))
 #>  [1] (13)(264)(57) (16374)       (13)(257)(46) (15672)       (134)(257)   
 #>  [6] (1475263)     (1764)(35)    (1673245)     (12754)       (15472)      
 
+cyc_len(7) * cyc_len(8)
+#> [1] (13572468)
+#> [coerced from word form]
 cyc_len(1:9)
 #> [1] ()          (12)        (123)       (1234)      (12345)     (123456)   
 #> [7] (1234567)   (12345678)  (123456789)
-
 ```
