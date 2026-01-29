@@ -96,35 +96,35 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (1325)(67)    (1657234)     (1753264)     (1763254)     (137)(25)(46)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (1536274)     (375)         (14)(257)     (24756)       (1647325)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (165374)    (1256347)   (1467)(35)  (12)(57)    (254)(367)  (172456)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (17436)     (1472)(365) (126)(3547) (17)(465)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span><span class="fu">capply</span><span class="op">(</span><span class="va">x</span>,<span class="va">range</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (15)(67)     (17)         (17)         (17)         (17)(25)(46)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (17)         (37)         (14)(27)     (27)         (17)        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (17)     (17)     (17)(35) (12)(57) (25)(37) (17)     (17)     (17)(36)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (16)(37) (17)(46)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">capply</span><span class="op">(</span><span class="va">x</span>,<span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span><span class="va">x</span><span class="op">+</span><span class="fl">100</span><span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (101,103,102,105)(106,107)      (101,106,105,107,102,103,104)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] (101,107,105,103,102,106,104)   (101,107,106,103,102,105,104)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (101,103,107)(102,105)(104,106) (101,105,103,106,102,107,104)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (103,107,105)                   (101,104)(102,105,107)         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (102,104,107,105,106)           (101,106,104,107,103,102,105)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (101,106,105,103,107,104)      (101,102,105,106,103,104,107) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] (101,104,106,107)(103,105)     (101,102)(105,107)            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (102,105,104)(103,106,107)     (101,107,102,104,105,106)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (101,107,104,103,106)          (101,104,107,102)(103,106,105)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (101,102,106)(103,105,104,107) (101,107)(104,106,105)        </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">capply</span><span class="op">(</span><span class="va">x</span>,<span class="va">rev</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (1523)(67)    (1432756)     (1462357)     (1452367)     (173)(25)(46)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (1472635)     (357)         (14)(275)     (26574)       (1523746)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (147356)    (1743652)   (1764)(35)  (12)(57)    (245)(376)  (165427)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (16347)     (1274)(356) (162)(3745) (17)(456)  </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="id.html">is.id</a></span><span class="op">(</span><span class="fu">capply</span><span class="op">(</span><span class="va">x</span>,<span class="va">rev</span><span class="op">)</span><span class="op">*</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>  <span class="co"># should be TRUE</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">capply</span><span class="op">(</span><span class="fu"><a href="rperm.html">rcyc</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span>,<span class="fl">9</span><span class="op">)</span>,<span class="va">sort</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (13479) (12468) (12346) (12389) (12367) (12346) (12456) (23579) (23459)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (12678) (13467) (13468) (35679) (24689) (13678) (12369) (35789) (12389)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (12578) (23679)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (13469) (12679) (45789) (35789) (12389) (12578) (23679) (12347) (35789)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (14589) (13569) (15679) (12457) (15789) (34589) (34678) (26789) (12368)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (12359) (34679)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">capply</span><span class="op">(</span><span class="fu"><a href="rperm.html">rcyc</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">5</span>,<span class="fl">9</span><span class="op">)</span>,<span class="va">sample</span><span class="op">)</span>  <span class="co"># still 5-cycles</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (17234) (38957) (18459) (15936) (16579) (15724) (17895) (39854) (36784)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (26897) (13862) (13259) (39746) (23946) (39586) (19745) (28594) (17938)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (35678) (25894)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (24396) (38965) (17459) (29584) (17938) (36857) (28495) (39657) (36948)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (27693) (19647) (39764) (24657) (15837) (47658) (29678) (23856) (14532)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] (19236) (12674)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">capply</span><span class="op">(</span><span class="fu"><a href="permutation.html">cyc_len</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span>,\<span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="va">x</span><span class="op">[</span><span class="va">x</span><span class="op">&gt;</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span></span>

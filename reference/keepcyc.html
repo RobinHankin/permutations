@@ -96,8 +96,8 @@ Given a permutation and a function that returns a Boolean specifying
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">keepcyc</span><span class="op">(</span><span class="fu"><a href="rperm.html">rgivenshape</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span>,<span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2</span><span class="op">}</span><span class="op">)</span>  <span class="co"># retains just transpositions</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (9,29)  (14,35) (4,23)  (3,23)  (4,20)  (8,15)  (12,13) (1,33)  (11,18)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (7,28) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (8,19)  (5,19)  (19,22) (32,34) (9,12)  (11,35) (24,28) (14,18) (3,22) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] (30,33)</span>
 <span class="r-in"><span><span class="fu">keepcyc</span><span class="op">(</span><span class="va">megaminx</span>,<span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/any.html" class="external-link">any</a></span><span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">100</span><span class="op">)</span><span class="op">}</span><span class="op">)</span>              <span class="co"># retains just cycles modifying facet #100</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 White                Purple            DarkYellow </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    ()                    ()                    () </span>
@@ -108,38 +108,38 @@ Given a permutation and a function that returns a Boolean specifying
 <span class="r-out co"><span class="r-pr">#&gt;</span>           LightYellow                  Pink                  Grey </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (100,102,104,106,108)                    ()    (74,86,98,100,112) </span>
 <span class="r-in"><span><span class="fu">keepcyc</span><span class="op">(</span><span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>,<span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">3</span><span class="op">}</span><span class="op">)</span>        <span class="co"># retains just cycles with range&lt;3</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] (12)          ()            ()            ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [6] ()            ()            ()            (243)(56)     ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [11] (23)          ()            (45)          ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] ()            ()            (46)          ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [21] ()            ()            (567)         ()            (123)        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [26] ()            ()            ()            ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] ()            ()            ()            ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] (57)          ()            ()            ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [41] (57)          ()            (46)          ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] (13)          ()            ()            (56)          ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [51] (35)          (35)          ()            ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [56] ()            (35)          (34)          (123)(46)(57) (67)         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] ()            ()            (46)          ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [66] (45)          ()            ()            ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] ()            ()            ()            ()            (56)         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] (12)(34)(567) ()            ()            ()            (24)         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [81] ()            ()            ()            (35)          ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [86] (13)          (57)          (24)(57)      (34)          (24)         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] (23)          ()            ()            ()            ()           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [96] ()            ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] (123)         ()            ()            ()            (123)        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [6] ()            ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [11] ()            ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] (57)          ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [21] (57)          ()            (46)          ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [26] (13)          ()            ()            (56)          ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] (35)          (35)          ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] ()            (35)          (34)          (123)(46)(57) (67)         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [41] ()            ()            (46)          ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] (45)          ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [51] ()            ()            ()            ()            (56)         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [56] (12)(34)(567) ()            ()            ()            (24)         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] ()            ()            ()            (35)          ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [66] (13)          (57)          (24)(57)      (34)          (24)         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] (23)          ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] ()            ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [81] ()            ()            ()            (456)         ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [86] ()            (56)          ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] ()            ()            ()            ()            ()           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [96] ()            (34)          (13)(24)(576) ()            ()           </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">p</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">x</span><span class="op">&lt;</span><span class="va">p</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">x</span><span class="op">&gt;</span><span class="va">p</span><span class="op">)</span><span class="op">}</span>                  <span class="co"># keep only cycles with all entries either</span></span></span>
 <span class="r-in"><span><span class="fu">keepcyc</span><span class="op">(</span><span class="fu"><a href="rperm.html">rgivenshape</a></span><span class="op">(</span><span class="fl">9</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span>,<span class="va">f</span>,p<span class="op">=</span><span class="fl">20</span><span class="op">)</span>                 <span class="co">#  all &lt; 20 or all &gt;20</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] (1,7)(9,17)(22,34)(27,36)(33,38,44)(35,41)                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] (6,10)(22,34,32)(28,31)(33,39)                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] (7,17)(14,19)(21,22,26)(23,42)(24,37)(30,43)(31,41)           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] (1,8)(2,10)(11,12)(13,16,14)(21,34,35)(24,26)(27,42)(28,45,31)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5] (24,45)(27,34)                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6] (3,4)(7,18,16)(28,36,45)(29,31)(30,34)(32,38)                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [7] (1,19,17)(4,9,8)(21,44)(22,25,37)(26,43,30)(28,29)(34,42)     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [8] (1,13)(2,7)(21,37)(22,33)(23,36)(24,26,29)(25,41,35)          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [9] (3,12)(7,15)(10,17,18)(21,40)(22,35)(31,41)                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] (7,19)(14,17)(21,29,42)(22,34)(25,33)(26,38,36)(35,45)(37,39,44)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2] (6,16)(9,15,19)(21,41,40)(24,35)(26,42,36)(27,29)(30,34)        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3] (15,17,18)(24,31)(25,30,41)(26,44)(32,35)(36,45)                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] (2,16)(26,42)(39,41)                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] (3,15)(17,18)(29,39)(31,36,35)(38,44)(40,41)                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] (3,6,5)(4,8)(16,18)(23,33)(24,43,42)(27,32,36)(34,35)(38,45)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [7] (1,5)(12,13)(21,28)(23,45)(26,27)(35,44,36)                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [8] (3,19)(7,13,12)(22,40)(26,43)(27,44,35)(28,45,39)               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [9] (9,14)(35,42)(36,38)                                            </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

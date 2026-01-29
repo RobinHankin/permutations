@@ -45,9 +45,9 @@ Uses `mLCM()` from the `numbers` package.
 ``` r
 x <- rperm(5,20)
 permorder(x)
-#> [1] 34 30 70 78 12
+#> [1] 19 34 63 16 18
 permorder(x,FALSE)
-#> [1] 92820
+#> [1] 325584
 
 stopifnot(all(is.id(x^permorder(x))))
 stopifnot(is.id(x^permorder(x,FALSE)))

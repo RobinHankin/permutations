@@ -79,7 +79,7 @@ a <- rperm(200)
 s <- stabilizer(a, 3:4)
 
 3^s   # all these in {3,4}
-#>  [1] 3 3 3 3 4 3 3 4 4 4 4 3 3 4 3
+#>  [1] 3 3 3 4 3 3 4 4 4 4 3 3 4 3
 
 all_perms_shape(c(1,1,2,2)) |> stabilizer(2:3)  # some include (23), some don't
 #> [1] (16)(23) (16)(45) (14)(23) (14)(56) (15)(23) (15)(46) (23)(56) (23)(46)
@@ -90,6 +90,6 @@ a <- rperm(300, moved=4)
 table(stab=stabilizes(a,1:2), dnm=doesnotmove(a,1:2)) # note zero at top right
 #>        dnm
 #> stab    FALSE TRUE
-#>   FALSE   209    0
-#>   TRUE      7   84
+#>   FALSE   208    0
+#>   TRUE      7   85
 ```
