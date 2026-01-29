@@ -183,8 +183,12 @@ x*inverse(x) == id  # all TRUE
 # the 'sum' of two permutations is defined if their cycles are disjoint:
 as.cycle(1:4) + as.cycle(7:9)
 
+# but beware of associativity issues:
+cyc_len(4) + (5 + cyc_len(3)) == (cyc_len(4) + 5) + cyc_len(3)  # FALSE
+
+
 data(megaminx)
-megaminx[1] + megaminx[7:12]
+megaminx[1] + megaminx[7:12]   # [1] commutes with each of [7],[8],...,[12]
 
 rperm() + 100
 
