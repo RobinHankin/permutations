@@ -19,7 +19,13 @@ inst/permutations_active_to_passive.svg$
 inst/guide.R$
 inst/permutations_icon.png
 inst/edge_facets.txt$
-inst/superflip.Rmd$
+inst/cool_observations.Rmd$
+inst/dodecahedron.Rmd$
+inst/dot.Rmd$
+inst/given_shape.Rmd$
+inst/outer_automorphisms_of_S6.Rmd$
+inst/why_cycle_and_word.Rmd$
+superflip.Rmd
 inst/inversion.svg$
 inst/net_coords.txt$
 inst/read.me$
