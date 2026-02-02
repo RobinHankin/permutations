@@ -20,6 +20,9 @@ set.seed(1)
 knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
 ```
 
+<font size="1"> (takes about an hour to run without cache; this is due to
+chunk `checkphiisomorphism`.</font>
+
 To cite the `permutations` package in publications, please use
 @hankin2020.  
 
@@ -180,7 +183,7 @@ To verify that $\phi$ is an isomorphism we need to check that it is
 each element with each other element.  This takes about an hour to
 run, too long for a package vignette.
 
-```{r checkphiisomorphism, eval=TRUE}
+```{r checkphiisomorphism, eval=TRUE, cache=TRUE}
 n <- 720
 M <- matrix(0,n,n)
 x <- allperms(6)
