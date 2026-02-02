@@ -17,8 +17,8 @@ library("permutations")
 ```
 
 This short document introduces the dot object and shows how it can be
-used to work with commutators and verify the Hall-Wittidentity.  The dot
-object is a (trivial) `S4` object of class `dot`, 
+used to work with commutators and verify the Hall-Witt identity.  The
+dot object is a (trivial) `S4` object of class `dot`,
 
 ```{r,label=definethedotandsaveit}
 `.` <- new("dot")
@@ -43,6 +43,16 @@ AFAICS.
 It is possible to apply the dot construction `.[x,y]` to more
 complicated examples.  Note that the Jacobi identity does not really
 make sense in this context, but the Hall-Witt identity does:
+
+\begin{equation}
+\left[\left[x,y\right],z^x\right]\cdot
+\left[\left[z,x\right],y^z\right]\cdot
+\left[\left[y,z\right],x^y\right] = \mathrm{id}
+\end{equation}
+
+Above, $x^y=y^{-1}xy$ is the power notation for group conjugation; an
+extended discussion is given at `?Ops`.
+
 
 ```{r,label=hallwittidentity}
 
