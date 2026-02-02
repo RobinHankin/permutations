@@ -100,8 +100,8 @@ extended discussion.
   [`permprod()`](Ops.permutation.md) [`vps()`](Ops.permutation.md)
   [`ccps()`](Ops.permutation.md) [`helper()`](Ops.permutation.md)
   [`cycle_plus_integer_elementwise()`](Ops.permutation.md)
-  [`conjugation()`](Ops.permutation.md) : Arithmetic Ops Group Methods
-  for permutations
+  [`conjugation()`](Ops.permutation.md) [`sum1()`](Ops.permutation.md) :
+  Arithmetic Ops Group Methods for permutations
 - [`allperms()`](allperms.md) [`allcycn()`](allperms.md)
   [`allcyc()`](allperms.md) [`allpermslike()`](allperms.md)
   [`some_perms_shape()`](allperms.md)

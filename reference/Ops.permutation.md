@@ -21,6 +21,7 @@ ccps(n,pow)
 helper(e1,e2)
 cycle_plus_integer_elementwise(x,y)
 conjugation(e1,e2)
+sum1(x)
 ```
 
 ## Arguments
@@ -94,7 +95,11 @@ for any \\n\in\mathbb{Z}\\. Using “`+`” in this way is useful if you
 want to guarantee that two permutations commute (NB: permutation `a`
 commutes with `a^i` for `i` any integer, and in particular `a` commutes
 with itself. But `a+a` returns an error: the operation checks for
-disjointness, not commutativity).
+disjointness, not commutativity). Methods for
+[`sum()`](https://rdrr.io/r/base/sum.html) are defined so that
+`sum(x,y,...)` returns the sum of its arguments. Function `sum1()` is a
+lower-level helper function that takes a single vector argument, coerces
+to cycle form, and returns the sum of its elements (if defined).
 
 Permutation “division”, as in `a/b`, is `a*inverse(b)`. Note that
 `a/b*c` is evaluated left to right so is equivalent to `a*inverse(b)*c`.
@@ -201,9 +206,17 @@ x*inverse(x) == id  # all TRUE
 # the 'sum' of two permutations is defined if their cycles are disjoint:
 as.cycle(1:4) + as.cycle(7:9)
 #> [1] (1234)(789)
+sum(cyc_len(2) + 2*(0:10))
+#> [1] (1,2)(3,4)(5,6)(7,8)(9,10)(11,12)(13,14)(15,16)(17,18)(19,20)(21,22)
+
+
+# but beware of associativity issues:
+cyc_len(4) + (5 + cyc_len(3)) == (cyc_len(4) + 5) + cyc_len(3)  # FALSE
+#> [1] FALSE
+
 
 data(megaminx)
-megaminx[1] + megaminx[7:12]
+megaminx[1] + megaminx[7:12]   # [1] commutes with each of [7],[8],...,[12]
 #>                                                                                                                                                                       LightGreen 
 #>           (10,12,14,16,18)(11,13,15,17,19)(21,33,45,57,69)(22,34,46,58,60)(23,35,47,59,61)(30,88,120,110,40)(31,89,121,111,41)(39,87,129,119,49)(70,72,74,76,78)(71,73,75,77,79) 
 #>                                                                                                                                                                           Orange 
