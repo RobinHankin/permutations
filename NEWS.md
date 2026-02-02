@@ -1,3 +1,8 @@
+# permutations 1.1-9
+
+- experimental sum()
+
+
 # permutations 1.1-8
 
 - improvements to order_of_ops vignette

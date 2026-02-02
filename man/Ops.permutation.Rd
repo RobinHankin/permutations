@@ -10,11 +10,13 @@
 \alias{cycle_sum_single}
 \alias{cycle_power}
 \alias{cycle_power_single}
+\alias{sum_permutation_single}
 \alias{vps}
 \alias{ccps}
 \alias{helper}
 \alias{cycle_plus_integer_elementwise}
 \alias{conjugation}
+\alias{sum1}
 \title{Arithmetic Ops Group Methods for permutations}
 \description{
   Allows arithmetic operators to be used for manipulation of permutation objects
@@ -35,6 +37,7 @@ ccps(n,pow)
 helper(e1,e2)
 cycle_plus_integer_elementwise(x,y)
 conjugation(e1,e2)
+sum1(x)
 }
 \arguments{
   \item{x,e1,e2}{Objects of class \dQuote{\code{permutation}}}
@@ -98,7 +101,11 @@ conjugation(e1,e2)
   commute (NB: permutation \code{a} commutes with \code{a^i} for
   \code{i} any integer, and in particular \code{a} commutes with itself.
   But \code{a+a} returns an error: the operation checks for
-  disjointness, not commutativity).
+  disjointness, not commutativity).  Methods for \code{sum()} are
+  defined so that \code{sum(x,y,...)} returns the sum of its arguments.
+  Function \code{sum1()} is a lower-level helper function that takes a
+  single vector argument, coerces to cycle form, and returns the sum of
+  its elements (if defined).
 
   Permutation \dQuote{division}, as in \code{a/b}, is
   \code{a*inverse(b)}.  Note that \code{a/b*c} is evaluated left to
@@ -182,6 +189,8 @@ x*inverse(x) == id  # all TRUE
 
 # the 'sum' of two permutations is defined if their cycles are disjoint:
 as.cycle(1:4) + as.cycle(7:9)
+sum(cyc_len(2) + 2*(0:10))
+
 
 # but beware of associativity issues:
 cyc_len(4) + (5 + cyc_len(3)) == (cyc_len(4) + 5) + cyc_len(3)  # FALSE

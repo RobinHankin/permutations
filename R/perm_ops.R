@@ -260,3 +260,20 @@ cycle_plus_integer_elementwise <- function(x, y) {
   }
   return(out)
 }
+
+#' @export
+sum1 <- function(x){
+    x <- as.cycle(x)
+    x <- x[!is.id(x)]
+    as.cycle(lapply(seq_along(x), function(i){unlist(x[i][[1]])}))
+}
+
+#' @export
+sum.permutation <- function(..., na.rm=FALSE){
+    jj <- list(...)
+    out <- id
+    for(i in seq_along(jj)){
+        out <- out + sum1(jj[i][[1]])
+    }
+    return(out)
+}

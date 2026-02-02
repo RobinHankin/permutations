@@ -29,6 +29,40 @@ pieces that should go somewhere.
 ```{r}
 permprod(cyc_len(3) + 0:6) == cyc_len(9)^7
 is.id(permprod(cyc_len(2) + 0:6) * cyc_len(8))
+sum(cyc_len(1:9) + (cumsum(0:8)))
+```
+
+Function `sum1()` is somewhat opaque:
+
+```{r showsum1}
+sum1
+```
+
+It is defined as it is much faster than using package idiom:
+
+```{r defineslowsum1}
+sum1_direct <- function(x){
+    out <- id
+    for(i in seq_along(x)){out <- out + x[i]}
+    return(out)
+}
+
+
+
+```{r timesumdirectandsum}
+a <- cyc_len(2:309) + cumsum(1:308)
+system.time(ignore <- sum1_direct(a))
+system.time(ignore <- sum1(a))
+```
+
+Now
+
+
+
+
+```{r}
+f <- function(n){cyc_len(n) + (cyc_len(9-n) + n)}
+Reduce("c", sapply(1:7, f, simplify=FALSE))
 ```
 
 
