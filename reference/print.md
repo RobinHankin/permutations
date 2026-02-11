@@ -91,7 +91,8 @@ symbols may be the elements of any character vector; use idiom such as
 to override the default. But beware! If the permutation includes numbers
 greater than the length of `perm_set`, then `NA` will be printed. It is
 possible to use vectors with elements of more than one character (e.g.
-`state.abb`).
+`state.abb`). Vignette `groupaction` presents a discussion of option
+`perm_set` in the context of coercing a permutation to a function.
 
 In the printing of cycle objects, commas are controlled with option
 `"comma"`. The default `NULL` means including commas in the

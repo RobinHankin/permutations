@@ -18,7 +18,7 @@ as.function.permutation
     ##             a)])))
     ##     }
     ## }
-    ## <bytecode: 0x55b445ac8528>
+    ## <bytecode: 0x559ac91f05d0>
     ## <environment: namespace:permutations>
 
 To cite the permutations package in publications, please use Hankin
@@ -108,6 +108,71 @@ as.function(as.word(p,n=3))(3)
 ```
 
     ## [1] 3
+
+### Permutations of sets other than integers
+
+Although the most natural underlying set for a permutation is the
+integers, the print method can use different sets. One natural set to
+use is `letters`:
+
+``` r
+set.seed(0)
+options(perm_set = letters)
+P <- rperm()
+P
+```
+
+    ##  [1] (afb)(cd)(eg) (agedf)(bc)   (ae)(cfd)     (aegdb)(cf)   (abfec)      
+    ##  [6] (acbf)(de)    (adfcbge)     (bdcge)       (acfgd)       (afgdeb)     
+    ## [coerced from word form]
+
+What we *want* to do is have `as.function(P)("a")` return
+`"f", "g", "e"` etc. We may coerce `P` to a function, but this operates
+\[for good reason\] on the integers, not letters:
+
+``` r
+as.function(P)(1)
+```
+
+    ##  [1] 6 7 5 5 2 3 4 1 3 6
+
+Above we see that `as.function(P)` returns integers, whose print method
+is not affected by option `perm_set`. We can get some of the desired
+functionality by using base R extraction:
+
+``` r
+letters[as.function(P)(1)]
+```
+
+    ##  [1] "f" "g" "e" "e" "b" "c" "d" "a" "c" "f"
+
+but we would like to pass a named letter such as `"b"` (not a number) to
+the function. Currently, the only way to do it is somewhat klunky:
+
+``` r
+letters[as.function(P)(which(letters == "b"))]
+```
+
+    ##  [1] "a" "c" "b" "a" "f" "f" "g" "d" "b" "a"
+
+Above we see that `P[1]("b") = "a"`, `P[2]("b") = "c"`, and so on.
+Vectorizing this functionality in the argument is even more klunky.
+Suppose we wish to determine `P[1]("a"), P[2]("b")`, etc:
+
+``` r
+(w <- letters[1:10])
+```
+
+    ##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+
+``` r
+P <- as.word(P, n=10)
+letters[as.function(P)(sapply(w, \(x){which(x==letters)}))]
+```
+
+    ##  [1] "f" "c" "f" "b" "c" "a" "e" "h" "i" "j"
+
+Above we see that `P[1]("a") = "f"`, `P[2]("b") = "c"`, etc.
 
 ### Note on identity permutation
 
