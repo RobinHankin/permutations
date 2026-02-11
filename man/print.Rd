@@ -47,7 +47,7 @@ as.character_cyclist(y, comma=TRUE)
   cycle form.  Cycle objects are printed as is; word objects are coerced
   to cycle form and printed, with a notice that the object itself was
   coerced from word.
-  
+
   If \code{options("print_word_as_cycle")} is \code{FALSE}, then objects
   of class word are printed as a matrix with rows being the permutations
   and fixed points indicated with a dot.
@@ -88,7 +88,9 @@ as.character_cyclist(y, comma=TRUE)
   to override the default.  But beware!  If the permutation includes
   numbers greater than the length of \code{perm_set}, then \code{NA}
   will be printed.  It is possible to use vectors with elements of more
-  than one character (e.g. \code{state.abb}).
+  than one character (e.g. \code{state.abb}).  Vignette \code{groupaction}
+  presents a discussion of option \code{perm_set} in the context of
+  coercing a permutation to a function.
 
   In the printing of cycle objects, commas are controlled with option
   \code{"comma"}.  The default \code{NULL} means including commas in the
@@ -108,7 +110,7 @@ as.character_cyclist(y, comma=TRUE)
   cycles in order of their smallest permuted element.  But sometimes one
   wants the cycles in order of length, with the shortest first.  To do
   this, use:
-  
+
   \preformatted{options("print_in_length_order" = TRUE)}
 
   There is a package vignette (type \code{vignette("print")} at the
