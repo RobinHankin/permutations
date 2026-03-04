@@ -265,7 +265,12 @@ cycle_plus_integer_elementwise <- function(x, y) {
 sum1 <- function(x){
     x <- as.cycle(x)
     x <- x[!is.id(x)]
-    as.cycle(lapply(seq_along(x), function(i){unlist(x[i][[1]])}))
+    x <- unclass(x)
+    out <- list()
+    for(i in seq_along(x)){
+        out <- c(out, x[[i]]) # NB lapply(), sapply() do not work here
+    } 
+    return(as.cycle(out))
 }
 
 #' @export

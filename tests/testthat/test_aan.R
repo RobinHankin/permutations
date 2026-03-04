@@ -23,12 +23,12 @@ test_that("Test suite aan.R; sum()", {
     expect_error(sum(c(x,y,z)))
     expect_error(sum1(c(x,y,z)))
     
-
-
     a <- cyc_len(2:29) + cumsum(1:28)
     expect_true(sum(a) == sum1(a))
 
     expect_error(sum(a, a))
     expect_error(sum(a, as.cycle(c(3,400))))
+
+    expect_true(sum1(c(as.cycle(c(5,9))+as.cycle(2:4), as.cycle(6:8))) == as.cycle("(234)(59)(678)"))
 
 })
