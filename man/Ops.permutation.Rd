@@ -17,6 +17,8 @@
 \alias{cycle_plus_integer_elementwise}
 \alias{conjugation}
 \alias{sum1}
+\alias{sum.permutation}
+\alias{sum.cycle}
 \title{Arithmetic Ops Group Methods for permutations}
 \description{
   Allows arithmetic operators to be used for manipulation of permutation objects
