@@ -58,12 +58,22 @@ system.time(ignore <- sum1(a))
 Now
 
 
-
-
 ```{r}
 f <- function(n){cyc_len(n) + (cyc_len(9-n) + n)}
 Reduce("c", sapply(1:7, f, simplify=FALSE))
 ```
+
+
+
+```{r}
+x <- rcyc(20,8)
+y <- rcyc(20,5)
+options(perm_set = letters)
+options(comma = FALSE)
+x + (8 + y)
+x*y
+```
+
 
 
 ## References {-}
