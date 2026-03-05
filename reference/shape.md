@@ -1,6 +1,6 @@
 # Shape of a permutation
 
-Returns the shape of a permutation. If given a word, it coerces to cycle
+Returns the shape (or cycle type) of a permutation, coerced to cycle
 form.
 
 ## Usage

@@ -112,6 +112,7 @@
   permutation
 - [`stabilizes()`](stabilizer.md) [`stabilizer()`](stabilizer.md)
   [`doesnotmove()`](stabilizer.md) : Stabilizer of a permutation
+- [`swap()`](swap.md) : Length-2 cycles; swap a pair of elements
 - [`tidy()`](tidy.md) [`trim()`](tidy.md) : Utilities to neaten
   permutation objects
 - [`singleword_valid()`](valid.md) [`cyclist_valid()`](valid.md) :

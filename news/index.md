@@ -2,6 +2,8 @@
 
 ## permutations 1.1-9
 
+- serious bugfix with sum, issue
+  [\#65](https://github.com/RobinHankin/permutations/issues/65)
 - experimental sum()
 
 ## permutations 1.1-8
