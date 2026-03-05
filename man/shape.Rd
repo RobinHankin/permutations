@@ -8,8 +8,7 @@
 \alias{shapepart_cyclist}
 \title{Shape of a permutation}
 \description{
-Returns the shape of a permutation.  If given a word, it coerces to
-cycle form.
+Returns the shape (or cycle type) of a permutation, coerced to cycle form.
 }
 \usage{
 shape(x, drop = TRUE, id1 = TRUE, decreasing = FALSE)
