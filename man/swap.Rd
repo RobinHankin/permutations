@@ -14,6 +14,10 @@ Length-2 cycles; swap a pair of elements
 \note{
   If the first argument equals the second, the identity permutation is
   returned.
+
+  Cycles of the form \eqn{(1n)}, that is, \code{swap(1, n)}, are used
+  extensively in \code{inst/outer_automorphisms_of_S6.Rmd}.
+
   }
 \seealso{\code{\link{as.cycle}}}
 \examples{
