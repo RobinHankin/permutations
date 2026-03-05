@@ -51,7 +51,7 @@ autormorphism of $S_6$.  First we define `f()` that gives
 transpositions of the form $(1n)$:
 
 ```{r definefunctionf}
-f <- function(n){as.cycle(unique(c(1,n)))}
+f <- function(n){swap(1,n)}
 f(5)
 f(1)
 ```
@@ -124,7 +124,7 @@ holder <- function(p){
 ```
 
 ```{r calcpandhp}
-(p <- c(id,as.cycle(rperm(5))))
+(p <- c(id, as.cycle(rperm(5))))
 (hp <- holder(p))
 ```
 
@@ -133,7 +133,7 @@ of transpositions of the form $(1n)$ for $2\leqslant n\leqslant 6$.
 Verify:
 
 ```{r verifyholder}
-all(p == do.call("c",lapply(hp,function(v){as.cycle(Reduce("*",lapply(v,f)))})))
+all(p == do.call("c", lapply(hp,function(v){as.cycle(Reduce("*",lapply(v,f)))})))
 ```
 
 Now a function to translate an integer into a triple of cycles as per
@@ -163,7 +163,7 @@ janusz <- function(p){do.call("c",lapply(holder(p),single))}
 ```
 
 ```{r headhold}
-(p <- c(as.word(id),rperm(10,6)))
+(p <- c(as.word(id), rperm(10,6)))
 janusz(p)
 ```
 

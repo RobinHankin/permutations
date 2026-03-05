@@ -1046,3 +1046,15 @@ doesnotmove <- function(a, s) {
     }
     return(a)
 }
+
+#' @export
+swap <- function(a, b){
+  jj <- cbind(a, b)
+  n <- nrow(jj)
+  out <- rep(id, n)
+  for(i in seq_len(n)){
+    o <- jj[i,]
+    if(diff(o) != 0){out[i] <- as.cycle(o)}
+  }
+  return(out) 
+}
