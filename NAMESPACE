@@ -106,6 +106,8 @@ export(permutation)
 export(pm_to_perm)
 export(print_cycle)
 export(print_word)
+export(print.cycle) # needed for (reverse dependency) 'gips'; github issue #67
+                    # (above line added manually, not by roxygen2)
 export(r1cyc)
 export(rcyc)
 export(remove_length_one)
