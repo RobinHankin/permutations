@@ -1,0 +1,53 @@
+---
+title: "Function `swap()` function in the `permutations` package"
+author: "Robin K. S. Hankin"
+output: html_vignette
+bibliography: permutations.bib
+link-citations: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{dovs}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+set.seed(0)
+library("permutations")
+options(rmarkdown.html_vignette.check_title = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+knit_print.function <- function(x, ...){dput(x)}
+registerS3method(
+  "knit_print", "function", knit_print.function,
+  envir = asNamespace("knitr")
+)
+```
+
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/permutations.png", package = "permutations"))
+```
+
+```{r, label=showdovs,comment=""}
+swap
+```
+
+To cite the `permutations` package in publications, please use
+@hankin2020.  Function `swap()` returns length-two cycles
+corresponding to swapping its two arguments:
+
+```{r showrform}
+swap(3,6)
+```
+
+```{r}
+options(perm_set = letters)
+options(comma = FALSE)
+allcyc(1:4) ^ swap(4,26)  # replace "d" with "z"
+```
+
+
+```{r printswap}
+print_word(swap(1, 1:9))
+```
+
+
+# References
