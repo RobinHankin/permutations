@@ -46,7 +46,7 @@ sgn(id)  # always problematic
 #> [1] 1
 
 sgn(rperm(10,5))
-#>  [1]  1 -1 -1 -1  1  1 -1 -1  1  1
+#>  [1] -1  1 -1 -1 -1 -1 -1 -1  1  1
 
 x <- rperm(40,6)
 y <- rperm(40,6)

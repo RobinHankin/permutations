@@ -134,7 +134,7 @@ x <- rperm(4,9)
 
 # default behaviour is to print in cycle form irregardless:
 x
-#> [1] (13)(268)(79) (138547296)   (187623)(45)  (159)(287634)
+#> [1] (17645839)      (179263485)     (253)(49687)    (1439)(278)(56)
 #> [coerced from word form]
 
 # change default using options():
@@ -143,14 +143,14 @@ options(print_word_as_cycle = FALSE)
 # objects in word form now printed using matrix notation:
 x
 #>     1 2 3 4 5 6 7 8 9
-#> [1] 3 6 1 . . 8 9 2 7
-#> [2] 3 9 8 7 4 1 2 5 6
-#> [3] 8 3 1 5 4 2 6 7 .
-#> [4] 5 8 4 2 9 3 6 7 1
+#> [1] 7 . 9 5 8 4 6 3 1
+#> [2] 7 6 4 8 1 3 9 5 2
+#> [3] . 5 2 9 3 8 4 7 6
+#> [4] 4 7 9 3 6 5 8 2 1
 
 # printing of cycle form objects not altered:
 as.cycle(x)
-#> [1] (13)(268)(79) (138547296)   (187623)(45)  (159)(287634)
+#> [1] (17645839)      (179263485)     (253)(49687)    (1439)(278)(56)
 
 # restore default:
 options(print_word_as_cycle = TRUE)
@@ -164,9 +164,9 @@ as.character_cyclist(list(c(1,5,4), c(2,9)),comma=FALSE)
 
 options("perm_set" = letters)
 rperm(r = 9)
-#>  [1] (acih)(befg)    (acbieg)(dh)    (afgdbhc)(ei)   (abde)(fghi)   
-#>  [5] (ah)(bc)(deifg) (abdechg)       (aicbd)(eh)     (abcifhgd)     
-#>  [9] (bgfei)(ch)     (adefci)(bg)   
+#>  [1] (aeifd)(bchg)   (aihg)(bf)(de)  (abdegfhi)      (afihb)(cgd)   
+#>  [5] (agdfb)(cehi)   (aecb)(fhig)    (ah)(bc)(deifg) (abdechg)      
+#>  [9] (aicbd)(eh)     (abcifhgd)     
 #> [coerced from word form]
 options("perm_set" = NULL)  # restore default
 ```
