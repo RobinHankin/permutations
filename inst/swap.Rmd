@@ -35,19 +35,37 @@ To cite the `permutations` package in publications, please use
 corresponding to swapping its two arguments:
 
 ```{r showrform}
-swap(3,6)
+swap(3, 6)
 ```
+
+If the two arguments are identical, the identity is returned:
+
+```{r showidentity}
+swap(7, 7)
+```
+
+It is vectorized:
+
+```{r showvec}
+swap(1, 1:8)
+swap(1:8, 8:1)
+```
+
+Sometimes, printing in word form reveals structure:
+
+```{r printswap}
+print_word(swap(9:1, 1:9))
+```
+
+
+We may use `swap()` to effect substitution:
 
 ```{r}
 options(perm_set = letters)
 options(comma = FALSE)
-allcyc(1:4) ^ swap(4,26)  # replace "d" with "z"
+allcyc(1:4) ^ swap(4, 26)  # replace "d" with "z"
 ```
 
-
-```{r printswap}
-print_word(swap(1, 1:9))
-```
 
 
 # References
