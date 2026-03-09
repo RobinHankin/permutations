@@ -63,9 +63,37 @@ We may use `swap()` to effect substitution:
 ```{r}
 options(perm_set = letters)
 options(comma = FALSE)
+allcyc(1:4)
 allcyc(1:4) ^ swap(4, 26)  # replace "d" with "z"
 ```
 
+Vignette `outer_automorphisms_of_S6` includes a nice use-case of
+`swap()`.  Specifically, it uses the identity
+
+$$ (abcd) = (1a)(1b)(1c)(1d)(1a),\qquad a,b,c\neq 1 $$
+
+We note that if $a=1$ the identity reduces to $(1bcd) =
+()(1b)(1c)(1d)() = (1b)(1c)(1d)$.  However, if (say) $c=1$ the
+conditions of the inequality are not satisfied.  The right hand side
+becomes
+
+$$(1a)(1b)(1d)(1a)=(abd)\neq(ab1d)$$.
+
+In `outer_automorphisms_of_S6` this does not arise because if `1` is
+present in a cycle, it appears in the first place following
+`nicify_cyclist()`.  If, for some reason, we cannot rely on the
+placing of a possible `1` we might use
+
+
+$$(abcd) = (na)(nb)(nc)(nd)(na),\qquad
+n\not\in\left\lbrace a,b,c\right\rbrace.$$
+
+Observe that $a,b,c,d$ must be distinct, for otherwise the left hand
+side is not well-defined.  In the package:
+
+```{r showbad, error=TRUE}
+as.cycle(c(3,4,3,6))
+```
 
 
 # References
