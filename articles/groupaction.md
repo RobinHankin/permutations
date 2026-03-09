@@ -18,7 +18,7 @@ as.function.permutation
     ##             a)])))
     ##     }
     ## }
-    ## <bytecode: 0x563fa937d3a8>
+    ## <bytecode: 0x561064e4d128>
     ## <environment: namespace:permutations>
 
 To cite the permutations package in publications, please use Hankin
