@@ -77,8 +77,8 @@ keepcyc(rperm(100),function(x){max(x)-min(x) < 3})        # retains just cycles 
 #>  [91] (56)          ()            ()            ()            ()           
 #>  [96] ()            ()            ()            ()            ()           
 
-f <- function(x,p){all(x<p) || all(x>p)}                  # keep only cycles with all entries either
-keepcyc(rgivenshape(9,rep(2:3,9)),f,p=20)                 #  all < 20 or all >20
+f <- function(x, p){all(x < p) || all(x > p)}             # keep only cycles with all entries either
+keepcyc(rgivenshape(9,rep(2:3,9)), f, p=20)               #  all < 20 or all >20
 #> [1] (3,15)(10,17,16)(22,33)(24,37,35)(31,34)(36,43)               
 #> [2] (7,17)(14,19)(21,22,26)(23,42)(24,37)(30,43)(31,41)           
 #> [3] (1,8)(2,10)(11,12)(13,16,14)(21,34,35)(24,26)(27,42)(28,45,31)
