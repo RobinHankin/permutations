@@ -76,8 +76,8 @@ rperm(10, 9, 2)
 rcyc(20, 5)
 rcyc(20, 5, 9)
 
-rgivenshape(10, c(2,3))     # size 5
-rgivenshape(10, c(2,3,1,1)) # size 7
+rgivenshape(10, c(2,3))     # shape (3,2), size 5
+rgivenshape(10, c(2,3,1,1)) # shape (3,2), but size 7
 
 rgivenshape(1:9)
 
