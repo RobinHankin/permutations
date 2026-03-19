@@ -28,9 +28,9 @@ and motivated here.
 
 Permutations have two natural representations: word form and cycle
 form.  Internally, the package coerces a permutation from one form to
-another depending on what operations one does with it.
-Group-theoretic products and inverses are carried out more easily in
-word form, while powers are more easily done using cycle form.
+another depending on what operations one does with it: group-theoretic
+products and inverses are carried out more easily in word form, while
+powers are more easily done using cycle form.
 
 Partly as a result of a perceptive comment from a journal reviewer,
 the package coerces to cycle form for printing as this is generally
