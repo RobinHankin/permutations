@@ -9,7 +9,7 @@ illustrated and motivated here.
 
 Permutations have two natural representations: word form and cycle form.
 Internally, the package coerces a permutation from one form to another
-depending on what operations one does with it. Group-theoretic products
+depending on what operations one does with it: group-theoretic products
 and inverses are carried out more easily in word form, while powers are
 more easily done using cycle form.
 
