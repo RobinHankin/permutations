@@ -1,9 +1,7 @@
 \name{swap}
 \alias{swap}
 \title{Length-2 cycles; swap a pair of elements}
-\description{
-Length-2 cycles; swap a pair of elements
-}
+\description{Length-2 cycles; swap a pair of elements}
 \usage{swap(a, b)}
 \arguments{
   \item{a, b}{Integers}
