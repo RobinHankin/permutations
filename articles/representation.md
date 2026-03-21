@@ -86,9 +86,7 @@ all(M[inverse(a), ] == solve(M[a, ]))
 ```
 
 again with group inversion on the left and matrix inversion on the
-right.
-
-The map $\phi(a) =$`M[,a]` is not a homomorphism:
+right. The map $\phi(a) =$`M[,a]` is not a homomorphism:
 
 ``` r
 all(M[, a * b] == M[, a] %*% M[, b])
