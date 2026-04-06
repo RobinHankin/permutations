@@ -5,6 +5,7 @@
 - serious bugfix with sum, issue
   [\#65](https://github.com/RobinHankin/permutations/issues/65)
 - experimental sum()
+- work on Cayley distances
 
 ## permutations 1.1-8
 

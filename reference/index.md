@@ -26,6 +26,8 @@
 - [`c(`*`<word>`*`)`](c.md) [`c(`*`<cycle>`*`)`](c.md)
   [`rep(`*`<permutation>`*`)`](c.md) : Concatenation of permutations
 - [`capply()`](capply.md) : Apply functions to elements of a cycle
+- [`nmoved()`](caydist.md) [`nfixed()`](caydist.md)
+  [`ncyc()`](caydist.md) [`caydist()`](caydist.md) : Cayley distance
 - [`cayley()`](cayley.md) : Cayley tables for permutation groups
 - [`commutator()`](commutator.md) : Group-theoretic commutator: the dot
   object
