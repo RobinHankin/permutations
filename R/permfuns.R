@@ -1058,3 +1058,30 @@ swap <- function(a, b){
   }
   return(out) 
 }
+
+#' @export
+`nmoved` <- function(a){
+    a <- as.cycle(a)
+    unlist(lapply(unclass(a), function(x){length(c(x, recursive=TRUE))}))
+}
+
+#' @export
+`nfixed` <- function(a){
+    size(a) - nmoved(a)
+}
+
+#' @export
+`ncyc` <- function(a, discard1 = TRUE){
+    a <- as.cycle(a)
+    out <- unlist(lapply(unclass(a), function(x){length(c(x, recursive=FALSE))}))
+    if(!discard1){  # that is, keep length-1 cycles
+        out <- out + size(a) - nmoved(a)
+    }
+    return(out)
+}
+
+#' @export
+`caydist` <- function(a, b = id){
+    from_a_to_b <- as.cycle(a * inverse(b))
+    size(from_a_to_b) - ncyc(from_a_to_b, discard1 = FALSE)
+}

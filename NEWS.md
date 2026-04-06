@@ -2,7 +2,7 @@
 
 - serious bugfix with sum, issue #65
 - experimental sum()
-
+- work on Cayley distances
 
 # permutations 1.1-8
 
