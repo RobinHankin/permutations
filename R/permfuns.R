@@ -1049,14 +1049,11 @@ doesnotmove <- function(a, s) {
 
 #' @export
 swap <- function(a, b){
-  jj <- cbind(a, b)
-  n <- nrow(jj)
-  out <- rep(id, n)
-  for(i in seq_len(n)){
-    o <- jj[i,]
-    if(diff(o) != 0){out[i] <- as.cycle(o)}
-  }
-  return(out) 
+    M <- cbind(a, b)
+    cycle(
+        apply(M,1,
+              function(x){if(x[1] == x[2]){ list(NULL) } else { list(c(x[1], x[2]))}}
+        ))
 }
 
 #' @export
