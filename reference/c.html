@@ -97,9 +97,9 @@ takes the same arguments, eg <code>times</code> and <code>each</code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># concatenate words:</span></span></span>
 <span class="r-in"><span><span class="fu">c</span><span class="op">(</span><span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span>   <span class="co"># size adjusted to maximum size of args</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ()              (13)            (23)            (13)           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] (23)            (1732596)       (12349)(5678)   (18593)(24)(67)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] (156298)(347)   (184927)(365)   (12467385)     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (13)         (23)         (23)         ()           (23)        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (148935267)  (14395)(278) (174629538)  (146275398)  (168975)(34)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] (2384)(596) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
@@ -109,13 +109,12 @@ takes the same arguments, eg <code>times</code> and <code>each</code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># c(id, rperm())  # fails: elements are of different types, one cycle, one word.</span></span></span>
 <span class="r-in"><span><span class="fu">c</span><span class="op">(</span><span class="fu"><a href="permutation.html">as.word</a></span><span class="op">(</span><span class="va">id</span><span class="op">)</span>, <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>   <span class="co"># works: coerce id [which is a cycle] to word form</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ()            (1274)(56)    (1372465)     (153264)      (1763254)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] (137)(25)(46) (1536274)     (375)         (14)(257)     (24756)      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] (1647325)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ()         (142)(576) (1247)(36) (2345)(67) (124753)   (173256)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (15637)    (1576324)  (12)(57)   (254)(367) (172456)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span><span class="fu">c</span><span class="op">(</span><span class="va">id</span>, <span class="fu"><a href="permutation.html">as.cycle</a></span><span class="op">(</span><span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>  <span class="co"># works: coerce rperm() [which is a word] to cycle form</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ()         (14)(27)   (16)(2754) (14276)    (132756)   (27)(365) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (13)(4576) (142)(576) (1247)(36) (2345)(67) (124753)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] ()          (17436)     (1472)(365) (126)(3547) (17)(465)   (1456327)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (1367452)   (254736)    (12643)(57) (1437256)   (1725)(364)</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

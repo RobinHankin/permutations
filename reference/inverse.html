@@ -118,12 +118,12 @@ not clear that this will be any faster.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="rperm.html">rperm</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">6</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">x</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (1536)     (14)(263)  (1562)(34) (164235)   (164253)   (135642)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (13)(456)  (132654)   (14563)    (165342)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (12354)   (16)(243) (16453)   (132654)  (14563)   (165342)  (1235)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (24)(36)  (165423)  (14)(236)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span><span class="fu">inverse</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (1635)     (14)(236)  (1265)(34) (153246)   (135246)   (124653)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] (13)(465)  (145623)   (13654)    (124356)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] (14532)   (16)(234) (13546)   (145623)  (13654)   (124356)  (1532)   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] (24)(36)  (132456)  (14)(263)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [coerced from word form]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="id.html">is.id</a></span><span class="op">(</span><span class="va">x</span><span class="op">*</span><span class="fu">inverse</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>  <span class="co"># should be TRUE</span></span></span>

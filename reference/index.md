@@ -2,6 +2,11 @@
 
 ## All functions
 
+- [`Extract`](Extract.md) [`Replace`](Extract.md)
+  [`[.permutation`](Extract.md) [`[.word`](Extract.md)
+  [`[.cycle`](Extract.md) [`[<-.permutation`](Extract.md)
+  [`[<-.word`](Extract.md) [`[<-.cycle`](Extract.md) [`[<-`](Extract.md)
+  : Extract or Replace elements of permutation vectors
 - [`Ops(`*`<permutation>`*`)`](Ops.permutation.md)
   [`cycle_power()`](Ops.permutation.md)
   [`cycle_power_single()`](Ops.permutation.md)

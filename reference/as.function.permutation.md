@@ -86,9 +86,9 @@ stopifnot(2^(a*b) == (2^a)^b)
 
 # it's fully vectorized:
 as.function(rperm(10,9))(1)
-#>  [1] 7 7 9 1 7 5 6 3 8 4
+#>  [1] 1 7 8 8 4 2 2 1 7 3
 as.function(as.cycle(1:9))(sample(9))
-#> [1] 2 7 3 8 6 1 9 4 5
+#> [1] 8 9 4 2 3 6 5 1 7
 as.function(allcyc(5:8))(1:6)
 #> [1] 1 2 3 4 8 5
 
