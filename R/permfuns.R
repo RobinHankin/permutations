@@ -104,6 +104,10 @@ names.word <- function(x) {
 
 #' @export
 "[<-.word" <- function(x, index, value) {
+    ## Here, the transposes ensure that
+    ## x <- allperms(4)
+    ## x[6:8] <- swap(4,8)
+    ## works as intended
   out <- t(as.matrix(x))
   value <- t(as.matrix(as.word(value, size(x))))
   out[, index] <- value
