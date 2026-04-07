@@ -69,10 +69,10 @@
   if (length(n) > 1) {
     return(Recall(n = 1, s = n))
   }
-  out <- rep(id, n)
+  out <- rep(list(NULL), n) # rep(id, n)
   s <- c(s, rep(1, size - sum(s)))
   for (i in seq_len(n)) {
     out[i] <- rgs1(s)
   }
-  return(out)
+  return(cycle(out))
 }

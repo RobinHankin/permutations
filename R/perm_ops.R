@@ -252,13 +252,13 @@ conjugation <- function(e1, e2) { # e1 and e2 are both coerced to 'word' objects
 cycle_plus_integer_elementwise <- function(x, y) {
   jj <- cbind(seq_along(x), seq_along(y))
   n <- nrow(jj)
-  out <- rep(id, n)
+  out <- rep(list(NULL), n)
   for (i in seq_len(n)) {
     out[i] <- capply(x[jj[i, 1]], function(x) {
       x + y[jj[i, 2]]
     })
   }
-  return(out)
+  return(cycle(out))
 }
 
 #' @export

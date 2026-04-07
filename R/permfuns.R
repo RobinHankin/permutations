@@ -111,6 +111,14 @@ names.word <- function(x) {
 }
 
 #' @export
+"[<-.cycle" <- function(x, index, value) {
+    stopifnot(is.cycle(x))
+    x <- unclass(x)
+    x[[index]] <- unclass(as.cycle(value))[[1]]
+    return(cycle(x))
+}
+
+#' @export
 "[.cycle" <- function(x, ...) {
   x <- unclass(x)
   cycle(x[...])
@@ -1035,16 +1043,17 @@ doesnotmove <- function(a, s) {
     
 #' @export
 `keepcyc` <- function(a, func, ...){
-    a <- as.cycle(a)
+    a <- unclass(as.cycle(a))
+    out <- rep(list(NULL), length(a))
     for(i in seq_along(a)){
         jj <- a[[i]]
         if(length(jj) > 0){
             wanted <- unlist(lapply(jj, func, ...))
             jj[!wanted] <- NULL
-            a[i] <- as.cycle(jj)
+            out[i] <- list(jj)
         }
     }
-    return(a)
+    return(cycle(out))
 }
 
 #' @export

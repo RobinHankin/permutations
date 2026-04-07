@@ -4,9 +4,11 @@ export(print.cycle) # needed for (reverse dependency) 'gips'; github issue #67
                     # (above line added manually, not by roxygen2)
 
 
+
 S3method("%~%",permutation)
 S3method("[",cycle)
 S3method("[",word)
+S3method("[<-",cycle)
 S3method("[<-",word)
 S3method("length<-",permutation)
 S3method("names<-",word)
