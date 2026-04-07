@@ -41,18 +41,20 @@ The Cayley distance between two permutations \eqn{a} and \eqn{b} is
 defined a the least number of swaps to go from \eqn{a} to \eqn{b}.
 Operationally:
 
-\deqn{d_\mathrm{Cayley}(a,b) = n-c(a^{-1}b)}
+\deqn{d_\mathrm{Cayley}(a,b) = n-c(a^{-1}b)}{omitted}
   
 where \eqn{c(x)} is \code{ncyc(a, FALSE)}.  Actually it uses
-\eqn{d_\mathrm{Cayley}(a,b) = n-c(ab^{-1})} internally, for efficiency
-reasons.  This does not matter, for the shape of \eqn{ab} is the same as
-the shape of \eqn{ba}: for any permutations \eqn{x,y} we have
-\eqn{\operatorname{shape}(x) = \operatorname{shape}(x^{-1})} and
-\eqn{\operatorname{shape}(x)=\operatorname{shape}(y^{-1}xy)}.  Then
+\eqn{d_\mathrm{Cayley}(a,b) = n-c(ab^{-1})}{omitted} internally, for
+efficiency reasons.  This does not matter, for the shape of \eqn{ab} is
+the same as the shape of \eqn{ba}: for any permutations \eqn{x,y} we
+have \eqn{\operatorname{shape}(x) =
+\operatorname{shape}(x^{-1})}{omitted} and
+\eqn{\operatorname{shape}(x)=\operatorname{shape}(y^{-1}xy)}{omitted}.
+Then
 
 \deqn{\operatorname{shape}(ab) = \operatorname{shape}(b^{-1}a^{-1}) =
 \operatorname{shape}(bb^{-1}a^{-1}b^{-1}) =
-\operatorname{shape}(a^{-1}b^{-1}) = \operatorname{shape}(ba).}
+\operatorname{shape}(a^{-1}b^{-1}) = \operatorname{shape}(ba).}{omitted}
 
 }
 \author{Robin K. S. Hankin}
