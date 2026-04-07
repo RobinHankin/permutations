@@ -94,11 +94,13 @@ defined a the least number of swaps to go from \(a\) to \(b\).
 Operationally:</p>
 <p>$$d_\mathrm{Cayley}(a,b) = n-c(a^{-1}b)$$</p>
 <p>where \(c(x)\) is <code>ncyc(a, FALSE)</code>.  Actually it uses
-\(d_\mathrm{Cayley}(a,b) = n-c(ab^{-1})\) internally, for efficiency
-reasons.  This does not matter, for the shape of \(ab\) is the same as
-the shape of \(ba\): for any permutations \(x,y\) we have
-\(\operatorname{shape}(x) = \operatorname{shape}(x^{-1})\) and
-\(\operatorname{shape}(x)=\operatorname{shape}(y^{-1}xy)\).  Then</p>
+\(d_\mathrm{Cayley}(a,b) = n-c(ab^{-1})\) internally, for
+efficiency reasons.  This does not matter, for the shape of \(ab\) is
+the same as the shape of \(ba\): for any permutations \(x,y\) we
+have \(\operatorname{shape}(x) =
+\operatorname{shape}(x^{-1})\) and
+\(\operatorname{shape}(x)=\operatorname{shape}(y^{-1}xy)\).
+Then</p>
 <p>$$\operatorname{shape}(ab) = \operatorname{shape}(b^{-1}a^{-1}) =
 \operatorname{shape}(bb^{-1}a^{-1}b^{-1}) =
 \operatorname{shape}(a^{-1}b^{-1}) = \operatorname{shape}(ba).$$</p>
