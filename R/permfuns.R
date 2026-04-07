@@ -108,10 +108,12 @@ names.word <- function(x) {
     ## x <- allperms(4)
     ## x[6:8] <- swap(4,8)
     ## works as intended
-  out <- t(as.matrix(x))
-  value <- t(as.matrix(as.word(value, size(x))))
-  out[, index] <- value
-  return(word(t(out)))
+
+    size(x) <- max(size(x), size(value))
+    out <- t(as.matrix(x))
+    value <- t(as.matrix(as.word(value, size(x))))
+    out[, index] <- value
+    return(word(t(out)))
 }
 
 #' @export

@@ -194,4 +194,16 @@ test_that("Test suite aaa.R", {
   expect_true(all(solve(pa) == perm_matrix(inverse(a))))
   expect_true(all(solve(pb) == perm_matrix(inverse(b))))
   expect_true(all(crossprod(pa, pb) == perm_matrix(inverse(a) * b)))
+
+  ## Tests for issue #68:
+  x <- allperms(4)
+  o <- swap(4, 8)
+  x[6:8] <- as.word(o)
+  expect_true(all(x[6:8] == o))
+
+  x <- allperms(4)
+  o <- swap(89,93)
+  x[5:6] <- o
+  expect_true(all(x[5:6] == o))
+
 })
