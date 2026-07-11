@@ -111,6 +111,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 word(matrix(1:8, 7, 8)) # default print method coerces to cycle form
 #> [1] (28)(37)(46)     (12)(38)(47)(56) (13)(48)(57)     (14)(23)(58)(67)
 #> [5] (15)(24)(68)     (16)(25)(34)(78) (17)(26)(35)    

@@ -84,6 +84,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 # Stanley's example w:
 standard(cycle(list(list(c(1,4),c(3,7,5)))))
 #> [[1]]

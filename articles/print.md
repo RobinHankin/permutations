@@ -23,6 +23,7 @@ Low-level print functionality includes
 print in either word form or cycle form as desired:
 
 ``` r
+
 set.seed(0)
 x <- rperm(r = 9)
 print_word(x)
@@ -49,6 +50,7 @@ However, the difference between word form and cycle form becomes more
 pronounced if only a small number of elements move:
 
 ``` r
+
 x <- rperm(r = 9, moved = 3)
 print_word(x)
 #>      1 2 3 4 5 6 7 8 9
@@ -72,17 +74,20 @@ Above we see the cycle form is arguably more compact.
 
 Sometimes it is desirable to present permutations in “one-line
 notation”, which is just the ordered list of the images of
-$1,2,\ldots,n$; this is just a compact form of the two-line notation:
+$`1,2,\ldots,n`$; this is just a compact form of the two-line notation:
 
-$$\begin{pmatrix}
-1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+``` math
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
 9 & 2 & 6 & 3 & 5 & 4 & 1 & 7 & 8
-\end{pmatrix}$$
+\end{pmatrix}
+```
 
 would just be (926354178). To do this, use
 `print_word(x, use_dot=TRUE)`:
 
 ``` r
+
 print_word(x, use_dot=FALSE)
 #>      1 2 3 4 5 6 7 8 9
 #> [1]  7 2 3 4 5 6 9 8 1
@@ -104,6 +109,7 @@ objects in cycle form. However, the standard workflow would be to use
 R’s default system, which is to print values to the console:
 
 ``` r
+
 x <- rperm(n = 2)
 y <- as.cycle(x)
 unclass(x) # shows internal representation (x is in word form)
@@ -136,6 +142,7 @@ coerced-to-cycle form. However, it is possible to suppress this coercion
 by setting option `print_word_as_cycle`:
 
 ``` r
+
 options(print_word_as_cycle = FALSE)
 x
 #>     1 2 3 4 5 6 7
@@ -148,6 +155,7 @@ y
 We reinstate the default:
 
 ``` r
+
 options(print_word_as_cycle = TRUE) # restore default
 ```
 
@@ -155,11 +163,12 @@ Most people seem to prefer printing in cycle form.
 
 ### Commas
 
-Above, we saw the print method for permutations of $\lbrack 9\rbrack$.
+Above, we saw the print method for permutations of $`\left[9\right]`$.
 If we have 10 or more elements then we need a comma. This is added by
 default:
 
 ``` r
+
 x <- rperm(r = 15, moved = 4)
 print_cycle(x)
 #>  [1] (1,4,2,3)     (10,13,15)    (3,14)        (9,10,12)     (5,15,7,9)   
@@ -168,10 +177,11 @@ print_cycle(x)
 
 Above, the comma has been added to aid readability. However, it is
 possible to override this behaviour by setting option `comma`. The
-default value of `NULL` means to add commas iff $r > 9$ but Boolean
+default value of `NULL` means to add commas iff $`r>9`$ but Boolean
 values are respected:
 
 ``` r
+
 options("comma" = TRUE)
 rperm(3, r = 9) # commas printed irregardless
 #> [1] (1,2,8,3,6,9,5,4,7) (1,8,3,4,9,6,2,7,5) (1,9,2,7,8,5,4,6,3)
@@ -179,11 +189,12 @@ rperm(3, r = 9) # commas printed irregardless
 ```
 
 Above we see the commas making the output somewhat prolix, but not a
-disaster. However, if we are permuting $> 9$ objects commas are
+disaster. However, if we are permuting $`>9`$ objects commas are
 necessary to interpret strings like `124` which might be `1,2,4` or
 `12,4` or `1,24` or `124`:
 
 ``` r
+
 options("comma" = FALSE)
 x <- rperm(3, r = 20)
 x # commas not printed irregardless
@@ -204,13 +215,14 @@ Above, the absence of commas is somewhat confusing, default restored.
 
 The `permutations` package considers permutations of a finite set. It is
 *very* convenient to identify the finite set with integers
-$1,2,\ldots,n$ \[chiefly because products and inverses are easy if one
+$`1,2,\ldots,n`$ \[chiefly because products and inverses are easy if one
 can use R’s 1-based vector indexing: products are just `a*b=b[a]` and
 the inverse of `W` is just `W[W] <- seq_along(W)`\]. Because of this,
 the default print method echoes the internal representation of a
 permutation.
 
 ``` r
+
 set.seed(0)
 x <- rperm(n = 3)
 dput(x)
@@ -223,10 +235,11 @@ x
 ```
 
 We see the print method echoing the internal representation of the set
-$\lbrack n\rbrack = \left\{ 1,2,\ldots,n \right\}$. However, it is
-possible to use a different set, using option `perm_set`:
+$`\left[n\right]=\left\lbrace 1,2,\ldots,n\right\rbrace`$. However, it
+is possible to use a different set, using option `perm_set`:
 
 ``` r
+
 options(perm_set = letters)
 rperm()
 #>  [1] (aegdb)(cf)  (abfec)      (acbf)(de)   (adfcbge)    (bdcge)     
@@ -236,19 +249,21 @@ rperm()
 
 Above we see cyclic representation of permutations of the letters a-z.
 However, the use of commas is somewhat problematic, and by default the
-print method uses the $> 9$ criterion for including a comma:
+print method uses the $`>9`$ criterion for including a comma:
 
 ``` r
+
 (xx <- rperm(n = 2, r = 26))
 #> [1] (a,f,r,h,k,l,c,i,j,w,z,v,y,o,u,d,g,p)(b,q,t,e,s,n) 
 #> [2] (a,s,z,l,y,r,p,m,u,b,c,k,w,q,x,j,v,h,i,e,n,o,g,t,d)
 #> [coerced from word form]
 ```
 
-Above we see that commas are included (because $26 > 9$) but it probably
+Above we see that commas are included (because $`26>9`$) but it probably
 looks better without them:
 
 ``` r
+
 options(comma = FALSE)
 xx
 #> [1] (afrhklcijwzvyoudgp)(bqtesn) (aszlyrpmubckwqxjvhienogtd) 
@@ -259,6 +274,7 @@ One side-effect of using a finite set of symbols is that the print
 method might run out of symbols:
 
 ``` r
+
 (z <- rperm(n = 2, r = 50))
 #> [1] (agNANAyNAepqNANAhbNAuNANAjNAlzNANAdxNAfsNAoNANANArkmNAvnNANANANANAwNANAi)(ct)    
 #> [2] (aNANArNANANAi)(bNANAsNAlvzNAgNANAwNANANAoNANAjtnpNAyeNANAmNAfNAcNAq)(dhu)(kxNANA)
@@ -271,6 +287,7 @@ not change the object itself, so this might not be an issue. It is
 possible to use symbols that have more than one character:
 
 ``` r
+
 options(perm_set = state.abb)
 options(comma = TRUE)
 z
@@ -284,6 +301,7 @@ z
 Consider the following:
 
 ``` r
+
 options(perm_set = NULL) # revert to numbers
 options(comma = FALSE) # supress comma
 x <- rgivenshape(30, 2:4)
@@ -299,17 +317,18 @@ x
 ```
 
 We see 30 random permutations with shape
-$( \cdot \, \cdot )( \cdot \cdot \cdot )( \cdot \cdot \cdot )$. However,
-because function [`nicify_cyclist()`](../reference/cyclist.md) sorts
-each cycle so that the smallest element is first, then sorts the cycles
-by first element, it is not obvious that all the permutations above have
-the same shape. The print method is sensitive to experimental option
-`print_in_length_order` (via function
+$`\left(\cdot\,\cdot\right)\left(\cdot\cdot\cdot\right)\left(\cdot\cdot\cdot\right)`$.
+However, because function [`nicify_cyclist()`](../reference/cyclist.md)
+sorts each cycle so that the smallest element is first, then sorts the
+cycles by first element, it is not obvious that all the permutations
+above have the same shape. The print method is sensitive to experimental
+option `print_in_length_order` (via function
 [`as.character_cyclist()`](../reference/print.md)). If `TRUE`,
 permutations cycle form will be printed but with the cycles in
 increasing length order:
 
 ``` r
+
 options("print_in_length_order" = TRUE)
 x
 #>  [1] (47)(256)(1938) (89)(162)(3547) (24)(189)(3567) (48)(697)(1523)
@@ -329,6 +348,7 @@ the print method to use commas for readability. However, it is best to
 reset to the default, as the option persists between vignettes:
 
 ``` r
+
 options(perm_set = NULL)
 options(comma = NULL)
 options(print_word_as_cycle = FALSE)

@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>The permutation group: active and passive permutations, and the order of operations • permutations</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="The permutation group: active and passive permutations, and the order of operations">
 </head>
@@ -83,14 +83,14 @@ perspective of the <code>permutations</code> R package.</p>
 moves an object from place
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
 to place
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\pi(i)</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\pi(i)</annotation></semantics></math>.
 Textbooks and undergraduate courses usually use this system.</li>
 <li>A <strong>passive permutation</strong>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>
 replaces an object in position
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
 by that in position
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\pi(i)</annotation></semantics></math>.</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\pi(i)</annotation></semantics></math>.</li>
 </ul>
 <div class="section level3">
 <h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -103,9 +103,9 @@ by that in position
 <p>Thus we can see that
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
 has a three-cycle
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>145</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(145)</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>145</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(145)</annotation></semantics></math>
 and a two-cycle
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>26</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(26)</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>26</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(26)</annotation></semantics></math>.
 We can express
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
 in word form by changing the default print method which coerces to cycle
@@ -126,19 +126,19 @@ form we would have:</p>
 \right)
 </annotation></semantics></math></p>
 <p>Expressed in functional notation, we have a function
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>:</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>6</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo>→</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>6</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">a\colon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>:</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><mo stretchy="false" form="postfix">]</mo><mo>→</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">a\colon
 [6]\rightarrow [6]</annotation></semantics></math> (here
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mi>n</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">[n]=\left\{1,2,\ldots,n\right\}</annotation></semantics></math>);
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">[n]=\left\{1,2,\ldots,n\right\}</annotation></semantics></math>);
 and we have
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">a(1)=4</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">a(2)=6</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">a(3)=3</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">a(1)=4</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">a(2)=6</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">a(3)=3</annotation></semantics></math>,
 and so on. If these were objects, or people, we might want to keep track
 of where they are. We would say: “at the start, object
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
 sits in place
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>6</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">i\in[6]</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">i\in[6]</annotation></semantics></math>.
 Then, after the move, object 1 is in place 4, object 2 in place 6,
 object 3 in place 3, and so on”. This information is encapsulated by
 <code>as.word(a)</code>. In R matrix form we would have</p>
@@ -158,7 +158,7 @@ the place it sits in, before any moving).</p>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
 sits in place
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>6</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">i\in[6]</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>6</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">i\in[6]</annotation></semantics></math>.
 Then place 1 is occupied by object 4, place 2 occupied by object 5, and
 so on”. This information is technically represented by permutation
 <code>a</code> but in an obscure form. To answer the question “which
@@ -320,13 +320,13 @@ by function
 and then by function
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
 we write
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">g(f(x))</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g(f(x))</annotation></semantics></math>
 for the two successive mappings
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>→</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x\longrightarrow f(x)\longrightarrow g(f(x))</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>→</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>→</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x\longrightarrow f(x)\longrightarrow g(f(x))</annotation></semantics></math>.
 Postfix notation would denote the same process as
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>f</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">xfg</annotation></semantics></math>,
 as shorthand for
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">(xf)g</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mi>f</mi><mo stretchy="false" form="postfix">)</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">(xf)g</annotation></semantics></math>.
 In R idiom, this is implemented by the excellent <code>magrittr</code>
 package:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
@@ -427,7 +427,7 @@ to reverse the order of permutations. To express the result,
 group-theoretic inverse of the composition. Recalling that passive
 transforms are the group-theoretic inverses of the same active
 transformation, in algebraic notation we would have</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>a</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msup><mi>b</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>=</mo><mi>a</mi><mi>b</mi><mo>;</mo><mspace width="2.0em"></mspace><msup><mi>a</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msup><mi>b</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>a</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mi>b</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>=</mo><mi>a</mi><mi>b</mi><mo>;</mo><mspace width="2.0em"></mspace><msup><mi>a</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mi>b</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
 \left(a^{-1}b^{-1}\right)^{-1}=ab;\qquad
 a^{-1}b^{-1}=\left(ab\right)^{-1}
 </annotation></semantics></math></p>
@@ -544,13 +544,13 @@ This is passive language.</p>
 <p>Thus the passive matrix is the <em>transpose</em> of the active
 matrix (we could see this by swapping the dimension names). Now we use
 the matrix rule</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mi>′</mi><mi>A</mi><mi>′</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>′</mi></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>B</mi><mo>′</mo></msup><msup><mi>A</mi><mo>′</mo></msup><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">
 AB=(B'A')'
 </annotation></semantics></math></p>
 <p>to show that permutation matrix multiplication has to be in the
 opposite order for passive matrices. Of course, we could observe that
 permutation matrices are orthogonal and use</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>B</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msup><mi>A</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>B</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mi>A</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
 AB=\left(B^{-1}A^{-1}\right)^{-1}
 </annotation></semantics></math></p>
 <p>instead. Numerical verification using package idiom is
@@ -582,7 +582,7 @@ matrix product of (passive) permutations <code>b</code> and
 <div class="section level2">
 <h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-hankin2020" class="csl-entry">
 Hankin, R. K. S. 2020. <span>“Introducing the Permutations
 <span>R</span> Package.”</span> <em>SoftwareX</em> 11. <a href="https://doi.org/10.1016/j.softx.2020.100453" class="external-link">https://doi.org/10.1016/j.softx.2020.100453</a>.
@@ -600,7 +600,7 @@ Hankin, R. K. S. 2020. <span>“Introducing the Permutations
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

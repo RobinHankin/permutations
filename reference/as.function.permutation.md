@@ -44,6 +44,7 @@ mapping \\x\in\[n\]\\ to \\\alpha(g,x)=g(x)=xg\\. For example, if
 Package idiom allows one to explicitly coerce `g` to a function, or to
 use the overloaded caret:
 
+
         (g <- as.cycle("(172)(45)"))
         #> [1] (172)(45)
         as.function(g)(7)

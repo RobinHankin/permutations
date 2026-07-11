@@ -43,12 +43,14 @@ equivalent permutation in word form.
 Given a word `p` with size `s`, the idiom for `perm_matrix()` boils down
 to
 
+
         M <- diag(s)
         M[p,]
       
 
 This is used explicitly in the `representations` vignette. There is
 another way:
+
 
         M <- diag(s)
         M[cbind(seq_len(s),p)] <- 1
@@ -71,6 +73,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 perm_matrix(rperm(1,9))
 #>   1 2 3 4 5 6 7 8 9
 #> 1 0 0 0 1 0 0 0 0 0

@@ -42,6 +42,7 @@ The sign of the null permutation is `NULL`.
 ## Examples
 
 ``` r
+
 sgn(id)  # always problematic
 #> [1] 1
 

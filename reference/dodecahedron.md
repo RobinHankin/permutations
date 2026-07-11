@@ -30,6 +30,7 @@ resides (under version control) in the `data/` directory.
 ## Examples
 
 ``` r
+
 permprod(dodecahedron_face)
 #> [1] (1,9,3,6,8)(4,10,7,5,12)
 #> [coerced from word form]

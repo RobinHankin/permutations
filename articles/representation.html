@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>The permutations package and representation theory • permutations</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="The permutations package and representation theory">
 </head>
@@ -110,9 +110,9 @@ using permutation matrices:</p>
 <span><span class="co">#&gt; 8 0 0 0 0 0 0 0 1 0</span></span>
 <span><span class="co">#&gt; 9 0 0 0 0 0 0 0 0 1</span></span></code></pre></div>
 <p>We will use the map
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo>:</mo><msub><mi>S</mi><mn>9</mn></msub><mo>→</mo><mo>Aut</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℝ</mi><mn>9</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\phi\colon S_9\longrightarrow\operatorname{Aut}\left(\mathbb{R}^9\right)</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo>:</mo><msub><mi>S</mi><mn>9</mn></msub><mo>→</mo><mrow><mi mathvariant="normal">Aut</mi><mo>⁡</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℝ</mi><mn>9</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\phi\colon S_9\longrightarrow\operatorname{Aut}\left(\mathbb{R}^9\right)</annotation></semantics></math>
 given by
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo></mrow><annotation encoding="application/x-tex">\phi(a)=</annotation></semantics></math><code>M[a,]</code>. Then</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">\phi(a)=</annotation></semantics></math><code>M[a,]</code>. Then</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">M</span><span class="op">[</span><span class="va">a</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt;   1 2 3 4 5 6 7 8 9</span></span>
@@ -133,9 +133,9 @@ well as the elements of
 Verifying that
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>
 is indeed a homomorphism—that is,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>ι</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>I</mi><mn>9</mn></msub></mrow><annotation encoding="application/x-tex">\phi(\iota)=I_9</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>ι</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>I</mi><mn>9</mn></msub></mrow><annotation encoding="application/x-tex">\phi(\iota)=I_9</annotation></semantics></math>
 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>∘</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\phi(a)\phi(b)=\phi(a\circ b)</annotation></semantics></math>—is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>∘</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\phi(a)\phi(b)=\phi(a\circ b)</annotation></semantics></math>—is
 straightforward:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="fu"><a href="../reference/permutation.html">as.word</a></span><span class="op">(</span><span class="va">id</span>, <span class="fl">9</span><span class="op">)</span>, <span class="op">]</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span><span class="op">)</span></span>
@@ -145,18 +145,18 @@ straightforward:</p>
 <p>In the second line above, note that the left hand side of the
 equality is group composition, while the right hand side is matrix
 multiplication. We can further verify that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>a</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>ϕ</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\phi\left(a^{-1}\right)=\phi(a)^{-1}</annotation></semantics></math>:</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>a</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><msup><mo stretchy="false" form="postfix">)</mo><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\phi\left(a^{-1}\right)=\phi(a)^{-1}</annotation></semantics></math>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="fu"><a href="../reference/inverse.html">inverse</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>, <span class="op">]</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/solve.html" class="external-link">solve</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="va">a</span>, <span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>again with group inversion on the left and matrix inversion on the
 right. The map
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo></mrow><annotation encoding="application/x-tex">\phi(a)=</annotation></semantics></math><code>M[,a]</code> is not a homomorphism:</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">\phi(a)=</annotation></semantics></math><code>M[,a]</code> is not a homomorphism:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span>, <span class="va">a</span> <span class="op">*</span> <span class="va">b</span><span class="op">]</span> <span class="op">==</span> <span class="va">M</span><span class="op">[</span>, <span class="va">a</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">M</span><span class="op">[</span>, <span class="va">b</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>but we can “rescue” it by considering a group operation
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⋆</mo><annotation encoding="application/x-tex">\star</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⋆</mi><annotation encoding="application/x-tex">\star</annotation></semantics></math>
 defined by
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>⋆</mo><mi>b</mi><mo>=</mo><mi>b</mi><mo>∘</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">a\star b=b\circ a</annotation></semantics></math>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -168,7 +168,7 @@ this phenomenon from a different perspective.</p>
 <div class="section level2">
 <h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-hankin2020" class="csl-entry">
 Hankin, R. K. S. 2020. <span>“Introducing the Permutations
 <span>R</span> Package.”</span> <em>SoftwareX</em> 11. <a href="https://doi.org/10.1016/j.softx.2020.100453" class="external-link">https://doi.org/10.1016/j.softx.2020.100453</a>.
@@ -186,7 +186,7 @@ Hankin, R. K. S. 2020. <span>“Introducing the Permutations
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

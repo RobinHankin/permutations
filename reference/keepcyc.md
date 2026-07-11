@@ -43,6 +43,7 @@ Function `keepcyc()` is idempotent.
 ## Examples
 
 ``` r
+
 keepcyc(rgivenshape(10,2:8),function(x){length(x) == 2})  # retains just transpositions
 #>  [1] (4,26)  (14,15) (17,23) (12,34) (1,3)   (20,28) (4,16)  (2,27)  (1,16) 
 #> [10] (9,25) 

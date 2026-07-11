@@ -88,6 +88,7 @@ but I have not yet got round to this.
 ## Examples
 
 ``` r
+
 allperms(5)
 #>   [1] ()        (45)      (34)      (345)     (354)     (35)      (23)     
 #>   [8] (23)(45)  (234)     (2345)    (2354)    (235)     (243)     (2453)   

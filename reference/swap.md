@@ -41,6 +41,7 @@ in `inst/outer_automorphisms_of_S6.Rmd`.
 ## Examples
 
 ``` r
+
 swap(2, 8)
 #> [1] (28)
 

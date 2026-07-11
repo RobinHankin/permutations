@@ -35,6 +35,7 @@ The objects documented here are distinct from the identity permutation,
 ## Examples
 
 ``` r
+
 rperm(10,4)[0]  # null word
 #> cycle(0)
 #> [coerced from word form]

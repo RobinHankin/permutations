@@ -55,6 +55,7 @@ Robin K. S. Hankin
 Inversion of words is ultimately performed by function
 `inverse_word_single()`:
 
+
     inverse_word_single <- function(W){
         W[W] <- seq_along(W)
         return(W)

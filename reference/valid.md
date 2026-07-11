@@ -46,6 +46,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 singleword_valid(sample(1:9))      # TRUE
 #> [1] TRUE
 singleword_valid(c(3L,4L,2L,1L))   # TRUE

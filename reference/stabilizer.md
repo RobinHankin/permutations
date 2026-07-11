@@ -75,6 +75,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 a <- rperm(200)
 s <- stabilizer(a, 3:4)
 

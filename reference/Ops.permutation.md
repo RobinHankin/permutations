@@ -167,6 +167,7 @@ Robin K. S. Hankin
 
 ``` r
 
+
 x <- rperm(10,9) # word form
 y <- rperm(10,9) # word form
 

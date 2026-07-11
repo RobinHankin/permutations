@@ -8,28 +8,30 @@ order of operations can be confusing. Here I discuss active and passive
 transforms, order of operations, prefix and postfix notation, and
 associativity from the perspective of the `permutations` R package.
 
-- An **active permutation** $\pi$ moves an object from place $i$ to
-  place $\pi(i)$. Textbooks and undergraduate courses usually use this
+- An **active permutation** $`\pi`$ moves an object from place $`i`$ to
+  place $`\pi(i)`$. Textbooks and undergraduate courses usually use this
   system.
-- A **passive permutation** $\pi$ replaces an object in position $i$ by
-  that in position $\pi(i)$.
+- A **passive permutation** $`\pi`$ replaces an object in position $`i`$
+  by that in position $`\pi(i)`$.
 
 ### Introduction
 
 Consider the following package idiom:
 
 ``` r
+
 a <- as.cycle("(145)(26)")
 a
 ```
 
     ## [1] (145)(26)
 
-Thus we can see that $a$ has a three-cycle $(145)$ and a two-cycle
-$(26)$. We can express $a$ in word form by changing the default print
-method which coerces to cycle form:
+Thus we can see that $`a`$ has a three-cycle $`(145)`$ and a two-cycle
+$`(26)`$. We can express $`a`$ in word form by changing the default
+print method which coerces to cycle form:
 
 ``` r
+
 options("print_word_as_cycle" = FALSE)
 (a <- as.word(a))
 ```
@@ -40,22 +42,26 @@ options("print_word_as_cycle" = FALSE)
 showing that 3 is a fixed point (indicated with a dot). In matrix form
 we would have:
 
-$$\begin{pmatrix}
-1 & 2 & 3 & 4 & 5 & 6 \\
-4 & 6 & 3 & 5 & 1 & 2
-\end{pmatrix}$$
+``` math
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6\\
+4&6&3&5&1&2
+\end{array}
+\right)
+```
 
-Expressed in functional notation, we have a function
-$\left. a:\lbrack 6\rbrack\rightarrow\lbrack 6\rbrack \right.$ (here
-$\lbrack n\rbrack = \left\{ 1,2,\ldots,n \right\}$); and we have
-$a(1) = 4$, $a(2) = 6$, $a(3) = 3$, and so on. If these were objects, or
-people, we might want to keep track of where they are. We would say: “at
-the start, object $i$ sits in place $i$, $i \in \lbrack 6\rbrack$. Then,
-after the move, object 1 is in place 4, object 2 in place 6, object 3 in
-place 3, and so on”. This information is encapsulated by `as.word(a)`.
-In R matrix form we would have
+Expressed in functional notation, we have a function $`a\colon
+[6]\rightarrow [6]`$ (here $`[n]=\left\{1,2,\ldots,n\right\}`$); and we
+have $`a(1)=4`$, $`a(2)=6`$, $`a(3)=3`$, and so on. If these were
+objects, or people, we might want to keep track of where they are. We
+would say: “at the start, object $`i`$ sits in place $`i`$, $`i\in[6]`$.
+Then, after the move, object 1 is in place 4, object 2 in place 6,
+object 3 in place 3, and so on”. This information is encapsulated by
+`as.word(a)`. In R matrix form we would have
 
 ``` r
+
 a_active <- rbind(1:6, as.word(a))
 rownames(a_active) <- c("place before move", "place after move")
 a_active
@@ -71,11 +77,11 @@ it sits in, before any moving).
 
 On the other hand, we might be more interested in the *places*. We might
 want to know which object is sitting in place 4. We would say: “at the
-start, object $i$ sits in place $i$, $i \in \lbrack 6\rbrack$. Then
-place 1 is occupied by object 4, place 2 occupied by object 5, and so
-on”. This information is technically represented by permutation `a` but
-in an obscure form. To answer the question “which object is in place
-$i$?” in a convenient way, we need to rearrange the permutation:
+start, object $`i`$ sits in place $`i`$, $`i\in[6]`$. Then place 1 is
+occupied by object 4, place 2 occupied by object 5, and so on”. This
+information is technically represented by permutation `a` but in an
+obscure form. To answer the question “which object is in place $`i`$?”
+in a convenient way, we need to rearrange the permutation:
 
 \$\$ \left( \begin{array}{ccccccccc} 1&2&3&4&5&6\\ 4&6&3&5&1&2
 \end{array} \right) {\mbox{swap rows}\atop\longrightarrow} \left(
@@ -88,6 +94,7 @@ In the above, it is easy to see that the rearrangement of permutation is
 equivalent to taking a group-theoretic inverse:
 
 ``` r
+
 inverse(a)
 ```
 
@@ -99,6 +106,7 @@ inverse(a)
 [`inverse()`](../reference/inverse.md):
 
 ``` r
+
 a_passive <- rbind(1:6, as.word(inverse(a)))
 rownames(a_passive) <- c("place after move", "place before move")
 a_passive
@@ -123,6 +131,7 @@ Suppose we have (active) permutation `a` as above, and another active
 permutation `b`:
 
 ``` r
+
 b <- as.word(c(5, 2, 3, 4, 6, 1))
 b
 ```
@@ -131,36 +140,50 @@ b
     ## [1] 5 . . . 6 1
 
 (note the three dots representing three fixed points of `b`). Note
-carefully that the operations $a$ and $b$ do not commute and we will
+carefully that the operations $`a`$ and $`b`$ do not commute and we will
 discuss this in the context of active and passive transforms. What is
-the result of executing $a$, followed by $b$? Symbolically we have:
+the result of executing $`a`$, followed by $`b`$? Symbolically we have:
 
-$$\overset{a}{\overbrace{\begin{pmatrix}
-1 & 2 & 3 & 4 & 5 & 6 \\
-4 & 6 & 3 & 5 & 1 & 2
-\end{pmatrix}}} \circ \overset{b}{\overbrace{\begin{pmatrix}
-1 & 2 & 3 & 4 & 5 & 6 \\
-5 & 2 & 3 & 4 & 6 & 1 \\
- & & & & & 
-\end{pmatrix}}} = \overset{a \circ b}{\overbrace{\begin{pmatrix}
-1 & 2 & 3 & 4 & 5 & 6 \\
-4 & 1 & 3 & 6 & 5 & 2 \\
- & & & & & 
-\end{pmatrix}}}$$
+``` math
+\overbrace{
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6\\
+4&6&3&5&1&2
+\end{array}
+\right)
+}^{a}
+\circ
+\overbrace{
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6\\
+5&2&3&4&6&1\\
+\end{array}
+\right)
+}^{b}=
+\overbrace{
+\left(
+\begin{array}{ccccccccc}
+1&2&3&4&5&6\\
+4&1&3&6&5&2\\
+\end{array}
+\right)
+}^{a\circ b}
+```
 
-Thus, for example, $\left. 4\rightarrow 5\rightarrow 6 \right.$.
-Considering the operation $a \circ b$, this means that we perform
-permutation `a` first, and then perform permutation `b`. Taking this one
-step at a time we would have, for example: “We start with object $i$ in
-place $i$. The object in place 4 (this is object 4) moves to place 5
-(but is still object 4) $\ldots$ and then the object in place 5 (this is
-still object 4) moves to place 6”. See how we track the object that
-started in place 4 (that is, object 4) over two permutations, and so
-overall object 4 ends up in place 6. We see this on the right hand side:
-the fourth column of $a \circ b$ is $\begin{pmatrix}
-4 \\
-6
-\end{pmatrix}$. The figure shows this visually.
+Thus, for example, $`4\longrightarrow 5\longrightarrow 6`$. Considering
+the operation $`a\circ b`$, this means that we perform permutation `a`
+first, and then perform permutation `b`. Taking this one step at a time
+we would have, for example: “We start with object $`i`$ in place $`i`$.
+The object in place 4 (this is object 4) moves to place 5 (but is still
+object 4) $`\ldots`$ and then the object in place 5 (this is still
+object 4) moves to place 6”. See how we track the object that started in
+place 4 (that is, object 4) over two permutations, and so overall object
+4 ends up in place 6. We see this on the right hand side: the fourth
+column of $`a\circ b`$ is
+$`\left(\begin{array}{c}4\\6\end{array}\right)`$. The figure shows this
+visually.
 
 Visual representation of active permutation composition
 
@@ -169,6 +192,7 @@ express the result of performing `a` then `b` in active language, we can
 use standard permutation composition, in package idiom the `*` operator:
 
 ``` r
+
 a * b
 ```
 
@@ -180,6 +204,7 @@ evaluate `a*b` (which is why indexing starts at 1, not 0). Indeed we may
 verify that package idiom operates as expected:
 
 ``` r
+
 as.vector(b)[as.vector(a)]
 ```
 
@@ -190,6 +215,7 @@ notation) we can ask what happens to the object originally in place 1
 (that would be object 1)
 
 ``` r
+
 fa <- as.function(a)
 fb <- as.function(b)
 fb(fa(1))
@@ -198,21 +224,22 @@ fb(fa(1))
     ## [1] 4
 
 ``` r
+
 as.function(a * b)(1) # should match fb(fa(1))
 ```
 
     ## [1] 4
 
 Note, however, the confusing order of operations: in functional
-notation, if we want to operate on an element $x$ by function $f$ and
-then by function $g$ we write $g\left( f(x) \right)$ for the two
-successive mappings
-$\left. x\rightarrow f(x)\rightarrow g\left( f(x) \right) \right.$.
-Postfix notation would denote the same process as $xfg$, as shorthand
-for $(xf)g$. In R idiom, this is implemented by the excellent `magrittr`
+notation, if we want to operate on an element $`x`$ by function $`f`$
+and then by function $`g`$ we write $`g(f(x))`$ for the two successive
+mappings $`x\longrightarrow f(x)\longrightarrow g(f(x))`$. Postfix
+notation would denote the same process as $`xfg`$, as shorthand for
+$`(xf)g`$. In R idiom, this is implemented by the excellent `magrittr`
 package:
 
 ``` r
+
 1 %>%
   fa() %>%
   fb() # idiom for fb(fa(1)), should match result above
@@ -227,6 +254,7 @@ we express the permutations, and their composition, in passive form, and
 this requires some modification.
 
 ``` r
+
 a # word form
 ```
 
@@ -234,6 +262,7 @@ a # word form
     ## [1] 4 6 . 5 1 2
 
 ``` r
+
 a_active # matrix form (active); defined above
 ```
 
@@ -242,6 +271,7 @@ a_active # matrix form (active); defined above
     ## place after move     4    6    3    5    1    2
 
 ``` r
+
 a_passive # matrix form (passive); defined above
 ```
 
@@ -253,6 +283,7 @@ Now `b`, but we need to create equivalents `b_active` and `b_passive`
 which we do as before:
 
 ``` r
+
 b_active <- rbind(1:6, as.word(b))
 rownames(b_active) <- c("place before move", "place after move")
 b_passive <- rbind(1:6, as.word(inverse(b)))
@@ -260,6 +291,7 @@ rownames(b_passive) <- c("place after move", "place before move")
 ```
 
 ``` r
+
 b
 ```
 
@@ -267,6 +299,7 @@ b
     ## [1] 5 . . . 6 1
 
 ``` r
+
 b_active
 ```
 
@@ -275,6 +308,7 @@ b_active
     ## place after move     5    2    3    4    6    1
 
 ``` r
+
 b_passive
 ```
 
@@ -287,6 +321,7 @@ want to perform `a` and then `b` as before, but this time we want to use
 matrices `a_passive` and `b_passive`:
 
 ``` r
+
 a_passive
 ```
 
@@ -295,6 +330,7 @@ a_passive
     ## place before move    5    6    3    1    4    2
 
 ``` r
+
 b_passive
 ```
 
@@ -321,8 +357,8 @@ you would look at `a_passive` and see, from column 6 of `a_passive` that
 the object in place 6 was moved from place 2 by `a`. Thus the passive
 transform `ab_passive` indicates that the object in place 1 after the
 move was in place 2 before the move. We would have
-$\left. 1\rightarrow 6\rightarrow 2 \right.$ where in this case
-“$\rightarrow$” means “comes from”.
+$`1\longrightarrow 6\longrightarrow 2`$ where in this case
+“$`\longrightarrow`$” means “comes from”.
 
 We can thus represent the passive transformation by
 `b_passive*a_passive`: see how the R idiom for permutation composition
@@ -333,17 +369,22 @@ language we need to take the group-theoretic inverse of the composition.
 Recalling that passive transforms are the group-theoretic inverses of
 the same active transformation, in algebraic notation we would have
 
-$$\left( a^{- 1}b^{- 1} \right)^{- 1} = ab;\qquad a^{- 1}b^{- 1} = (ab)^{- 1}$$
+``` math
+\left(a^{-1}b^{-1}\right)^{-1}=ab;\qquad
+a^{-1}b^{-1}=\left(ab\right)^{-1}
+```
 
 and in R idiom we would have
 
 ``` r
+
 inverse(inverse(b) * inverse(a)) == a * b # both should be TRUE
 ```
 
     ## [1] TRUE
 
 ``` r
+
 inverse(b) * inverse(a) == inverse(a * b) # note b precedes a on LHS
 ```
 
@@ -355,6 +396,7 @@ Now we will show how permutation matrices work and how they deal with
 active and passive language.
 
 ``` r
+
 g <- as.cycle(c(1, 2, 6))
 g
 ```
@@ -364,6 +406,7 @@ g
 Then we can express `g` in terms of permutation matrices:
 
 ``` r
+
 pg <- perm_matrix(g)
 pg
 ```
@@ -379,6 +422,7 @@ pg
 But it is convenient to relabel the rows and the columns:
 
 ``` r
+
 dimnames(pg) <- list(place_before_move = 1:6, place_after_move = 1:6)
 pg
 ```
@@ -404,6 +448,7 @@ matrix: a permutation matrix is orthogonal. Now we can consider a second
 permutation `h` and convert it to matrix form:
 
 ``` r
+
 h <- as.word(c(1, 3, 4, 5, 2, 6))
 h
 ```
@@ -412,6 +457,7 @@ h
     ## [1] . 3 4 5 2 .
 
 ``` r
+
 ph <- perm_matrix(h)
 dimnames(ph) <- list(place_before_move = 1:6, place_after_move = 1:6)
 ph
@@ -444,6 +490,7 @@ then with `h`, using matrix multiplication.
 convenience). Composition of permutations is just matrix multiplication:
 
 ``` r
+
 pg %*% ph
 ```
 
@@ -459,8 +506,8 @@ pg %*% ph
 Thinking about the matrix multiplication, let us consider the top row of
 `pg`. This multiplies by each column of `ph` but the only nonzero term
 is with column 3 of `ph` which has row 2 nonzero. Thus
-`(pg%*%ph)[1,3]==1`. The process is, symbolically,
-$\left. 1\rightarrow 2\rightarrow 3 \right.$.
+`(pg%*%ph)[1,3]==1`. The process is, symbolically, $`1\longrightarrow
+2\longrightarrow 3`$.
 
 #### Passive language for permutation matrices
 
@@ -474,18 +521,23 @@ Thus the passive matrix is the *transpose* of the active matrix (we
 could see this by swapping the dimension names). Now we use the matrix
 rule
 
-$$AB = (B\prime A\prime)\prime$$
+``` math
+AB=(B'A')'
+```
 
 to show that permutation matrix multiplication has to be in the opposite
 order for passive matrices. Of course, we could observe that permutation
 matrices are orthogonal and use
 
-$$AB = \left( B^{- 1}A^{- 1} \right)^{- 1}$$
+``` math
+AB=\left(B^{-1}A^{-1}\right)^{-1}
+```
 
 instead. Numerical verification using package idiom is straightforward.
 First we verify that permutation matrices are indeed orthogonal:
 
 ``` r
+
 pa_active <- perm_matrix(a)
 all(solve(pa_active) == t(pa_active))
 ```
@@ -496,6 +548,7 @@ Now we verify that matrix multiplication of permutation matrices
 corresponds to active permutation composition:
 
 ``` r
+
 pb_active <- perm_matrix(b)
 all(perm_matrix(a*b) == pa_active %*% pb_active)
 ```
@@ -506,6 +559,7 @@ Finally, we verify that passive composition is reverse-order matrix
 multiplication:
 
 ``` r
+
 pa_passive <- perm_matrix(inverse(a))
 pb_passive <- perm_matrix(inverse(b))
 all(solve(perm_matrix(a * b)) == pb_passive %*% pa_passive) # note order of ops

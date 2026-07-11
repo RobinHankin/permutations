@@ -42,6 +42,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 stopifnot(all(
  is.flip_pair(c(10,46)),
  is.flip_pair(c(98,124)),

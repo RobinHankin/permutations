@@ -82,6 +82,7 @@ see “cycle type determines conjugacy class” as a theorem.
 ## Examples
 
 ``` r
+
 jj <- as.cycle(c("123", "", "(12)(34)", "12345"))
 jj
 #> [1] (123)    ()       (12)(34) (12345) 

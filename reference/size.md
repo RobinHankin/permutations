@@ -65,6 +65,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 size(as.cycle(c("(17)","(123)(45)")))  # should be 7
 #> [1] 7
 

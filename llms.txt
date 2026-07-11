@@ -15,6 +15,7 @@ You can install the released version of permutations from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 # install.packages("permutations")  # uncomment this to use the package
 library("permutations")
 #> 
@@ -33,6 +34,7 @@ Random permutations on a finite set are given by the
 [`rperm()`](reference/rperm.md) command:
 
 ``` r
+
 (x <- rperm(10, 9))
 #>  [1] (19524)(37)    (1238794)      (1745682)(39)  (15)(3897)(46) (132654789)   
 #>  [6] (17263)(59)    (136)(47589)   (162)(4795)    (14763)(259)   (168347925)   
@@ -44,6 +46,7 @@ result is printed in cycle form by default, as this is easier to
 understand. We can print in word form if we wish:
 
 ``` r
+
 options(print_word_as_cycle = FALSE) # override default
 as.word(x)
 #>      {1} {2} {3} {4} {5} {6} {7} {8} {9}
@@ -64,6 +67,7 @@ options(print_word_as_cycle = TRUE) # restore default: we usually want to print 
 `*` to combine permutations and `^` for conjugation:
 
 ``` r
+
 (a <- as.word(c(4, 2, 3, 1, 5, 7, 6)))
 #> [1] (14)(67)
 #> [coerced from word form]

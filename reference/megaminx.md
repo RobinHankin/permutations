@@ -42,6 +42,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 data(megaminx)
 megaminx
 #>                                                                                            White 

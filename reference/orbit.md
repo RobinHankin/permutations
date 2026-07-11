@@ -90,6 +90,7 @@ function \\f(\cdot)\\ with \\f(3)=4\\, \\f(4)=8\\, and \\f(8)=3\\”\].
 ## Examples
 
 ``` r
+
 orbit(as.cycle("(123)"),1:5)
 #> [[1]]
 #> [1] 1 2 3

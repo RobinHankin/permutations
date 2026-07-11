@@ -30,6 +30,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 .[as.cycle("123456789"),as.cycle("12")]
 #> [1] (123)
 #> [coerced from word form]

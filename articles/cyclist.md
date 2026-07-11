@@ -11,6 +11,7 @@ informally known as a cyclist, but there is no S3 class corresponding to
 it. For example
 
 ``` r
+
 list(c(1, 3, 4), c(8, 9), c(2, 5))
 ```
 
@@ -23,11 +24,9 @@ list(c(1, 3, 4), c(8, 9), c(2, 5))
     ## [[3]]
     ## [1] 2 5
 
-is a cyclist of three cycles: $(134)$, $(89)$, and $(25)$. It
-corresponds to the permutation $(134)(89)(25)$, or $\begin{pmatrix}
-1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
-3 & 5 & 4 & 1 & 2 & 6 & 7 & 9 & 8
-\end{pmatrix}$.
+is a cyclist of three cycles: $`(134)`$, $`(89)`$, and $`(25)`$. It
+corresponds to the permutation $`(134)(89)(25)`$, or
+$`\left(\begin{array}{ccccccccc}1&2&3&4&5&6&7&8&9\\3&5&4&1&2&6&7&9&8\end{array}\right)`$.
 
 An object of S3 class `cycle` is a (possibly named) list of cyclists.
 NB: there is an unavoidable notational clash here. When considering a
@@ -35,7 +34,7 @@ single permutation, “cycle” means group-theoretic cycle; when
 considering R objects, “cycle” means an R object of class `cycle` whose
 elements are permutations written in cycle form. The elements of a
 cyclist are the disjoint group-theoretic cycles; in the example above,
-the group-theoretic cycles were $(134)$, $(89)$, and $(25)$.
+the group-theoretic cycles were $`(134)`$, $`(89)`$, and $`(25)`$.
 
 A cyclist may be poorly formed in a number of ways: the cycles may
 include repeats, or contain elements which are common to more than one
@@ -43,6 +42,7 @@ cycle. Such problems are detected by
 [`cyclist_valid()`](../reference/valid.md):
 
 ``` r
+
 cyclist_valid(list(c(1, -3, 4), c(8, 9), c(2, 5)))
 ```
 
@@ -52,6 +52,7 @@ cyclist_valid(list(c(1, -3, 4), c(8, 9), c(2, 5)))
     ## [1] FALSE
 
 ``` r
+
 cyclist_valid(list(c(0, 3, 4), c(8, 9), c(2, 5)))
 ```
 
@@ -60,6 +61,7 @@ cyclist_valid(list(c(0, 3, 4), c(8, 9), c(2, 5)))
     ## [1] FALSE
 
 ``` r
+
 cyclist_valid(list(c(1.2, 3, 4), c(8, 9), c(2, 5)))
 ```
 
@@ -69,6 +71,7 @@ cyclist_valid(list(c(1.2, 3, 4), c(8, 9), c(2, 5)))
     ## [1] FALSE
 
 ``` r
+
 cyclist_valid(list(c(3, 3, 4), c(8, 9), c(2, 5)))
 ```
 
@@ -77,6 +80,7 @@ cyclist_valid(list(c(3, 3, 4), c(8, 9), c(2, 5)))
     ## [1] FALSE
 
 ``` r
+
 cyclist_valid(list(c(1, 3, 4), c(1, 9), c(2, 5)))
 ```
 
@@ -98,6 +102,7 @@ is, it changes `(523)` to `(235)`). It then orders the cycles by the
 smallest element:
 
 ``` r
+
 a <- list(c(9, 3, 4), c(8, 1), c(2, 5))
 a
 ```
@@ -112,6 +117,7 @@ a
     ## [1] 2 5
 
 ``` r
+
 nicify_cyclist(a)
 ```
 
@@ -132,6 +138,7 @@ dealt with by [`nicify_cyclist()`](../reference/cyclist.md), which calls
 helper function [`remove_length_one()`](../reference/cyclist.md):
 
 ``` r
+
 a <- list(c(9, 3, 4), 7, c(8, 1), c(2, 5))
 a
 ```
@@ -149,6 +156,7 @@ a
     ## [1] 2 5
 
 ``` r
+
 nicify_cyclist(a)
 ```
 
@@ -171,6 +179,7 @@ of integers, interpreted as a word, and converts it into a cyclist.
 Length-one cycles are discarded:
 
 ``` r
+
 v <- c(1, 2, 4, 3, 5, 9, 6, 7, 8)
 v
 ```
@@ -178,6 +187,7 @@ v
     ## [1] 1 2 4 3 5 9 6 7 8
 
 ``` r
+
 as.word(v)
 ```
 
@@ -185,6 +195,7 @@ as.word(v)
     ## [coerced from word form]
 
 ``` r
+
 vec2cyclist_single(v)
 ```
 
@@ -206,6 +217,7 @@ function is not intended for everyday use; function
 user-friendly.
 
 ``` r
+
 cyclist2word_single(list(c(1, 3, 4), c(8, 7, 9)))
 ```
 
@@ -216,6 +228,7 @@ cycles. Function [`char2cyclist_single()`](../reference/cyclist.md)
 takes a character string and returns a cyclist:
 
 ``` r
+
 char2cyclist_single("(3)(139)")
 ```
 
@@ -226,6 +239,7 @@ char2cyclist_single("(3)(139)")
     ## [1] 1 3 9
 
 ``` r
+
 char2cyclist_single("(342)(19)")
 ```
 
@@ -257,6 +271,7 @@ returns an object of class `cycle`. It nicifies its input before
 returning it:
 
 ``` r
+
 (a <- list(list(c(1, 2, 4), c(3, 6)), list(c(1, 2), c(3, 4, 5, 6, 7))))
 ```
 
@@ -276,6 +291,7 @@ returning it:
     ## [1] 3 4 5 6 7
 
 ``` r
+
 cycle(a)
 ```
 
@@ -285,6 +301,7 @@ However, it might be more convenient in practice to use
 [`as.cycle()`](../reference/permutation.md):
 
 ``` r
+
 as.cycle(c("(124)(36)", "(12)(34567)"))
 ```
 

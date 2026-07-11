@@ -129,6 +129,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 # generate a permutation in *word* form:
 x <- rperm(4,9)
 

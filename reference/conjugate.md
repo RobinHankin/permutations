@@ -56,6 +56,7 @@ is always `TRUE`.
 ## Examples
 
 ``` r
+
 as.cycle("(123)(45)") %~% as.cycle("(89)(712)")  # same shape
 #> [1] TRUE
 as.cycle("(123)(45)") %~% as.cycle("(89)(7124)") # different shape
