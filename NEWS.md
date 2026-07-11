@@ -1,5 +1,6 @@
 # permutations 1.1-9
 
+- replace deprecated .Dim and .Dimnames 
 - serious bugfix with sum, issue #65
 - experimental sum()
 - work on Cayley distances
