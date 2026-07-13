@@ -335,6 +335,7 @@ cyclist2word_single <- function(cyc, n) {
   return(out)
 }
 
+#' @rawNamespace export(print.cycle)
 #' @export
 print.cycle <- function(x, give_string = FALSE, ...) { # x is a cycle.  Use case: print(cycle(list(x,y,z)))
 
