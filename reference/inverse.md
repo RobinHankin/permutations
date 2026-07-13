@@ -87,7 +87,5 @@ all(is.id(x*inverse(x)))  # should be TRUE
 #> [1] TRUE
 
 inverse(as.cycle(matrix(1:8,9,8)))
-#> [1] ()               (18765432)       (1753)(2864)     (16385274)      
-#> [5] (15)(26)(37)(48) (14725836)       (1357)(2468)     (12345678)      
-#> [9] ()              
+#> Error in UseMethod("inverse", x): no applicable method for 'inverse' applied to an object of class "c('permutation', 'cycle')"
 ```
