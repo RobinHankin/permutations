@@ -528,7 +528,8 @@ inverse.word <- function(x) { # takes a word, returns a word.  inverse.word(rper
   word(t(apply(x, 1, inverse_word_single)))
 }
 
-#' @export
+#' @name inverse.cycle
+#' @export inverse.cycle
 inverse.cycle <- function(x) {
   cycle(lapply(x, inverse_cyclist_single))
 }
