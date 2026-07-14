@@ -65,7 +65,7 @@ as.character_cyclist(y, comma=TRUE)
   use-case.
 
   To see permutations in one-line form, use \code{print_word(x,
-  use_dots=FALSE)}.
+  use_dot=FALSE)}.
 
   Coercing a cycle to a character vector can be done with
   \code{as.character()}, which returns a character vector that is
