@@ -69,7 +69,7 @@ but (for some reason) do not want to set
 `options("print_word_as_cycle")`. See `size.Rd` for a use-case.
 
 To see permutations in one-line form, use
-`print_word(x, use_dots=FALSE)`.
+`print_word(x, use_dot=FALSE)`.
 
 Coercing a cycle to a character vector can be done with
 [`as.character()`](https://rdrr.io/r/base/character.html), which returns
